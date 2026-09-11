@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 548" role="img" aria-labelledby="title desc">
+<title id="title">Lógica de permiso y aviso de la estación automática segura</title>
+<desc id="desc">Circuito combinacional con cuatro entradas (resguardo cerrado R, pieza detectada P, sistema habilitado H y seta de emergencia S) que produce dos salidas: MARCHA, que solo se activa cuando R, P y H valen 1 y S vale 0, y AVISO, que se activa cuando el resguardo está abierto mientras el sistema sigue habilitado. Los puntos indican unión de cables; dos líneas que se cruzan sin punto no están conectadas.</desc>
+<rect width="900" height="548" rx="24" fill="#f7faf8"/>
+<text x="30" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#18384a">Lógica de permiso y aviso de la estación segura</text>
+<text x="30" y="58" font-family="system-ui,sans-serif" font-size="14" fill="#58707a">El movimiento solo se autoriza cuando se cumplen todas las condiciones de permiso.</text>
+
+<!-- entradas -->
+<g font-family="system-ui,sans-serif" font-size="14" fill="#654d1c">
+  <rect x="30" y="91" width="170" height="38" rx="8" fill="#fff1d5" stroke="#c6922d" stroke-width="2"/>
+  <text x="44" y="115">R · Resguardo cerrado</text>
+  <rect x="30" y="151" width="170" height="38" rx="8" fill="#fff1d5" stroke="#c6922d" stroke-width="2"/>
+  <text x="44" y="175">P · Pieza detectada</text>
+  <rect x="30" y="211" width="170" height="38" rx="8" fill="#fff1d5" stroke="#c6922d" stroke-width="2"/>
+  <text x="44" y="235">H · Sistema habilitado</text>
+  <rect x="30" y="291" width="170" height="38" rx="8" fill="#fff1d5" stroke="#c6922d" stroke-width="2"/>
+  <text x="44" y="315">S · Seta emergencia</text>
+</g>
+
+<!-- puertas -->
+<g fill="#dfeff2" stroke="#1a6b7a" stroke-width="3">
+  <rect x="300" y="90" width="64" height="170"/>
+  <rect x="300" y="320" width="64" height="40"/>
+  <rect x="300" y="380" width="64" height="40"/>
+  <rect x="580" y="120" width="64" height="110"/>
+  <rect x="580" y="290" width="64" height="100"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#1a6b7a" text-anchor="middle">
+  <text x="332" y="177">&amp;</text>
+  <text x="332" y="347">1</text>
+  <text x="332" y="407">1</text>
+  <text x="612" y="181">&amp;</text>
+  <text x="612" y="347">&amp;</text>
+</g>
+<g fill="#f7faf8" stroke="#1a6b7a" stroke-width="3">
+  <circle cx="370" cy="340" r="6"/>
+  <circle cx="370" cy="400" r="6"/>
+</g>
+
+<!-- cableado -->
+<g fill="none" stroke="#28567a" stroke-width="3">
+  <line x1="200" y1="110" x2="300" y2="110"/>
+  <line x1="200" y1="170" x2="300" y2="170"/>
+  <line x1="200" y1="230" x2="300" y2="230"/>
+  <line x1="200" y1="310" x2="215" y2="310"/>
+  <line x1="235" y1="110" x2="235" y2="340"/>
+  <line x1="235" y1="340" x2="300" y2="340"/>
+  <line x1="215" y1="310" x2="215" y2="400"/>
+  <line x1="215" y1="400" x2="300" y2="400"/>
+  <line x1="364" y1="170" x2="470" y2="170"/>
+  <line x1="470" y1="170" x2="470" y2="140"/>
+  <line x1="470" y1="140" x2="580" y2="140"/>
+  <line x1="376" y1="400" x2="520" y2="400"/>
+  <line x1="520" y1="400" x2="520" y2="200"/>
+  <line x1="520" y1="200" x2="580" y2="200"/>
+  <line x1="270" y1="230" x2="270" y2="310"/>
+  <line x1="270" y1="310" x2="580" y2="310"/>
+  <line x1="376" y1="340" x2="470" y2="340"/>
+  <line x1="470" y1="340" x2="470" y2="350"/>
+  <line x1="470" y1="350" x2="580" y2="350"/>
+  <line x1="644" y1="170" x2="700" y2="170"/>
+  <line x1="644" y1="330" x2="700" y2="330"/>
+</g>
+<g fill="#28567a">
+  <circle cx="235" cy="110" r="5"/>
+  <circle cx="270" cy="230" r="5"/>
+</g>
+
+<!-- salidas -->
+<rect x="700" y="140" width="175" height="60" rx="8" fill="#e9f5ee" stroke="#167e78" stroke-width="2"/>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#245c49">
+  <text x="787" y="168" font-size="16" font-weight="700">MARCHA</text>
+  <text x="787" y="188" font-size="12">el actuador puede moverse</text>
+</g>
+<rect x="700" y="300" width="175" height="60" rx="8" fill="#e9f5ee" stroke="#167e78" stroke-width="2"/>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#245c49">
+  <text x="787" y="328" font-size="16" font-weight="700">AVISO</text>
+  <text x="787" y="348" font-size="12">resguardo abierto</text>
+</g>
+
+<!-- leyenda -->
+<rect x="30" y="438" width="845" height="92" rx="12" fill="#fff1d5" stroke="#c6922d" stroke-width="2"/>
+<g font-family="system-ui,sans-serif" font-size="13.5" fill="#654d1c">
+  <text x="46" y="462">MARCHA = R · P · H · S′  → resguardo cerrado, pieza detectada, sistema habilitado y seta sin pulsar.</text>
+  <text x="46" y="484">AVISO = R′ · H  → el resguardo está abierto mientras el sistema sigue habilitado.</text>
+  <text x="46" y="506">Símbolos según el estilo de IEC 60617: «&amp;» = AND, «1» = NOT; el círculo pequeño indica negación.</text>
+  <text x="46" y="524">El punto indica unión de cables; dos líneas que se cruzan sin punto no están conectadas.</text>
+</g>
+</svg>

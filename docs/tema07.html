@@ -1,27 +1,506 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 7 del Bloque B de Tecnología de 4.º de la ESO: Cómo el aire comprimido mueve máquinas: componentes, simbología y análisis de circuitos neumáticos sencillos.">
-<title>Tema 7. Neumática básica · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 7 del Bloque B de Tecnología de 4.º de la ESO: el aire comprimido, la fuerza de los cilindros, válvulas 3/2 y 5/2, simbología y montaje simulado o real de circuitos neumáticos sencillos con seguridad.">
+  <title>Tema 7. Neumática básica · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 07 · Bloque B · Operadores tecnológicos</p><h1>Tema 7. Neumática básica</h1><p class="hero-lead">Cómo el aire comprimido mueve máquinas: componentes, simbología y análisis de circuitos neumáticos sencillos.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>4.1</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>el aire comprimido: producción, tratamiento y distribución.</li><li>componentes neumáticos fundamentales: compresor, cilindros, válvulas y reguladores.</li><li>simbología y representación de circuitos neumáticos.</li><li>análisis de circuitos neumáticos sencillos y montaje real o simulado.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque B «Operadores tecnológicos» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>4.1</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema06.html">← Tema 6</a><a href="tema08.html">Tema 8 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 07 · Bloque B · Operadores tecnológicos</p>
+        <h1>Tema 7. Neumática básica</h1>
+        <p class="hero-lead">Cómo el aire comprimido mueve máquinas: componentes, simbología y análisis de circuitos neumáticos sencillos.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 7">
+        <strong>Pregunta guía</strong>
+        <p>¿Cómo conseguimos que un expulsor de piezas de nuestra estación automática avance y retroceda con aire comprimido cuando queremos, con la fuerza necesaria y sin poner a nadie en peligro?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#aire">El aire comprimido como energía</a></li>
+        <li><a href="#presion">Presión, fuerza y superficie</a></li>
+        <li><a href="#produccion">Producir y almacenar el aire</a></li>
+        <li><a href="#tratamiento">Tratamiento y distribución</a></li>
+        <li><a href="#cilindros">Cilindros de simple y doble efecto</a></li>
+        <li><a href="#valvulas">Válvulas 3/2 y 5/2</a></li>
+        <li><a href="#simbologia">Caudal, escape y simbología</a></li>
+        <li><a href="#expulsor">El expulsor: montaje y seguridad</a></li>
+        <li><a href="#comprueba">Comprueba lo aprendido</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">El proyecto común del curso es una <strong>estación automática</strong> que ordena, guarda y devuelve las herramientas y los componentes del organizador modular. En este tema esa estación empieza a moverse: estudiaremos un <strong>expulsor neumático de piezas</strong>, un cilindro que empuja una pieza fuera de un almacén y la deja a la vista. El aire comprimido será el músculo. Primero lo dibujaremos y lo probaremos en un <strong>simulador</strong>; solo después, y siempre con autorización y supervisión docente, se montará con componentes reales y aire a presión.</p>
+
+      <div class="question"><strong>Antes de empezar:</strong> el aire no se ve, no huele y no arde; parece inofensivo. Sin embargo, un cilindro pequeño puede empujar con la fuerza de una persona, y una manguera suelta golpea como un látigo. ¿De dónde sale esa fuerza? ¿Por qué el aire guarda energía aunque el compresor esté apagado? ¿Y cómo logramos que el vástago avance y retroceda <em>cuando queremos</em>, y no cuando al aire le apetece?</div>
+
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>explicar qué es el aire comprimido, por qué se usa como transmisor de energía y cuáles son sus límites;</li>
+          <li>emplear con soltura las unidades de presión y calcular la fuerza de un cilindro con la relación <em>F</em> = <em>p</em> · <em>A</em>;</li>
+          <li>describir la producción, el tratamiento y la distribución del aire comprimido y la función de cada elemento;</li>
+          <li>distinguir cilindros de simple y doble efecto y reconocer sus símbolos;</li>
+          <li>identificar válvulas distribuidoras 3/2 y 5/2, sus accionamientos y sus retornos, y las válvulas de regulación de caudal y de escape;</li>
+          <li>leer y dibujar circuitos neumáticos sencillos con simbología normalizada;</li>
+          <li>montar o simular con supervisión un expulsor neumático, aplicando las medidas de seguridad antes de cada maniobra.</li>
+        </ul>
+      </div>
+
+      <div class="aviso"><strong>Seguridad primero: el aire comprimido es energía almacenada</strong>Solo trabajarás con aire comprimido cuando el profesorado lo autorice y esté presente. La presión de trabajo la fija el docente y no se sube: no se supera nunca la presión indicada en la placa de cada componente. La zona de trabajo se aísla y se mantiene despejada de personas y objetos, la pieza y el vástago quedan fuera del alcance de las manos, y no se dirige aire hacia el cuerpo de nadie. Antes de desmontar o tocar un circuito hay que cerrar la alimentación y purgar hasta que no quede aire a presión.</div>
+
+      <section aria-labelledby="aire">
+        <h2 id="aire">1. El aire comprimido como forma de energía</h2>
+        <p>La <strong>neumática</strong> es la técnica que utiliza aire comprimido como transmisor de energía: el aire, empujado por un compresor, se guarda a presión y después se deja escapar de forma controlada para producir movimientos y fuerzas. Es una tecnología muy extendida en fábricas, talleres y máquinas automáticas porque es sencilla, limpia y rápida: abrir una válvula basta para poner en marcha un cilindro.</p>
+        <p>El aire tiene propiedades que explican por qué se usa y también cuáles son sus límites. Es <strong>abundante</strong>, no cuesta obtenerlo y no necesita volver por un circuito cerrado: tras trabajar se expulsa a la atmósfera. Es <strong>elástico o compresible</strong>, de modo que puede almacenarse en un depósito y liberarse de golpe; esa misma elasticidad hace que un cilindro neumático no mantenga una posición exacta frente a cargas variables. Y es <strong>limpio y no inflamable</strong>, algo decisivo en ambientes donde una chispa eléctrica sería peligrosa.</p>
+
+        <div class="comparacion">
+          <div><h3>Rápido y sencillo de controlar</h3><p>Los cilindros neumáticos alcanzan velocidades altas, soportan atascos y arranques frecuentes y se controlan con válvulas robustas y baratas. Además, el aire escapa sin dejar residuo ni contaminar el puesto de trabajo.</p></div>
+          <div><h3>Poco preciso frente a la carga</h3><p>Como el aire se comprime, no se mantiene una posición intermedia estable si la fuerza cambia. Si hace falta precisión, se combinan con topes, guías o sistemas eléctricos.</p></div>
+          <div><h3>Ruidoso y con humedad</h3><p>El aire que se expande en el escape produce mucho ruido, y el aire húmedo deja agua y aceite en el circuito. Los silenciadores y los purgadores existen por estos motivos, no por decoración.</p></div>
+        </div>
+
+        <h3>La energía que no se ve</h3>
+        <p>Un circuito neumático sin compresor en marcha sigue conteniendo energía: hay aire a presión en el depósito, en las tuberías y en las mangueras. El producto de la presión por el volumen del aire guardado es una energía disponible que puede liberarse de forma repentina. Por eso un circuito se considera <strong>en tensión</strong> hasta que se purge y un manómetro confirma que la presión ha bajado a cero.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: ventajas y límites del aire comprimido como transmisor de energía">
+          <table>
+            <caption>Ventajas y límites del aire comprimido como transmisor de energía</caption>
+            <thead>
+              <tr><th scope="col">Aspecto</th><th scope="col">Ventaja</th><th scope="col">Límite o precaución</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Disponibilidad</th><td>El aire está en todas partes; no hay que fabricarlo ni almacenarlo en contenedores especiales.</td><td>Comprimir aire consume bastante energía eléctrica y las fugas la desperdician sin que se note.</td></tr>
+              <tr><th scope="row">Seguridad de uso</th><td>No es inflamable y no hay riesgo de chispa eléctrica en el actuador.</td><td>Sigue siendo energía almacenada: presión, latigazo de manguera, atrapamiento y ruido son peligros reales.</td></tr>
+              <tr><th scope="row">Velocidad de respuesta</th><td>El cilindro responde en cuanto la válvula deja pasar el aire; admite ciclos muy repetidos.</td><td>El escape ruidoso y el golpe al final de carrera exigen silenciadores, amortiguación y topes.</td></tr>
+              <tr><th scope="row">Control de la fuerza</th><td>La fuerza depende sobre todo de la presión y de la superficie del émbolo, y se regula con mucha facilidad.</td><td>La fuerza no se mantiene constante frente a cargas que varían y no conviene usarla para posicionar con precisión.</td></tr>
+              <tr><th scope="row">Limpieza</th><td>El aire de escape se deja salir a la atmósfera sin residuos peligrosos.</td><td>El aire comprimido arrastra humedad, partículas y restos de aceite: hay que tratarlo antes de usarlo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-think"><strong>Piensa:</strong> si un cilindro empuja con mucha fuerza pero no puede detenerse a mitad de camino con exactitud, ¿qué usaremos para que el expulsor deje la pieza siempre en el mismo sitio? La respuesta no está en el aire, sino en el diseño mecánico del conjunto.</div>
+      </section>
+
+      <section aria-labelledby="presion">
+        <h2 id="presion">2. Presión, fuerza y superficie: <em>F</em> = <em>p</em> · <em>A</em></h2>
+        <p>La <strong>presión</strong> mide cómo se reparte una fuerza sobre una superficie: es la fuerza que actúa sobre cada unidad de área, <strong><em>p</em> = <em>F</em> / <em>A</em></strong>. De esa definición sale la expresión que usaremos en todo el tema:</p>
+        <p class="t4-formula"><strong><em>F</em> = <em>p</em> · <em>A</em></strong> &nbsp;&nbsp; <span class="t4-formula-leyenda">fuerza = presión × superficie</span></p>
+        <p>Si conocemos la presión del aire y la superficie del émbolo, sabemos con cuánta fuerza empuja el vástago. Este es el cálculo que permite elegir un cilindro: no basta con que «quepa», tiene que poder vencer la carga prevista.</p>
+
+        <h3>Unidades que conviene dominar</h3>
+        <p>La unidad del Sistema Internacional es el <strong>pascal</strong> (1 Pa = 1 N/m²), pero resulta tan pequeña que en neumática se usan múltiplos y el <strong>bar</strong>. Los manómetros de los circuitos indican <strong>presión relativa</strong>: la diferencia entre la presión del aire y la presión atmosférica.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: unidades de presión y equivalencias">
+          <table>
+            <caption>Unidades de presión y equivalencias que se usan en neumática</caption>
+            <thead>
+              <tr><th scope="col">Unidad</th><th scope="col">Equivalencia</th><th scope="col">Cuándo aparece</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">pascal (Pa)</th><td>1 Pa = 1 N/m²</td><td>Unidad del Sistema Internacional; sirve para calcular con metros y newtons.</td></tr>
+              <tr><th scope="row">kilopascal (kPa)</th><td>1 kPa = 1 000 Pa</td><td>Catálogos técnicos y datos de fabricantes.</td></tr>
+              <tr><th scope="row">bar</th><td>1 bar = 100 000 Pa = 0,1 MPa</td><td>Lectura habitual de los manómetros de red: una red de taller suele trabajar entre 4 y 8 bar relativos.</td></tr>
+              <tr><th scope="row">megapascal (MPa)</th><td>1 MPa = 10 bar = 1 N/mm²</td><td>Piezas mecánicas y presiones elevadas.</td></tr>
+              <tr><th scope="row">newton (N)</th><td>1 N ≈ 0,102 kgf</td><td>Fuerza que ejerce el vástago, comparable con el peso de una masa.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-concept"><strong class="t4-concept-tag">Truco de taller</strong>Si expresas la presión en <strong>bar</strong> y la superficie en <strong>mm²</strong>, la fuerza sale directamente en newtons con <strong><em>F</em>(N) = 0,1 · <em>p</em>(bar) · <em>A</em>(mm²)</strong>. La razón es que 1 bar equivale a 0,1 N/mm². Conviene comprobarlo con el cálculo completo en pascal, en metros y en newtons antes de fiarse del atajo.</div>
+
+        <h3>Ejemplo razonado: la fuerza del expulsor</h3>
+        <p>La superficie útil de un cilindro es la cara circular del émbolo, <strong><em>A</em> = π · <em>d</em>² / 4</strong>. Supongamos que el expulsor de la estación lleva un cilindro de <strong>diámetro interior 40 mm</strong> y que se regulará a <strong>6 bar</strong>. Calculamos paso a paso.</p>
+        <ol>
+          <li><strong>Superficie del émbolo:</strong> <em>A</em> = π · (40 mm)² / 4 = π · 1600 mm² / 4 ≈ <strong>1 257 mm²</strong> (unos 12,6 cm²).</li>
+          <li><strong>Presión en unidades de trabajo:</strong> 6 bar = 0,6 N/mm² (o 600 000 Pa, es decir, 0,6 MPa).</li>
+          <li><strong>Fuerza teórica de avance:</strong> <em>F</em> = 0,6 N/mm² · 1 257 mm² ≈ <strong>754 N</strong>, el equivalente al peso de unos 77 kg.</li>
+        </ol>
+        <p>Con la misma presión, otras combinaciones cambian mucho el resultado. En la siguiente tabla se comparan valores de cilindros habituales en un taller escolar; todas las fuerzas están calculadas con la fórmula y no incluyen rozamientos ni pérdidas reales.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: fuerza teórica de avance según diámetro y presión">
+          <table>
+            <caption>Fuerza teórica de avance según diámetro del émbolo y presión de trabajo</caption>
+            <thead>
+              <tr><th scope="col">Diámetro interior</th><th scope="col">Superficie del émbolo</th><th scope="col">Fuerza a 3 bar</th><th scope="col">Fuerza a 6 bar</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">25 mm</th><td>≈ 491 mm²</td><td>≈ 147 N</td><td>≈ 295 N</td></tr>
+              <tr><th scope="row">32 mm</th><td>≈ 804 mm²</td><td>≈ 241 N</td><td>≈ 483 N</td></tr>
+              <tr><th scope="row">40 mm</th><td>≈ 1 257 mm²</td><td>≈ 377 N</td><td>≈ 754 N</td></tr>
+              <tr><th scope="row">50 mm</th><td>≈ 1 963 mm²</td><td>≈ 589 N</td><td>≈ 1 178 N</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Leer la tabla sin equivocarse</h3>
+        <ul>
+          <li><strong>La fuerza crece con el cuadrado del diámetro:</strong> al pasar de 25 a 50 mm la superficie se multiplica por cuatro, no por dos.</li>
+          <li><strong>La fuerza es proporcional a la presión:</strong> a la mitad de presión, la mitad de fuerza. Bajar la presión es también una medida de seguridad.</li>
+          <li><strong>En el retroceso hay menos fuerza:</strong> el vástago ocupa parte de la superficie, así que el área útil es menor (con un émbolo de 40 mm y un vástago de 16 mm quedan unos 1 056 mm², es decir, unos 633 N a 6 bar).</li>
+          <li><strong>Las pérdidas existen:</strong> rozamiento, fugas y contrapresión reducen la fuerza real. La fuerza calculada es un límite teórico, útil para no quedarse cortos ni pasarse.</li>
+        </ul>
+        <div class="aviso"><strong>La presión no se sube por comodidad</strong>Subir la presión de trabajo aumenta la fuerza y el peligro a la vez. En el taller, la presión máxima de cada montaje queda fijada por el profesorado y se lee en el manómetro del regulador; ningún componente se hace funcionar por encima de la presión que indica su placa de características.</div>
+      </section>
+
+      <section aria-labelledby="produccion">
+        <h2 id="produccion">3. Producir y almacenar el aire comprimido</h2>
+        <p>El aire comprimido no se encuentra en la naturaleza a presión: hay que fabricarlo. El <strong>compresor</strong> transforma energía mecánica —normalmente de un motor eléctrico— en energía de presión. Los compresores <strong>alternativos de émbolo</strong> son habituales en talleres pequeños; los <strong>de tornillo</strong> permiten funcionar de forma continua en instalaciones grandes.</p>
+        <p>Al comprimirse, el aire se <strong>calienta</strong> y arrastra humedad. Después del compresor hay una refrigeración y un separador donde el vapor de agua se condensa. El aire tratado se almacena en un <strong>depósito o acumulador</strong>, que cumple tres funciones: guardar energía disponible, amortiguar las pulsaciones del compresor y permitir que el motor no trabaje de forma continua. Un <strong>presostato</strong> arranca el motor cuando la presión baja y lo detiene cuando se alcanza el valor ajustado.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: elementos principales de producción y almacenamiento del aire comprimido">
+          <table>
+            <caption>Elementos principales de producción y almacenamiento del aire</caption>
+            <thead>
+              <tr><th scope="col">Elemento</th><th scope="col">Función</th><th scope="col">Por qué importa</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Compresor</th><td>Aspira aire del ambiente y lo entrega a presión.</td><td>Es una máquina que solo maneja personal autorizado, con formación y revisión periódica.</td></tr>
+              <tr><th scope="row">Refrigeración</th><td>Enfría el aire caliente de la compresión y facilita que el agua condense.</td><td>El aire caliente es un foco de quemadura leve y daña mangueras y juntas.</td></tr>
+              <tr><th scope="row">Depósito o acumulador</th><td>Almacena aire a presión y amortigua las pulsaciones.</td><td>Es un equipo a presión: no se golpea, no se modifica y dispone de válvula de seguridad y manómetro.</td></tr>
+              <tr><th scope="row">Válvula de seguridad</th><td>Deja escapar aire si la presión supera el valor tarado.</td><td>Es la protección principal frente a la sobrepresión; nunca se anula, se bloquea ni se regula a capricho.</td></tr>
+              <tr><th scope="row">Manómetro</th><td>Mide la presión disponible en cada momento.</td><td>Sin lectura de manómetro no existe control de la presión de trabajo.</td></tr>
+              <tr><th scope="row">Purga de condensados</th><td>Expulsa el agua y los restos que se acumulan en el fondo.</td><td>El agua provoca corrosión y arrastra aceite hacia el circuito neumático.</td></tr>
+              <tr><th scope="row">Presostato</th><td>Arranca y detiene el motor entre dos valores de presión.</td><td>Evita sobrepresiones por funcionamiento continuado y ahorra energía.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-note"><strong>Instalaciones a presión, no juguetes.</strong> Las instalaciones de tratamiento y almacenamiento de aire comprimido están reguladas: exigen válvulas de seguridad de resorte y precintables, manómetros suficientes para leer cada recipiente y un sistema de purga que permita evacuar los condensados de todos los puntos bajos.<sup><a href="#fuente_3">[3]</a></sup> Ninguna de esas condiciones se improvisa en clase: el compresor del taller lo maneja el personal responsable, y a nosotros nos llega el aire ya tratado y a la presión limitada por el docente.<sup><a href="#fuente_2">[2]</a></sup></div>
+      </section>
+
+      <section aria-labelledby="tratamiento">
+        <h2 id="tratamiento">4. Del compresor al punto de uso: tratamiento y distribución</h2>
+        <p>El aire que sale del compresor no está listo para trabajar: contiene agua condensada, partículas y restos de aceite, y su presión puede ser mayor que la que admite la máquina que vamos a alimentar. El <strong>tratamiento del aire</strong> corrige todo eso mediante una secuencia de equipos que en muchas máquinas se agrupa bajo el nombre de <strong>unidad de acondicionamiento</strong>.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: elementos de tratamiento del aire comprimido y su función">
+          <table>
+            <caption>Elementos de tratamiento del aire comprimido y su función</caption>
+            <thead>
+              <tr><th scope="col">Elemento</th><th scope="col">Qué hace</th><th scope="col">Qué ocurre si falta</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Filtro con separador de agua</th><td>Retiene partículas y hace girar el aire para que el agua y el aceite caigan al fondo del vaso.</td><td>Partículas y agua llegan a las válvulas: desgaste, agarrotamiento y movimientos irregulares.</td></tr>
+              <tr><th scope="row">Secador</th><td>Reduce la humedad del aire; en instalaciones grandes se usa secado por frío o por adsorción.</td><td>La condensación sigue viajando por la red y aparece agua en los puntos bajos y en los escapes.</td></tr>
+              <tr><th scope="row">Regulador de presión</th><td>Fija la presión de trabajo en un valor inferior al de la red y suele incluir manómetro y escape de alivio.</td><td>Cada actuador recibe más presión de la que necesita y se compromete su seguridad.</td></tr>
+              <tr><th scope="row">Lubricador</th><td>Añade una fina niebla de aceite cuando el fabricante lo exige para la vida útil del componente.</td><td>Hay equipos que no deben lubricarse: el aceite puede dañar juntas y ensuciar el ambiente.</td></tr>
+              <tr><th scope="row">Purga</th><td>Vacía periódicamente el agua acumulada en el vaso del filtro y en los puntos bajos de la red.</td><td>El agua vuelve a entrar en el circuito justo cuando se abre la válvula.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>La red de distribución</h3>
+        <p>El aire viaja por tuberías y ramales hasta las <strong>tomas de uso</strong>. Cada toma suele disponer de una <strong>válvula de cierre</strong> —que es la que corta el paso para intervenir con seguridad— a la que se conectan <strong>mangueras flexibles</strong> mediante <strong>racores</strong> de acción rápida. La red se diseña con secciones suficientes para que la presión no caiga demasiado a lo largo del recorrido, con los ramales inclinados y con purgas en los puntos bajos, donde se acumula el agua.</p>
+        <p>Las <strong>fugas</strong> merecen un comentario aparte: son silenciosas, aparentemente inocentes y permanentes. Una instalación con fugas mantiene el compresor trabajando más horas, con el gasto energético y el ruido correspondientes. Detectar fugas, revisar racores y mangueras y sustituir lo que esté deteriorado forma parte del mantenimiento.</p>
+
+        <div class="aviso"><strong>Purgar, cerrar y despresurizar: el orden correcto</strong>Antes de desmontar cualquier elemento: 1) dejar de accionar el circuito; 2) cerrar la válvula de cierre de la toma; 3) accionar la válvula para vaciar el aire retenido y confirmar con el manómetro que la presión ha caído; 4) solo entonces soltar el racor. Una manguera que se suelta con presión se mueve de forma brusca —el llamado latigazo— y puede golpear a quien esté cerca, con racores metálicos incluidos.</div>
+
+        <h3>Los peligros del aire comprimido, explicados</h3>
+        <p>La utilización de equipos accionados por aire comprimido presenta riesgos comunes que conviene conocer con precisión, porque son los mismos que aparecerán en el taller.<sup><a href="#fuente_1">[1]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: peligros del aire comprimido y medidas preventivas">
+          <table>
+            <caption>Peligros del aire comprimido y medidas preventivas</caption>
+            <thead>
+              <tr><th scope="col">Peligro</th><th scope="col">Cómo se produce</th><th scope="col">Medida preventiva</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Latigazo de la manguera</th><td>La manguera se rompe o se suelta con presión y se mueve de forma repentina.</td><td>Mangueras del tipo adecuado a la presión, revisadas antes de usar; acoplamientos que cortan el aire y despresurizan al desconectar; fusibles neumáticos en las instalaciones; nunca tirar de la manguera.</td></tr>
+              <tr><th scope="row">Aire proyectado al cuerpo</th><td>Una pistola o un escape dirige aire a gran velocidad hacia la piel, los ojos o los oídos.</td><td>Prohibido dirigir aire a personas. El aire a presión puede atravesar la piel y penetrar por los orificios del cuerpo; las partículas y las gotas de agua o aceite arrastradas dañan los ojos.</td></tr>
+              <tr><th scope="row">Proyección de partículas y útiles</th><td>El aire arrastra polvo, o una boquilla o un útil mal sujeto sale despedido.</td><td>Usar boquillas de seguridad si son imprescindibles, comprobar el acoplamiento de los útiles y proteger los ojos.</td></tr>
+              <tr><th scope="row">Ruido</th><td>El aire se expande al escapar y genera niveles sonoros elevados.</td><td>Silenciadores de escape y medición del ruido; en el aula se trabaja con circuitos pequeños y escapes silenciados.</td></tr>
+              <tr><th scope="row">Sobrepresión en componentes</th><td>Se alimenta un elemento con más presión de la que admite su placa de características.</td><td>Regulador ajustado a la presión de trabajo, con manómetro a la vista; nunca se supera el valor de placa.</td></tr>
+              <tr><th scope="row">Movimiento inesperado</th><td>Al conectar el aire o al accionar una válvula, el vástago avanza o retrocede de golpe.</td><td>Conectar primero las mangueras y dar aire después; mantener manos y cara fuera de la trayectoria; comprobar la posición de la válvula antes de presurizar.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-curio"><strong>Un detalle que sorprende:</strong> en las instalaciones de aire comprimido, los racores no deben poder intercambiarse con los de otros gases. Conectar una herramienta neumática a una línea de oxígeno o de nitrógeno, por ejemplo, crea atmósferas sobreoxigenadas o suboxigenadas con riesgo de incendio o de asfixia.<sup><a href="#fuente_1">[1]</a></sup></div>
+      </section>
+
+      <section aria-labelledby="cilindros">
+        <h2 id="cilindros">5. Actuadores: cilindros de simple y doble efecto</h2>
+        <p>Los <strong>actuadores neumáticos</strong> convierten la energía del aire en movimiento. El más habitual es el <strong>cilindro</strong>, que produce un desplazamiento lineal: dentro de una camisa cilíndrica se desliza un <strong>émbolo</strong> unido a un <strong>vástago</strong>, y las juntas impiden que el aire pase de una cámara a otra. Otros actuadores producen giros o movimientos de pinza, pero el expulsor de nuestra estación necesita empujar en línea recta.</p>
+
+        <h3>Simple efecto: el muelle devuelve el vástago</h3>
+        <p>En un cilindro de <strong>simple efecto</strong> solo hay una entrada de aire, en la cámara posterior. Cuando llega presión, el émbolo avanza y comprime un muelle interior; cuando el aire escapa, el muelle devuelve el vástago a su posición inicial. Se alimenta con una válvula <strong>3/2</strong>, consume menos aire y basta para tareas como expulsar, sujetar o marcar. Su fuerza de retroceso la determina el muelle, no el aire.</p>
+
+        <h3>Doble efecto: el aire empuja en los dos sentidos</h3>
+        <p>Un cilindro de <strong>doble efecto</strong> tiene dos cámaras y dos entradas de aire. Alimentando la cámara posterior, el vástago avanza; alimentando la anterior, retrocede. Se gobierna con una válvula <strong>5/2</strong>, y como el aire empuja en ambos sentidos es el adecuado cuando hace falta fuerza y control en el retorno. La fuerza de avance y la de retroceso no son iguales, porque el vástago reduce la superficie útil en el lado anterior.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: comparación entre cilindros de simple y doble efecto">
+          <table>
+            <caption>Cilindros de simple y doble efecto: qué cambia entre ellos</caption>
+            <thead>
+              <tr><th scope="col">Criterio</th><th scope="col">Simple efecto</th><th scope="col">Doble efecto</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Entradas de aire</th><td>Una, en la cámara posterior.</td><td>Dos, una por cada cámara.</td></tr>
+              <tr><th scope="row">Cómo retrocede</th><td>Mediante un muelle interior.</td><td>Con aire a presión en la cámara anterior.</td></tr>
+              <tr><th scope="row">Válvula habitual</th><td>Válvula 3/2 con retorno por muelle.</td><td>Válvula 5/2, monoestable o biestable.</td></tr>
+              <tr><th scope="row">Fuerza</th><td>La de avance depende de presión y superficie; el retorno es más débil.</td><td>Fuerte en los dos sentidos, algo menor en el retroceso por el vástago.</td></tr>
+              <tr><th scope="row">Aire consumido</th><td>Menos: solo se alimenta el avance.</td><td>Más: se alimentan las dos cámaras.</td></tr>
+              <tr><th scope="row">Uso en la estación</th><td>Expulsor básico de piezas y sujeción sencilla.</td><td>Expulsor con retroceso controlado y ciclos repetidos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Datos que definen un cilindro</h3>
+        <ul>
+          <li><strong>Diámetro interior y carrera:</strong> la carrera es la distancia que recorre el vástago, y determina hasta dónde llega el expulsor.</li>
+          <li><strong>Presión de trabajo:</strong> limitada por la placa de características; condiciona la fuerza disponible.</li>
+          <li><strong>Amortiguación:</strong> muchos cilindros incorporan amortiguación regulable para que el final de carrera no sea un golpe seco.</li>
+          <li><strong>Conexiones:</strong> racores con tubo flexible, que no deben quedar tirantes ni doblados.</li>
+          <li><strong>Detección de posición:</strong> los cilindros con imán incorporado permiten detectar el final de carrera con sensores, algo que será imprescindible cuando la estación se automatice en temas posteriores.</li>
+        </ul>
+        <div class="t4-note"><strong>El vástago no es un tope.</strong> Detener el cilindro contra un obstáculo, o dejar que la pieza choque de forma brusca al final de carrera, castiga juntas, guías y vástago. El límite mecánico se resuelve con topes exteriores bien sujetos, y la velocidad se ajusta con las válvulas que veremos en la sección 7.</div>
+      </section>
+
+      <section aria-labelledby="valvulas">
+        <h2 id="valvulas">6. Válvulas distribuidoras: 3/2 y 5/2</h2>
+        <p>Las válvulas son los elementos que deciden <em>por dónde</em> y <em>cuándo</em> pasa el aire. Las que dirigen el aire hacia los actuadores se llaman <strong>válvulas distribuidoras</strong> y se nombran con dos números separados por una barra: el primero indica cuántas <strong>vías</strong> o conexiones tiene y el segundo, cuántas <strong>posiciones</strong> puede adoptar.</p>
+
+        <h3>Los números de las vías</h3>
+        <p>En la simbología normalizada las conexiones se identifican con cifras que conviene memorizar, porque aparecen igual en todos los esquemas y en los catálogos:</p>
+        <ul>
+          <li><strong>1</strong>: entrada de aire a presión (alimentación).</li>
+          <li><strong>2 y 4</strong>: salidas de trabajo, las que van a las cámaras del cilindro.</li>
+          <li><strong>3 y 5</strong>: escapes, por donde sale el aire usado hacia la atmósfera, normalmente a través de un silenciador.</li>
+          <li><strong>12 y 14</strong>: líneas de pilotaje neumático, es decir, la presión de mando que hace conmutar la válvula desde otra válvula más pequeña.</li>
+        </ul>
+
+        <h3>Accionamientos y retornos</h3>
+        <p>El <strong>accionamiento</strong> es lo que mueve la válvula: un pulsador o una palanca si lo hace una persona, un rodillo o una leva si lo hace la propia máquina, un <strong>pilotaje neumático</strong> si lo hace la presión de aire de otra válvula, y un electroimán en las válvulas eléctricas. El <strong>retorno</strong> define qué ocurre cuando el accionamiento cesa:</p>
+        <ul>
+          <li><strong>Monoestable (retorno por muelle):</strong> al soltar el accionamiento, la válvula vuelve sola a su posición de reposo. Es lo que ocurre en el pulsador de nuestro expulsor básico.</li>
+          <li><strong>Biestable (memoria):</strong> la válvula se queda en la última posición hasta que recibe una orden en el pilotaje contrario. Es la válvula 5/2 del montaje con control indirecto.</li>
+        </ul>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: válvulas distribuidoras 3/2 y 5/2 y su aplicación">
+          <table>
+            <caption>Válvulas distribuidoras que se usan en este tema</caption>
+            <thead>
+              <tr><th scope="col">Válvula</th><th scope="col">Qué significa</th><th scope="col">Para qué se usa</th><th scope="col">Cómo se acciona</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">3/2</th><td>Tres vías (1, 2 y 3) y dos posiciones: el aire pasa o no pasa.</td><td>Cilindros de simple efecto; también como válvula de señal en el control indirecto.</td><td>Pulsador, palanca, pedal o rodillo, con retorno por muelle (normalmente cerrada o normalmente abierta).</td></tr>
+              <tr><th scope="row">5/2</th><td>Cinco vías (1, 2, 4, 3 y 5) y dos posiciones: envía presión a una cámara y conecta la otra al escape.</td><td>Cilindros de doble efecto, como el del expulsor con control indirecto.</td><td>Pilotaje neumático por uno de los lados con retorno por muelle (monoestable) o por ambos lados (biestable).</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Por qué existen los dos montajes</h3>
+        <p>Con una válvula 3/2 accionada a mano y un cilindro pequeño ya tenemos un expulsor que funciona. Pero el caudal que puede atravesar esa válvula es reducido y su accionamiento exige esfuerzo: el cilindro avanza despacio. Si el actuador es grande, se intercala una válvula mayor, la <strong>5/2</strong>, que recibe la orden a través de un <strong>pilotaje</strong> de otra válvula pequeña. Es la diferencia entre <strong>control directo</strong> e <strong>control indirecto</strong>, que aplicaremos en la sección 8.</p>
+        <div class="t4-think"><strong>Piensa en las consecuencias de la memoria.</strong> Si un cilindro de doble efecto se gobierna con una válvula biestable y el aire falla, la válvula recuerda la posición en la que estaba. Al volver el aire, ¿qué hará el vástago? ¿Qué hay que comprobar antes de dar presión otra vez? Este es el motivo por el que se revisa la posición de la válvula y la zona de delante del vástago antes de presurizar un circuito.</div>
+      </section>
+
+      <section aria-labelledby="simbologia">
+        <h2 id="simbologia">7. Caudal, escapes y lectura de un esquema neumático</h2>
+        <p>La <strong>presión</strong> decide la fuerza y el <strong>caudal</strong> decide la velocidad. Estas dos ideas se controlan con <em>elementos distintos</em>, y confundirlas es uno de los errores más frecuentes al empezar con neumática.</p>
+
+        <h3>Regular la velocidad sin cambiar la fuerza</h3>
+        <p>Para que el vástago avance más despacio no se baja la presión —eso reduciría también la fuerza—, sino que se limita el aire que puede escapar. Los <strong>reguladores de caudal</strong> son válvulas de estrangulamiento, casi siempre acompañadas de una <strong>antirretorno</strong>: frenan el paso del aire en un sentido y lo dejan libre en el contrario. Colocadas en la línea de escape del cilindro, permiten ajustar la velocidad de avance o de retroceso sin tocar la presión de trabajo. Este ajuste también suaviza el golpe al final de carrera.</p>
+
+        <h3>Escapes rápidos y silenciadores</h3>
+        <ul>
+          <li>La <strong>válvula de escape rápido</strong> evita que el aire usado tenga que recorrer toda la manguera de vuelta hasta la distribuidora: lo expulsa junto al cilindro y así el retroceso es más veloz.</li>
+          <li>Los <strong>silenciadores</strong> se montan en los puertos de escape (3 y 5). El aire que se expande a la atmósfera genera mucho ruido; un silenciador no elimina el sonido, pero lo reduce de forma notable y no debe convertirse en un nuevo riesgo: tiene que quedar bien sujeto para que la presión no lo desprenda.</li>
+        </ul>
+
+        <h3>Leer un esquema, paso a paso</h3>
+        <p>Un esquema neumático no se lee como un texto, sino como un recorrido: se sigue el aire desde su origen hasta el actuador y se identifican los componentes con su símbolo y su referencia. Estas preguntas funcionan con cualquier circuito:</p>
+        <div class="t4-grid">
+          <div class="t4-card"><h3>1. ¿De dónde viene el aire?</h3><p>Localizo la fuente de energía, la unidad de acondicionamiento y el valor de presión ajustado en el regulador y su manómetro.</p></div>
+          <div class="t4-card"><h3>2. ¿Cómo entra?</h3><p>Identifico la conexión 1 de cada válvula y sigo las líneas de alimentación y de pilotaje.</p></div>
+          <div class="t4-card"><h3>3. ¿Qué hace cada válvula?</h3><p>Cada cuadro es una posición: la flecha indica paso y la «T» indica bloqueo. El cuadro activo es el que queda junto al accionamiento que actúa en ese momento.</p></div>
+          <div class="t4-card"><h3>4. ¿Hacia dónde va el aire?</h3><p>Compruebo las conexiones 2 y 4 hacia las cámaras del cilindro y las conexiones 3 y 5 con sus silenciadores.</p></div>
+          <div class="t4-card"><h3>5. ¿Qué se mueve y cuándo?</h3><p>Describo el estado de reposo y el estado accionado, y en qué sentido se desplaza el vástago en cada uno.</p></div>
+          <div class="t4-card"><h3>6. ¿Hay aire retenido?</h3><p>Busco los puntos donde queda presión tras cortar la alimentación y compruebo que existe una forma segura de purgarlos.</p></div>
+        </div>
+
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable del circuito neumático del expulsor, con control directo e indirecto y su leyenda">
+          <img src="assets/tema07_circuito_neumatico.svg" alt="Dos circuitos numerados del 1 al 8: arriba, control directo con compresor, filtro y regulador, válvula 3/2 de pulsador y cilindro de simple efecto que empuja una pieza; abajo, control indirecto con válvula de señal, línea de pilotaje y válvula 5/2 que gobierna un cilindro de doble efecto. Se incluyen los escapes con silenciador y una nota de seguridad.">
+          <figcaption>El esquema del expulsor con los dos montajes. Los números enlazan cada componente con la leyenda: se lee siguiendo el aire desde el compresor hasta la pieza, y se repite la lectura para el estado de reposo y el estado accionado.</figcaption>
+        </figure>
+
+        <h3>Cómo se lee nuestro circuito</h3>
+        <p>En el montaje A, el aire sale del compresor, se filtra y se regula, y llega a la conexión 1 de la válvula 3/2. Mientras no se pulsa, la válvula está en su posición de reposo: el aire no pasa al cilindro y la cámara posterior queda conectada al escape 3. Al pulsar, la válvula cambia de posición, el aire entra por 2 y el vástago avanza comprimiendo el muelle; al soltar, el muelle devuelve la válvula y el muelle del cilindro devuelve el vástago, mientras el aire escapa por el silenciador.</p>
+        <p>En el montaje B, el pulsador de la válvula de señal no alimenta directamente al cilindro: envía una <strong>presión de pilotaje</strong> que hace conmutar la válvula 5/2. Esta válvula dirige el aire a la conexión 4 —el vástago avanza— o a la conexión 2 —el vástago retrocede—, dejando escapar por 3 y 5 el aire de la cámara contraria. Como la válvula es biestable, conserva la última posición aunque dejemos de pulsar.</p>
+        <div class="t4-note"><strong>Simbología normalizada.</strong> Los símbolos gráficos y las reglas para dibujar esquemas de circuitos de tecnología de fluidos están recogidos en la norma ISO 1219; la parte 1 define los símbolos y la parte 2 los esquemas.<sup><a href="#fuente_4">[4]</a></sup> Los simuladores y los manuales de los fabricantes emplean exactamente esas formas, de modo que aprender a leerlas una vez sirve para cualquier máquina.</div>
+      </section>
+
+      <section aria-labelledby="expulsor">
+        <h2 id="expulsor">8. El expulsor de la estación: control directo e indirecto, montaje y seguridad</h2>
+        <div class="t4-note"><strong>Estado heredado del proyecto · versión V07.</strong> Se mantienen la arquitectura modular, la geometría y la documentación de las versiones anteriores. Esta versión añade un <strong>expulsor neumático de piezas</strong>: un cilindro toma una pieza del almacén y la empuja hasta una bandeja visible, para que quien use la estación la encuentre sin rebuscar. La carrera, el diámetro y la presión de trabajo son <strong>decisiones de diseño pendientes de comprobar</strong>: se ajustarán en el simulador y con el material disponible, y se registrarán antes de darlas por buenas.</div>
+
+        <h3>Control directo: la válvula actúa sobre el cilindro</h3>
+        <p>Es el montaje más sencillo: una válvula <strong>3/2 accionada con pulsador</strong> alimenta directamente un <strong>cilindro de simple efecto</strong>. Tiene pocos componentes, se monta y se comprende enseguida y es ideal para el primer contacto con la neumática. Sus límites aparecen cuando el actuador crece: todo el caudal del cilindro atraviesa una válvula pequeña, el movimiento se vuelve lento y el esfuerzo que hay que hacer sobre el accionamiento aumenta.</p>
+
+        <h3>Control indirecto: una orden pequeña mueve una válvula grande</h3>
+        <p>En el control indirecto la orden y la potencia se separan. Una <strong>válvula de señal</strong> pequeña, junto al puesto del operador, envía presión por una línea de pilotaje hasta la <strong>válvula 5/2</strong> que alimenta el cilindro de doble efecto. Así la válvula de señal puede estar lejos del actuador, la línea de pilotaje es corta y de poco caudal, y el aire del trabajo circula por una válvula mayor con menos pérdidas. A cambio, hay más componentes que documentar y más puntos donde comprobar que no queda aire retenido.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: comparación entre control directo y control indirecto en el expulsor">
+          <table>
+            <caption>Control directo y control indirecto en el expulsor de piezas</caption>
+            <thead>
+              <tr><th scope="col">Aspecto</th><th scope="col">Control directo</th><th scope="col">Control indirecto</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Componentes</th><td>Válvula 3/2 de accionamiento manual y cilindro de simple efecto.</td><td>Válvula de señal 3/2, línea de pilotaje y válvula 5/2 que alimenta un cilindro de doble efecto.</td></tr>
+              <tr><th scope="row">Velocidad y fuerza</th><td>Limitadas por el caudal que admite la válvula pequeña; el retorno depende del muelle.</td><td>Mayores: el aire del trabajo pasa por una válvula de mayor sección y empuja en los dos sentidos.</td></tr>
+              <tr><th scope="row">Dónde está el mando</th><td>Junto al actuador, con la mano cerca del movimiento.</td><td>Puede situarse lejos, con la línea de pilotaje separada de la de potencia.</td></tr>
+              <tr><th scope="row">Cuándo elegirlo</th><td>Piezas ligeras, ciclos esporádicos y primeras prácticas de montaje.</td><td>Ciclos repetidos, piezas que exigen más fuerza o un retroceso controlado.</td></tr>
+              <tr><th scope="row">Qué hay que vigilar</th><td>Que el muelle del cilindro pueda devolver el vástago con fiabilidad.</td><td>La posición que recuerda la válvula biestable y el movimiento inesperado al dar presión.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Antes de montar: probar en el simulador</h3>
+        <p>Un simulador permite dibujar el circuito, accionarlo y observar el comportamiento de cada elemento sin usar aire ni exponer a nadie. No sustituye al montaje real, pero evita errores de conexión, reduce el tiempo de práctica y documenta el diseño antes de tocar componentes.</p>
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">1 — Dibujar el esquema</div><p>Elegir los componentes, colocarlos con su símbolo y numerarlos: 1S1 para la válvula de señal, 1V1 para la distribuidora y 1A para el cilindro.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">2 — Comprobar el estado de reposo</div><p>Antes de accionar nada: ¿por dónde circularía el aire? ¿Está el vástago recogido? ¿Hay aire retenido en alguna cámara?</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">3 — Accionar y describir el ciclo</div><p>Pulsar la señal, observar el avance, soltar, observar el retorno. Anotar qué válvula cambia de posición en cada paso.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">4 — Ajustar y medir</div><p>Comprobar que la carrera llega a la pieza sin golpearla de más, que la velocidad es razonable y que el retorno es completo.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">5 — Corregir el diseño</div><p>Cambiar lo que no funcione y volver a simular. Documentar la decisión y su motivo antes de pasar al montaje real.</p></div>
+        </div>
+
+        <h3>Montaje real: solo con autorización</h3>
+        <p>Si el profesorado autoriza el montaje con aire a presión, el circuito se arma sobre el panel con los tubos ya cortados: primero se conectan todas las mangueras y los racores, y solo después se da aire. La presión de trabajo la fija el docente con el regulador, se lee en el manómetro y nunca supera la indicada en la placa de cada componente. Antes de accionar nada se comprueba que la zona de delante del vástago esté libre, que no haya manos ni caras en la trayectoria y que la pieza esté bien colocada.</p>
+        <div class="aviso"><strong>Reglas de oro del circuito del expulsor</strong>1) La presión de trabajo la fija el docente y no se modifica. 2) La zona de trabajo está aislada y despejada; nadie se coloca delante del vástago ni de la pieza. 3) Nunca se dirige aire hacia el cuerpo de otra persona. 4) No se ponen las manos ni los dedos en el recorrido del vástago, ni siquiera con el aire cortado. 5) Los accionamientos con rodillo no se manipulan con la mano: se usan las herramientas previstas. 6) Antes de cambiar cualquier tubo o componente se cierra la alimentación y se despresuriza. 7) Ante cualquier ruido, golpe, fuga o movimiento anómalo, se corta el aire y se avisa al profesorado.</div>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: peligros y controles en el montaje del expulsor neumático">
+          <table>
+            <caption>Peligros y controles en el montaje del expulsor neumático</caption>
+            <thead>
+              <tr><th scope="col">Peligro</th><th scope="col">Control prioritario</th><th scope="col">Conducta segura complementaria</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Atrapamiento entre vástago y tope</th><td>Zona de recorrido aislada con barrera o valla, y topes exteriores bien sujetos.</td><td>Nadie introduce las manos en la trayectoria; se comprueba la posición del vástago antes de presurizar.</td></tr>
+              <tr><th scope="row">Latigazo de la manguera</th><td>Racores de acción rápida que cortan el aire al desconectar; tubos sujetos y sin tensión.</td><td>Mangueras revisadas antes de usar, nunca se tira de ellas y se recogen ordenadamente al terminar.</td></tr>
+              <tr><th scope="row">Movimiento inesperado del cilindro</th><td>Presión limitada por el regulador y estado de la válvula comprobado antes de dar aire.</td><td>Conectar todos los tubos antes de abrir la alimentación y avisar antes de accionar.</td></tr>
+              <tr><th scope="row">Proyección de la pieza</th><td>Almacén y bandeja de recogida que guían la pieza; carrera ajustada al recorrido previsto.</td><td>Verificar que la pieza está bien colocada y que nadie está en la dirección de salida.</td></tr>
+              <tr><th scope="row">Ruido de escape</th><td>Silenciadores en los puertos 3 y 5 de las válvulas.</td><td>Trabajar con circuitos pequeños y ciclos cortos; avisar si el ruido aumenta o cambia.</td></tr>
+              <tr><th scope="row">Chorro de aire al manipular</th><td>Sustituir el soplado por métodos de limpieza seguros.</td><td>No usar el aire para limpiar ropa, piel ni personas, y proteger los ojos.</td></tr>
+              <tr><th scope="row">Energía retenida tras cortar el aire</th><td>Válvula de cierre en la toma y purga que devuelve el circuito a presión cero.</td><td>Confirmar la lectura del manómetro antes de soltar cualquier racor o desmontar un componente.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-concept"><strong class="t4-concept-tag">Ciclo completo del expulsor</strong>Diseñar el movimiento → calcular la fuerza con <em>F</em> = <em>p</em> · <em>A</em> → elegir cilindro y válvula → dibujar el esquema → simular y corregir → montar con autorización y presión limitada → comprobar el ciclo y documentarlo. Si algo no encaja, se vuelve al punto necesario sin saltarse la seguridad.</div>
+      </section>
+
+      <section aria-labelledby="comprueba">
+        <h2 id="comprueba">Comprueba lo que has aprendido</h2>
+        <p>Tu trabajo estará bien resuelto si puedes explicar el circuito, justificar los cálculos y demostrar que el montaje —o la simulación— se ha hecho con seguridad. No basta con que el vástago se mueva: hay que saber por qué se mueve y qué ocurriría si algo fallara.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: qué debe demostrar tu trabajo del expulsor neumático">
+          <table>
+            <caption>Qué debería demostrar tu trabajo del expulsor neumático</caption>
+            <thead>
+              <tr><th scope="col">Aspecto</th><th scope="col">Qué debes demostrar</th><th scope="col">Evidencias posibles</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><strong>Comprender el aire comprimido</strong></th><td>Explicar de dónde sale la energía, por qué se almacena y qué peligros implica.</td><td>Descripción de la cadena compresor–tratamiento–distribución–actuador y lista de precauciones justificadas.</td></tr>
+              <tr><th scope="row"><strong>Calcular y justificar</strong></th><td>Elegir un cilindro a partir de la fuerza necesaria y de la presión de trabajo que se va a usar.</td><td>Cálculo de la superficie del émbolo, fuerza prevista en avance y retroceso, unidades correctas y comprobación con un segundo método.</td></tr>
+              <tr><th scope="row"><strong>Leer y dibujar esquemas</strong></th><td>Identificar componentes, accionamientos y escapes, y describir el estado de reposo y el accionado.</td><td>Esquema con simbología normalizada, componentes numerados y explicación escrita de los dos estados.</td></tr>
+              <tr><th scope="row"><strong>Montar o simular con seguridad</strong></th><td>Ejecutar el ciclo sin exponer a nadie y justificar cada medida de seguridad aplicada.</td><td>Registro de la simulación, lista de comprobaciones previas, presión de trabajo acordada y resultados del ciclo.</td></tr>
+              <tr><th scope="row"><strong>Documentar y mejorar</strong></th><td>Anotar lo que funcionó, lo que hubo que corregir y qué queda pendiente de comprobar.</td><td>Comparación entre el diseño previsto y el resultado, decisiones registradas y propuesta de mejora.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Preguntas para comprobarlo tú mismo</h3>
+        <ol>
+          <li>Un cilindro de 32 mm de diámetro trabaja a 5 bar. ¿Qué superficie tiene el émbolo y qué fuerza de avance puede desarrollar, como máximo, en teoría?</li>
+          <li>Si la presión baja de 6 a 3 bar manteniendo el mismo cilindro, ¿qué le ocurre a la fuerza y a la velocidad si no se toca el regulador de caudal?</li>
+          <li>¿Por qué el retroceso de un cilindro de doble efecto tiene menos fuerza que el avance?</li>
+          <li>Dibuja el símbolo de una válvula 3/2 con pulsador y retorno por muelle e indica qué conexiones están comunicadas en reposo y en accionado.</li>
+          <li>¿Qué diferencia hay entre una válvula monoestable y una biestable? ¿Cuál elegirías para un expulsor que debe mantener la posición aunque se suelte el pulsador?</li>
+          <li>¿Para qué sirve una válvula de escape rápido y dónde crees que conviene montarla en un expulsor?</li>
+          <li>Explica, en el orden correcto, qué harías antes de sustituir una manguera de un circuito que acaba de funcionar.</li>
+          <li>¿Por qué no se debe dirigir aire comprimido hacia una persona aunque «solo sea aire»?</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Aire comprimido</dt><dd>Aire sometido a una presión superior a la atmosférica, usado como transmisor de energía.</dd>
+          <dt>Actuador</dt><dd>Elemento que convierte la energía del aire en movimiento; el cilindro es el más habitual.</dd>
+          <dt>Bar</dt><dd>Unidad de presión equivalente a 100 000 Pa o 0,1 MPa; es la que suele indicar el manómetro de la red.</dd>
+          <dt>Biestable</dt><dd>Válvula que conserva la última posición en la que quedó, aunque cese el accionamiento.</dd>
+          <dt>Carrera</dt><dd>Distancia que recorre el vástago de un cilindro entre sus dos posiciones extremas.</dd>
+          <dt>Caudal</dt><dd>Cantidad de aire que atraviesa una sección por unidad de tiempo; determina la velocidad del actuador.</dd>
+          <dt>Cilindro de doble efecto</dt><dd>Cilindro con dos cámaras y dos entradas de aire: avanza y retrocede accionado por presión.</dd>
+          <dt>Cilindro de simple efecto</dt><dd>Cilindro con una sola entrada de aire; retrocede por la acción de un muelle interior.</dd>
+          <dt>Control directo</dt><dd>Montaje en el que la válvula accionada por la persona alimenta directamente al actuador.</dd>
+          <dt>Control indirecto</dt><dd>Montaje en el que una válvula de señal envía presión de pilotaje a otra válvula mayor que alimenta al actuador.</dd>
+          <dt>Distribuidora (válvula)</dt><dd>Válvula que dirige el aire hacia una u otra parte del circuito; se nombra por su número de vías y de posiciones.</dd>
+          <dt>Embolo</dt><dd>Pieza móvil del cilindro sobre la que actúa la presión del aire.</dd>
+          <dt>Fuerza</dt><dd>Empuje que ejerce el vástago, igual al producto de la presión por la superficie útil.</dd>
+          <dt>Monoestable</dt><dd>Válvula que vuelve a su posición de reposo cuando cesa el accionamiento, normalmente por un muelle.</dd>
+          <dt>Pascal</dt><dd>Unidad de presión del Sistema Internacional; 1 Pa = 1 N/m².</dd>
+          <dt>Pilotaje</dt><dd>Presión de mando que hace conmutar una válvula desde otra válvula o señal.</dd>
+          <dt>Presión relativa</dt><dd>Diferencia entre la presión del aire y la atmosférica; es la que miden los manómetros de trabajo.</dd>
+          <dt>Purga</dt><dd>Acción de expulsar el agua condensada o el aire retenido del circuito.</dd>
+          <dt>Racor</dt><dd>Elemento que une el tubo o la manguera a una válvula o a un cilindro.</dd>
+          <dt>Regulador de caudal</dt><dd>Válvula que limita el paso del aire en un sentido para ajustar la velocidad del cilindro.</dd>
+          <dt>Silenciador</dt><dd>Dispositivo montado en los escapes que reduce el ruido del aire que se expande.</dd>
+          <dt>Unidad de acondicionamiento</dt><dd>Conjunto de filtro, regulador de presión y, si procede, lubricador que prepara el aire antes de usarlo.</dd>
+          <dt>Vástago</dt><dd>Barra unida al émbolo que transmite el movimiento al exterior del cilindro.</dd>
+          <dt>Válvula de escape rápido</dt><dd>Válvula que expulsa el aire usado junto al cilindro para acelerar el retroceso.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>La neumática usa aire comprimido como transmisor de energía: es rápido, limpio y sencillo, pero poco preciso frente a cargas y ruidoso en los escapes.</li>
+          <li>Un circuito neumático contiene energía almacenada, incluso detenido. Se trabaja en él solo después de cerrar la alimentación y purgar.</li>
+          <li>La fuerza de un cilindro se calcula con <em>F</em> = <em>p</em> · <em>A</em>. La superficie crece con el cuadrado del diámetro y la fuerza es proporcional a la presión.</li>
+          <li>1 bar = 100 000 Pa = 0,1 MPa, y 1 N/mm² = 1 MPa = 10 bar. Con presión en bar y superficie en mm², la fuerza sale en newtons multiplicando por 0,1.</li>
+          <li>El compresor produce el aire; el depósito lo almacena y amortigua las pulsaciones, con válvula de seguridad, manómetro, presostato y purga de condensados.</li>
+          <li>Antes de usarlo, el aire se filtra, se seca y se regula; la unidad de acondicionamiento prepara la presión y la limpieza que exige cada máquina.</li>
+          <li>La red de distribución lleva el aire hasta las tomas, con válvula de cierre, mangueras y racores. Las fugas son un gasto continuo de energía.</li>
+          <li>El cilindro de simple efecto tiene una entrada y retrocede por muelle; el de doble efecto tiene dos cámaras y se gobierna con una válvula 5/2.</li>
+          <li>Las válvulas 3/2 y 5/2 se leen por sus vías (1 alimentación, 2 y 4 trabajo, 3 y 5 escape) y por sus posiciones, y pueden ser monoestables o biestables.</li>
+          <li>Los reguladores de caudal ajustan la velocidad sin cambiar la fuerza; los silenciadores reducen el ruido y el escape rápido acelera el retorno.</li>
+          <li>El expulsor de la estación se monta con control directo si la tarea es ligera, y con control indirecto cuando hacen falta fuerza y velocidad. En ambos casos, primero se simula y siempre se trabaja con autorización, presión limitada y la zona aislada.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_1">[1] <a href="https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/18-serie-ntp-numeros-611-a-645-ano-2003/ntp-631-riesgos-en-la-utilizacion-de-equipos-y-herramientas-portatiles-accionados-por-aire-comprimido.">INSST — NTP 631: Riesgos en la utilización de equipos y herramientas portátiles accionados por aire comprimido</a>.</li>
+          <li id="fuente_2">[2] <a href="https://www.insst.es/documents/d/portal-insst/11-instalaciones-equipos-a-presion-2023">INSST — Guía para la gestión preventiva de las instalaciones de los lugares de trabajo: equipos a presión (2023, PDF)</a>.</li>
+          <li id="fuente_3">[3] <a href="https://www.boe.es/eli/es/o/1988/06/28/(3)">BOE — Orden de 28 de junio de 1988: Instrucción Técnica Complementaria MIE-AP17, instalaciones de tratamiento y almacenamiento de aire comprimido</a>.</li>
+          <li id="fuente_4">[4] <a href="https://www.iso.org/standard/60184.html">ISO — ISO 1219-1:2012, Transmisiones hidráulicas y neumáticas: símbolos gráficos y esquemas de circuitos</a> (ficha pública en inglés; la norma completa es de pago).</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema06.html">← Tema 6</a>
+  <a href="tema08.html">Tema 8 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>

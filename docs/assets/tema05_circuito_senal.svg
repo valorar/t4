@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" role="img" aria-labelledby="title desc">
+<title id="title">Esquema de la señal luminosa de la estación</title>
+<desc id="desc">Una fuente de muy baja tensión de seguridad alimenta, a través de un pulsador y una resistencia de 4,7 kilohmios, la base de un transistor NPN. En la rama del colector se conectan en serie una resistencia de 330 ohmios y un LED. El emisor vuelve al polo negativo. Se señalan dos puntos de medida: A, la tensión entre los extremos de la resistencia, y B, la tensión del LED.</desc>
+<rect width="900" height="470" rx="24" fill="#f7faf8"/>
+<text x="450" y="44" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#18384a">Esquema de la señal luminosa de la estación</text>
+<text x="450" y="70" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#365862">El LED y su resistencia van en serie; el transistor actúa como interruptor controlado por el pulsador.</text>
+
+<g stroke="#18384a" stroke-width="3" stroke-linecap="round" fill="none">
+  <line x1="100" y1="135" x2="455" y2="135"/>
+  <line x1="100" y1="420" x2="455" y2="420"/>
+  <line x1="100" y1="210" x2="100" y2="135"/>
+  <line x1="100" y1="310" x2="100" y2="420"/>
+  <line x1="200" y1="135" x2="200" y2="320"/>
+  <line x1="200" y1="320" x2="220" y2="320"/>
+  <line x1="250" y1="320" x2="270" y2="320"/>
+  <line x1="360" y1="320" x2="407" y2="320"/>
+  <line x1="455" y1="135" x2="455" y2="150"/>
+  <line x1="455" y1="225" x2="455" y2="232"/>
+  <line x1="455" y1="372" x2="455" y2="420"/>
+  <circle cx="430" cy="320" r="48"/>
+  <polyline points="455,262 455,268 440,282 407,300"/>
+  <polyline points="407,340 440,358 455,372"/>
+</g>
+<line x1="407" y1="288" x2="407" y2="352" stroke="#18384a" stroke-width="7" stroke-linecap="round"/>
+<line x1="428" y1="262" x2="482" y2="262" stroke="#18384a" stroke-width="7" stroke-linecap="round"/>
+
+<circle cx="200" cy="135" r="5" fill="#18384a"/>
+<circle cx="455" cy="135" r="5" fill="#18384a"/>
+
+<rect x="60" y="210" width="80" height="100" rx="12" fill="#dfeff2" stroke="#1a6b7a" stroke-width="3"/>
+<text x="100" y="255" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#28567a">FUENTE</text>
+<text x="100" y="280" text-anchor="middle" font-family="system-ui,sans-serif" font-size="17" font-weight="700" fill="#28567a">SELV 5 V</text>
+<text x="84" y="196" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#1a6b7a">+</text>
+<text x="84" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#1a6b7a">&#8722;</text>
+
+<rect x="431" y="150" width="48" height="75" rx="4" fill="#fffdf8" stroke="#18384a" stroke-width="3"/>
+<rect x="270" y="300" width="90" height="40" rx="4" fill="#fffdf8" stroke="#18384a" stroke-width="3"/>
+<polygon points="430,232 480,232 455,258" fill="#fff4d9" stroke="#18384a" stroke-width="3"/>
+<polygon points="432,354 418,353 424,342" fill="#18384a"/>
+
+<circle cx="220" cy="320" r="4.5" fill="#f7faf8" stroke="#18384a" stroke-width="3"/>
+<circle cx="250" cy="320" r="4.5" fill="#f7faf8" stroke="#18384a" stroke-width="3"/>
+<line x1="250" y1="320" x2="222" y2="302" stroke="#18384a" stroke-width="4" stroke-linecap="round"/>
+
+<g font-family="system-ui,sans-serif" fill="#365862">
+  <text x="425" y="200" text-anchor="end" font-size="15" font-weight="600" fill="#18384a">R2 &#183; 330 &#937;</text>
+  <text x="425" y="250" text-anchor="end" font-size="15" font-weight="600" fill="#18384a">LED rojo &#183; 2,0 V</text>
+  <text x="305" y="292" text-anchor="middle" font-size="15" font-weight="600" fill="#18384a">R1 &#183; 4,7 k&#937;</text>
+  <text x="235" y="368" text-anchor="middle" font-size="14">S1 &#183; pulsador de prueba</text>
+  <text x="300" y="398" text-anchor="middle" font-size="14">Q1 &#183; transistor NPN</text>
+</g>
+
+<g stroke="#c85c40" stroke-width="2" stroke-dasharray="6 5" fill="none">
+  <line x1="596" y1="166" x2="488" y2="180"/>
+  <line x1="596" y1="254" x2="492" y2="258"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="14" fill="#c85c40" font-weight="600">
+  <text x="600" y="170">A &#183; tensi&#243;n de R2 &#8776; 3,0 V</text>
+  <text x="600" y="258">B &#183; tensi&#243;n del LED &#8776; 2,0 V</text>
+</g>
+<g font-family="system-ui,sans-serif" font-size="14" fill="#365862">
+  <text x="600" y="330">Corriente del LED &#8776; 9,1 mA</text>
+  <text x="600" y="352" font-size="13">La corriente es la misma en toda la rama.</text>
+</g>
+<text x="450" y="452" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" fill="#713322">Solo con la fuente de muy baja tensi&#243;n de seguridad que autoriza el profesorado. Nunca montes el LED sin su resistencia.</text>
+</svg>

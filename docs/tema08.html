@@ -1,27 +1,442 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 8 del Bloque B de Tecnología de 4.º de la ESO: Qué mecanismos transmiten y transforman el movimiento y cómo se integran con la electrónica en una máquina.">
-<title>Tema 8. Elementos aplicados a la robótica · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 8 del Bloque B de Tecnología de 4.º de la ESO: qué mecanismos transmiten y transforman el movimiento y cómo se integran con la electrónica y la neumática en una estación automática segura.">
+  <title>Tema 8. Elementos aplicados a la robótica · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 08 · Bloque B · Operadores tecnológicos</p><h1>Tema 8. Elementos mecánicos, electrónicos y neumáticos aplicados a la robótica</h1><p class="hero-lead">Qué mecanismos transmiten y transforman el movimiento y cómo se integran con la electrónica en una máquina.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>2.2, 4.1</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>movimiento y fuerza; mecanismos de transmisión (poleas, engranajes, cadenas) y de transformación (biela-manivela, piñón-cremallera, levas).</li><li>elementos de unión, guiado y soporte; estructura de una máquina sencilla.</li><li>interpretación de esquemas de conjuntos mecánicos y de circuitos sencillos.</li><li>integración de elementos mecánicos, electrónicos y neumáticos.</li><li>montaje físico o simulado y comprobación del funcionamiento.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque B «Operadores tecnológicos» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>2.2, 4.1</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema07.html">← Tema 7</a><a href="tema09.html">Tema 9 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 08 · Bloque B · Operadores tecnológicos</p>
+        <h1>Tema 8. Elementos mecánicos, electrónicos y neumáticos aplicados a la robótica</h1>
+        <p class="hero-lead">Qué mecanismos transmiten y transforman el movimiento y cómo se integran con la electrónica y la neumática en una máquina que mueve, clasifica y avisa con seguridad.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 8">
+        <strong>Pregunta guía</strong>
+        <p>¿Cómo conseguir que la estación del taller mueva, clasifique y señalice cada pieza con la fuerza y la velocidad adecuadas, y con la seguridad formando parte del diseño?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#movimiento">Movimiento y fuerza</a></li>
+        <li><a href="#transmitir">Transmitir el movimiento</a></li>
+        <li><a href="#relacion">La relación de transmisión</a></li>
+        <li><a href="#transformar">Transformar el movimiento</a></li>
+        <li><a href="#estructura">Unir, guiar y soportar</a></li>
+        <li><a href="#esquemas">Leer esquemas</a></li>
+        <li><a href="#actuadores">Actuadores eléctricos y neumáticos</a></li>
+        <li><a href="#integrar">Integrar y verificar con seguridad</a></li>
+        <li><a href="#comprueba">Comprueba lo aprendido</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">En este bloque hemos aprendido a montar y medir circuitos eléctricos y electrónicos (<strong>Tema 5</strong>), a diseñar funciones lógicas sencillas (<strong>Tema 6</strong>) y a mover cosas con aire comprimido (<strong>Tema 7</strong>). Ahora cerramos el bloque con lo que faltaba: los <strong>mecanismos</strong> que llevan el movimiento del motor hasta la pieza y la <strong>estructura</strong> que lo sostiene. El resultado será una <strong>estación automática y segura de clasificación y señalización</strong> para el organizador modular del aula-taller: una máquina capaz de separar piezas y avisar de lo que ocurre, integrando electricidad, electrónica, neumática y mecánica.</p>
+
+      <div class="question"><strong>Pregunta guía:</strong> ¿cómo conseguir que la estación del taller mueva, clasifique y señalice cada pieza con la fuerza y la velocidad adecuadas, y con la seguridad formando parte del diseño?</div>
+
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>describir el tipo de movimiento de una máquina y las fuerzas que intervienen, con sus magnitudes y unidades;</li>
+          <li>reconocer los mecanismos de transmisión (poleas y correas, engranajes, cadenas y ruedas dentadas) y elegir el más adecuado en cada situación;</li>
+          <li>definir y aplicar la relación de transmisión para calcular velocidad, par y sentido de giro;</li>
+          <li>explicar los mecanismos de transformación (biela-manivela, piñón-cremallera y levas) y sus aplicaciones reales;</li>
+          <li>seleccionar uniones, guiados y soportes coherentes con la estructura de una máquina sencilla;</li>
+          <li>interpretar esquemas de conjuntos mecánicos y de circuitos eléctricos y neumáticos elementales;</li>
+          <li>integrar actuadores eléctricos y neumáticos en una estación, montarla por etapas y verificarla, de forma física o simulada, con seguridad.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="movimiento">
+        <h2 id="movimiento">1. Movimiento y fuerza: qué hace que una máquina se mueva</h2>
+        <p>Una máquina es un conjunto de piezas que aprovecha una energía para producir un movimiento útil. Antes de elegir cualquier mecanismo hay que responder a tres preguntas: <strong>qué movimiento</strong> queremos, <strong>qué fuerza</strong> debe vencerse y <strong>a qué velocidad</strong> debe ocurrir. Solo entonces tiene sentido escoger piezas.</p>
+
+        <h3>Tipos de movimiento</h3>
+        <ul>
+          <li><strong>Rotativo o de giro.</strong> Las piezas giran alrededor de un eje sin desplazarse. Es el movimiento típico de un motor, de una rueda o de un engranaje.</li>
+          <li><strong>Lineal o de traslación.</strong> Las piezas se desplazan en línea recta: un carro sobre una guía, un cilindro que empuja, una bandeja que entra en su hueco.</li>
+          <li><strong>Alternativo o de vaivén.</strong> El movimiento cambia de sentido una y otra vez: el émbolo de una bomba, la hoja de una sierra o una compuerta que se abre y se cierra.</li>
+          <li><strong>Continuo o intermitente.</strong> Puede avanzar sin interrupción o a saltos regulares, como el giro paso a paso de algunos motores.</li>
+        </ul>
+
+        <h3>Tres magnitudes que conviene no confundir</h3>
+        <p>La <strong>fuerza</strong> expresa la intensidad de un empuje o de una tracción y se mide en <strong>newtons (N)</strong>. En las máquinas giratorias interesa sobre todo el <strong>par</strong> o momento, que es la capacidad de una fuerza para hacer girar algo: se calcula multiplicando la fuerza por su distancia al eje, <strong>M = F · d</strong>, y se mide en <strong>newtons·metro (N·m)</strong>. Una misma fuerza hace girar mucho mejor un eje si se aplica lejos del centro.</p>
+        <p>La <strong>velocidad de giro</strong> se expresa en <strong>revoluciones por minuto (rpm)</strong> y la <strong>velocidad lineal</strong> en <strong>metros por segundo (m/s)</strong>. Un motor puede girar muy deprisa pero con poco par; un mecanismo bien elegido permite cambiar ese reparto.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Magnitudes básicas del movimiento y su presencia en la estación">
+          <table>
+            <caption>Magnitudes básicas del movimiento y su presencia en la estación</caption>
+            <thead><tr><th scope="col">Magnitud</th><th scope="col">Qué describe</th><th scope="col">Unidad habitual</th><th scope="col">Dónde aparece en la estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Fuerza</strong></th><td>Empuje o tracción que se aplica sobre un cuerpo.</td><td>newton (N)</td><td>Empuje del cilindro sobre la compuerta o la bandeja.</td></tr>
+              <tr><th scope="row"><strong>Par o momento</strong></th><td>Efecto giratorio de una fuerza respecto a un eje.</td><td>newton·metro (N·m)</td><td>Giro del eje del motor que arrastra la cinta o el disco.</td></tr>
+              <tr><th scope="row"><strong>Velocidad de giro</strong></th><td>Vueltas que da un eje en una unidad de tiempo.</td><td>revoluciones por minuto (rpm)</td><td>Giro del motor y de la rueda dentada de salida.</td></tr>
+              <tr><th scope="row"><strong>Velocidad lineal</strong></th><td>Distancia recorrida por unidad de tiempo.</td><td>metro por segundo (m/s)</td><td>Avanza la bandeja o la cinta de clasificación.</td></tr>
+              <tr><th scope="row"><strong>Potencia</strong></th><td>Energía que se transforma por unidad de tiempo.</td><td>vatio (W)</td><td>Motor eléctrico o cilindro que mueven la estación.</td></tr>
+              <tr><th scope="row"><strong>Rozamiento</strong></th><td>Fuerza que se opone al movimiento entre superficies en contacto.</td><td>newton (N) y pérdidas en vatios</td><td>Guías, cojinetes, correas y engranajes que se calientan.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>El rozamiento es la razón por la que ninguna máquina real es perfecta: parte de la energía se convierte en calor y no se recupera. Por eso hay que <strong>lubricar</strong>, <strong>alinear</strong> y elegir bien los apoyos. Un mecanismo no crea energía: reparte la que recibe, cambiando velocidad, fuerza y sentido.</p>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>Ningún mecanismo regala energía. Si a la salida conseguimos más par, será a costa de girar más despacio; si conseguimos más velocidad, será con menos par. Entender este intercambio es la base de todo el tema.</div>
+
+        <div class="aviso"><strong>Antes de trabajar con una máquina en movimiento</strong>Cualquier montaje con un motor, un cilindro o una pieza que gira requiere <strong>autorización y supervisión docente</strong>, la zona despejada y las manos fuera del alcance de las partes móviles. Nunca se conecta la energía hasta haber montado y comprobado el conjunto a mano. La seguridad se detalla en la sección 8, pero empieza aquí.</div>
+      </section>
+
+      <section aria-labelledby="transmitir">
+        <h2 id="transmitir">2. Transmitir el movimiento: poleas, engranajes y cadenas</h2>
+        <p>Los <strong>mecanismos de transmisión</strong> reciben un movimiento y devuelven el mismo tipo de movimiento, normalmente girando también, pero cambiado de velocidad, de par o de posición. Su misión es llevar el giro del motor hasta un eje que está lejos o que no está alineado con él.</p>
+
+        <h3>Poleas y correa</h3>
+        <p>Dos <strong>poleas</strong> unidas por una <strong>correa</strong> transmiten el giro entre ejes separados y paralelos. La correa se apoya en las gargantas de las poleas y, si está bien tensada, apenas resbala. Entre sus ventajas están el <strong>bajo ruido</strong>, que admite mucha <strong>distancia entre ejes</strong> y que puede <strong>deslizar</strong> ante una sobrecarga, protegiendo al motor.<sup><a href="#fuente_7">[7]</a></sup> Como inconvenientes, ocupa espacio, puede <strong>patinar</strong> —entonces no se cumple la velocidad prevista— y necesita tensión y sustitución periódica.</p>
+
+        <h3>Engranajes</h3>
+        <p>Los <strong>engranajes</strong> son ruedas dentadas que encajan directamente entre sí. Al engranar diente con diente no hay deslizamiento: la transmisión es <strong>muy exacta</strong> y permite reducir mucho el tamaño para lograr pares elevados. Se emplean cuando se necesita precisión, pero exigen que ambas ruedas tengan el mismo <strong>módulo</strong> (el tamaño del diente), <strong>lubricación</strong> y una alineación cuidadosa.<sup><a href="#fuente_6">[6]</a></sup> Pueden transmitir entre ejes paralelos, perpendiculares o incluso cruzados, según el tipo de rueda.</p>
+
+        <h3>Cadenas y ruedas dentadas</h3>
+        <p>Una <strong>cadena de rodillos</strong> une dos <strong>ruedas dentadas</strong> y combina ventajas: transmite sin patinar y permite separar los ejes más que un engranaje, porque no hay contacto directo entre ruedas. Se usa en bicicletas, motores y máquinas que necesitan transmitir bastante fuerza con seguridad.<sup><a href="#fuente_8">[8]</a></sup> Requiere lubricación, alineación y tensión correcta, y hace más ruido que una correa.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Comparación de los mecanismos de transmisión">
+          <table>
+            <caption>Comparación de los mecanismos de transmisión</caption>
+            <thead><tr><th scope="col">Mecanismo</th><th scope="col">Cómo transmite</th><th scope="col">Ventajas</th><th scope="col">Límites</th><th scope="col">En la estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Poleas y correa</strong></th><td>Una correa apoyada en las gargantas de dos poleas.</td><td>Silenciosa; admite ejes alejados; puede resbalar ante sobrecargas.</td><td>Puede patinar; necesita tensión y sustitución.</td><td>Mover el eje de la cinta de clasificación desde el motor.</td></tr>
+              <tr><th scope="row"><strong>Engranajes</strong></th><td>Ruedas dentadas en contacto directo.</td><td>Muy precisa; gran reducción de tamaño; pares altos.</td><td>Necesita el mismo módulo, lubricación y alineación; ruido.</td><td>Reducir las vueltas del motor para accionar el disco clasificador.</td></tr>
+              <tr><th scope="row"><strong>Cadena y ruedas dentadas</strong></th><td>Cadena de eslabones que engrana en ruedas dentadas.</td><td>Sin patinaje; admite distancia entre ejes; robusta.</td><td>Ruido; necesita lubricación y tensión; algo pesada.</td><td>Accionar el eje que empuja la bandeja hacia su compartimento.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-note"><strong>Deslizar no siempre es un defecto.</strong> Que una correa patine evita que el motor se dañe cuando la carga se atasca; que una cadena no patine garantiza que el movimiento llega siempre igual. Elegir es decidir qué se necesita.</div>
+      </section>
+
+      <section aria-labelledby="relacion">
+        <h2 id="relacion">3. La relación de transmisión: velocidad, par y sentido</h2>
+        <p>Para saber cómo cambia el movimiento de un eje a otro usamos la <strong>relación de transmisión</strong>. Antes de escribir ninguna fórmula hay que definirla con claridad, porque es la causa de muchos errores:</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Definición</strong>La relación de transmisión <strong>i</strong> es el cociente entre la velocidad del eje de <strong>salida</strong> y la velocidad del eje de <strong>entrada</strong>: <strong>i = n<sub>salida</sub> / n<sub>entrada</sub></strong>. Con esta definición, si i es menor que 1 el eje de salida gira más despacio y el mecanismo se llama <strong>reductor</strong>; si i es mayor que 1, gira más deprisa y se llama <strong>multiplicador</strong>; si i vale 1, los dos ejes giran igual.</div>
+
+        <h3>Cómo se calcula con cada mecanismo</h3>
+        <ul>
+          <li><strong>Engranajes o ruedas dentadas</strong> que engranan entre sí o unidos por cadena: cada diente de la rueda motriz empuja a un diente de la conducida, de modo que <strong>i = z<sub>entrada</sub> / z<sub>salida</sub></strong>, donde <strong>z</strong> es el número de dientes de cada rueda. Ambas ruedas deben compartir módulo (o paso, en el caso de las cadenas).</li>
+          <li><strong>Poleas unidas por correa:</strong> la correa recorre la misma longitud en cada punto, así que cuanto mayor sea la polea, más despacio gira. Entonces <strong>i = d<sub>entrada</sub> / d<sub>salida</sub></strong>, donde <strong>d</strong> es el diámetro de la polea.</li>
+          <li><strong>Varias etapas:</strong> la relación total es el <strong>producto</strong> de las relaciones de cada etapa. Una rueda intermedia no cambia la relación total, pero sí el sentido del giro.</li>
+        </ul>
+
+        <h3>Qué ocurre con el par y con el sentido</h3>
+        <p>En un mecanismo ideal la potencia se conserva, y como <strong>P = M · n</strong> (par por velocidad), <strong>reducir la velocidad multiplica el par</strong> en la misma proporción: si i es 1/3, el par de salida es aproximadamente el triple del de entrada. En un multiplicador ocurre lo contrario: se gana velocidad y se pierde par. En la práctica, el rozamiento y el posible deslizamiento hacen que la potencia útil sea menor que la teórica.</p>
+        <p>El <strong>sentido de giro</strong> depende del montaje: dos <strong>engranajes exteriores</strong> giran en sentidos contrarios; una <strong>correa abierta</strong> o una <strong>cadena</strong> transmiten el giro en el <strong>mismo sentido</strong>; una <strong>correa cruzada</strong> lo invierte.</p>
+
+        <div class="t4-note"><strong>Ejemplo resuelto 1 · reductor con engranajes.</strong> El motor de la estación gira a 1 200 rpm y lleva un piñón de 15 dientes que engrana con una rueda de 45 dientes. Relación: <strong>i = 15 / 45 = 0,333</strong>. Velocidad de salida: <strong>n = 1 200 × 0,333 = 400 rpm</strong>. Es un reductor: el eje gira más despacio y el par se multiplica aproximadamente por 3. Si el motor entrega 0,5 N·m, el eje de salida podrá disponer de alrededor de 1,5 N·m.</div>
+
+        <div class="t4-note"><strong>Ejemplo resuelto 2 · multiplicador con poleas.</strong> Una polea motriz de 80 mm arrastra por correa una polea de 20 mm. Relación: <strong>i = 80 / 20 = 4</strong>. Si la polea motriz gira a 150 rpm, la conducida girará a <strong>150 × 4 = 600 rpm</strong>. Es un multiplicador: se gana velocidad y el par de salida se reduce en la misma proporción, así que el motor tendrá que esforzarse más.</div>
+
+        <div class="t4-note"><strong>Ejemplo resuelto 3 · tren de tres ruedas y sentido.</strong> El motor mueve un tren de tres engranajes exteriores de 12, 24 y 36 dientes. La relación total es <strong>i = (12 / 24) × (24 / 36) = 12 / 36 = 0,333</strong>. La rueda intermedia de 24 dientes no cambia la relación, solo el sentido. Con un número impar de ruedas exteriores, la salida gira en el <strong>mismo sentido</strong> que la entrada.</div>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Elección entre reductor y multiplicador en la estación">
+          <table>
+            <caption>Elección entre reductor y multiplicador en la estación</caption>
+            <thead><tr><th scope="col">Se necesita…</th><th scope="col">Conviene</th><th scope="col">Relación</th><th scope="col">Ejemplo en el proyecto</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Mover algo pesado despacio</th><td>Reductor</td><td>i menor que 1</td><td>Disco clasificador que gira lentamente con fuerza.</td></tr>
+              <tr><th scope="row">Que un eje gire rápido con poca carga</th><td>Multiplicador</td><td>i mayor que 1</td><td>Ventilador de refrigeración o disco que señaliza.</td></tr>
+              <tr><th scope="row">Que dos ejes giren igual pero separados</th><td>Correa con poleas iguales</td><td>i igual a 1</td><td>Eje de la cinta arrastrado desde el motor.</td></tr>
+              <tr><th scope="row">Invertir el sentido de giro</th><td>Correa cruzada</td><td>i según los diámetros</td><td>Ajuste de la dirección de avance de una banda.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="transformar">
+        <h2 id="transformar">4. Transformar el movimiento: biela-manivela, piñón-cremallera y levas</h2>
+        <p>Los <strong>mecanismos de transformación</strong> cambian el tipo de movimiento: convierten un giro en un desplazamiento recto o un desplazamiento recto en un giro. Son los que permiten que un motor giratorio abra una compuerta, empuje una bandeja o haga subir y bajar un pulsador.<sup><a href="#fuente_10">[10]</a></sup></p>
+
+        <h3>Biela-manivela</h3>
+        <p>La <strong>manivela</strong> es una pieza que gira y lleva un punto separado del eje; la <strong>biela</strong> une ese punto con un elemento que solo puede desplazarse en línea recta. El resultado es un <strong>movimiento alternativo</strong> de vaivén, cuya carrera es aproximadamente el doble de la distancia entre el punto de la manivela y el eje. Se usa en bombas, sierras alternativas y motores de combustión, y también en sentido contrario: si empujamos la biela, conseguimos girar la manivela.</p>
+
+        <h3>Piñón-cremallera</h3>
+        <p>Una <strong>cremallera</strong> es una barra dentada recta; un <strong>piñón</strong> es la rueda dentada que engrana con ella. Es el mecanismo que convierte el <strong>giro en desplazamiento recto continuo</strong> (o al revés). Aparece en las puertas correderas, en los pórticos de fresado y en la dirección de los vehículos. Cada vuelta completa del piñón desplaza la cremallera una longitud igual al <strong>perímetro</strong> de la circunferencia del piñón.</p>
+
+        <div class="t4-note"><strong>Ejemplo resuelto · velocidad de una cremallera.</strong> El piñón de la estación tiene 40 mm de diámetro y gira a 60 rpm, es decir, una vuelta por segundo. Su perímetro mide <strong>π × 0,040 m ≈ 0,126 m</strong>. Por tanto, la cremallera avanza <strong>v ≈ 0,13 m/s</strong>, unos 13 cm cada segundo. Si el recorrido previsto es de 20 cm, la operación durará algo más de un segundo y medio.</div>
+
+        <h3>Levas</h3>
+        <p>Una <strong>leva</strong> es un disco o una pieza giratoria con un perfil especial que empuja a un <strong>seguidor</strong>. Al girar, el perfil va levantando y soltando el seguidor, que realiza un movimiento alternativo cuyo recorrido y ritmo dependen de la forma de la leva. Un muelle mantiene el seguidor en contacto. Su ventaja es que <strong>el movimiento se "programa" con la forma de la pieza</strong>, sin necesidad de electrónica; se emplea en válvulas, máquinas de coser y juguetes mecánicos.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Mecanismos de transformación del movimiento">
+          <table>
+            <caption>Mecanismos de transformación del movimiento</caption>
+            <thead><tr><th scope="col">Mecanismo</th><th scope="col">Entrada → salida</th><th scope="col">Característica</th><th scope="col">En la estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Biela-manivela</strong></th><td>Giro → vaivén recto</td><td>La carrera depende del radio de la manivela; funciona también al revés.</td><td>Abrir y cerrar la compuerta que deja caer una pieza.</td></tr>
+              <tr><th scope="row"><strong>Piñón-cremallera</strong></th><td>Giro ↔ desplazamiento recto continuo</td><td>Cada vuelta avanza un perímetro del piñón; permite recorridos largos.</td><td>Empujar la bandeja hacia el compartimento correcto.</td></tr>
+              <tr><th scope="row"><strong>Leva</strong></th><td>Giro → vaivén recto</td><td>El perfil determina el movimiento; necesita muelle de retorno.</td><td>Accionar el pulsador de aviso que señaliza cada pieza.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-think"><strong>Decide con el caso:</strong> si la compuerta debe abrirse y cerrarse siempre igual, una leva o una biela-manivela bastan. Si el recorrido es largo y variable, conviene un piñón-cremallera. La elección no depende del gusto, sino del movimiento y del recorrido que exige la función.</div>
+      </section>
+
+      <section aria-labelledby="estructura">
+        <h2 id="estructura">5. Unir, guiar y soportar: la estructura de la máquina</h2>
+        <p>Los mecanismos no funcionan en el aire. Necesitan <strong>unirse</strong> entre sí, desplazarse <strong>guiados</strong> en la dirección correcta y estar sostenidos por una <strong>estructura</strong> que resista sin deformarse. Esta parte de la máquina es tan importante como el motor: una unión floja o una guía mal alineada arruinan el movimiento mejor calculado.</p>
+
+        <h3>Elementos de unión</h3>
+        <ul>
+          <li><strong>Uniones fijas:</strong> no se pueden desmontar sin destruirlas. Ejemplos: soldadura, remache o adhesivo.</li>
+          <li><strong>Uniones desmontables:</strong> permiten separar las piezas sin dañarlas. Ejemplos: tornillo con tuerca y arandela, pasador, chaveta o abrazadera.</li>
+          <li><strong>Uniones móviles:</strong> dejan que las piezas giren o se deslicen entre sí. Ejemplos: pernos, bisagras y articulaciones.</li>
+        </ul>
+
+        <h3>Guiado y soporte</h3>
+        <p>El <strong>guiado</strong> mantiene cada pieza en su trayectoria: ejes y árboles, casquillos, <strong>rodamientos</strong>, guías lineales y rieles. Un rodamiento reduce el rozamiento y facilita el giro; una guía lineal impide que el carro se desvíe. El <strong>soporte</strong> —bancada, bastidor, escuadras y placas— sostiene todo el conjunto y absorbe las fuerzas y las vibraciones. La <strong>alineación</strong> y la <strong>holgura</strong> deben ajustarse: si faltan, la pieza se agarrota; si sobran, la máquina vibra y se desgasta.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Funciones de unión, guiado y soporte">
+          <table>
+            <caption>Funciones de unión, guiado y soporte</caption>
+            <thead><tr><th scope="col">Función</th><th scope="col">Elementos típicos</th><th scope="col">Qué resuelve</th><th scope="col">Error frecuente</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Unir</strong></th><td>Tornillo, tuerca, arandela, remache, bisagra.</td><td>Mantener unidas las piezas con la rigidez o la movilidad necesarias.</td><td>Olvidar la arandela y soltar la tuerca con la vibración.</td></tr>
+              <tr><th scope="row"><strong>Guiar</strong></th><td>Eje, casquillo, rodamiento, guía lineal.</td><td>Conducir el movimiento en la dirección correcta con poco rozamiento.</td><td>Montar el eje desalineado y forzar el mecanismo.</td></tr>
+              <tr><th scope="row"><strong>Soportar</strong></th><td>Bancada, bastidor, escuadra, placa de base.</td><td>Resistir fuerzas y vibraciones sin deformarse ni volcar.</td><td>Una base ligera que se mueve al arrancar el motor.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Alineación y holgura</strong>Una correa que se sale, una cadena que se desgasta a un lado o unas vibraciones que crecen suelen avisar del mismo problema: el eje no está alineado o la holgura no es la adecuada. Antes de cambiar la pieza, conviene comprobar el montaje.</div>
+      </section>
+
+      <section aria-labelledby="esquemas">
+        <h2 id="esquemas">6. Leer esquemas de conjuntos y de circuitos</h2>
+        <p>Antes de montar, hay que <strong>saber leer</strong>. Un esquema no es un dibujo artístico: es un documento que dice, con símbolos acordados, cómo está hecho un conjunto y cómo circula la energía o la señal. Conviene distinguir tres tipos que se usan juntos en el proyecto.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Tipos de esquema y qué responde cada uno">
+          <table>
+            <caption>Tipos de esquema y qué responde cada uno</caption>
+            <thead><tr><th scope="col">Tipo de esquema</th><th scope="col">Qué muestra</th><th scope="col">Pregunta que responde</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Esquema de conjunto</strong></th><td>Las piezas en su posición real, con numeración y lista de piezas.</td><td>¿Cómo se monta y en qué orden?</td></tr>
+              <tr><th scope="row"><strong>Despiece o vista explotada</strong></th><td>Las piezas separadas siguiendo el orden de montaje.</td><td>¿Qué piezas forman el mecanismo y cómo encajan?</td></tr>
+              <tr><th scope="row"><strong>Esquema de circuito</strong></th><td>Los símbolos normalizados y las conexiones entre ellos.</td><td>¿Por dónde va la energía y por dónde va la señal?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>La <strong>simbología</strong> es un lenguaje compartido. En electricidad y electrónica ya has visto resistencias, diodos, LED, motores y pulsadores (<strong>Tema 5</strong>); en lógica digital, las puertas AND, OR y NOT (<strong>Tema 6</strong>); y en neumática, compresor, válvulas, cilindros y reguladores (<strong>Tema 7</strong>). Los símbolos de los circuitos neumáticos siguen reglas internacionales de representación gráfica, de modo que un esquema se interpreta igual en cualquier taller.<sup><a href="#fuente_9">[9]</a></sup></p>
+
+        <h3>Un orden que siempre funciona</h3>
+        <ol>
+          <li><strong>Sitúa la fuente.</strong> Localiza de dónde sale la energía: la red eléctrica o el aire comprimido.</li>
+          <li><strong>Sigue la cadena de energía</strong> elemento a elemento hasta la carga que se mueve.</li>
+          <li><strong>Busca la cadena de señal</strong> por separado: mandos, sensores y lógica que ordenan el movimiento.</li>
+          <li><strong>Identifica cada símbolo por su función</strong> —qué hace— antes que por su forma.</li>
+          <li><strong>Comprueba las uniones y las referencias:</strong> cada pieza del esquema debe tener su número y su lugar en la lista.</li>
+        </ol>
+        <div class="t4-note"><strong>Truco útil.</strong> Si un esquema parece confuso, tapa con la mano todo lo que no sea la fuente y ve descubriendo el circuito paso a paso. La mayoría de las dudas desaparecen al recorrerlo en el sentido de la energía.</div>
+      </section>
+
+      <section aria-labelledby="actuadores">
+        <h2 id="actuadores">7. Actuadores eléctricos y neumáticos: energía, señal y actuación</h2>
+        <p>El <strong>actuador</strong> es el elemento que convierte la energía en movimiento. En nuestra estación conviven dos familias, porque cada una tiene sus ventajas: los <strong>actuadores eléctricos</strong>, que ya conoces de los temas anteriores, y los <strong>actuadores neumáticos</strong>, que aprovechan el aire comprimido.</p>
+
+        <h3>Actuadores eléctricos</h3>
+        <ul>
+          <li><strong>Motor de corriente continua:</strong> gira en un sentido u otro según la polaridad y cambia de velocidad con la tensión. Es sencillo y económico, pero no garantiza una posición exacta.</li>
+          <li><strong>Motor paso a paso:</strong> avanza en giros pequeños y contables, por lo que permite posicionar con precisión sin apenas sensores. Lo encontramos en impresoras y en mecanismos de avance.</li>
+          <li><strong>Servomotor:</strong> incorpora un sensor de posición y un circuito de control, de modo que mantiene el ángulo que se le ordena. Es la opción cuando hace falta precisión real.</li>
+          <li><strong>Electroimán y solenoide:</strong> producen un movimiento recto corto al circular corriente por una bobina; se usan para empujar pestillos o abrir pequeñas compuertas.</li>
+        </ul>
+        <p>La corriente que necesita un motor es mucho mayor que la que puede entregar la salida de un circuito lógico. Para gobernarlo se intercala un <strong>elemento de control de potencia</strong>: un relé, un transistor o un puente en H. Ese es el punto donde la <strong>señal</strong> —pequeña— se convierte en <strong>energía</strong> —grande—.</p>
+
+        <h3>Actuadores neumáticos</h3>
+        <p>Un <strong>cilindro</strong> convierte la presión del aire en un movimiento recto. El de <strong>simple efecto</strong> empuja con el aire y vuelve con un muelle; el de <strong>doble efecto</strong> empuja y retrocede con aire, y por eso permite controlar los dos sentidos. Una <strong>electroválvula</strong> decide hacia dónde entra el aire, y un <strong>regulador de caudal</strong> ajusta la velocidad del vástago. La neumática ofrece fuerza, sencillez y buen comportamiento en entornos sucios, pero necesita un compresor y una preparación del aire, hace ruido y no permite detener el vástago con precisión en cualquier posición.</p>
+
+        <div class="t4-note"><strong>Ejemplo resuelto · fuerza de un cilindro.</strong> Un cilindro tiene un émbolo de 20 mm de diámetro y recibe aire a 6 bar. La superficie del émbolo es <strong>A = π · r² = π · (1 cm)² ≈ 3,14 cm²</strong>. Como 1 bar equivale a 10 N/cm², la fuerza teórica será <strong>F = 60 N/cm² × 3,14 cm² ≈ 188 N</strong>. Es decir, un cilindro pequeño levanta casi 19 kg. En la práctica se pierde algo por el rozamiento y por el muelle de retorno, por lo que conviene dejar un margen.</div>
+
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable de la arquitectura de la estación">
+          <img src="assets/tema08_estacion_integrada.svg" alt="Arquitectura de la estación en tres cadenas: la cadena de energía va de la fuente al actuador, los mecanismos y la carga; la cadena de señal va de los mandos y medidas a la lógica de control, que ordena al actuador; y la cadena de protección incluye resguardo, parada, bloqueo y descarga de energías.">
+          <figcaption>La energía mueve, la señal decide y la protección cuida. Las tres cadenas se diseñan juntas y se leen por separado.</figcaption>
+        </figure>
+
+        <h3>Tres cadenas que no hay que mezclar</h3>
+        <p>La <strong>cadena de energía</strong> transporta la potencia que mueve la máquina: fuente, control de potencia, actuador, mecanismos y carga. La <strong>cadena de señal</strong> transporta información: pulsadores, finales de carrera y sensores envían datos a la lógica, que ordena al actuador cuándo moverse y hacia dónde. Una y otra se representan con símbolos distintos y conviene dibujarlas por separado, aunque físicamente estén unidas.</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">La señal no mueve, ordena</strong>Un final de carrera no empuja nada: solo informa. Un pulsador no alimenta el motor: solo lo pide. Si esa separación no queda clara en el esquema, cualquier avería resultará difícil de localizar.</div>
+        <p>Programar un controlador para que decida por sí mismo llegará más adelante, cuando trabajemos los sistemas de control. En este tema la lógica es <strong>sencilla y visible</strong>: combinaciones de mandos y sensores que se pueden representar con los componentes que ya conocemos.</p>
+      </section>
+
+      <section aria-labelledby="integrar">
+        <h2 id="integrar">8. Integrar, montar y verificar la estación con seguridad</h2>
+        <p>El <strong>proyecto común del bloque</strong> llega ahora a su punto final: una <strong>estación automática y segura de clasificación y señalización</strong> para el organizador del aula-taller. La estación recoge componentes, los separa según un criterio sencillo y señaliza lo que ocurre con luces o avisos. En ella se integran la alimentación y la electrónica del <strong>Tema 5</strong>, una decisión lógica del <strong>Tema 6</strong>, un cilindro y una electroválvula del <strong>Tema 7</strong> y los mecanismos, las uniones y la estructura de este tema.</p>
+
+        <h3>Integrar es decidir en orden</h3>
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">1 — Definir la función y los requisitos</div><p>Qué piezas se clasifican, con qué criterio, qué recorrido hacen y cómo se avisa. Igual que en el Tema 3, cada requisito debe poder comprobarse.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">2 — Elegir los actuadores</div><p>Motor eléctrico para el movimiento continuo; cilindro neumático para empujar con fuerza; electroimán o leva para un aviso corto.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">3 — Calcular la transmisión</div><p>Fijar la relación de transmisión para que la salida tenga la velocidad y el par necesarios, y decidir el sentido de giro.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">4 — Diseñar mecanismos y estructura</div><p>Escoger transmisión o transformación, definir uniones, guías y soportes, y comprobar que todo está alineado y accesible.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">5 — Dibujar los esquemas</div><p>Esquema de conjunto para el montaje y esquema de circuito para la energía y la señal.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">6 — Montar por etapas y verificar</div><p>Primero a mano, después con energía y sin carga, y por último el conjunto completo, midiendo y registrando.</p></div>
+        </div>
+
+        <h3>Seguridad: resguardos, energías y parada</h3>
+        <p>Una máquina que se mueve sola puede <strong>atrapar</strong>, <strong>golpear</strong> o <strong>arrastrar</strong>. La protección no se añade al final: se diseña desde el primer boceto. Los <strong>resguardos</strong> son barreras físicas que impiden el acceso a las partes móviles, y su <strong>enclavamiento</strong> garantiza que la máquina no arranque mientras el resguardo esté abierto.<sup><a href="#fuente_2">[2]</a></sup> Si la máquina no se puede proteger por completo, se combinan resguardos, distancia de seguridad, señalización y procedimientos de trabajo.<sup><a href="#fuente_1">[1]</a></sup> Estos principios forman parte de las normas generales de diseño seguro de máquinas.<sup><a href="#fuente_5">[5]</a></sup></p>
+        <p>En la estación conviven <strong>tres energías</strong> que hay que conocer y controlar: la <strong>eléctrica</strong> de la alimentación y del motor, la <strong>neumática</strong> del aire comprimido y la <strong>mecánica</strong> de las piezas en movimiento, los muelles y las masas que pueden caer o seguir girando. Todas deben quedar inutilizadas antes de intervenir.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Peligros de la estación y medidas de protección">
+          <table>
+            <caption>Peligros de la estación y medidas de protección</caption>
+            <thead><tr><th scope="col">Peligro</th><th scope="col">Origen</th><th scope="col">Medida prioritaria</th><th scope="col">Comprobación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Atrapamiento entre piezas</strong></th><td>Engranajes, cadena y correa en movimiento.</td><td>Resguardo fijo o con enclavamiento que impida el acceso.</td><td>Con la máquina parada, verificar que no se alcanza la zona; con la máquina en marcha, comprobar que el resguardo detiene el arranque al abrirse.</td></tr>
+              <tr><th scope="row"><strong>Golpe o arrastre</strong></th><td>Biela, leva, cremallera y vástago del cilindro.</td><td>Cubrir las partes móviles y limitar el recorrido.</td><td>Medir el recorrido máximo y comprobar que no invade la zona de la mano.</td></tr>
+              <tr><th scope="row"><strong>Contacto eléctrico</strong></th><td>Alimentación, cableado y control de potencia.</td><td>Cortar, bloquear y comprobar la ausencia de tensión antes de intervenir.</td><td>Verificar con el instrumento adecuado que no hay tensión.<sup><a href="#fuente_4">[4]</a></sup></td></tr>
+              <tr><th scope="row"><strong>Proyección de aire o pieza</strong></th><td>Circuito neumático con presión y piezas mal sujetas.</td><td>Despresurizar el circuito antes de abrir; sujetar bien las piezas.</td><td>Comprobar en el manómetro que la presión ha caído a cero.</td></tr>
+              <tr><th scope="row"><strong>Energía mecánica almacenada</strong></th><td>Muelles comprimidos, masas elevadas y ejes que siguen girando por inercia.</td><td>Descargar muelles con útiles y esperar a que el movimiento cese.</td><td>Comprobar que el eje está totalmente detenido antes de acercarse.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Antes de tocar cualquier elemento se realiza el <strong>bloqueo y descarga</strong> de la máquina: se corta la energía, se <strong>bloquea</strong> el interruptor con un candado o un dispositivo equivalente, se coloca una <strong>etiqueta</strong> que identifica a quien interviene y se despresuriza el circuito neumático. Solo entonces se comprueba que la energía ha desaparecido de verdad.<sup><a href="#fuente_3">[3]</a></sup></p>
+
+        <div class="aviso"><strong>Prueba por etapas: nunca todo a la vez</strong>Primero se monta y se prueba el mecanismo <strong>a mano y sin energía</strong>. Después se conecta el motor <strong>a baja velocidad y sin carga</strong>. A continuación se prueba la parte eléctrica y neumática <strong>sin el mecanismo acoplado</strong>. Solo entonces se integra el conjunto, con la zona despejada, el resguardo puesto y la <strong>parada</strong> al alcance de la mano. Si algo vibra, huele, suena raro o se calienta, se detiene, se bloquea y se descarga antes de investigar.</div>
+
+        <h3>Verificar: física o simulada</h3>
+        <p>Verificar es comparar lo que ocurre con lo que se había previsto, y registrar el resultado. En algunos casos la prueba será <strong>física</strong>, con la máquina montada; en otros bastará una <strong>simulación</strong>, como hicimos con los circuitos lógicos del Tema 6, para comprobar antes de construir.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Verificación de la estación">
+          <table>
+            <caption>Verificación de la estación</caption>
+            <thead><tr><th scope="col">Qué se comprueba</th><th scope="col">Cómo</th><th scope="col">Criterio de aceptación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Velocidad de salida</strong></th><td>Medida de rpm con el instrumento adecuado o cálculo a partir de la relación.</td><td>Coincide con el valor previsto dentro del margen aceptado.</td></tr>
+              <tr><th scope="row"><strong>Recorrido y alcance</strong></th><td>Medición con regla o tope, sin acercar las manos a las partes móviles.</td><td>Alcanza la posición necesaria sin invadir zonas prohibidas.</td></tr>
+              <tr><th scope="row"><strong>Fuerza o empuje</strong></th><td>Prueba con carga representativa, supervisada y con incremento controlado.</td><td>Mueve la carga sin deformarse ni detenerse.</td></tr>
+              <tr><th scope="row"><strong>Protección y parada</strong></th><td>Se abre el resguardo y se pulsa la parada con la máquina en marcha.</td><td>El movimiento se detiene y no vuelve a arrancar solo.</td></tr>
+              <tr><th scope="row"><strong>Señalización</strong></th><td>Se acciona cada mando y se observa si el aviso corresponde.</td><td>Cada luz o aviso indica el estado real de la estación.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Cierre del bloque</strong>La estación es el resumen de todo lo aprendido: la electricidad alimenta, la electrónica decide, la neumática empuja y la mecánica transmite. Una parada de emergencia no es una forma de trabajar, sino una protección para cuando algo falla. Si la seguridad aparece en el esquema desde el principio, la máquina será mejor y más fácil de mantener.</div>
+      </section>
+
+      <section aria-labelledby="comprueba">
+        <h2 id="comprueba">Comprueba lo aprendido</h2>
+        <p>Tu trabajo estará bien resuelto si puedes explicar cada decisión y mostrar qué comprobaste. Responde a estas preguntas y revisa después la tabla de evidencias.</p>
+        <ol>
+          <li>Un motor gira a 900 rpm y arrastra por correa una polea cuyo diámetro es el triple que el de la polea motriz. ¿Cuál es la relación de transmisión? ¿El eje de salida gira más deprisa o más despacio? ¿Y qué ocurre con el par?</li>
+          <li>¿Qué mecanismo elegirías para convertir el giro del motor en un vaivén de la compuerta? ¿Y para desplazar la bandeja en línea recta un recorrido largo?</li>
+          <li>Explica por qué una correa puede patinar y una cadena no, y razona en qué situación conviene cada comportamiento.</li>
+          <li>¿Por qué conviene probar el mecanismo a mano y sin energía antes de conectarlo al motor?</li>
+          <li>Antes de intervenir en la estación, ¿qué tres acciones de seguridad hay que realizar y qué se comprueba después?</li>
+          <li>¿Qué diferencia hay entre la cadena de energía y la cadena de señal? Pon un ejemplo de cada una en la estación.</li>
+        </ol>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Qué debe mostrar tu estación">
+          <table>
+            <caption>Qué debe mostrar tu estación</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Qué debes demostrar</th><th scope="col">Evidencias posibles</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Comprender el movimiento</strong></th><td>Reconocer qué movimiento se necesita y por qué el mecanismo elegido lo consigue.</td><td>Bocetos, tipo de movimiento identificado y justificación del mecanismo.</td></tr>
+              <tr><th scope="row"><strong>Calcular la transmisión</strong></th><td>Aplicar la relación de transmisión para obtener velocidad, par y sentido.</td><td>Cálculos escritos con sus unidades y comparación con la medida real.</td></tr>
+              <tr><th scope="row"><strong>Integrar elementos</strong></th><td>Combinar mecánica, electricidad, electrónica y neumática en un conjunto coherente.</td><td>Esquema de conjunto, esquema de circuito y lista de piezas.</td></tr>
+              <tr><th scope="row"><strong>Trabajar con seguridad</strong></th><td>Explicar los peligros, las medidas tomadas y el procedimiento de bloqueo y descarga.</td><td>Tabla de peligros y controles, y registro del montaje por etapas.</td></tr>
+              <tr><th scope="row"><strong>Verificar</strong></th><td>Comprobar el funcionamiento, física o simuladamente, y registrar el resultado.</td><td>Tabla de pruebas con valores medidos, criterio y decisión de mejora.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Antes de entregar, pide a alguien ajeno al equipo que intente mover una pieza con la estación parada y que explique qué hace cada elemento. Si no puede, probablemente falte claridad en los esquemas o en la señalización.</p>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Actuador</dt><dd>Elemento que transforma una energía —eléctrica o neumática— en movimiento útil.</dd>
+          <dt>Árbol (eje)</dt><dd>Pieza cilíndrica que gira y sostiene a otras piezas, como ruedas o poleas.</dd>
+          <dt>Biela-manivela</dt><dd>Mecanismo que convierte un movimiento de giro en un movimiento alternativo de vaivén, y viceversa.</dd>
+          <dt>Bloqueo y descarga</dt><dd>Conjunto de acciones para cortar, bloquear y etiquetar las energías antes de intervenir en una máquina.</dd>
+          <dt>Cadena de rodillos</dt><dd>Cadena articulada por eslabones que engrana en ruedas dentadas y transmite el movimiento sin patinar.</dd>
+          <dt>Correa</dt><dd>Elemento flexible que transmite el giro entre poleas separadas y puede deslizar ante una sobrecarga.</dd>
+          <dt>Cremallera</dt><dd>Barra dentada recta que, engranada con un piñón, transforma el giro en desplazamiento recto.</dd>
+          <dt>Electroválvula</dt><dd>Válvula accionada eléctricamente que dirige el aire comprimido hacia el actuador neumático.</dd>
+          <dt>Engranaje</dt><dd>Rueda dentada que transmite el movimiento por contacto directo con otra rueda dentada.</dd>
+          <dt>Guiado</dt><dd>Conjunto de elementos que mantienen una pieza en su trayectoria y reducen el rozamiento.</dd>
+          <dt>Leva</dt><dd>Pieza giratoria con un perfil que empuja a un seguidor y produce un movimiento determinado por su forma.</dd>
+          <dt>Momento (par)</dt><dd>Efecto giratorio de una fuerza respecto a un eje; se mide en newtons·metro (N·m).</dd>
+          <dt>Piñón</dt><dd>Rueda dentada pequeña, generalmente la que va montada en el eje motor.</dd>
+          <dt>Polea</dt><dd>Rueda acanalada que guía una correa o cable para transmitir el movimiento.</dd>
+          <dt>Relación de transmisión</dt><dd>Cociente entre la velocidad del eje de salida y la del eje de entrada (i = n<sub>salida</sub> / n<sub>entrada</sub>).</dd>
+          <dt>Resguardo</dt><dd>Barrera física, fija o con enclavamiento, que impide acceder a las partes móviles de una máquina.</dd>
+          <dt>Rodamiento</dt><dd>Elemento que facilita el giro de un eje reduciendo el rozamiento y guiando su posición.</dd>
+          <dt>Transmisión y transformación</dt><dd>La transmisión conserva el tipo de movimiento y la transformación lo cambia de rotativo a lineal o alternativo.</dd>
+          <dt>Verificación</dt><dd>Comprobación mediante evidencias de que el resultado cumple lo previsto, de forma física o simulada.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Una máquina convierte una energía en un movimiento útil: antes de elegir piezas hay que definir qué movimiento, qué fuerza y qué velocidad se necesitan.</li>
+          <li>La fuerza se mide en newtons y el par en newtons·metro; el par depende de la fuerza y de su distancia al eje.</li>
+          <li>Los mecanismos de transmisión conservan el tipo de movimiento: poleas y correa, engranajes y cadenas con ruedas dentadas.</li>
+          <li>La correa admite distancia y puede patinar; el engranaje es preciso y compacto; la cadena no patina y salva distancias.</li>
+          <li>La relación de transmisión es i = n<sub>salida</sub> / n<sub>entrada</sub>. Si i es menor que 1 hay reducción: menos velocidad y más par.</li>
+          <li>Con engranajes o ruedas dentadas, i = z<sub>entrada</sub> / z<sub>salida</sub>; con poleas y correa, i = d<sub>entrada</sub> / d<sub>salida</sub>.</li>
+          <li>El sentido de giro depende del montaje: los engranajes exteriores lo invierten; la correa abierta y la cadena lo mantienen.</li>
+          <li>Los mecanismos de transformación cambian el tipo de movimiento: biela-manivela y levas producen vaivén; el piñón-cremallera, desplazamiento recto continuo.</li>
+          <li>Uniones, guiados, soportes y estructura sostienen la máquina; la alineación y la holgura correctas evitan agarrotamientos y vibraciones.</li>
+          <li>El actuador convierte la energía en movimiento. La señal no aporta energía: ordena al actuador cuándo moverse.</li>
+          <li>La seguridad se diseña con la máquina: resguardo y enclavamiento, parada, bloqueo y descarga de las energías eléctrica, neumática y mecánica.</li>
+          <li>El montaje se hace por etapas —a mano, a baja velocidad, sin carga y por último el conjunto— y se verifica física o simuladamente, registrando los resultados.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_1">[1] <a href="https://www.insst.es/documents/94886/789467/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf">INSST — Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (PDF)</a>.</li>
+          <li id="fuente_2">[2] <a href="https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/38-serie-ntp-numeros-1215-a-1228-ano-2025/ntp-1220-dispositivos-de-enclavamiento-con-bloqueo-del-resguardo-2025">INSST — NTP 1220: Dispositivos de enclavamiento con bloqueo del resguardo</a>.</li>
+          <li id="fuente_3">[3] <a href="https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/32-serie-ntp-numeros-1101-a-1135-ano-2018/ntp-1.117-consignacion-de-maquinas">INSST — NTP 1117: Consignación de máquinas</a>.</li>
+          <li id="fuente_4">[4] <a href="https://www.insst.es/noticias-insst/riesgo-electrico-las-cinco-reglas-de-oro-2019">INSST — Riesgo eléctrico: las cinco reglas de oro</a>.</li>
+          <li id="fuente_5">[5] <a href="https://tienda.aenor.com/p/norma-une-en-iso-12100-2012-n0049405">AENOR — UNE-EN ISO 12100:2012: seguridad de las máquinas, principios generales de diseño y evaluación del riesgo</a> (resumen; norma completa de pago).</li>
+          <li id="fuente_6">[6] <a href="https://www.me.psu.edu/sommer/me360/gearology.pdf">Boston Gear — Gearology: fundamentos de engranajes y relaciones de transmisión (PDF)</a> (en inglés).</li>
+          <li id="fuente_7">[7] <a href="https://www.rodaunion.es/media/imagenes/Catalogos/Transmision/Optibelt/Manual%20tecnico%20correas%20trapeciales.pdf">Optibelt — Manual técnico de correas trapeciales: poleas, correas y relación de velocidades (PDF)</a>.</li>
+          <li id="fuente_8">[8] <a href="https://www.ustsubaki.com/wp-content/uploads/the-complete-guide.pdf">Tsubaki — The Complete Guide to Chain (PDF)</a> (en inglés).</li>
+          <li id="fuente_9">[9] <a href="https://www.smc.eu/es-es/soporte-tecnico/simbolos-neumaticos">SMC — Símbolos neumáticos: simbología normalizada para leer esquemas</a>.</li>
+          <li id="fuente_10">[10] <a href="https://ocw.unican.es/course/view.php?id=233">Universidad de Cantabria — OpenCourseWare: Máquinas y Mecanismos</a>.</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema07.html">← Tema 7</a>
+  <a href="tema09.html">Tema 9 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>

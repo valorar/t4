@@ -1,27 +1,553 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 5 del Bloque B de Tecnología de 4.º de la ESO: Cómo funcionan los circuitos eléctricos y electrónicos, cómo se representan y cómo se montan y se miden.">
-<title>Tema 5. Electricidad y electrónica analógica · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 5 del Bloque B de Tecnología de 4.º de la ESO: magnitudes eléctricas y ley de Ohm, serie y paralelo, corriente continua y alterna, componentes y simbología, montaje en placa de pruebas con simulador y medida segura con el polímetro.">
+  <title>Tema 5. Electricidad y electrónica analógica · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 05 · Bloque B · Operadores tecnológicos</p><h1>Tema 5. Electricidad y electrónica analógica</h1><p class="hero-lead">Cómo funcionan los circuitos eléctricos y electrónicos, cómo se representan y cómo se montan y se miden.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>2.2, 4.1, 5.1</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>magnitudes eléctricas: tensión, intensidad, resistencia y potencia; ley de Ohm.</li><li>asociación de componentes en serie y en paralelo; corriente continua y alterna.</li><li>componentes pasivos y activos: resistencias, condensadores, diodos, transistores y LED.</li><li>simbología normalizada y esquemas de circuitos elementales.</li><li>montaje real y simulado en placa de pruebas; medida con polímetro.</li><li>seguridad eléctrica y aplicaciones sencillas de señalización y control.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque B «Operadores tecnológicos» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>2.2, 4.1, 5.1</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema04.html">← Tema 4</a><a href="tema06.html">Tema 6 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 05 · Bloque B · Operadores tecnológicos</p>
+        <h1>Tema 5. Electricidad y electrónica analógica</h1>
+        <p class="hero-lead">Cómo funcionan los circuitos eléctricos y electrónicos, cómo se representan y dibujan, cómo se calculan sus valores y cómo se montan y se miden sin ningún riesgo.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 5">
+        <strong>Pregunta guía</strong>
+        <p>¿Qué tensión, qué resistencia y qué corriente hacen falta para que una señal luminosa sea visible y segura a la vez?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#magnitudes">Tensión, intensidad, resistencia y potencia</a></li>
+        <li><a href="#ohh">La ley de Ohm</a></li>
+        <li><a href="#serieparalelo">Serie y paralelo</a></li>
+        <li><a href="#ccca">Corriente continua y alterna</a></li>
+        <li><a href="#componentes">Componentes y simbología</a></li>
+        <li><a href="#montaje">Simulador y placa de pruebas</a></li>
+        <li><a href="#senal">La señal luminosa de la estación</a></li>
+        <li><a href="#seguridad">Medir y trabajar con seguridad</a></li>
+        <li><a href="#comprueba">Comprueba lo que has aprendido</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">En el bloque anterior construimos un <strong>organizador modular accesible</strong> para el aula-taller. En este bloque ese organizador crece hasta convertirse en una <strong>estación automática segura de clasificación y señalización de piezas</strong>: un puesto donde cada pieza tiene su sitio, donde la estación avisa de lo que ocurre y donde ninguna solución depende de cables improvisados. Para que la estación «hable» hacen falta circuitos: algo que detecte, algo que decida y algo que avise. En este tema montamos y medimos la parte eléctrica más sencilla de todas: la <strong>señal luminosa</strong> que indica si un puesto está libre u ocupado y si la estación está en servicio o detenida.</p>
+      <div class="question"><strong>Pregunta guía:</strong> si la estación debe avisar con luz del estado de un puesto, ¿qué tensión conviene emplear, qué componente limita la corriente para no destruir el LED y cómo comprobamos con el polímetro que el montaje hace de verdad lo que creemos que hace?</div>
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>identificar las magnitudes eléctricas básicas —tensión, intensidad, resistencia y potencia— con su símbolo, su unidad y su instrumento de medida;</li>
+          <li>aplicar la ley de Ohm para calcular la magnitud que falta y comprobar el resultado midiendo;</li>
+          <li>decidir si dos componentes están en serie o en paralelo, calcular la resistencia equivalente y explicar cómo se reparten la tensión y la corriente;</li>
+          <li>distinguir corriente continua y corriente alterna y justificar por qué en el aula se trabaja únicamente con la fuente de muy baja tensión de seguridad que autoriza el profesorado;</li>
+          <li>reconocer la simbología de resistencias, condensadores, diodos, LED y transistores, y explicar la función de cada uno;</li>
+          <li>simular y montar la señal luminosa de la estación calculando la resistencia del LED y verificando la corriente con el polímetro sin superar los límites de ningún componente.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="magnitudes">
+        <h2 id="magnitudes">1. La señal empieza por una corriente: tensión, intensidad, resistencia y potencia</h2>
+        <p>Un <strong>circuito eléctrico</strong> es un camino cerrado por el que circula carga eléctrica. Basta con que se abra en un punto —un interruptor, un cable suelto, una pata del LED que no entra en la placa— para que deje de circular corriente y el LED se apague. En cualquier circuito reconocemos siempre los mismos papeles: una <strong>fuente</strong> que aporta la energía, unos <strong>conductores</strong> que la llevan, uno o varios <strong>componentes</strong> que la transforman (luz, calor, movimiento) y elementos de <strong>control</strong> que abren o cierran el paso.</p>
+        <p>Para describir lo que ocurre dentro del circuito utilizamos cuatro magnitudes. Es imprescindible no confundirlas ni mezclar sus unidades.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Magnitudes eléctricas básicas, símbolo, unidad, instrumento de medida y ejemplo en la estación">
+          <table>
+            <caption>Magnitudes eléctricas básicas, símbolo, unidad, instrumento de medida y ejemplo en la estación</caption>
+            <thead><tr><th scope="col">Magnitud</th><th scope="col">Símbolo</th><th scope="col">Unidad</th><th scope="col">Qué indica</th><th scope="col">Cómo se mide</th><th scope="col">En nuestra estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Tensión</strong></th><td><em>U</em></td><td>voltio (V)</td><td>Energía que la fuente entrega a cada unidad de carga entre dos puntos del circuito; se llama también diferencia de potencial.</td><td>Voltímetro, conectado <strong>en paralelo</strong> con el elemento que se estudia.</td><td>5 V entre los dos terminales de la fuente aprobada.</td></tr>
+              <tr><th scope="row"><strong>Intensidad</strong></th><td><em>I</em></td><td>amperio (A)</td><td>Cantidad de carga que atraviesa una sección del conductor cada segundo.</td><td>Amperímetro, conectado <strong>en serie</strong>, abriendo el circuito.</td><td>Unos 9 mA circulando por el LED.</td></tr>
+              <tr><th scope="row"><strong>Resistencia</strong></th><td><em>R</em></td><td>ohmio (Ω)</td><td>Oposición que presenta un componente al paso de la corriente.</td><td>Óhmetro, con el componente <strong>desconectado y sin tensión</strong>.</td><td>330 Ω limitan la corriente del LED.</td></tr>
+              <tr><th scope="row"><strong>Potencia</strong></th><td><em>P</em></td><td>vatio (W)</td><td>Energía transformada o transferida cada segundo.</td><td>Se calcula (P = U · I) o se mide con un vatímetro.</td><td>Unos 45 mW en la señal luminosa.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Las unidades eléctricas forman parte del Sistema Internacional. El amperio es una de las unidades básicas y el voltio, el ohmio y el vatio se derivan de ella.<sup><a href="#fuente_1">[1]</a></sup> En los circuitos escolares aparecen casi siempre con prefijos, porque los valores son pequeños: <strong>1 mA = 0,001 A</strong> y <strong>1 kΩ = 1 000 Ω</strong>. Las reglas de escritura de unidades —símbolo detrás de la cifra, con un espacio, y prefijo unido a la unidad— proceden de la misma familia de normas.<sup><a href="#fuente_2">[2]</a></sup> Escribir «330Ω» o «9ma» es una falta técnica: se escribe <code>330 Ω</code> y <code>9 mA</code>.</p>
+        <p>Una comparación ayuda a imaginarlo: la tensión se parece a la altura de un depósito, la intensidad al caudal que baja por la tubería y la resistencia a lo estrecha que es esa tubería. La comparación orienta, pero se agota pronto: en un circuito la energía se transfiere a los componentes y ninguna de las tres magnitudes «se gasta» como se agota el agua.</p>
+        <h3>Potencia: cuánta energía se transforma cada segundo</h3>
+        <p>La potencia relaciona las dos magnitudes que ya conocemos: <strong>P = U · I</strong>. En nuestro circuito, un LED que trabaja a 2 V con 9 mA consume 18 mW, y la resistencia que lo acompaña transforma en calor los 3 V restantes: 27 mW. Sumando, la fuente entrega unos 45 mW. Esa cifra parece diminuta y explica por qué la señal puede funcionar horas sin calentarse, pero también recuerda que <strong>toda la energía que entra en el circuito sale transformada</strong>: en luz y en calor.</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>Tensión, intensidad y resistencia no son tres formas de decir lo mismo. La fuente fija la tensión, el componente decide la resistencia y de ambas cosas depende la intensidad que circula.</div>
+      </section>
+
+      <section aria-labelledby="ohh">
+        <h2 id="ohh">2. La ley de Ohm: relacionar tensión, intensidad y resistencia</h2>
+        <p>La ley de Ohm describe la relación que hoy usamos a diario: en un componente óhmico, a temperatura constante, la intensidad que lo atraviesa es proporcional a la tensión aplicada.<sup><a href="#fuente_3">[3]</a></sup> Esa relación se escribe de tres maneras, todas equivalentes:</p>
+        <ul>
+          <li><strong>U = I · R</strong> — calcula la tensión si conoces intensidad y resistencia.</li>
+          <li><strong>I = U / R</strong> — calcula la intensidad si conoces tensión y resistencia.</li>
+          <li><strong>R = U / I</strong> — calcula la resistencia si conoces tensión e intensidad.</li>
+        </ul>
+        <p>Con las unidades del Sistema Internacional, 1 V aplicado sobre 1 Ω produce exactamente 1 A. En electrónica se trabaja con miliamperios, así que la conversión de unidades es el primer paso y el error más frecuente.</p>
+
+        <h3>Ejemplo resuelto 1 · Hallar la intensidad</h3>
+        <p>Conectamos una resistencia de 330 Ω a la fuente de 5 V. ¿Cuánta corriente circula?</p>
+        <ol>
+          <li>Datos: U = 5 V, R = 330 Ω. Se pide I.</li>
+          <li>Elegimos la forma adecuada: I = U / R.</li>
+          <li>Sustituimos: I = 5 V / 330 Ω = 0,015 15 A.</li>
+          <li>Pasamos a miliamperios: 0,015 15 A × 1 000 = <strong>15,2 mA</strong>.</li>
+          <li>Comprobación de sentido común: 330 Ω es una resistencia pequeña y 5 V no son muchos, así que una intensidad de unos 15 mA es razonable.</li>
+        </ol>
+        <p>La potencia que transforma esa resistencia se calcula con la fórmula del apartado anterior: P = U · I = 5 V × 0,015 15 A ≈ 76 mW, muy por debajo de los 250 mW (¼ W) que suele admitir una resistencia escolar. Si el resultado hubiera sido, por ejemplo, 600 mW, la resistencia se calentaría y habría que elegir un componente de mayor potencia nominal, no solo otro valor.</p>
+
+        <h3>Ejemplo resuelto 2 · Hallar la tensión</h3>
+        <p>Una resistencia de 220 Ω está recorrida por 20 mA. ¿Qué tensión cae entre sus extremos?</p>
+        <ol>
+          <li>Datos: R = 220 Ω, I = 20 mA.</li>
+          <li>Convertimos: 20 mA = 20 / 1 000 A = 0,020 A.</li>
+          <li>U = I · R = 0,020 A × 220 Ω = <strong>4,4 V</strong>.</li>
+          <li>Comprobación: 4,4 V es un valor coherente con la escala de nuestra fuente de 5 V.</li>
+        </ol>
+
+        <h3>Ejemplo resuelto 3 · Hallar la resistencia</h3>
+        <p>Queremos que entre los extremos de una resistencia caigan 9 V cuando circulan 30 mA. ¿Qué resistencia necesitamos?</p>
+        <ol>
+          <li>Datos: U = 9 V, I = 30 mA = 0,030 A.</li>
+          <li>R = U / I = 9 V / 0,030 A = <strong>300 Ω</strong>.</li>
+          <li>Comprobación: comprobamos el resultado dando la vuelta al cálculo: I = 9 V / 300 Ω = 0,03 A. Coincide.</li>
+        </ol>
+
+        <div class="aviso"><strong>La ley de Ohm tiene límites</strong>La relación lineal entre tensión e intensidad describe a las <strong>resistencias</strong>, pero no a cualquier componente. Un LED, por ejemplo, no la cumple: al aumentar la tensión entre sus patillas, su corriente crece de forma desproporcionada y el componente se destruye. Por eso un LED <strong>nunca</strong> se conecta solo a la fuente: siempre lleva una resistencia que limita la corriente.</div>
+        <div class="t4-think"><strong>Razona con el caso:</strong> si mantienes la resistencia de 330 Ω y duplicas la tensión de 5 V a 10 V, ¿qué ocurre con la intensidad? Calcula el nuevo valor antes de leer la respuesta. La ley de Ohm predice el doble de corriente, y el doble de potencia. Cambiar un solo dato ha modificado el circuito entero.</div>
+      </section>
+
+      <section aria-labelledby="serieparalelo">
+        <h2 id="serieparalelo">3. Serie y paralelo: repartir la tensión o repartir la corriente</h2>
+        <p>Dos componentes están <strong>en serie</strong> cuando comparten un nodo y los recorre la misma corriente: solo hay un camino posible. Están <strong>en paralelo</strong> cuando comparten los dos nodos y, por tanto, la misma tensión: la corriente se reparte entre los dos caminos.<sup><a href="#fuente_4">[4]</a></sup> Saber cuál de las dos situaciones tenemos delante es imprescindible antes de calcular nada.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Comparación entre asociación en serie y en paralelo">
+          <table>
+            <caption>Comparación entre asociación en serie y en paralelo</caption>
+            <thead><tr><th scope="col">Rasgo</th><th scope="col">En serie</th><th scope="col">En paralelo</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Caminos para la corriente</th><td>Uno solo.</td><td>Varios, uno por rama.</td></tr>
+              <tr><th scope="row">Intensidad</th><td>La misma en todos los componentes.</td><td>Se reparte: la suma de las ramas es la corriente total.</td></tr>
+              <tr><th scope="row">Tensión</th><td>Se reparte entre los componentes y su suma es la de la fuente.</td><td>La misma en todas las ramas.</td></tr>
+              <tr><th scope="row">Resistencia equivalente</th><td>Se suman: R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + …</td><td>Resulta menor que la menor de ellas: 1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + …</td></tr>
+              <tr><th scope="row">Efecto al añadir un componente</th><td>Aumenta la resistencia total y disminuye la corriente.</td><td>Disminuye la resistencia total y aumenta la corriente total.</td></tr>
+              <tr><th scope="row">En la estación</th><td>El LED y su resistencia limitadora van siempre en serie.</td><td>Cada señal luminosa independiente forma su propia rama, en paralelo con las demás.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Ejemplo resuelto 4 · Dos resistencias en serie</h3>
+        <p>Conectamos en serie 220 Ω y 330 Ω a la fuente de 5 V. ¿Qué corriente circula y qué tensión cae en cada resistencia?</p>
+        <ol>
+          <li>Resistencia equivalente: R<sub>eq</sub> = 220 Ω + 330 Ω = <strong>550 Ω</strong>.</li>
+          <li>Intensidad: I = U / R<sub>eq</sub> = 5 V / 550 Ω = 0,009 09 A = <strong>9,1 mA</strong>.</li>
+          <li>Tensión en la primera: U<sub>1</sub> = I · R<sub>1</sub> = 0,009 09 A × 220 Ω = <strong>2,0 V</strong>.</li>
+          <li>Tensión en la segunda: U<sub>2</sub> = I · R<sub>2</sub> = 0,009 09 A × 330 Ω = <strong>3,0 V</strong>.</li>
+          <li>Comprobación: 2,0 V + 3,0 V = 5,0 V. La tensión de la fuente se ha repartido por completo.</li>
+        </ol>
+        <p>Fíjate en el detalle más útil: <strong>la resistencia mayor se lleva la mayor parte de la tensión</strong>. Esa es la base del divisor de tensión, un recurso que reaparecerá cuando un sensor devuelva una señal que hay que adaptar a lo que el circuito puede leer.</p>
+
+        <h3>Ejemplo resuelto 5 · Dos resistencias en paralelo</h3>
+        <p>Las mismas dos resistencias, ahora en paralelo, conectadas a los 5 V.</p>
+        <ol>
+          <li>Resistencia equivalente de dos ramas: R<sub>eq</sub> = (R<sub>1</sub> · R<sub>2</sub>) / (R<sub>1</sub> + R<sub>2</sub>) = (220 Ω × 330 Ω) / 550 Ω = <strong>132 Ω</strong>.</li>
+          <li>Comprobación de sentido común: 132 Ω es menor que 220 Ω, la más pequeña de las dos. En paralelo la resistencia equivalente siempre es menor que cualquiera de las ramas.</li>
+          <li>Corriente total: I = U / R<sub>eq</sub> = 5 V / 132 Ω = 0,037 9 A = <strong>37,9 mA</strong>.</li>
+          <li>Corriente por cada rama: I<sub>1</sub> = 5 V / 220 Ω = 22,7 mA e I<sub>2</sub> = 5 V / 330 Ω = 15,2 mA.</li>
+          <li>Comprobación: 22,7 mA + 15,2 mA = 37,9 mA. La corriente total es la suma de las ramas y <strong>la rama de menor resistencia es la que más corriente recibe</strong>.</li>
+        </ol>
+        <div class="t4-note"><strong>Error clásico:</strong> conectar dos LED en paralelo compartiendo una sola resistencia. Como los LED no son idénticos, uno conductoriza antes que el otro, se lleva casi toda la corriente, brilla más y puede dañarse; el segundo queda apagado o tenue. Si dos LED deben lucir a la vez, <strong>cada uno lleva su propia resistencia</strong> y su propia rama.</div>
+      </section>
+
+      <section aria-labelledby="ccca">
+        <h2 id="ccca">4. Corriente continua, corriente alterna y por qué trabajamos a muy baja tensión</h2>
+        <p>Hasta aquí hemos supuesto que la tensión de la fuente no cambia de sentido. Es lo que ocurre en la <strong>corriente continua (CC)</strong>: la polaridad positiva y negativa se mantiene y la corriente circula siempre en el mismo sentido. Nuestros circuitos de señal son de corriente continua a pocos voltios.</p>
+        <p>En la <strong>corriente alterna (CA)</strong> la polaridad se invierte periódicamente y la señal describe una onda. La red eléctrica que llega a las viviendas en España es de corriente alterna: el reglamento electrotécnico fija como valores habituales 230 V entre fase y neutro, 400 V entre fases y una frecuencia de 50 Hz.<sup><a href="#fuente_5">[5]</a></sup> La frecuencia indica cuántos ciclos completos hay cada segundo; a 50 Hz, un ciclo dura 1 / 50 = 0,02 s, es decir, 20 ms. Cuando hablamos del «valor» de una tensión alterna nos referimos a un valor eficaz, el que produciría el mismo efecto que una corriente continua equivalente.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Diferencias entre corriente continua y corriente alterna y su uso en el aula">
+          <table>
+            <caption>Diferencias entre corriente continua y corriente alterna y su uso en el aula</caption>
+            <thead><tr><th scope="col">Rasgo</th><th scope="col">Corriente continua (CC)</th><th scope="col">Corriente alterna (CA)</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Polaridad</th><td>Constante: hay un borne positivo y uno negativo.</td><td>Cambia periódicamente de sentido.</td></tr>
+              <tr><th scope="row">Forma de la señal</th><td>Línea horizontal, o variaciones suaves si hay sensores implicados.</td><td>Onda senoidal.</td></tr>
+              <tr><th scope="row">Dónde aparece</th><td>Fuentes de laboratorio de baja tensión, componentes electrónicos alimentados por ellas.</td><td>Red eléctrica de viviendas y talleres: 230 V entre fase y neutro, 50 Hz.</td></tr>
+              <tr><th scope="row">Qué hacemos con ella en clase</th><td>Es la única con la que montamos y medimos: siempre desde la fuente aprobada.</td><td>No se toca ni se mide: se estudia como concepto. Cualquier intervención es trabajo de personal autorizado.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Qué significa «muy baja tensión de seguridad»</h3>
+        <p>La electricidad no avisa: una corriente relativamente pequeña a través del cuerpo humano puede producir contracciones musculares, dificultad respiratoria, quemaduras o alteraciones del ritmo cardiaco.<sup><a href="#fuente_8">[8]</a></sup> Por eso la protección se diseña por niveles. Se habla de <strong>baja tensión</strong> cuando la tensión nominal no supera los 1 000 V en alterna, y de <strong>muy baja tensión</strong> cuando no excede los 50 V en alterna ni los 75 V en continua.<sup><a href="#fuente_6">[6]</a></sup> La protección simultánea frente a los contactos directos y los indirectos se consigue con la <strong>muy baja tensión de seguridad (MBTS)</strong> —en inglés, SELV—, cuyas condiciones concretas de tensión, fuente de alimentación de seguridad y características de los circuitos están definidas por normas técnicas específicas.<sup><a href="#fuente_7">[7]</a></sup> Esta es la razón por la que nuestros montajes solo pueden alimentarse desde una <strong>fuente SELV aprobada por el profesorado</strong>.</p>
+        <div class="aviso"><strong>Reglas que no se negocian</strong>
+          <ul>
+            <li><strong>Nunca</strong> se conecta el montaje a la red eléctrica, a un enchufe, a una regleta ni a una fuente de ordenador: 230 V no son un valor de trabajo escolar.</li>
+            <li><strong>Nunca</strong> se usan pilas, baterías, cargadores ni acumuladores por iniciativa propia. Si una actividad necesitara otra fuente, la autoriza el profesorado y se comprueba que cumple MBTS.</li>
+            <li>La única fuente admitida es la que el profesorado entrega: se acepta su tensión, su límite de corriente y sus bornes tal como vienen indicados.</li>
+            <li>Tampoco se tocan aparatos conectados, ni se abren enchufes, ni se manipulan cables de la instalación del aula-taller, estén encendidos o apagados.</li>
+          </ul>
+        </div>
+        <p>Cada contacto con una parte activa es un <strong>contacto directo</strong>; tocar una carcasa metálica que se ha puesto en tensión por un fallo de aislamiento es un <strong>contacto indirecto</strong>.<sup><a href="#fuente_6">[6]</a></sup> Las dos situaciones se evitan con la misma estrategia general: no trabajar con tensión cuando se puede trabajar sin ella. En el aula, «trabajar sin tensión» significa <strong>apagar la fuente antes de cambiar cualquier conexión</strong>.</p>
+        <div class="t4-think"><strong>Razona con el caso:</strong> un LED solo deja pasar la corriente en un sentido. ¿Por qué eso puede servirnos como indicador de que la polaridad de la fuente está bien y de que la corriente circula en el sentido previsto, y no al revés?</div>
+      </section>
+
+      <section aria-labelledby="componentes">
+        <h2 id="componentes">5. Componentes y simbología: de la resistencia al transistor</h2>
+        <p>Los esquemas eléctricos no dibujan los objetos como son, sino que los sustituyen por <strong>símbolos normalizados</strong> que cualquier técnica o técnico entiende igual en cualquier país. La referencia internacional es la norma de símbolos gráficos para diagramas, mantenida por el comité técnico 3 de la Comisión Electrotécnica Internacional y consultable en su base de datos.<sup><a href="#fuente_9">[9]</a></sup> Dibujar un circuito con símbolos correctos es tan importante como montarlo bien: el esquema es lo que permitirá a otra persona reproducirlo.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Componentes del tema, símbolo, función, polaridad y precaución de montaje">
+          <table>
+            <caption>Componentes del tema, símbolo, función, polaridad y precaución de montaje</caption>
+            <thead><tr><th scope="col">Componente</th><th scope="col">Cómo se dibuja</th><th scope="col">Para qué sirve</th><th scope="col">¿Tiene polaridad?</th><th scope="col">Precaución</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Resistencia</strong></th><td>Rectángulo alargado (simbología europea) con un valor y una tolerancia asociados.</td><td>Limita la corriente, reparte tensión y fija niveles de señal.</td><td>No.</td><td>Comprobar el valor con el código de colores o con el óhmetro y elegir una potencia nominal suficiente.</td></tr>
+              <tr><th scope="row"><strong>Resistencia variable</strong></th><td>El mismo rectángulo atravesado por una flecha.</td><td>Permite ajustar una corriente o una tensión.</td><td>No.</td><td>Girarla sin forzar y fijar el valor antes de alimentar el circuito.</td></tr>
+              <tr><th scope="row"><strong>Condensador</strong></th><td>Dos líneas paralelas enfrentadas, separadas por un hueco; en los polarizados, una de ellas es curva.</td><td>Almacena carga, suaviza variaciones bruscas y produce retardos.</td><td>Solo los electrolíticos, que llevan marcado el negativo.</td><td>Respetar la polaridad y descargarlo antes de manipularlo: puede guardar carga aunque la fuente esté apagada.</td></tr>
+              <tr><th scope="row"><strong>Diodo</strong></th><td>Triángulo apoyado en una barra, con la corriente entrando por el lado del triángulo.</td><td>Deja pasar la corriente en un solo sentido y la bloquea en el contrario.</td><td>Sí: ánodo y cátodo.</td><td>Localizar la franja del cátodo en el cuerpo del componente antes de insertarlo.</td></tr>
+              <tr><th scope="row"><strong>LED</strong></th><td>Un diodo con dos flechas que salen de él, indicando que emite luz.</td><td>Transforma la corriente en luz y avisa del estado de un sistema.</td><td>Sí: patilla larga, ánodo; lado plano, cátodo.</td><td><strong>Siempre</strong> con una resistencia en serie; comprobar tensión y corriente en la hoja de características y no mirarlo de cerca ni con instrumentos ópticos.<sup><a href="#fuente_16">[16]</a></sup></td></tr>
+              <tr><th scope="row"><strong>Transistor</strong></th><td>Círculo con tres terminales —base, colector y emisor— y una flecha sobre el emisor.</td><td>Funciona como interruptor controlado: una corriente pequeña por la base permite el paso de otra mayor entre colector y emisor.</td><td>Sí: hay que identificar bien las tres patillas.</td><td>No intercambiar colector y emisor; comprobar la disposición de patillas en la hoja de características.</td></tr>
+              <tr><th scope="row"><strong>Interruptor o pulsador</strong></th><td>Un tramo de conductor con un contacto que se abre y se cierra.</td><td>Controla manualmente el paso de la corriente.</td><td>No.</td><td>Comprobar su estado, abierto o cerrado, midiendo continuidad antes de alimentar.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Leer el valor de una resistencia</h3>
+        <p>Las resistencias pequeñas llevan su valor impreso en forma de bandas de color. El código está normalizado internacionalmente y es el mismo en cualquier país.<sup><a href="#fuente_10">[10]</a></sup> En una resistencia de cuatro bandas, las dos primeras dan las cifras, la tercera el multiplicador y la cuarta la tolerancia.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Código de colores de las resistencias de cuatro bandas">
+          <table>
+            <caption>Código de colores de las resistencias de cuatro bandas</caption>
+            <thead><tr><th scope="col">Color</th><th scope="col">Cifra</th><th scope="col">Multiplicador (tercera banda)</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Negro</th><td>0</td><td>× 1 Ω</td></tr>
+              <tr><th scope="row">Marrón</th><td>1</td><td>× 10 Ω</td></tr>
+              <tr><th scope="row">Rojo</th><td>2</td><td>× 100 Ω</td></tr>
+              <tr><th scope="row">Naranja</th><td>3</td><td>× 1 kΩ</td></tr>
+              <tr><th scope="row">Amarillo</th><td>4</td><td>× 10 kΩ</td></tr>
+              <tr><th scope="row">Verde</th><td>5</td><td>× 100 kΩ</td></tr>
+              <tr><th scope="row">Azul</th><td>6</td><td>× 1 MΩ</td></tr>
+              <tr><th scope="row">Violeta</th><td>7</td><td>—</td></tr>
+              <tr><th scope="row">Gris</th><td>8</td><td>—</td></tr>
+              <tr><th scope="row">Blanco</th><td>9</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>En la cuarta banda, el <strong>dorado</strong> indica una tolerancia de ±5 % y el <strong>plateado</strong>, de ±10 %. Una tolerancia del 5 % sobre 330 Ω significa que la resistencia real estará entre 313 Ω y 347 Ω: si el cálculo sale ajustado, esa variación puede notarse en la medida.</p>
+        <ul>
+          <li>330 Ω = naranja, naranja, marrón + dorado (33 × 10 Ω).</li>
+          <li>220 Ω = rojo, rojo, marrón + dorado (22 × 10 Ω).</li>
+          <li>470 Ω = amarillo, violeta, marrón + dorado (47 × 10 Ω).</li>
+          <li>1 kΩ = marrón, negro, rojo + dorado (10 × 100 Ω).</li>
+        </ul>
+
+        <h3>El diodo y el LED: corriente en un solo sentido</h3>
+        <p>Un diodo conduce cuando se polariza en sentido directo —ánodo positivo respecto al cátodo— y bloquea el paso en sentido inverso.<sup><a href="#fuente_12">[12]</a></sup> El <strong>LED</strong> es un diodo que emite luz al conducir. Dos consecuencias prácticas: hay que respetar su polaridad, y hay que limitar su corriente, porque si se conecta directamente a la fuente intentará absorber toda la que esta pueda dar y terminará destruido.<sup><a href="#fuente_11">[11]</a></sup></p>
+        <p>Los datos que necesitamos no se adivinan: se leen en la hoja de características del LED. Allí aparecen la <strong>tensión directa</strong> (U<sub>LED</sub>, que depende del color: en torno a 2 V en los rojos y amarillos y unos 3 V en los azules y blancos) y la <strong>corriente máxima admisible</strong> (los LED indicadores de 5 mm suelen admitir del orden de 20 mA en funcionamiento continuo).<sup><a href="#fuente_11">[11]</a></sup> En el aula trabajamos con un valor de cálculo más conservador, 10 mA, y comprobamos siempre la hoja del componente que tengamos en la mano. Los LED actuales son dispositivos semiconductores muy eficientes, duran muchas más horas que las lámparas convencionales y admiten regulación de brillo y color.<sup><a href="#fuente_15">[15]</a></sup></p>
+
+        <h3>El condensador: guardar carga y suavizar la señal</h3>
+        <p>Un condensador almacena carga eléctrica. Su capacidad se mide en faradios (F), una unidad enorme para el tamaño de los componentes escolares, así que se trabaja con microfaradios (1 µF = 0,000 001 F), nanofaradios o picofaradios. Un condensador se opone a los cambios bruscos de tensión: por eso se usa para <strong>filtrar</strong> las variaciones de una fuente o para introducir un <strong>retardo</strong>, por ejemplo que la luz de «ocupado» se apague un instante después de que la pieza salga del puesto y no parpadee con cada vibración. Los electrolíticos tienen polaridad y pueden conservar carga después de apagar la fuente, así que se descargan antes de desmontarlos.<sup><a href="#fuente_14">[14]</a></sup></p>
+
+        <h3>El transistor como interruptor</h3>
+        <p>El transistor bipolar tiene tres terminales: base (B), colector (C) y emisor (E). Es tentador imaginarlo como un amplificador, pero en nuestra estación lo usamos como <strong>interruptor controlado</strong>: si no llega corriente a la base, entre colector y emisor no pasa nada y el LED permanece apagado; si llega una corriente pequeña por la base, el transistor se satura, se comporta casi como un cable cerrado y el LED luce con toda su intensidad.<sup><a href="#fuente_13">[13]</a></sup></p>
+        <p>Esto tiene una ventaja enorme: el circuito de control no necesita dar la corriente del LED, solo una fracción. Cuando en temas posteriores la señal venga de un sensor o de una salida de placa controladora —que no pueden entregar mucha corriente— el transistor seguirá siendo la pieza que se encargue del trabajo pesado.</p>
+        <div class="t4-note"><strong>Un dato para la hoja de características:</strong> en un transistor de silicio la unión base-emisor empieza a conducir en torno a 0,7 V. Ese valor, junto con la ganancia del transistor, permite calcular la resistencia de base; es una aproximación didáctica y hay que confirmarla con la hoja del componente concreto.</div>
+      </section>
+
+      <section aria-labelledby="montaje">
+        <h2 id="montaje">6. Del esquema al montaje: simulador y placa de pruebas</h2>
+        <p>Un circuito se construye en cuatro pasos y en un orden que no conviene alterar: primero se <strong>dibuja el esquema</strong> con símbolos, después se <strong>simula</strong> para comprobar los valores, después se <strong>monta</strong> sobre la placa de pruebas y por último se <strong>mide</strong> y se documenta. Cuando se hace al revés, el montaje deja de ser un experimento y se convierte en un tanteo.</p>
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">1 — Dibujar el esquema</div><p>Fuente, resistencia, LED, transistor y control, unidos con símbolos normalizados. Se anotan los valores previstos y se marca dónde se medirá.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">2 — Simular</div><p>Se reproduce el esquema en un simulador de circuitos y se comprueban tensiones y corrientes antes de tocar un componente real.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">3 — Preparar la placa y los componentes</div><p>Se identifican valores y polaridades, se comprueban con el óhmetro y se colocan los componentes con la fuente apagada.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">4 — Alimentar y observar</div><p>Se enciende la fuente, se comprueba que el LED responde al control y se anota si algo se calienta o huele de forma anormal.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">5 — Medir</div><p>Se miden tensiones e intensidades en los puntos marcados y se comparan con los valores del esquema y del simulador.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">6 — Registrar y corregir</div><p>Se anotan los valores reales, la versión del montaje y las diferencias; si algo no cuadra, se busca la causa antes de cambiar componentes al azar.</p></div>
+        </div>
+
+        <h3>La placa de pruebas: cómo está conectada por dentro</h3>
+        <p>La placa de pruebas (o <em>protoboard</em>) permite montar sin soldar. Por dentro esconde tiras metálicas: en la zona central, <strong>cada fila de cinco agujeros</strong> está unida entre sí, de modo que todo lo que se inserta en esa fila queda conectado. Un canal central separa las dos mitades y evita cortocircuitos entre las patillas enfrentadas. En los laterales, dos líneas de agujeros —los <strong>raíles</strong> o buses— recorren la placa en vertical y suelen reservarse para la alimentación: uno para el positivo y otro para el negativo.<sup><a href="#fuente_17">[17]</a></sup></p>
+        <ul>
+          <li>Cada componente se puentea entre dos filas distintas: si las dos patillas cayeran en la misma fila, quedarían cortocircuitadas y el componente no haría nada.</li>
+          <li>Los cables de la fuente van a los raíles; desde allí se reparte la alimentación a cada rama.</li>
+          <li>Se monta <strong>con la fuente apagada</strong> y se comprueba la continuidad de las conexiones antes de alimentar.</li>
+          <li>Los cables largos y cruzados dificultan encontrar un fallo: se ordenan por colores y por recorridos.</li>
+        </ul>
+
+        <h3>El simulador: qué comprueba y qué no</h3>
+        <p>Un simulador de circuitos como los que ofrecen entornos educativos permite dibujar el esquema, colocarlo sobre una placa virtual y leer tensiones y corrientes sin riesgo alguno.<sup><a href="#fuente_18">[18]</a></sup> Es una herramienta excelente para preparar el montaje y para entender el reparto de tensiones, pero no es la realidad:</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Qué comprueba el simulador y qué solo comprueba la medida real">
+          <table>
+            <caption>Qué comprueba el simulador y qué solo comprueba la medida real</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">El simulador lo resuelve bien</th><th scope="col">Solo la medida real lo confirma</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Valores eléctricos</th><td>Calcula tensiones e intensidades de un circuito correctamente dibujado.</td><td>Si el circuito que hemos montado es el mismo que el dibujado.</td></tr>
+              <tr><th scope="row">Componentes</th><td>Trabaja con valores ideales y perfectos.</td><td>Que la resistencia sea realmente de 330 Ω, con su tolerancia, y que el LED tenga la tensión directa de su hoja.</td></tr>
+              <tr><th scope="row">Conexiones</th><td>Supone contactos perfectos.</td><td>Que un agujero de la placa tenga buen contacto y que un cable no esté roto.</td></tr>
+              <tr><th scope="row">Calor y averías</th><td>No reproduce calentamientos ni componentes dañados.</td><td>Que nada se caliente, que el LED no se degrade y que la fuente no se sobrecargue.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-note"><strong>Del simulador no se fía nadie:</strong> un montaje está verificado cuando el polímetro confirma los valores previstos. El simulador acelera el diseño; la medida demuestra que el diseño se ha llevado bien a la realidad.</div>
+      </section>
+
+      <section aria-labelledby="senal">
+        <h2 id="senal">7. La señal luminosa de la estación: cálculo del LED y verificación</h2>
+        <div class="t4-note"><strong>Estado heredado del proyecto · versión V05.</strong> Del bloque A se conservan la arquitectura modular y los módulos reemplazables del organizador. En esta versión se añade el subsistema eléctrico de señalización. Son <strong>supuestos didácticos</strong> —no datos confirmados del proyecto— la tensión de la fuente aprobada (tomaremos 5 V como ejemplo), el número de puestos que llevarán señal y la elección concreta del LED; todos deben comprobarse con el material real del aula antes de darlos por buenos.</div>
+        <p>La estación necesita decir de un vistazo qué está ocurriendo. La señal luminosa cumple esa función y plantea tres decisiones de diseño antes de tocar un solo componente: <strong>qué estados</strong> debe distinguir, <strong>dónde</strong> debe verse y <strong>cómo</strong> se alimenta sin riesgo.</p>
+        <ul>
+          <li><strong>Qué estados:</strong> como mínimo, «puesto libre» y «puesto ocupado»; conviene distinguir también «estación fuera de servicio», que no es lo mismo que un puesto ocupado.</li>
+          <li><strong>Dónde:</strong> el LED debe verse desde la posición real de trabajo, sin obligar a inclinarse ni a acercarse, y sin quedar oculto por las piezas.</li>
+          <li><strong>Cómo se alimenta:</strong> desde la fuente SELV aprobada, con su resistencia limitadora y, si la señal se dispara con un sensor, con un transistor que haga de interruptor.</li>
+          <li><strong>Accesibilidad:</strong> el color no puede ser la única pista. La posición, un icono y una etiqueta con texto acompañan siempre al LED, y la verificación incluye comprobar que la señal se entiende sin depender de distinguir colores.<sup><a href="#fuente_15">[15]</a></sup></li>
+        </ul>
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable: esquema de la señal luminosa de la estación, con fuente de muy baja tensión, resistencia de base, transistor como interruptor, resistencia limitadora y LED, y dos puntos de medida señalados">
+          <img src="assets/tema05_circuito_senal.svg" alt="Esquema eléctrico de la señal luminosa: una fuente de muy baja tensión alimenta, a través de un pulsador y una resistencia de 4,7 kΩ, la base de un transistor NPN; el colector se conecta mediante una resistencia de 330 Ω y un LED al polo positivo, y el emisor al negativo. Se señalan dos puntos de medida, A entre los extremos de la resistencia y B entre los del LED.">
+          <figcaption>Esquema de la señal luminosa (versión V05). El LED y su resistencia van en serie; el transistor hace de interruptor y la corriente de base es mucho menor que la del LED.</figcaption>
+        </figure>
+
+        <h3>Ejemplo resuelto 6 · Calcular la resistencia del LED paso a paso</h3>
+        <p>Tenemos un LED rojo cuya hoja de características indica una tensión directa de 2,0 V y una corriente de trabajo de 10 mA. La fuente aprobada entrega 5 V. ¿Qué resistencia necesitamos?</p>
+        <ol>
+          <li><strong>Entender el reparto:</strong> LED y resistencia están en serie, así que la tensión de la fuente se reparte entre los dos. La resistencia debe quedarse con lo que el LED no necesita: U<sub>R</sub> = U<sub>fuente</sub> − U<sub>LED</sub> = 5 V − 2,0 V = <strong>3,0 V</strong>.</li>
+          <li><strong>Aplicar la ley de Ohm:</strong> queremos que por esa resistencia circulen 10 mA, que son 0,010 A. R = U<sub>R</sub> / I = 3,0 V / 0,010 A = <strong>300 Ω</strong>.</li>
+          <li><strong>Elegir un valor disponible:</strong> 300 Ω no está entre los valores que se fabrican habitualmente. Se elige el valor comercial más próximo <strong>que no aumente la corriente</strong>, es decir, el inmediatamente superior: <strong>330 Ω</strong>.</li>
+          <li><strong>Recalcular la corriente real:</strong> I = 3,0 V / 330 Ω = 0,009 09 A = <strong>9,1 mA</strong>. Está por debajo de los 10 mA previstos. Perfecto.</li>
+          <li><strong>Comprobar la potencia:</strong> P = U<sub>R</sub> · I = 3,0 V × 0,009 09 A ≈ 27 mW, muy lejos de los 250 mW de una resistencia habitual. No hay peligro de calentamiento.</li>
+          <li><strong>Comprobar la elección rechazada:</strong> con 220 Ω, la corriente sería 3,0 V / 220 Ω = 13,6 mA, por encima de la corriente de trabajo del LED. Habría lucido algo más, y su vida se habría acortado. Esa es la razón de no bajar nunca al valor inferior «para que luzca más».</li>
+        </ol>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Elección de la resistencia del LED según su color y la tensión de la fuente aprobada">
+          <table>
+            <caption>Elección de la resistencia del LED según su color y la tensión de la fuente aprobada</caption>
+            <thead><tr><th scope="col">LED (valores de la hoja)</th><th scope="col">Fuente SELV</th><th scope="col">R calculada</th><th scope="col">R elegida</th><th scope="col">Corriente resultante</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Rojo · U<sub>LED</sub> = 2,0 V</th><td>5 V</td><td>300 Ω</td><td>330 Ω</td><td>9,1 mA</td></tr>
+              <tr><th scope="row">Verde · U<sub>LED</sub> = 2,2 V</th><td>5 V</td><td>280 Ω</td><td>330 Ω</td><td>8,5 mA</td></tr>
+              <tr><th scope="row">Azul · U<sub>LED</sub> = 3,1 V</th><td>5 V</td><td>190 Ω</td><td>220 Ω</td><td>8,6 mA</td></tr>
+              <tr><th scope="row">Rojo · U<sub>LED</sub> = 2,0 V</th><td>9 V</td><td>700 Ω</td><td>820 Ω</td><td>8,5 mA</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Todos los valores de la tabla se han calculado con el mismo procedimiento y en todos los casos la corriente resultante queda por debajo de la corriente de trabajo del LED. Los datos de partida son supuestos didácticos: la tensión real de cada LED se lee en su hoja, y con ella se repite el cálculo.</p>
+
+        <h3>Ejemplo resuelto 7 · La resistencia de base del transistor</h3>
+        <p>Queremos que el transistor encienda el LED anterior cuando se cierre un pulsador conectado a los 5 V. ¿Qué resistencia hay que poner entre el pulsador y la base?</p>
+        <ol>
+          <li><strong>Corriente que debe controlar:</strong> por el colector circularán unos 9,1 mA, los mismos que calculamos para el LED.</li>
+          <li><strong>Corriente de base suficiente:</strong> el transistor amplifica la corriente, con ganancias que suelen ser de un centenar de veces. Con una corriente de base de 1 mA se garantiza de sobra la saturación, aunque el transistor concreto sea poco «generoso». Se toma 1 mA como valor de cálculo.</li>
+          <li><strong>Restar la tensión de la unión:</strong> entre base y emisor caen aproximadamente 0,7 V, así que la resistencia se queda con 5 V − 0,7 V = 4,3 V.</li>
+          <li><strong>Aplicar la ley de Ohm:</strong> R = 4,3 V / 0,001 A = 4 300 Ω = 4,3 kΩ.</li>
+          <li><strong>Elegir el valor disponible:</strong> se escoge <strong>4,7 kΩ</strong>, el valor comercial más próximo. La corriente de base real será 4,3 V / 4 700 Ω ≈ 0,91 mA.</li>
+          <li><strong>Comprobar el margen:</strong> 0,91 mA por un centenar de veces de ganancia son unos 91 mA disponibles, mucho más de los 9,1 mA que necesita el LED. El transistor se saturará con holgura y el LED lucirá a plena intensidad.</li>
+        </ol>
+
+        <h3>Ejemplo resuelto 8 · Dos LED y una sola fuente</h3>
+        <p>¿Podemos encender dos LED rojos de 2,0 V con la fuente de 5 V?</p>
+        <ol>
+          <li><strong>En serie:</strong> las tensiones directas se suman: 2,0 V + 2,0 V = 4,0 V. La resistencia se queda con 1,0 V y, si queremos 10 mA, debe valer 1,0 V / 0,010 A = 100 Ω. Elegimos <strong>120 Ω</strong> para quedarnos por debajo: la corriente real será 1,0 V / 120 Ω = <strong>8,3 mA</strong>. Los dos LED lucen igual, pero comparten el mismo camino: si uno falla, se apagan los dos.</li>
+          <li><strong>En paralelo:</strong> cada LED necesita su propia resistencia de 330 Ω y su propia rama. La corriente total de la fuente será la suma de las dos ramas, unos 18 mA. Es más cableado, pero cada señal es independiente.</li>
+          <li><strong>Lo que no se hace:</strong> dos LED en paralelo con una única resistencia compartida. La corriente se repartiría de forma imprevisible y uno de los dos podría dañarse.</li>
+        </ol>
+
+        <h3>Verificar la señal con datos, no con impresiones</h3>
+        <p>Que el LED luzca no demuestra que el circuito esté bien. La verificación consiste en medir y comparar con lo previsto. Antes de dar la versión V05 por buena, el equipo registra estos datos:</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Plan de verificación de la señal luminosa con valores previstos y criterios de aceptación">
+          <table>
+            <caption>Plan de verificación de la señal luminosa con valores previstos y criterios de aceptación</caption>
+            <thead><tr><th scope="col">Qué se comprueba</th><th scope="col">Cómo se mide</th><th scope="col">Valor previsto</th><th scope="col">Criterio de aceptación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Tensión de la fuente</th><td>Polímetro en CC, en paralelo con los bornes de la fuente.</td><td>La que indique el profesorado para la fuente aprobada.</td><td>Coincide con el valor de trabajo y no se modifica durante la prueba.</td></tr>
+              <tr><th scope="row">Tensión entre los extremos de la resistencia (punto A)</th><td>Polímetro en CC, en paralelo con la resistencia.</td><td>3,0 V</td><td>±10 % respecto al previsto.</td></tr>
+              <tr><th scope="row">Tensión del LED (punto B)</th><td>Polímetro en CC, en paralelo con el LED.</td><td>2,0 V</td><td>Coherente con la hoja de características del LED utilizado.</td></tr>
+              <tr><th scope="row">Corriente del LED</th><td>I = U<sub>R</sub> / R con la tensión medida en A, o amperímetro en serie si el docente lo autoriza.</td><td>9,1 mA</td><td>Igual o menor que la corriente de trabajo del LED.</td></tr>
+              <tr><th scope="row">Comparación con la simulación</th><td>Se contrasta la lectura real con la del simulador del mismo esquema.</td><td>Mismos valores dentro del margen.</td><td>Diferencias explicadas por la tolerancia de la resistencia y por la tensión directa real del LED.</td></tr>
+              <tr><th scope="row">Calentamiento</th><td>Observación y tacto con la fuente ya apagada, tras unos minutos de funcionamiento.</td><td>Sin calentamiento apreciable.</td><td>Ningún componente caliente ni olor anómalo durante la prueba.</td></tr>
+              <tr><th scope="row">Legibilidad de la señal</th><td>Prueba con una persona ajena al equipo desde la posición de trabajo.</td><td>Estado identificable a simple vista.</td><td>Se distingue el estado sin depender solo del color y sin acercarse al LED.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-think"><strong>Razona con el caso:</strong> ¿por qué la corriente medida suele quedar un poco por debajo de la calculada? Piensa en la tolerancia de la resistencia (±5 %), en la tensión directa real del LED y en la caída de tensión de los cables y del transistor. Una diferencia pequeña y explicada es un dato; una diferencia grande y sin explicación es un problema.</div>
+      </section>
+
+      <section aria-labelledby="seguridad">
+        <h2 id="seguridad">8. Medir con el polímetro y trabajar con seguridad</h2>
+        <p>El polímetro es el instrumento que convierte nuestras suposiciones en datos. Mide tensión, intensidad, resistencia y continuidad, pero cada magnitud exige una conexión distinta: si se conecta mal, la lectura es falsa y el instrumento puede dañarse.<sup><a href="#fuente_19">[19]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Cómo conectar el polímetro para cada medida y qué precaución exige">
+          <table>
+            <caption>Cómo conectar el polímetro para cada medida y qué precaución exige</caption>
+            <thead><tr><th scope="col">Qué queremos saber</th><th scope="col">Función del polímetro</th><th scope="col">Cómo se conecta</th><th scope="col">Precaución</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Tensión entre dos puntos</th><td>V en corriente continua (V⎓)</td><td>En <strong>paralelo</strong>, punta positiva en el punto de mayor potencial, con el circuito en funcionamiento.</td><td>Elegir un rango superior al valor esperado; si se desconoce, empezar por el más alto.</td></tr>
+              <tr><th scope="row">Intensidad que atraviesa un componente</th><td>mA en corriente continua</td><td>En <strong>serie</strong>: hay que abrir el circuito y hacer que la corriente pase por el instrumento.</td><td>Colocar bien los bornes del polímetro y volver a cerrar el circuito a través de él; solo con autorización del docente.</td></tr>
+              <tr><th scope="row">Resistencia de un componente</th><td>Ω</td><td>Componente <strong>desconectado del circuito y sin tensión</strong>, con las puntas en sus dos patillas.</td><td>Nunca con el circuito alimentado; no tocar las puntas con los dedos, porque el cuerpo altera la lectura.</td></tr>
+              <tr><th scope="row">Si un cable o un contacto conduce</th><td>Continuidad (zumbido)</td><td>En las dos puntas del tramo, <strong>sin tensión</strong>.</td><td>Perfecto para descubrir un cable roto o un interruptor mal colocado antes de alimentar.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Truco de medida segura para este proyecto: para conocer la corriente del LED no hace falta romper el circuito. Basta medir la tensión entre los extremos de su resistencia y dividir por el valor de la resistencia. Es una lectura en paralelo, más sencilla y menos expuesta a errores de conexión.</p>
+
+        <h3>Las reglas de trabajo de la estación</h3>
+        <ol>
+          <li><strong>Solo con la fuente autorizada.</strong> Se trabaja con la fuente de muy baja tensión de seguridad que entrega el profesorado; nunca con la red eléctrica, ni con un enchufe, ni con una fuente de ordenador o de cargador.</li>
+          <li><strong>Nada de pilas ni baterías por iniciativa propia.</strong> Si una actividad las necesitara, la fuente la autoriza el profesorado y se comprueba que cumple las condiciones de MBTS.</li>
+          <li><strong>Montar siempre sin tensión.</strong> La fuente se apaga antes de colocar, mover o retirar cualquier componente, y se espera a que los condensadores se descarguen.</li>
+          <li><strong>Revisar cables y puntas.</strong> Un conductor pelado, una punta floja o un cable roto se retiran y se avisa; no se reparan con cinta improvisada.</li>
+          <li><strong>Superficie seca y manos secas</strong>, sin anillos, pulseras, colgantes ni mangas sueltas que puedan engancharse o cerrar un contacto.</li>
+          <li><strong>Comprobar polaridades</strong> de la fuente, del LED, del diodo y de los condensadores electrolíticos antes de alimentar el circuito.</li>
+          <li><strong>Respetar los límites de los componentes:</strong> valor y potencia de cada resistencia, corriente máxima de cada LED, tensión admisible de cada condensador.</li>
+          <li><strong>Evitar cortocircuitos.</strong> Nunca se unen los dos terminales de la fuente con un cable ni se conecta un componente sin resistencia. Ante calor, olor, humo o un comportamiento extraño: apagar la fuente, avisar y no tocar hasta que se enfríe.</li>
+          <li><strong>Trabajar con supervisión.</strong> Antes de una prueba nueva se explica qué se va a medir, con qué rango y qué se espera obtener.</li>
+          <li><strong>Una prueba cada vez.</strong> Si algo no funciona, se desconecta, se revisa el esquema y se comprueba conexión por conexión; no se acumulan tentativas «a ver si suena la flauta».</li>
+        </ol>
+        <div class="aviso"><strong>Detente y avisa si…</strong> notas calor, olor a quemado, humo o chispas; un cable o una punta se calienta; la fuente se apaga sola o se queda limitada; un componente cambia de color; o simplemente no entiendes qué está pasando. Se apaga la fuente, se deja enfriar y se avisa al profesorado. Ninguna práctica merece una quemadura ni un componente en llamas.</div>
+        <p>Estas reglas se aplican a un circuito de pocos voltios, porque un montaje pequeño también puede deteriorarse: un LED conectado sin resistencia se destruye en segundos, un condensador cargado descarga a través del dedo y una fuente sometida a un cortocircuito se calienta. La seguridad no depende de la tensión: depende de respetar siempre el mismo procedimiento.</p>
+        <h3>Registro de medidas de la puesta en servicio</h3>
+        <p>Los datos se anotan en la documentación del proyecto en cuanto se obtienen, no al final de la sesión. Esta tabla vacía puede copiarse en la memoria de la estación:</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Registro de medidas de la puesta en servicio, para completar por el equipo">
+          <table>
+            <caption>Registro de medidas de la puesta en servicio (para completar por el equipo)</caption>
+            <thead><tr><th scope="col">Punto de medida</th><th scope="col">Valor previsto</th><th scope="col">Valor medido</th><th scope="col">Instrumento y rango</th><th scope="col">Conclusión</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Tensión de la fuente</th><td>Según la fuente aprobada</td><td></td><td></td><td></td></tr>
+              <tr><th scope="row">Tensión en la resistencia (punto A)</th><td>3,0 V</td><td></td><td></td><td></td></tr>
+              <tr><th scope="row">Tensión en el LED (punto B)</th><td>≈ 2,0 V</td><td></td><td></td><td></td></tr>
+              <tr><th scope="row">Corriente calculada del LED</th><td>≈ 9,1 mA</td><td></td><td></td><td></td></tr>
+              <tr><th scope="row">Resistencia real de la resistencia limitadora</th><td>330 Ω ± 5 %</td><td></td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="comprueba">
+        <h2 id="comprueba">Comprueba lo que has aprendido</h2>
+        <p>Tu trabajo estará bien resuelto si no te limitas a que el LED luzca: debes poder explicar por qué luzca y demostrar con medidas que el circuito hace lo que se había previsto. Estas son las metas del tema y las evidencias con las que se reconocen.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Metas de aprendizaje del tema y evidencias que las demuestran">
+          <table>
+            <caption>Metas de aprendizaje del tema y evidencias que las demuestran</caption>
+            <thead><tr><th scope="col">Meta</th><th scope="col">Qué debes demostrar</th><th scope="col">Evidencias posibles</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Comprender el circuito</strong></th><td>Explicar con tus palabras qué hace cada componente y qué magnitud eléctrica interviene en cada punto.</td><td>Esquema dibujado con símbolos normalizados, anotaciones de valores y explicación escrita del funcionamiento.</td></tr>
+              <tr><th scope="row"><strong>Calcular</strong></th><td>Aplicar la ley de Ohm y las reglas de serie y paralelo para obtener los valores del circuito.</td><td>Ejercicios resueltos paso a paso, incluido el cálculo de la resistencia del LED y el de la resistencia de base.</td></tr>
+              <tr><th scope="row"><strong>Decidir con fundamento</strong></th><td>Elegir entre valores comerciales justificando la decisión y rechazando la alternativa que supera los límites del componente.</td><td>Comparación de dos valores de resistencia con la corriente resultante de cada uno.</td></tr>
+              <tr><th scope="row"><strong>Simular y montar</strong></th><td>Reproducir el circuito en el simulador y montarlo en la placa de pruebas siguiendo el esquema.</td><td>Captura del simulador, fotografía del montaje y esquema actualizado si hubo que cambiar algo.</td></tr>
+              <tr><th scope="row"><strong>Medir con seguridad</strong></th><td>Medir tensiones y corriente con el polímetro, respetando las reglas de trabajo con baja tensión.</td><td>Tabla de registro completa, con valores previstos y medidos, instrumento y rango empleados.</td></tr>
+              <tr><th scope="row"><strong>Verificar y mejorar</strong></th><td>Comparar lo medido con lo previsto, explicar las diferencias y proponer una mejora de la señal.</td><td>Conclusión de la prueba, diferencias explicadas y propuesta concreta de mejora de la estación.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Autoevaluación</h3>
+        <p>Marca con sinceridad cómo te encuentras en cada punto antes de entregar el trabajo. Los que marques como «con ayuda» o «todavía no» indican dónde conviene volver a practicar.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Puntos de autoevaluación del tema con tres niveles de seguridad">
+          <table>
+            <caption>Puntos de autoevaluación del tema</caption>
+            <thead><tr><th scope="col">Puedo hacerlo…</th><th scope="col">Sin ayuda</th><th scope="col">Con ayuda</th><th scope="col">Todavía no</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Dar la unidad y el símbolo de tensión, intensidad, resistencia y potencia.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Usar la ley de Ohm en sus tres formas y comprobar el resultado.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Distinguir serie y paralelo y calcular la resistencia equivalente.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Explicar por qué solo se trabaja con una fuente de muy baja tensión de seguridad.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Reconocer los símbolos de resistencia, condensador, diodo, LED y transistor.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Calcular la resistencia limitadora de un LED y elegir un valor comercial justificando la elección.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Montar el circuito en la placa de pruebas sin dejar ninguna conexión suelta.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Medir con el polímetro en paralelo y en serie sin dañar el instrumento.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Comparar el valor medido con el previsto y explicar la diferencia.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Aplicar las reglas de seguridad del aula antes de alimentar un circuito.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Amperio</dt><dd>Unidad de intensidad de corriente en el Sistema Internacional; se simboliza con A.</dd>
+          <dt>Ánodo</dt><dd>Terminal por el que entra la corriente en un diodo o en un LED cuando está polarizado en sentido directo.</dd>
+          <dt>Cátodo</dt><dd>Terminal por el que sale la corriente en un diodo o en un LED; se identifica por la franja del componente.</dd>
+          <dt>Circuito</dt><dd>Camino cerrado formado por fuente, conductores, componentes y elementos de control por el que circula corriente.</dd>
+          <dt>Condensador</dt><dd>Componente que almacena carga eléctrica y suaviza o retrasa los cambios de tensión.</dd>
+          <dt>Contacto directo</dt><dd>Contacto con una parte activa que está en tensión.</dd>
+          <dt>Contacto indirecto</dt><dd>Contacto con una parte metálica que se ha puesto en tensión por un fallo de aislamiento.</dd>
+          <dt>Corriente alterna</dt><dd>Corriente cuya polaridad se invierte periódicamente; es la de la red eléctrica.</dd>
+          <dt>Corriente continua</dt><dd>Corriente de polaridad constante; es la de nuestras fuentes de baja tensión y la de los circuitos de señal.</dd>
+          <dt>Diodo</dt><dd>Componente que permite el paso de la corriente en un sentido y lo bloquea en el contrario.</dd>
+          <dt>Intensidad</dt><dd>Cantidad de carga que atraviesa una sección del conductor por unidad de tiempo; se simboliza con I y se mide en amperios.</dd>
+          <dt>LED</dt><dd>Diodo que emite luz al conducir en sentido directo; siempre necesita una resistencia que limite su corriente.</dd>
+          <dt>Ley de Ohm</dt><dd>Relación U = I · R, válida en componentes óhmicos a temperatura constante.</dd>
+          <dt>Muy baja tensión de seguridad</dt><dd>Instalación que trabaja por debajo de los 50 V en corriente alterna o los 75 V en continua, con fuente separada de la red y condiciones de aislamiento definidas.</dd>
+          <dt>Ohmio</dt><dd>Unidad de resistencia eléctrica; se simboliza con Ω.</dd>
+          <dt>Paralelo</dt><dd>Asociación de componentes que comparten los dos nodos y, por tanto, la misma tensión.</dd>
+          <dt>Placa de pruebas</dt><dd>Placa con tiras metálicas internas que permite montar circuitos sin soldar.</dd>
+          <dt>Polímetro</dt><dd>Instrumento que mide tensión, intensidad, resistencia y continuidad, con una conexión diferente para cada magnitud.</dd>
+          <dt>Potencia</dt><dd>Energía transformada por unidad de tiempo; se calcula como P = U · I y se mide en vatios.</dd>
+          <dt>Resistencia</dt><dd>Oposición al paso de la corriente; también es el nombre del componente que cumple esa función.</dd>
+          <dt>Resistencia equivalente</dt><dd>Resistencia única que sustituiría a un conjunto de componentes produciendo el mismo efecto.</dd>
+          <dt>Serie</dt><dd>Asociación de componentes que comparten un nodo y son recorridos por la misma corriente.</dd>
+          <dt>Simulación</dt><dd>Reproducción del circuito en un programa que calcula su comportamiento antes de montarlo.</dd>
+          <dt>Tensión</dt><dd>Energía que la fuente entrega a cada unidad de carga entre dos puntos; se mide en voltios.</dd>
+          <dt>Transistor</dt><dd>Componente de tres terminales que, usado como interruptor, deja pasar una corriente mayor cuando recibe una corriente pequeña por la base.</dd>
+          <dt>Vatio</dt><dd>Unidad de potencia; se simboliza con W.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Un circuito necesita un camino cerrado. La fuente aporta la tensión, los conductores la llevan, los componentes la transforman y el control decide cuándo pasa la corriente.</li>
+          <li>Tensión, intensidad, resistencia y potencia tienen símbolo, unidad e instrumento propios; confundirlos es el origen de la mayoría de los errores de cálculo.</li>
+          <li>La ley de Ohm (U = I · R) permite calcular la magnitud que falta, pero solo describe componentes óhmicos: un LED no la cumple y por eso necesita una resistencia en serie.</li>
+          <li>En serie la corriente es la misma y la tensión se reparte; en paralelo la tensión es la misma y la corriente se reparte. La resistencia equivalente crece en serie y disminuye en paralelo.</li>
+          <li>En el aula se trabaja únicamente con una fuente de muy baja tensión de seguridad aprobada por el profesorado. La red eléctrica y las baterías no autorizadas quedan fuera de toda práctica.</li>
+          <li>Los componentes se representan con símbolos normalizados; el esquema es el documento que permite reproducir el montaje sin ambigüedad.</li>
+          <li>El condensador guarda carga y suaviza variaciones, el diodo y el LED conducen en un solo sentido y el transistor funciona como interruptor controlado por una corriente pequeña.</li>
+          <li>Elegir la resistencia de un LED es un cálculo en tres pasos: restar su tensión directa a la de la fuente, dividir por la corriente de trabajo y subir al valor comercial inmediatamente superior.</li>
+          <li>El simulador acelera el diseño, pero solo la medida con el polímetro demuestra que el circuito montado funciona: la tensión se mide en paralelo, la intensidad en serie y la resistencia sin tensión.</li>
+          <li>La señal luminosa de la estación solo se da por buena cuando los valores medidos coinciden con los previstos, nada se calienta y el estado se identifica sin depender únicamente del color.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_1">[1] <a href="https://www.bipm.org/en/publications/si-brochure">Oficina Internacional de Pesas y Medidas (BIPM) — <em>The International System of Units (SI)</em>, folleto oficial</a> (en inglés; definiciones de las unidades eléctricas, entre ellas el amperio).</li>
+          <li id="fuente_2">[2] <a href="https://www.nist.gov/publications/guide-use-international-system-units-si">NIST — <em>Guide for the Use of the International System of Units (SI)</em></a> (en inglés; reglas de escritura de unidades, símbolos y prefijos).</li>
+          <li id="fuente_3">[3] <a href="https://learn.sparkfun.com/tutorials/voltage-current-resistance-and-ohms-law">SparkFun Learn — <em>Voltage, Current, Resistance, and Ohm's Law</em></a> (en inglés; magnitudes eléctricas y aplicación de la ley de Ohm).</li>
+          <li id="fuente_4">[4] <a href="https://learn.sparkfun.com/tutorials/series-and-parallel-circuits">SparkFun Learn — <em>Series and Parallel Circuits</em></a> (en inglés; definición de serie y paralelo y cálculo de resistencias equivalentes).</li>
+          <li id="fuente_5">[5] <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099">Boletín Oficial del Estado — Reglamento electrotécnico para baja tensión (texto consolidado)</a>: límites de tensión, valores usuales de 230 V y 400 V y frecuencia de 50 Hz.</li>
+          <li id="fuente_6">[6] <a href="https://www.insst.es/materias/riesgos/seguridad-en-el-trabajo/riesgo-electrico">Instituto Nacional de Seguridad y Salud en el Trabajo (INSST) — Riesgo eléctrico</a>: efectos de la corriente en el cuerpo humano, contacto directo e indirecto y clasificación de las instalaciones por niveles de tensión.</li>
+          <li id="fuente_7">[7] <a href="https://www.insst.es/materias/riesgos/seguridad-en-el-trabajo/riesgo-electrico/faq">INSST — Preguntas técnicas frecuentes sobre riesgo eléctrico</a>: condiciones de las instalaciones de muy baja tensión de seguridad y protección frente a contactos directos e indirectos.</li>
+          <li id="fuente_8">[8] <a href="https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/11-serie-ntp-numeros-366-a-400-ano-1996/ntp-400-corriente-electrica-efectos-al-atravesar-el-organismo-humano">INSST — Nota Técnica de Prevención 400: corriente eléctrica, efectos al atravesar el organismo humano</a> (documento en PDF).</li>
+          <li id="fuente_9">[9] <a href="https://tc3.iec.ch/standard-as-database/">Comisión Electrotécnica Internacional, comité técnico 3 — base de datos de símbolos gráficos para diagramas (norma IEC 60617)</a> (en inglés).</li>
+          <li id="fuente_10">[10] <a href="https://webstore.iec.ch/en/publication/25395">IEC — norma IEC 60062, códigos de marcado de resistencias y condensadores</a> (en inglés; presentación de la norma, de pago).</li>
+          <li id="fuente_11">[11] <a href="https://learn.sparkfun.com/tutorials/light-emitting-diodes-leds">SparkFun Learn — <em>Light-Emitting Diodes (LEDs)</em></a> (en inglés; tensión directa, corriente admisible y necesidad de una resistencia limitadora).</li>
+          <li id="fuente_12">[12] <a href="https://learn.sparkfun.com/tutorials/diodes">SparkFun Learn — <em>Diodes</em></a> (en inglés; comportamiento del diodo en polarización directa e inversa).</li>
+          <li id="fuente_13">[13] <a href="https://learn.sparkfun.com/tutorials/transistors">SparkFun Learn — <em>Transistors</em></a> (en inglés; terminales del transistor bipolar y su uso como interruptor).</li>
+          <li id="fuente_14">[14] <a href="https://learn.sparkfun.com/tutorials/capacitors">SparkFun Learn — <em>Capacitors</em></a> (en inglés; almacenamiento de carga, unidades y polaridad de los condensadores electrolíticos).</li>
+          <li id="fuente_15">[15] <a href="https://www.energy.gov/cmei/ssl/led-basics">Departamento de Energía de los Estados Unidos — <em>LED Basics</em></a> (en inglés; eficiencia, vida útil y regulación de brillo y color de los LED).</li>
+          <li id="fuente_16">[16] <a href="https://www.hse.gov.uk/radiation/optical/index.htm">Health and Safety Executive (Reino Unido) — radiación óptica: riesgos y evaluación</a> (en inglés; efectos de la radiación óptica sobre ojos y piel y necesidad de evaluar la fuente antes de exponerse).</li>
+          <li id="fuente_17">[17] <a href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard">SparkFun Learn — <em>How to Use a Breadboard</em></a> (en inglés; filas conectadas por dentro, canal central y raíles de alimentación).</li>
+          <li id="fuente_18">[18] <a href="https://www.tinkercad.com/circuits">Autodesk Tinkercad — <em>Circuits</em></a> (simulador de circuitos en el navegador, con placa de pruebas virtual).</li>
+          <li id="fuente_19">[19] <a href="https://learn.sparkfun.com/tutorials/how-to-use-a-multimeter">SparkFun Learn — <em>How to Use a Multimeter</em></a> (en inglés; medida de tensión en paralelo, de intensidad en serie, de resistencia y de continuidad).</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema04.html">← Tema 4</a>
+  <a href="tema06.html">Tema 6 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>

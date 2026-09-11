@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 566" role="img" aria-labelledby="title desc">
+<title id="title">La estación: energía, señal y actuación</title><desc id="desc">Diagrama de la estación automática de clasificación y señalización. Arriba, la cadena de energía: fuente de energía, actuador, mecanismos y carga. En medio, la cadena de señal: elementos de mando y medida y lógica de control, que ordena al actuador cuándo moverse. Abajo, la protección: resguardo y enclavamiento, parada y bloqueo, y descarga de energías.</desc>
+<defs><marker id="m" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#1a6b7a"/></marker></defs>
+<rect width="900" height="566" rx="24" fill="#f7faf8"/>
+<text x="450" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#18384a">La estación: energía, señal y actuación</text>
+<text x="450" y="66" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#466a75">Tres cadenas se diseñan juntas: la energía mueve, la señal decide y la protección cuida.</text>
+
+<rect x="30" y="86" width="840" height="112" rx="14" fill="#eef6f5" stroke="#bfdcdc" stroke-width="2"/>
+<text x="46" y="108" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#14625f" letter-spacing="1">CADENA DE ENERGÍA</text>
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="46" y="120" width="176" height="64" rx="10"/>
+<rect x="262" y="120" width="176" height="64" rx="10"/>
+<rect x="478" y="120" width="176" height="64" rx="10"/>
+<rect x="694" y="120" width="176" height="64" rx="10"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<text x="134" y="150" font-size="15" font-weight="700" fill="#14495c">Fuente de energía</text>
+<text x="134" y="173" font-size="13" fill="#3f6672">eléctrica o neumática</text>
+<text x="350" y="150" font-size="15" font-weight="700" fill="#14495c">Actuador</text>
+<text x="350" y="173" font-size="13" fill="#3f6672">motor · cilindro neumático</text>
+<text x="566" y="150" font-size="15" font-weight="700" fill="#14495c">Mecanismos</text>
+<text x="566" y="173" font-size="13" fill="#3f6672">transmiten · transforman</text>
+<text x="782" y="150" font-size="15" font-weight="700" fill="#14495c">Carga</text>
+<text x="782" y="173" font-size="13" fill="#3f6672">bandeja que se mueve</text>
+</g>
+<g stroke="#1a6b7a" stroke-width="3" marker-end="url(#m)">
+<line x1="224" y1="152" x2="258" y2="152"/>
+<line x1="440" y1="152" x2="474" y2="152"/>
+<line x1="656" y1="152" x2="690" y2="152"/>
+</g>
+
+<rect x="30" y="214" width="840" height="112" rx="14" fill="#f1f3fb" stroke="#cfd3ec" stroke-width="2"/>
+<text x="46" y="236" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#4a4e9c" letter-spacing="1">CADENA DE SEÑAL</text>
+<g stroke="#6b6fc4" stroke-width="2" fill="#ffffff">
+<rect x="46" y="248" width="280" height="64" rx="10"/>
+<rect x="358" y="248" width="280" height="64" rx="10"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<text x="186" y="278" font-size="15" font-weight="700" fill="#3b3f85">Mandos y medidas</text>
+<text x="186" y="301" font-size="13" fill="#5a5e9e">pulsador · final de carrera</text>
+<text x="498" y="278" font-size="15" font-weight="700" fill="#3b3f85">Lógica de control</text>
+<text x="498" y="301" font-size="13" fill="#5a5e9e">decide a partir de la señal (Temas 5 y 6)</text>
+</g>
+<path d="M498 244 L498 202 L350 202 L350 190" fill="none" stroke="#6b6fc4" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#m)"/>
+<g font-family="system-ui,sans-serif" font-size="14" fill="#4a4e9c">
+<text x="664" y="272">La señal no aporta energía:</text>
+<text x="664" y="294">ordena al actuador cuándo</text>
+<text x="664" y="316">y cuánto debe moverse.</text>
+</g>
+
+<rect x="30" y="342" width="840" height="112" rx="14" fill="#fff1d5" stroke="#c6922d" stroke-width="2"/>
+<text x="46" y="364" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#7b4b1a" letter-spacing="1">PROTECCIÓN: SE DISEÑA CON LA MÁQUINA, NO SE AÑADE AL FINAL</text>
+<g stroke="#c6922d" stroke-width="2" fill="#fffdf5">
+<rect x="46" y="376" width="270" height="64" rx="10"/>
+<rect x="342" y="376" width="250" height="64" rx="10"/>
+<rect x="618" y="376" width="252" height="64" rx="10"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<text x="181" y="406" font-size="15" font-weight="700" fill="#6b4218">Resguardo y enclavamiento</text>
+<text x="181" y="429" font-size="13" fill="#7b5a2e">impide el atrapamiento</text>
+<text x="467" y="406" font-size="15" font-weight="700" fill="#6b4218">Parada y bloqueo</text>
+<text x="467" y="429" font-size="13" fill="#7b5a2e">detén, corta y etiqueta</text>
+<text x="744" y="406" font-size="15" font-weight="700" fill="#6b4218">Descarga de energías</text>
+<text x="744" y="429" font-size="13" fill="#7b5a2e">sin presión ni tensión</text>
+</g>
+
+<text x="450" y="492" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#7b4b1a">Antes de intervenir: parar, bloquear, descargar y comprobar la ausencia de energía.</text>
+<rect x="30" y="506" width="840" height="42" rx="12" fill="#e7f3f6" stroke="#b8dae1" stroke-width="2"/>
+<text x="450" y="533" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#164d5f">Recorrido de lectura: sigue primero la energía y después la señal; la protección acompaña a las dos.</text>
+</svg>

@@ -1,27 +1,615 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 6 del Bloque B de Tecnología de 4.º de la ESO: Cómo se representa la información en binario y cómo se diseñan circuitos combinacionales con puertas lógicas.">
-<title>Tema 6. Electrónica digital básica · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 6 del Bloque B de Tecnología de 4.º de la ESO: señal digital y niveles lógicos, sistema binario, puertas lógicas, tablas de verdad, expresiones booleanas, simplificación y diseño de circuitos combinacionales sencillos con simuladores.">
+  <title>Tema 6. Electrónica digital básica · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 06 · Bloque B · Operadores tecnológicos</p><h1>Tema 6. Electrónica digital básica</h1><p class="hero-lead">Cómo se representa la información en binario y cómo se diseñan circuitos con puertas lógicas.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>4.1, 5.1</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>señal digital y niveles lógicos; sistema binario.</li><li>funciones lógicas: AND, OR, NOT, NAND, NOR y XOR.</li><li>tablas de verdad y expresiones booleanas; simplificación de funciones.</li><li>implementación con puertas lógicas y con simuladores.</li><li>diseño, análisis e implementación de circuitos combinacionales sencillos.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque B «Operadores tecnológicos» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>4.1, 5.1</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema05.html">← Tema 5</a><a href="tema07.html">Tema 7 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 06 · Bloque B · Operadores tecnológicos</p>
+        <h1>Tema 6. Electrónica digital básica</h1>
+        <p class="hero-lead">Cómo se representa la información con dos estados, cómo se combinan las puertas lógicas y cómo se diseña y se verifica la lógica de permiso y alarma de una máquina.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 6">
+        <strong>Pregunta guía</strong>
+        <p>¿Cómo conseguimos que una máquina actúe <em>solo</em> cuando se cumplen a la vez todas las condiciones de seguridad, y que además avise de lo que ocurre?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#senal">Señal digital y niveles lógicos</a></li>
+        <li><a href="#binario">El sistema binario</a></li>
+        <li><a href="#puertas">Las puertas lógicas</a></li>
+        <li><a href="#expresiones">Tablas de verdad y expresiones booleanas</a></li>
+        <li><a href="#simplificar">Simplificar sin cambiar la función</a></li>
+        <li><a href="#disenar">Diseñar un circuito combinacional</a></li>
+        <li><a href="#proyecto">La lógica de la estación segura</a></li>
+        <li><a href="#simular">Simular, verificar y documentar</a></li>
+        <li><a href="#comprueba">Comprueba lo aprendido</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">Durante el bloque B hemos construido y medido circuitos: en el Tema 5 aprendimos a montar componentes analógicos y a medir tensiones e intensidades. Ahora damos un paso distinto. Aquí no nos interesa el valor exacto de una tensión, sino <strong>decidir</strong>: ¿se cumple esta condición, sí o no? Con esa idea —dos estados, dos símbolos, 0 y 1— diseñaremos la lógica de permiso y alarma de la <strong>estación automática segura</strong> que continúa el proyecto del organizador.</p>
+
+      <div class="question"><strong>Antes de empezar:</strong> imagina una máquina con tres condiciones de seguridad. Si te pidieran escribir «arranca solo si se cumple todo y, además, nadie ha pulsado la seta de emergencia», ¿cómo lo escribirías sin ambigüedad y de forma que otra persona pudiera comprobar una por una todas las situaciones posibles?</div>
+
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>distinguir una señal analógica de una señal digital y explicar qué significa realmente «0» y «1», sin suponer que equivalen siempre a 0 V y 5 V;</li>
+          <li>representar y convertir números en el sistema binario y usar el hexadecimal como notación abreviada;</li>
+          <li>describir el comportamiento de las puertas AND, OR, NOT, NAND, NOR y XOR mediante su símbolo, su expresión y su tabla de verdad;</li>
+          <li>obtener una expresión booleana a partir de una tabla de verdad y, al revés, evaluar una expresión fila a fila;</li>
+          <li>respetar la precedencia de las operaciones y usar paréntesis para evitar ambigüedades;</li>
+          <li>simplificar funciones lógicas sencillas con las propiedades del álgebra de Boole y las leyes de De Morgan;</li>
+          <li>diseñar, simular y verificar de forma exhaustiva un circuito combinacional que resuelva un requisito real.</li>
+        </ul>
+      </div>
+
+      <div class="aviso"><strong>Antes de seguir, una advertencia</strong>La lógica que diseñaremos en este tema es un <strong>ejercicio escolar</strong>. Un circuito montado en una placa de pruebas o simulado en un ordenador <strong>no es un sistema de seguridad homologado</strong> y nunca debe usarse para proteger a personas de una máquina real. En la industria, las funciones de seguridad se confían a componentes y sistemas certificados, protegidos frente a fallos, y su diseño parte de una evaluación de riesgos. Cualquier montaje físico en el taller requiere autorización, supervisión y bajo voltaje.</div>
+
+      <section aria-labelledby="senal">
+        <h2 id="senal">1. Señal digital y niveles lógicos: qué significa realmente 0 y 1</h2>
+        <p>Una <strong>señal analógica</strong> varía de forma continua: la temperatura de una sala, la luz que recibe una célula fotoeléctrica o la tensión en un altavoz pueden tomar infinitos valores intermedios. Una <strong>señal digital</strong> se interpreta con un conjunto pequeño y contable de valores; en los sistemas que estudiamos, dos. Por eso decimos que un circuito digital «trabaja con 0 y 1».</p>
+        <p>Conviene aclarar algo fundamental antes de continuar: un circuito digital es, físicamente, un circuito eléctrico y sus señales siguen siendo <strong>tensiones que varían de forma continua</strong>. Lo digital no está en el voltaje, sino en la <strong>interpretación</strong> que hace el circuito: los valores se agrupan en bandas. Por debajo de cierto umbral, la señal se lee como nivel bajo (<strong>0</strong>); por encima de otro umbral, como nivel alto (<strong>1</strong>); y entre ambos hay una zona intermedia prohibida, que no garantiza nada.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: dos estados que se pueden codificar con 0 y 1">
+          <table>
+            <caption>Dos estados que se pueden codificar con 0 y 1</caption>
+            <thead><tr><th scope="col">Señal</th><th scope="col">Estado leído como 0 (bajo)</th><th scope="col">Estado leído como 1 (alto)</th><th scope="col">Comentario</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Interruptor</th><td>Abierto: no circula corriente</td><td>Cerrado: circula corriente</td><td>La convención la elige quien diseña.</td></tr>
+              <tr><th scope="row">Resguardo</th><td>Cerrado: la máquina puede trabajar</td><td>Abierto: peligro, hay que detener</td><td>Un estado «seguro» no siempre es el 0.</td></tr>
+              <tr><th scope="row">Seta de emergencia</th><td>Sin pulsar</td><td>Pulsada</td><td>Aquí 1 significa «hay emergencia».</td></tr>
+              <tr><th scope="row">Indicador luminoso</th><td>Apagado</td><td>Encendido</td><td>La salida traduce el resultado a algo visible.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>El 0 y el 1 no son, por tanto, «cero voltios» y «cinco voltios». Son dos <strong>niveles lógicos</strong> y cada familia de circuitos define sus propias tensiones. Un ejemplo real: un circuito integrado de la familia 74HC admite una alimentación amplia y sus umbrales de entrada cambian con ella. La hoja de datos de un 74HC00 —cuatro puertas NAND en un solo chip— indica una tensión de alimentación recomendada de <strong>2 V a 6 V</strong> y, por ejemplo, una entrada se considera nivel alto a partir de <strong>1,5 V</strong> si se alimenta a 2 V, pero necesita al menos <strong>3,15 V</strong> si se alimenta a 4,5 V.<sup><a href="#fuente_3">[3]</a></sup></p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: umbrales reales de un circuito integrado 74HC00">
+          <table>
+            <caption>Umbrales reales de un circuito integrado 74HC00 (familia 74HC)</caption>
+            <thead><tr><th scope="col">Parámetro</th><th scope="col">Qué indica</th><th scope="col">Valor</th><th scope="col">Consecuencia</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Tensión de alimentación</th><td>Rango admitido de trabajo</td><td>2 V a 6 V (nominal 5 V)</td><td>El mismo circuito lógico puede funcionar en sistemas distintos.</td></tr>
+              <tr><th scope="row">V<sub>IH</sub></th><td>Tensión mínima que el circuito garantiza que lee como 1</td><td>1,5 V a 2 V · 3,15 V a 4,5 V</td><td>«1» depende de la alimentación, no es un valor universal.</td></tr>
+              <tr><th scope="row">V<sub>IL</sub></th><td>Tensión máxima que garantiza que lee como 0</td><td>0,5 V a 2 V · 1,35 V a 4,5 V</td><td>«0» tampoco es siempre «0 V».</td></tr>
+              <tr><th scope="row">Zona intermedia</th><td>Valores entre ambos umbrales</td><td>No definida</td><td>Una entrada entre umbrales da un resultado imprevisible.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>Digital no significa «sin voltaje», sino «voltaje interpretado en dos bandas». Entre esas bandas existe una zona prohibida, y por eso los circuitos reales se diseñan con margen frente al ruido y nunca se deja una entrada sin conectar (flotante), porque su valor sería indeterminado.</div>
+
+        <h3>Polaridad: acordar qué significa cada estado</h3>
+        <p>Cuando una señal vale 1 al activarse, se dice que es <strong>activa por nivel alto</strong>; cuando se activa con 0, es <strong>activa por nivel bajo</strong>. Ambas convenciones son correctas y se usan a diario: muchas entradas de un sistema industrial se activan a 0 por motivos históricos y eléctricos. Lo que no es opcional es <strong>documentar la polaridad</strong>: si una persona supone que el resguardo abierto se lee como 1 y otra supone lo contrario, diseñarán circuitos distintos y uno de los dos estará peligrosamente equivocado.</p>
+        <div class="t4-think"><strong>Piensa:</strong> en la tabla anterior, la seta de emergencia da 1 cuando está pulsada. Si cambiáramos esa convención —1 cuando está sin pulsar—, ¿qué tendríamos que modificar en la expresión de la orden de marcha? Escríbelo antes de seguir y compáralo después con la sección 7.</div>
+      </section>
+
+      <section aria-labelledby="binario">
+        <h2 id="binario">2. El sistema binario: contar con dos símbolos</h2>
+        <p>Si un circuito solo distingue dos niveles, el sistema de numeración natural para él es el <strong>binario</strong>, que usa dos símbolos, 0 y 1, con el mismo principio posicional que nuestro sistema decimal. En decimal, el 347 significa 3·100 + 4·10 + 7·1, es decir, 3·10<sup>2</sup> + 4·10<sup>1</sup> + 7·10<sup>0</sup>. En binario hacemos lo mismo, pero las potencias son de base 2:</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: valor de cada posición en un número binario de ocho bits">
+          <table>
+            <caption>Valor de cada posición en un número binario de ocho bits</caption>
+            <thead><tr><th scope="col">Posición</th><th scope="col">7</th><th scope="col">6</th><th scope="col">5</th><th scope="col">4</th><th scope="col">3</th><th scope="col">2</th><th scope="col">1</th><th scope="col">0</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Potencia de 2</th><td>2<sup>7</sup></td><td>2<sup>6</sup></td><td>2<sup>5</sup></td><td>2<sup>4</sup></td><td>2<sup>3</sup></td><td>2<sup>2</sup></td><td>2<sup>1</sup></td><td>2<sup>0</sup></td></tr>
+              <tr><th scope="row">Valor</th><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+              <tr><th scope="row">Ejemplo: 1101<sub>2</sub></th><td>—</td><td>—</td><td>—</td><td>—</td><td>1 → 8</td><td>1 → 4</td><td>0 → 0</td><td>1 → 1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Para pasar de binario a decimal se suman los valores de las posiciones que llevan 1. El ejemplo anterior, 1101<sub>2</sub>, vale 8 + 4 + 0 + 1 = <strong>13</strong>. Para pasar de decimal a binario, se busca la combinación de potencias de 2 que suma el número: 13 = 8 + 4 + 1, luego 13 = 1101<sub>2</sub>. Con ocho bits (un <strong>byte</strong>) se representan 2<sup>8</sup> = 256 combinaciones distintas, de 0 a 255.</p>
+
+        <h3>Agrupar bits: hexadecimal como puente</h3>
+        <p>Leer cadenas largas de ceros y unos es incómodo y fácil de equivocar. Por eso se agrupan los bits: un <strong>nibble</strong> son cuatro bits, y un byte son exactamente dos nibbles. Como 2<sup>4</sup> = 16, cada nibble se puede escribir con un solo símbolo <strong>hexadecimal</strong>, del 0 al 9 y de la A a la F. Así, un byte se convierte en dos caracteres en lugar de ocho.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: equivalencia entre binario y hexadecimal para un nibble">
+          <table>
+            <caption>Equivalencia entre binario y hexadecimal para un nibble</caption>
+            <thead><tr><th scope="col">Binario</th><th scope="col">Hex.</th><th scope="col">Decimal</th><th scope="col">Binario</th><th scope="col">Hex.</th><th scope="col">Decimal</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">0000</th><td>0</td><td>0</td><th scope="row">1000</th><td>8</td><td>8</td></tr>
+              <tr><th scope="row">0001</th><td>1</td><td>1</td><th scope="row">1001</th><td>9</td><td>9</td></tr>
+              <tr><th scope="row">0010</th><td>2</td><td>2</td><th scope="row">1010</th><td>A</td><td>10</td></tr>
+              <tr><th scope="row">0011</th><td>3</td><td>3</td><th scope="row">1011</th><td>B</td><td>11</td></tr>
+              <tr><th scope="row">0100</th><td>4</td><td>4</td><th scope="row">1100</th><td>C</td><td>12</td></tr>
+              <tr><th scope="row">0101</th><td>5</td><td>5</td><th scope="row">1101</th><td>D</td><td>13</td></tr>
+              <tr><th scope="row">0110</th><td>6</td><td>6</td><th scope="row">1110</th><td>E</td><td>14</td></tr>
+              <tr><th scope="row">0111</th><td>7</td><td>7</td><th scope="row">1111</th><td>F</td><td>15</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Con dos nibbles, el número 25 en decimal es 00011001<sub>2</sub> y se escribe también como 19 en hexadecimal, porque el nibble alto es 0001 y el bajo, 1001. El binario no solo sirve para números: cualquier información —un texto, una fotografía, una instrucción de un programa— se codifica con conjuntos de bits y reglas de interpretación acordadas. Cambiar el valor de un solo bit cambia el significado del dato.</p>
+        <div class="t4-note"><strong>Adelanto útil.</strong> La relación entre potencias de 2 y combinaciones aparecerá en todo el tema: un circuito con <em>n</em> entradas binarias puede encontrarse 2<sup>n</sup> situaciones distintas. Con 2 entradas, 4 situaciones; con 3, 8; con 4, 16. Esa cuenta será la lista de comprobación de todo circuito que diseñemos.</div>
+      </section>
+
+      <section aria-labelledby="puertas">
+        <h2 id="puertas">3. Las puertas lógicas: seis funciones básicas</h2>
+        <p>Una <strong>puerta lógica</strong> es un circuito que realiza una operación lógica elemental: recibe uno o varios niveles lógicos de entrada y produce un nivel lógico de salida según una regla fija. Su símbolo está normalizado internacionalmente; IEC 60617 es la base que recoge los símbolos gráficos para esquemas electrotécnicos.<sup><a href="#fuente_2">[2]</a></sup> Usaremos el estilo de esa norma, con el signo de la operación escrito dentro del rectángulo.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: las seis funciones lógicas básicas, cuándo valen 1 y un ejemplo">
+          <table>
+            <caption>Las seis funciones lógicas básicas: cuándo vale 1 la salida y un ejemplo</caption>
+            <thead><tr><th scope="col">Función</th><th scope="col">Símbolo en el esquema</th><th scope="col">La salida vale 1 cuando…</th><th scope="col">Expresión</th><th scope="col">Ejemplo</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>AND</strong> (Y)</th><td>Rectángulo con «&amp;»</td><td>todas las entradas valen 1</td><td>S = A · B</td><td>Puede moverse si el resguardo está cerrado <em>y</em> hay pieza.</td></tr>
+              <tr><th scope="row"><strong>OR</strong> (O)</th><td>Rectángulo con «≥1»</td><td>al menos una entrada vale 1</td><td>S = A + B</td><td>Se enciende el piloto si hay aviso <em>o</em> hay emergencia.</td></tr>
+              <tr><th scope="row"><strong>NOT</strong> (NO)</th><td>Rectángulo con «1» y un círculo</td><td>su única entrada vale 0</td><td>S = A′</td><td>Alarma activa si la seta <em>no</em> está pulsada.</td></tr>
+              <tr><th scope="row"><strong>NAND</strong></th><td>AND con un círculo en la salida</td><td>alguna entrada vale 0</td><td>S = (A · B)′</td><td>Con cuatro NAND se construyen muchas funciones.</td></tr>
+              <tr><th scope="row"><strong>NOR</strong></th><td>OR con un círculo en la salida</td><td>todas las entradas valen 0</td><td>S = (A + B)′</td><td>Detectar que no se cumple ninguna condición.</td></tr>
+              <tr><th scope="row"><strong>XOR</strong></th><td>Rectángulo con «=1»</td><td>las entradas <em>son distintas</em></td><td>S = A ⊕ B</td><td>Luz que cambia con dos interruptores de una escalera.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>La forma más segura de describir una puerta no es memorizar su nombre, sino su <strong>tabla de verdad</strong>: la lista de todas las combinaciones de entrada con su salida. Para funciones de dos entradas, la tabla tiene 2<sup>2</sup> = 4 filas.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: tabla de verdad de AND, OR, NAND, NOR y XOR con dos entradas">
+          <table>
+            <caption>Tabla de verdad de AND, OR, NAND, NOR y XOR con dos entradas</caption>
+            <thead><tr><th scope="col">A</th><th scope="col">B</th><th scope="col">A · B (AND)</th><th scope="col">A + B (OR)</th><th scope="col">(A · B)′ (NAND)</th><th scope="col">(A + B)′ (NOR)</th><th scope="col">A ⊕ B (XOR)</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">0</th><td>0</td><td>0</td><td>0</td><td><strong>1</strong></td><td><strong>1</strong></td><td>0</td></tr>
+              <tr><th scope="row">0</th><td>1</td><td>0</td><td><strong>1</strong></td><td><strong>1</strong></td><td>0</td><td><strong>1</strong></td></tr>
+              <tr><th scope="row">1</th><td>0</td><td>0</td><td><strong>1</strong></td><td><strong>1</strong></td><td>0</td><td><strong>1</strong></td></tr>
+              <tr><th scope="row">1</th><td>1</td><td><strong>1</strong></td><td><strong>1</strong></td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: tabla de verdad de la puerta NOT, de una entrada">
+          <table>
+            <caption>Tabla de verdad de la puerta NOT, de una entrada</caption>
+            <thead><tr><th scope="col">A</th><th scope="col">A′ (NOT)</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">0</th><td>1</td></tr>
+              <tr><th scope="row">1</th><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Tres ideas que conviene fijar</h3>
+        <ul>
+          <li><strong>NAND y NOR son «universales».</strong> Cualquier función lógica se puede construir solo con puertas NAND, y también solo con puertas NOR. Por eso es tan común el integrado 74HC00: cuatro puertas NAND idénticas en un solo chip permiten montar circuitos muy variados sin comprar nada más.</li>
+          <li><strong>El círculo significa negación.</strong> Un AND con un círculo en la salida es un NAND; un OR con un círculo, un NOR. El círculo también puede colocarse en una entrada para indicar que esa entrada se activa con nivel bajo.</li>
+          <li><strong>XOR es la puerta de las diferencias.</strong> Su salida vale 1 cuando las dos entradas no coinciden. Sirve para comparar dos señales bit a bit, detectar paridad en datos y resolver situaciones de conmutación, como la luz de una escalera controlada desde dos puntos.</li>
+        </ul>
+
+        <div class="comparacion">
+          <div><h3>Leer una puerta como una frase</h3><p>«AND: se cumple si A <em>y</em> B». «OR: si A <em>o</em> B (o ambas)». «NOT: lo contrario de A». Es una forma práctica de traducir un requisito en lenguaje natural.</p></div>
+          <div><h3>Comprobar una puerta con su tabla</h3><p>Si dudas de tu lectura, escribe las cuatro —o dos— combinaciones y comprueba la salida. La tabla de verdad no engaña y nunca depende de la memoria.</p></div>
+        </div>
+
+        <div class="t4-curio"><strong>El MÁS y el MENOS de la electrónica.</strong> Muchos integrados industriales leen un «1» como nivel bajo por convenio eléctrico, y los textos antiguos llaman «activo a 0» o «lógica negativa» a esa situación. Confundir la convención con el valor lógico es una de las causas más frecuentes de circuitos que «no hacen lo que pensábamos».</div>
+      </section>
+
+      <section aria-labelledby="expresiones">
+        <h2 id="expresiones">4. Tablas de verdad y expresiones booleanas</h2>
+        <p>Una <strong>expresión booleana</strong> combina variables lógicas mediante las operaciones AND, OR y NOT, y representa una función que también puede describirse con su tabla de verdad. Las dos descripciones son equivalentes y conviene saber pasar de una a otra en los dos sentidos. El vínculo entre el álgebra de Boole y los circuitos con conmutadores fue establecido en 1938 por Claude E. Shannon, que demostró que las expresiones lógicas podían analizarse y simplificarse exactamente igual que el álgebra, y que esas expresiones describían circuitos reales.<sup><a href="#fuente_1">[1]</a></sup></p>
+
+        <h3>De la tabla a la expresión</h3>
+        <p>El procedimiento es directo: se elige cada fila en la que la salida vale 1, se escribe el producto (AND) de las variables —negadas las que valen 0— y después se suman (OR) esos productos. Por ejemplo, si <em>F</em> vale 1 cuando A = 0 y B = 1, o cuando A = 1 y B = 0:</p>
+        <p><strong>F = A′ · B + A · B′</strong></p>
+        <p>Cada uno de esos productos se llama <strong>minitérmino</strong>: describe exactamente una combinación de las entradas. Sumando los minitérminos de las filas con salida 1 se obtiene una expresión que reproduce la tabla completa, aunque no siempre sea la más sencilla: eso lo resolveremos en la sección siguiente.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: tabla de verdad de dos variables y expresión de cada minitérmino">
+          <table>
+            <caption>Tabla de verdad de dos variables y expresión de cada minitérmino</caption>
+            <thead><tr><th scope="col">Fila</th><th scope="col">A</th><th scope="col">B</th><th scope="col">Minitérmino</th><th scope="col">F = A′·B + A·B′</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">1</th><td>0</td><td>0</td><td>A′ · B′</td><td>0</td></tr>
+              <tr><th scope="row">2</th><td>0</td><td>1</td><td>A′ · B</td><td><strong>1</strong></td></tr>
+              <tr><th scope="row">3</th><td>1</td><td>0</td><td>A · B′</td><td><strong>1</strong></td></tr>
+              <tr><th scope="row">4</th><td>1</td><td>1</td><td>A · B</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>La función del ejemplo coincide con la puerta XOR: es 1 cuando las entradas difieren. Reconocer esas equivalencias es útil, porque permite sustituir una expresión larga por una puerta que ya existe.</p>
+
+        <h3>De la expresión a la tabla</h3>
+        <p>En sentido contrario, se recorre cada fila y se evalúa la expresión con calma, resolviendo primero las negaciones, después los productos y al final las sumas. Para la expresión <strong>F = (A + B′) · C</strong> conviene añadir columnas auxiliares, porque ayudan a comprobar el resultado y a detectar errores:</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: evaluación paso a paso de la expresión F igual a A más B negado por C">
+          <table>
+            <caption>Evaluación paso a paso de F = (A + B′) · C</caption>
+            <thead><tr><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">B′</th><th scope="col">A + B′</th><th scope="col">F = (A + B′) · C</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">0</th><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+              <tr><th scope="row">0</th><td>0</td><td>1</td><td>1</td><td>1</td><td><strong>1</strong></td></tr>
+              <tr><th scope="row">0</th><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row">0</th><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row">1</th><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+              <tr><th scope="row">1</th><td>0</td><td>1</td><td>1</td><td>1</td><td><strong>1</strong></td></tr>
+              <tr><th scope="row">1</th><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+              <tr><th scope="row">1</th><td>1</td><td>1</td><td>0</td><td>1</td><td><strong>1</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Notación, precedencia y paréntesis</h3>
+        <p>En los libros y en los programas encontrarás maneras distintas de escribir lo mismo. No es un problema si se conoce la tabla de equivalencias y se es coherente:</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: formas equivalentes de escribir las operaciones lógicas y su orden de prioridad">
+          <table>
+            <caption>Formas equivalentes de escribir las operaciones lógicas y su orden de prioridad</caption>
+            <thead><tr><th scope="col">Operación</th><th scope="col">Formas habituales</th><th scope="col">Prioridad</th><th scope="col">Qué significa</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Negación (NOT)</th><td>A′, Ā, ¬A, NOT A</td><td>1.ª (la más alta)</td><td>Invierte el nivel lógico de la variable.</td></tr>
+              <tr><th scope="row">Producto (AND)</th><td>A · B, A * B, A ∧ B, A AND B</td><td>2.ª</td><td>Las dos condiciones deben cumplirse.</td></tr>
+              <tr><th scope="row">Suma (OR)</th><td>A + B, A ∨ B, A OR B</td><td>3.ª (la más baja)</td><td>Basta con que se cumpla una.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>La precedencia no es un capricho: es lo que hace que una expresión se pueda escribir sin llenarla de paréntesis. Igual que en aritmética «2 + 3 · 4» vale 14 y no 20, en lógica <strong>A + B · C</strong> se lee como A + (B · C). Ahora bien, cuando la intención es otra, los paréntesis son obligatorios. Estas dos expresiones se parecen mucho y hacen cosas distintas:</p>
+        <div class="comparacion">
+          <div><h3>A + (B · C)</h3><p>Vale 1 siempre que A valga 1, y también cuando A valga 0 pero B y C valgan 1 a la vez. Número de filas con salida 1: cinco.</p></div>
+          <div><h3>(A + B) · C</h3><p>Solo vale 1 si C vale 1 y, además, A o B valen 1. La tabla de la izquierda muestra sus tres filas con salida 1.</p></div>
+        </div>
+        <div class="t4-note"><strong>Los paréntesis no son decoración.</strong> En un esquema, el orden se ve en las conexiones: las puertas se encadenan de izquierda a derecha. En una expresión escrita, el paréntesis es la única forma de dejar claro qué se calcula antes. Cuando dudes, añádelo: una expresión con un paréntesis de más es inofensiva; sin uno que hacía falta, puede provocar un accidente.</div>
+      </section>
+
+      <section aria-labelledby="simplificar">
+        <h2 id="simplificar">5. Simplificar sin cambiar la función</h2>
+        <p>Obtener la expresión a partir de la tabla garantiza que es correcta, pero no que sea la más pequeña. <strong>Simplificar</strong> una función lógica es encontrar una expresión equivalente con menos operaciones. La ventaja es concreta: menos puertas significan menos componentes, menos conexiones que puedan fallar, un montaje más fácil de revisar y una verificación más rápida. Lo que <em>no</em> cambia nunca es la tabla de verdad: si al simplificar se modifica una sola fila, hemos cometido un error.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: propiedades del álgebra de Boole usadas para simplificar">
+          <table>
+            <caption>Propiedades del álgebra de Boole que se usan para simplificar</caption>
+            <thead><tr><th scope="col">Propiedad</th><th scope="col">Forma con AND</th><th scope="col">Forma con OR</th><th scope="col">Ejemplo de uso</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Identidad</th><td>A · 1 = A</td><td>A + 0 = A</td><td>Eliminar términos que no aportan nada.</td></tr>
+              <tr><th scope="row">Elemento nulo</th><td>A · 0 = 0</td><td>A + 1 = 1</td><td>Detectar una condición imposible.</td></tr>
+              <tr><th scope="row">Idempotencia</th><td>A · A = A</td><td>A + A = A</td><td>Quitar repeticiones de la misma variable.</td></tr>
+              <tr><th scope="row">Complemento</th><td>A · A′ = 0</td><td>A + A′ = 1</td><td>Convertir (B + B′) en 1.</td></tr>
+              <tr><th scope="row">Doble negación</th><td>(A′)′ = A</td><td>(A′)′ = A</td><td>Suprimir dos inversores encadenados.</td></tr>
+              <tr><th scope="row">Distributiva</th><td>A · (B + C) = A · B + A · C</td><td>A + (B · C) = (A + B) · (A + C)</td><td>Sacar factor común (al revés).</td></tr>
+              <tr><th scope="row">Absorción</th><td>A · (A + B) = A</td><td>A + A · B = A</td><td>Eliminar términos contenidos en otros.</td></tr>
+              <tr><th scope="row">De Morgan</th><td>(A · B)′ = A′ + B′</td><td>(A + B)′ = A′ · B′</td><td>Cambiar entre AND y OR negadas.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Ejemplo 1: extraer factor común</h3>
+        <p>Sea F = A · B + A · B′. Las dos tablas parciales se diferencian solo en B, así que podemos sacar A como factor común:</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Paso a paso</strong>F = A · B + A · B′ = A · (B + B′) = A · 1 = <strong>A</strong>. El resultado dice que F no depende de B en absoluto: dos puertas y sus conexiones pueden sustituirse por un simple cable desde A.</div>
+
+        <h3>Ejemplo 2: absorción</h3>
+        <p>Sea F = A · B + A · B · C′. El segundo término ya incluye todo lo que exige el primero, porque exigir A, B y C′ exige también A y B. Sacando factor común: F = A · B · (1 + C′) = A · B · 1 = <strong>A · B</strong>. La propiedad de absorción permite verlo de un vistazo sin desarrollar los pasos.</p>
+
+        <h3>De Morgan: cambiar de forma sin cambiar de significado</h3>
+        <p>Las dos leyes de De Morgan permiten transformar una negación de un producto o de una suma. Se entienden bien con un ejemplo cotidiano: «no es cierto que (haya pieza y esté el resguardo cerrado)» es lo mismo que «o no hay pieza, o el resguardo no está cerrado». En símbolos, (P · R)′ = P′ + R′. Estas leyes tienen dos consecuencias muy prácticas:</p>
+        <ul>
+          <li>Permiten <strong>reescribir una función usando solo NAND (o solo NOR)</strong>, lo que a veces reduce el número de circuitos integrados necesarios.</li>
+          <li>Permiten convertir una señal activa por nivel bajo en una expresión con la polaridad que nos interese, dejando claro el significado.</li>
+        </ul>
+
+        <div class="t4-note"><strong>Ampliación: el mapa de Karnaugh.</strong> Cuando la función tiene tres o cuatro variables, existe una técnica gráfica —el mapa de Karnaugh— que coloca las filas de la tabla en una cuadrícula y agrupa las casillas con salida 1 que comparten variables. Cada agrupación elimina las variables que cambian dentro del grupo y deja una expresión simplificada de forma casi mecánica. No es imprescindible para este tema, pero conviene saber que existe: muchas herramientas de simulación incorporan un simplificador automático que aplica estas mismas ideas.</div>
+
+        <div class="t4-curio"><strong>Simplificar no siempre es lo más importante.</strong> A veces se conserva deliberadamente un término que otra persona podría eliminar, porque documenta una condición del diseño o porque facilita la lectura del esquema. Lo que nunca es opcional es que la tabla de verdad del circuito final coincida con la que exige el requisito.</div>
+      </section>
+
+      <section aria-labelledby="disenar">
+        <h2 id="disenar">6. Diseñar un circuito combinacional paso a paso</h2>
+        <p>Un <strong>circuito combinacional</strong> es aquel en el que la salida depende únicamente de las entradas en ese instante. No tiene memoria. Diseñarlo no es un acto de inspiración: es un método ordenado que puede seguir cualquier persona del equipo y que, además, deja por escrito cómo se ha comprobado el resultado.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: método de diseño de un circuito combinacional">
+          <table>
+            <caption>Método de diseño de un circuito combinacional</caption>
+            <thead><tr><th scope="col">Paso</th><th scope="col">Pregunta que responde</th><th scope="col">Resultado que se obtiene</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">1. Enunciar</th><td>¿Qué condición exacta debe cumplirse?</td><td>Una frase precisa, sin «a veces» ni «normalmente».</td></tr>
+              <tr><th scope="row">2. Definir variables</th><td>¿Cuántas señales de entrada hay y qué significa cada nivel?</td><td>Lista de variables con su polaridad documentada.</td></tr>
+              <tr><th scope="row">3. Construir la tabla</th><td>¿Qué salida corresponde a cada una de las 2<sup>n</sup> combinaciones?</td><td>Tabla de verdad completa.</td></tr>
+              <tr><th scope="row">4. Escribir la expresión</th><td>¿Qué minitérminos generan salida 1?</td><td>Expresión booleana en forma de suma de productos.</td></tr>
+              <tr><th scope="row">5. Simplificar</th><td>¿Se puede decir lo mismo con menos operaciones?</td><td>Expresión reducida, con la tabla como garantía.</td></tr>
+              <tr><th scope="row">6. Implementar</th><td>¿Qué puertas y conexiones realiza esa expresión?</td><td>Esquema del circuito con símbolos normalizados.</td></tr>
+              <tr><th scope="row">7. Verificar</th><td>¿Coincide la realidad con la tabla en todos los casos?</td><td>Resultados de la simulación o del montaje, fila por fila.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Ejemplo resuelto completo</h3>
+        <p>Enunciado: queremos una señal de aviso <em>F</em> que valga 1 si el sistema está habilitado (B) y, además, hay puerta abierta (A) o una pieza fuera de sitio (C). En forma de frase con sentido: «avisa si el sistema funciona y algo no está en orden». Al ser un aviso, la salida 1 encenderá un piloto.</p>
+        <p>La primera escritura es casi una traducción literal: F = A·B + B·C. Los términos comparten la variable B, así que simplificando: <strong>F = B · (A + C)</strong>. Ahora comparemos el coste y la tabla de verdad de ambas formas.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: tabla de verdad del aviso F, con la expresión larga y la simplificada">
+          <table>
+            <caption>Tabla de verdad del aviso F: A (puerta), B (sistema), C (pieza)</caption>
+            <thead><tr><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">A·B + B·C</th><th scope="col">B·(A + C)</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">0</th><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row">0</th><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row">0</th><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row">0</th><td>1</td><td>1</td><td><strong>1</strong></td><td><strong>1</strong></td></tr>
+              <tr><th scope="row">1</th><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row">1</th><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row">1</th><td>1</td><td>0</td><td><strong>1</strong></td><td><strong>1</strong></td></tr>
+              <tr><th scope="row">1</th><td>1</td><td>1</td><td><strong>1</strong></td><td><strong>1</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Las dos columnas de salida son idénticas, fila a fila: la simplificación es correcta. En cuanto al montaje, la primera expresión exige dos puertas AND y una OR; la segunda, una OR y una AND. Además, la forma simplificada hace evidente una condición que antes había que deducir: <em>si B vale 0, F es 0 siempre</em>, es decir, sin sistema habilitado no puede haber aviso.</p>
+
+        <h3>Errores frecuentes en este paso</h3>
+        <ul>
+          <li><strong>Perder un minitérmino:</strong> al pasar de la tabla a la expresión, basta con olvidar una fila para que el circuito falle en una situación concreta. Conviene tachar las filas ya utilizadas.</li>
+          <li><strong>Confundir la polaridad:</strong> escribir N en lugar de N′ porque «el sensor da 1 cuando está cerrado» sin haberlo comprobado.</li>
+          <li><strong>Olvidar una variable:</strong> diseñar con tres entradas cuando el requisito habla de cuatro, y comprobar solo ocho combinaciones en lugar de dieciséis.</li>
+          <li><strong>Dar por válida una simplificación sin comprobarla:</strong> la tabla de verdad vuelve a escribirse después de simplificar y se comparan las dos salidas.</li>
+          <li><strong>Suponer que «no importa» una combinación:</strong> si realmente una combinación es imposible, se documenta como indiferente; si solo lo parece, hay que decidir qué salida tendrá.</li>
+        </ul>
+        <div class="t4-think"><strong>Diseña por bloques.</strong> Cuando un circuito crece, conviene dividirlo en partes con una función clara —«cálculo de permiso», «señalización de estado»— y verificar cada parte por separado antes de unirlas. Un circuito de cuatro entradas se entiende mejor como dos o tres bloques que como una maraña de cables.</div>
+      </section>
+
+      <section aria-labelledby="proyecto">
+        <h2 id="proyecto">7. El proyecto del bloque B: la lógica de permiso y alarma de la estación segura</h2>
+        <p>El hilo del bloque B es un encargo concreto: partiendo del <strong>organizador modular</strong> del aula-taller, diseñar una <strong>estación automática segura</strong> que coloque o mueva piezas pequeñas dentro de su zona de trabajo. La estación tiene un actuador —un motorreductor o un pequeño cilindro—, un <strong>resguardo</strong> que separa la zona de movimiento, un sensor que detecta la pieza, un interruptor de <strong>habilitación del sistema</strong> y una <strong>seta de emergencia</strong>. Nuestro trabajo en este tema es diseñar la lógica que decide cuándo se autoriza el movimiento y cómo se avisa de lo que ocurre.</p>
+
+        <div class="aviso"><strong>La lógica escolar no es un sistema de seguridad</strong>Este proyecto diseña y simula una idea. Un circuito combinacional montado por el alumnado jamás debe controlar el movimiento de una máquina real accesible a personas: si un solo componente falla, un único hilo se suelta o una señal se queda «pegada» en 1, no existe ninguna protección adicional. En las máquinas reales, las funciones de seguridad se confían a dispositivos y sistemas <strong>certificados</strong>, cuyo diseño parte de una evaluación de riesgos y que están preparados para detectar sus propios fallos. En el taller, cualquier montaje físico se hará con bajo voltaje, con la autorización y supervisión del profesorado, y comprobando antes la ausencia de tensión y la ausencia de movimiento.</div>
+
+        <h3>De los requisitos a las variables</h3>
+        <p>Traducir el encargo exige nombrar las señales con precisión y fijar su polaridad, porque de ello depende todo lo demás. Estas cuatro variables recogen las condiciones de seguridad de la estación:</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: variables de entrada de la estación con su significado y su polaridad">
+          <table>
+            <caption>Variables de entrada de la estación, con su significado y su polaridad</caption>
+            <thead><tr><th scope="col">Variable</th><th scope="col">Significa</th><th scope="col">Vale 1 cuando…</th><th scope="col">Tipo de señal</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">R</th><td>Resguardo cerrado</td><td>el resguardo está en su posición cerrada</td><td>Condición de permiso</td></tr>
+              <tr><th scope="row">P</th><td>Pieza detectada</td><td>hay una pieza colocada en su sitio</td><td>Condición de trabajo</td></tr>
+              <tr><th scope="row">H</th><td>Sistema habilitado</td><td>se ha dado la orden general de funcionamiento</td><td>Condición de permiso</td></tr>
+              <tr><th scope="row">S</th><td>Seta de emergencia</td><td>la seta está pulsada</td><td>Señal de peligro</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Observa que S es la única variable que es <strong>activa por nivel alto cuando ocurre lo malo</strong>. Esa decisión no es caprichosa: permite que un fallo en el cableado de la línea —por ejemplo, un contacto abierto— se parezca a «la seta no se ha pulsado», y obliga a diseñar el resto del sistema con ese supuesto en mente. En un diseño real, esa elección y sus consecuencias se analizan expresamente; aquí nos sirve para recordar que <strong>la polaridad forma parte del diseño lógico</strong>.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: requisitos de la estación y su expresión lógica">
+          <table>
+            <caption>Requisitos de la estación y expresión lógica que los cumple</caption>
+            <thead><tr><th scope="col">Requisito</th><th scope="col">En palabras</th><th scope="col">Expresión</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Permitir el movimiento</th><td>Solo con el resguardo cerrado, la pieza detectada, el sistema habilitado y la seta sin pulsar.</td><td>M = R · P · H · S′</td></tr>
+              <tr><th scope="row">Avisar de un resguardo abierto</th><td>Si el resguardo está abierto mientras el sistema sigue habilitado.</td><td>Aviso = R′ · H</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>La tabla de verdad: las dieciséis situaciones posibles</h3>
+        <p>Con cuatro entradas hay 2<sup>4</sup> = 16 combinaciones. Escribirlas todas no es un ejercicio pesado: es precisamente la garantía de que no se ha olvidado ninguna situación. Esta tabla es la referencia que utilizaremos después para verificar el circuito.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: tabla de verdad completa de la estación, con las dieciséis combinaciones de R, P, H y S">
+          <table>
+            <caption>Tabla de verdad completa de la estación (16 combinaciones)</caption>
+            <thead><tr><th scope="col">R</th><th scope="col">P</th><th scope="col">H</th><th scope="col">S</th><th scope="col">M = R·P·H·S′</th><th scope="col">Aviso = R′·H</th><th scope="col">Qué ocurre</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">0</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Nada: el sistema no está habilitado.</td></tr>
+              <tr><th scope="row">0</th><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>Emergencia con el sistema parado.</td></tr>
+              <tr><th scope="row">0</th><td>0</td><td>1</td><td>0</td><td>0</td><td><strong>1</strong></td><td>Resguardo abierto: aviso.</td></tr>
+              <tr><th scope="row">0</th><td>0</td><td>1</td><td>1</td><td>0</td><td><strong>1</strong></td><td>Resguardo abierto y emergencia: aviso.</td></tr>
+              <tr><th scope="row">0</th><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Hay pieza, pero sin resguardo ni habilitación.</td></tr>
+              <tr><th scope="row">0</th><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>Hay pieza y emergencia: no se mueve.</td></tr>
+              <tr><th scope="row">0</th><td>1</td><td>1</td><td>0</td><td>0</td><td><strong>1</strong></td><td>Resguardo abierto con pieza: aviso.</td></tr>
+              <tr><th scope="row">0</th><td>1</td><td>1</td><td>1</td><td>0</td><td><strong>1</strong></td><td>Resguardo abierto y emergencia: aviso.</td></tr>
+              <tr><th scope="row">1</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Resguardo cerrado, sin pieza ni habilitación.</td></tr>
+              <tr><th scope="row">1</th><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>Emergencia con el sistema parado.</td></tr>
+              <tr><th scope="row">1</th><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>Falta la pieza: no se mueve y no hay aviso de resguardo.</td></tr>
+              <tr><th scope="row">1</th><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>Emergencia pulsada: no se mueve.</td></tr>
+              <tr><th scope="row">1</th><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>Todo listo menos la habilitación general.</td></tr>
+              <tr><th scope="row">1</th><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>Emergencia pulsada con pieza lista.</td></tr>
+              <tr><th scope="row">1</th><td>1</td><td>1</td><td>0</td><td><strong>1</strong></td><td>0</td><td>Se cumplen todas las condiciones: marcha.</td></tr>
+              <tr><th scope="row">1</th><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>La seta anula el permiso aunque todo lo demás esté bien.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>De las dieciséis filas, solo una activa la marcha. Eso es exactamente lo que buscábamos: que sea más fácil describir cuándo <em>no</em> se mueve que cuándo sí. La señal de aviso, en cambio, se enciende en cuatro filas, y todas ellas comparten la misma causa: el resguardo abierto con el sistema aún habilitado.</p>
+
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable del circuito lógico de permiso y aviso de la estación">
+          <img src="assets/tema06_logica_seguridad.svg" alt="Esquema lógico con cuatro entradas —resguardo cerrado, pieza detectada, sistema habilitado y seta de emergencia— que mediante puertas AND y una negación produce la orden de MARCHA cuando R, P y H valen 1 y S vale 0, y la señal de AVISO cuando el resguardo está abierto con el sistema habilitado.">
+          <figcaption>Dos funciones sobre las mismas entradas: la orden de marcha exige las cuatro condiciones de permiso; el aviso señala una situación insegura concreta. Los símbolos siguen el estilo de IEC 60617.</figcaption>
+        </figure>
+
+        <h3>Señalizar los estados, no solo mover</h3>
+        <p>Una máquina que no explica lo que le ocurre obliga a quien la maneja a adivinar. Por eso el diseño incluye salidas de señalización que traducen el estado lógico a algo perceptible: un piloto verde cuando la marcha está autorizada, un piloto ámbar cuando el aviso está activo, y una indicación acústica si se detecta una combinación inesperada. La señalización no mejora la seguridad por sí misma, pero hace visible el estado del sistema y ayuda a diagnosticar por qué algo no funciona.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: estados de la estación y señalización propuesta">
+          <table>
+            <caption>Estados de la estación y señalización propuesta</caption>
+            <thead><tr><th scope="col">Situación</th><th scope="col">Condición lógica</th><th scope="col">Señalización</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Autorizado</th><td>M = 1</td><td>Piloto verde fijo: el actuador puede moverse.</td></tr>
+              <tr><th scope="row">Resguardo abierto</th><td>Aviso = 1 y M = 0</td><td>Piloto ámbar: falta cerrar el resguardo.</td></tr>
+              <tr><th scope="row">Falta la pieza</th><td>R = 1, H = 1, P = 0, S = 0</td><td>Piloto azul intermitente: hay que colocar la pieza.</td></tr>
+              <tr><th scope="row">Emergencia</th><td>S = 1</td><td>Piloto rojo y aviso acústico: requiere revisión antes de rearmar.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Por qué esta lógica no protege a nadie por sí sola</h3>
+        <p>Conviene cerrar esta sección con una idea que la industria tiene muy clara y que un simulador nunca muestra. La primera medida de seguridad no es una puerta lógica: es <strong>diseñar el peligro fuera del alcance</strong>, y cuando eso no basta, <strong>proteger con resguardos</strong> y medidas complementarias. ISO 12100 establece precisamente ese orden —diseño intrínsecamente seguro, protección, y por último información para el uso— como metodología para evaluar y reducir el riesgo de una máquina.<sup><a href="#fuente_6">[6]</a></sup></p>
+        <p>Cuando un sistema de control realiza funciones de seguridad, sus partes se diseñan y evalúan siguiendo metodologías específicas. ISO 13849-1:2023 describe cómo diseñar e integrar las <em>partes de los sistemas de mando relativas a la seguridad</em>, con características como el nivel de prestación (PL) y las categorías, e incluye requisitos sobre el propio software de seguridad.<sup><a href="#fuente_7">[7]</a></sup> Ese no es el nivel de un circuito escolar:</p>
+        <ul>
+          <li>Los <strong>dispositivos de enclavamiento</strong> asociados a un resguardo tienen requisitos propios de diseño y selección, e incluyen medidas para que no puedan anularse de forma previsible. ISO 14119 es el documento de referencia para esos dispositivos.<sup><a href="#fuente_8">[8]</a></sup></li>
+          <li>Las funciones de seguridad deben <strong>resistir fallos</strong>: un relé pegado, un cable cortado o un contacto sucio no pueden dejar la máquina en marcha. Un único circuito combinacional con puertas ideales no aborda ese problema.</li>
+          <li>En la industria, la lógica se implementa además en <strong>autómatas programables</strong> cuya forma de programación también está normalizada: lenguajes como el diagrama de escalera (<em>ladder</em>) y el diagrama de bloques funcionales representan funciones lógicas y se definen en IEC 61131-3.<sup><a href="#fuente_9">[9]</a></sup></li>
+        </ul>
+        <div class="t4-concept"><strong class="t4-concept-tag">Lo que sí aprendemos aquí</strong>A diseñar lógica correcta y verificable. Ese conocimiento es el mismo que hay detrás de un sistema de seguridad industrial, pero un sistema certificado añade evaluación de riesgos, tolerancia a fallos, componentes homologados y validación independiente. En el taller nos quedamos en la lógica; la protección física y la homologación son otro asunto, y siempre responsabilidad de personas adultas y cualificadas.</div>
+      </section>
+
+      <section aria-labelledby="simular">
+        <h2 id="simular">8. Simular, verificar y documentar</h2>
+        <p>Una vez escrito el esquema, hay que comprobarlo. Simular consiste en reproducir el comportamiento del circuito en un programa antes de montarlo —o cuando el montaje físico no es posible—. Ofrece dos ventajas claras: se pueden probar <strong>todas</strong> las combinaciones de entrada sin riesgo, y se puede corregir el diseño tantas veces como sea necesario sin gastar componentes.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: herramientas de simulación lógica y para qué sirve cada una">
+          <table>
+            <caption>Herramientas de simulación lógica y para qué sirve cada una</caption>
+            <thead><tr><th scope="col">Herramienta</th><th scope="col">Qué ofrece</th><th scope="col">Para qué la usaremos</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Logisim-evolution</th><td>Editor de circuitos y simulador de lógica digital, libre y multiplataforma, con sondas y cronograma para ver la evolución de las señales.</td><td>Montar el esquema de la estación, activar las entradas y comprobar las salidas en las 16 combinaciones.</td></tr>
+              <tr><th scope="row">Simulador de circuitos de Falstad</th><td>Simulador interactivo en el navegador que incluye demostraciones de lógica combinacional y de familias lógicas reales (CMOS, TTL).</td><td>Observar cómo se comporta una puerta construida con transistores y entender que el «1» ideal es una simplificación.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Logisim-evolution se presenta como una herramienta educativa libre para diseñar y simular circuitos lógicos digitales, con simulación del circuito, cronograma y una amplia biblioteca de componentes.<sup><a href="#fuente_4">[4]</a></sup> Las demostraciones del simulador de Paul Falstad van un paso más allá y permiten ver una puerta XOR o un semisumador construidos con transistores, además de comparar familias lógicas reales.<sup><a href="#fuente_5">[5]</a></sup> Ver las dos cosas —el esquema ideal y su versión con transistores— ayuda a entender que la simulación es una representación útil, no la realidad.</p>
+
+        <h3>Verificación exhaustiva: probarlo todo, no lo que esperamos</h3>
+        <p>Un error frecuente consiste en probar solo las situaciones que ya creemos que funcionan. La verificación es exhaustiva cuando se recorren <strong>las 2<sup>n</sup> combinaciones</strong> de las entradas y se compara la salida del circuito con la tabla de verdad. En la estación serán 16 pruebas; en un circuito de cinco entradas, 32. El procedimiento puede ser siempre el mismo:</p>
+        <ol>
+          <li><strong>Preparar la lista de pruebas:</strong> escribir las 2<sup>n</sup> combinaciones en orden, sin saltarse ninguna.</li>
+          <li><strong>Simular cada fila:</strong> activar las entradas y anotar la salida que indica la sonda o el piloto.</li>
+          <li><strong>Comparar columna a columna</strong> con la tabla de verdad de referencia.</li>
+          <li><strong>Registrar las diferencias</strong> encontradas: son la pista del error, no un fracaso.</li>
+          <li><strong>Corregir y repetir</strong> la prueba completa, porque un cambio puede arreglar una fila y romper otra.</li>
+          <li><strong>Pedir una comprobación independiente:</strong> otra persona reconstruye la tabla a partir del esquema y la compara con los resultados. Si coinciden, hay bastante confianza; si no, se ha detectado a tiempo.</li>
+        </ol>
+        <div class="t4-note"><strong>Verificar y validar no son lo mismo.</strong> <strong>Verificar</strong> comprueba si el circuito hace lo que dice su especificación. <strong>Validar</strong> comprueba si la especificación respondía de verdad a la necesidad. Se puede verificar perfectamente un circuito que resuelve el problema equivocado: si el requisito hablaba de «pieza detectada» y nosotros interpretamos otra cosa, la simulación saldrá impecable y el diseño no servirá.</div>
+
+        <h3>Lo que un simulador no puede decirte</h3>
+        <p>En un simulador los niveles son ideales: vale 0 o vale 1, sin zonas intermedias, sin ruido y sin retrasos. En un circuito real, una señal tarda un tiempo finito en propagarse por cada puerta, los contactos mecánicos rebotan al cerrarse y un cable largo puede captar interferencias. Estos efectos no suelen cambiar la lógica de un circuito combinacional sencillo, pero sí explican por qué en la industria hay que analizar expresamente el comportamiento frente a fallos y por qué no basta con que «la simulación funcione». Por eso decimos que la simulación <strong>verifica la lógica</strong>, y nada más.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: qué comprueba la simulación y qué queda fuera de su alcance">
+          <table>
+            <caption>Qué comprueba la simulación y qué queda fuera de su alcance</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">¿Lo comprueba la simulación?</th><th scope="col">Cómo se aborda en un sistema real</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Que la función lógica sea la correcta</th><td>Sí, si se prueban todas las combinaciones.</td><td>Verificación del software y revisión independiente.</td></tr>
+              <tr><th scope="row">Que el montaje esté bien cableado</th><td>No: el simulador dibuja conexiones ideales.</td><td>Inspección, continuidad y prueba funcional del montaje.</td></tr>
+              <tr><th scope="row">Que un fallo de un componente sea seguro</th><td>No.</td><td>Diseño con tolerancia a fallos, categorías y nivel de prestación (PL).</td></tr>
+              <tr><th scope="row">Que la máquina no dañe a nadie</th><td>No.</td><td>Evaluación de riesgos, resguardos y dispositivos certificados.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Documentar: dejar rastro de las decisiones</h3>
+        <p>Un circuito sin documentación es un circuito que solo entiende quien lo hizo. La documentación mínima de un diseño lógico es breve y muy útil: la lista de variables con su significado y su polaridad, la tabla de verdad, la expresión final y las simplificaciones realizadas, el esquema con símbolos normalizados —IEC 60617 recoge los símbolos oficiales<sup><a href="#fuente_2">[2]</a></sup>—, los resultados de la simulación y un registro de los cambios, indicando qué se modificó y por qué. Herramientas de automatización industriales, como las que siguen IEC 61131-3, se apoyan exactamente en esos mismos documentos.<sup><a href="#fuente_9">[9]</a></sup></p>
+
+        <div class="t4-note"><strong>Ampliación: circuitos que recuerdan.</strong> Todos los circuitos de este tema son combinacionales: su salida depende solo de las entradas actuales. Existe otra familia, los <strong>circuitos secuenciales</strong>, cuya salida también depende del estado anterior, porque incorporan memoria construida con puertas realimentadas. Se estudian en temas posteriores de automatización, cuando aparezcan sistemas que deban recordar si una orden ya se dio. Aquí basta con saber que existen y que la lógica combinacional que hemos aprendido es su punto de partida.</div>
+      </section>
+
+      <section aria-labelledby="comprueba">
+        <h2 id="comprueba">Comprueba lo aprendido</h2>
+        <p>Al terminar, tu trabajo no se valora por el número de cables, sino por la solidez de las decisiones y por la claridad con que puedes justificar que el circuito hace lo que dice hacer.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: qué debería mostrar el trabajo del proyecto">
+          <table>
+            <caption>Qué debería mostrar el trabajo del proyecto</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Qué debes demostrar</th><th scope="col">Evidencias posibles</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Comprender la señal</strong></th><td>Que distingues nivel lógico de voltaje y que sabes documentar la polaridad de cada señal.</td><td>Tabla de variables con su significado y su valor activo; conversiones entre binario y decimal.</td></tr>
+              <tr><th scope="row"><strong>Diseñar con método</strong></th><td>Que puedes pasar de un requisito en palabras a una tabla, una expresión, una simplificación y un esquema.</td><td>Enunciado preciso, tabla de verdad completa, pasos de simplificación numerados, esquema con símbolos normalizados.</td></tr>
+              <tr><th scope="row"><strong>Verificar con pruebas</strong></th><td>Que compruebas todas las combinaciones y que registras los resultados, incluidos los que no esperabas.</td><td>Lista de las 2<sup>n</sup> pruebas con su salida, comparación con la tabla, correcciones anotadas.</td></tr>
+              <tr><th scope="row"><strong>Explicar los límites</strong></th><td>Que reconoces por qué tu diseño es un ejercicio y no un dispositivo de protección.</td><td>Nota breve sobre simulación frente a realidad y sobre las medidas de seguridad que no dependen de la lógica.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Para repasar, contesta por escrito a estas preguntas. Si alguna te bloquea, vuelve a la sección correspondiente antes de dar el tema por terminado.</p>
+        <ol>
+          <li>Escribe en binario el 25 y comprueba tu resultado pasándolo de nuevo a decimal. ¿Con cuántos bits se representa cualquier número de 0 a 255?</li>
+          <li>Explica con un ejemplo por qué un «1» lógico no es siempre 5 V y qué papel juegan los umbrales de un circuito integrado.</li>
+          <li>Completa y comprueba: un AND entrega 1 si ___ entradas valen 1; un XOR, si las entradas son ___; un NOR, si ___ entradas valen 0.</li>
+          <li>Escribe la expresión booleana de la orden de marcha de la estación y explica, en palabras, por qué la seta aparece negada.</li>
+          <li>Aplica De Morgan a (R · P)′ y comprueba que obtienes la misma tabla de verdad que el circuito original.</li>
+          <li>Simplifica F = A·C + A·B·C y comprueba fila a fila que la tabla de verdad no ha cambiado.</li>
+          <li>¿Cuántas pruebas necesita tu circuito de la estación? ¿Qué pasaría si solo probaras las combinaciones en las que crees que se mueve?</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Álgebra de Boole</dt><dd>Conjunto de reglas que permite operar con variables de dos valores y simplificar expresiones lógicas.</dd>
+          <dt>Activo por nivel bajo</dt><dd>Convención por la que una señal se considera activada cuando vale 0.</dd>
+          <dt>Binario</dt><dd>Sistema de numeración de base 2 que usa los símbolos 0 y 1 con valor posicional.</dd>
+          <dt>Bit</dt><dd>Unidad mínima de información digital: un dígito binario, 0 o 1.</dd>
+          <dt>Byte</dt><dd>Conjunto de 8 bits que permite representar 256 combinaciones distintas.</dd>
+          <dt>Circuito combinacional</dt><dd>Circuito lógico cuya salida depende únicamente de las entradas en ese instante.</dd>
+          <dt>Circuito secuencial</dt><dd>Circuito lógico que incorpora memoria, de modo que su salida también depende del estado anterior.</dd>
+          <dt>Complemento (negación)</dt><dd>Operación que invierte el nivel lógico de una variable o expresión.</dd>
+          <dt>De Morgan (leyes de)</dt><dd>Equivalencias que permiten transformar (A · B)′ en A′ + B′ y (A + B)′ en A′ · B′.</dd>
+          <dt>Expresión booleana</dt><dd>Combinación de variables y operaciones lógicas que define una función.</dd>
+          <dt>Familia lógica</dt><dd>Grupo de circuitos integrados con tensiones, umbrales y características eléctricas comunes.</dd>
+          <dt>Hexadecimal</dt><dd>Sistema de base 16 que resume cuatro bits en un solo símbolo; se usa como notación abreviada.</dd>
+          <dt>Minitérmino</dt><dd>Producto de todas las variables de una función, negadas o no, que corresponde a una única fila de la tabla.</dd>
+          <dt>Nivel de prestación (PL)</dt><dd>Característica de un sistema de mando relativo a la seguridad que expresa su fiabilidad frente a fallos.</dd>
+          <dt>Nivel lógico</dt><dd>Valor 0 o 1 que un circuito interpreta a partir de un rango de tensiones, no de un valor exacto.</dd>
+          <dt>Polaridad</dt><dd>Convención que decide con qué nivel lógico se considera activada una señal.</dd>
+          <dt>Precedencia</dt><dd>Orden en que se resuelven las operaciones de una expresión: primero la negación, después el producto y por último la suma.</dd>
+          <dt>Puerta lógica</dt><dd>Circuito que realiza una operación lógica elemental sobre una o varias entradas.</dd>
+          <dt>Resguardo</dt><dd>Barrera física que impide el acceso a una zona peligrosa; suele asociarse a un dispositivo de enclavamiento.</dd>
+          <dt>Señal analógica</dt><dd>Señal que varía de forma continua y puede tomar cualquier valor intermedio.</dd>
+          <dt>Señal digital</dt><dd>Señal interpretada con un número finito de niveles, habitualmente dos.</dd>
+          <dt>Simulador</dt><dd>Programa que reproduce el comportamiento de un circuito para comprobarlo sin montarlo.</dd>
+          <dt>Suma de productos</dt><dd>Forma de expresión lógica en la que se suman varios productos de variables; es la que se obtiene directamente de la tabla de verdad.</dd>
+          <dt>Tabla de verdad</dt><dd>Lista de todas las combinaciones posibles de las entradas con la salida correspondiente a cada una.</dd>
+          <dt>Umbral</dt><dd>Tensión a partir de la cual un circuito interpreta un nivel lógico como 0 o como 1.</dd>
+          <dt>Validación</dt><dd>Comprobación de que la solución responde a la necesidad planteada, no solo a su especificación.</dd>
+          <dt>Verificación</dt><dd>Comprobación, mediante pruebas, de que el resultado cumple lo especificado.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Una señal digital es una tensión interpretada en dos bandas separadas por umbrales; entre ellas hay una zona no definida.</li>
+          <li>El 0 y el 1 son niveles lógicos, no voltajes universales: dependen de la familia lógica, de la alimentación y del sistema.</li>
+          <li>La polaridad de cada señal se decide y se documenta; un cambio de convención cambia el circuito.</li>
+          <li>El binario usa dos símbolos con valor posicional; con n bits se representan 2<sup>n</sup> combinaciones, y el hexadecimal resume cuatro bits en un símbolo.</li>
+          <li>AND, OR, NOT, NAND, NOR y XOR se describen con su símbolo, su expresión y su tabla de verdad; NAND y NOR permiten construir cualquier función.</li>
+          <li>Toda función lógica puede expresarse como suma de los minitérminos de las filas que valen 1, y evaluarse fila a fila con columnas auxiliares.</li>
+          <li>La precedencia es negación, producto y suma; los paréntesis son obligatorios cuando la intención es otra.</li>
+          <li>Simplificar busca una expresión equivalente con menos operaciones; las propiedades del álgebra de Boole y las leyes de De Morgan son sus herramientas, y la tabla de verdad es la garantía.</li>
+          <li>El diseño de un circuito combinacional sigue un método: enunciar, definir variables, tabular, expresar, simplificar, implementar y verificar.</li>
+          <li>La verificación es exhaustiva: se prueban las 2<sup>n</sup> combinaciones y se comparan con la tabla; simular verifica la lógica, no la seguridad física.</li>
+          <li>La lógica escolar no sustituye a los dispositivos de seguridad homologados de una máquina real.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_1">[1] <a href="https://dspace.mit.edu/handle/1721.1/11173">Shannon, C. E. — <em>A Symbolic Analysis of Relay and Switching Circuits</em>, tesis y artículo de 1938 (MIT DSpace)</a> (en inglés).</li>
+          <li id="fuente_2">[2] <a href="https://webstore.iec.ch/en/publication/2723">IEC 60617 — Graphical symbols for diagrams (base de datos de símbolos gráficos normalizados)</a> (en inglés).</li>
+          <li id="fuente_3">[3] <a href="https://www.ti.com/lit/ds/symlink/sn74hc00.pdf">Texas Instruments — Hoja de datos SNx4HC00, puertas NAND (PDF)</a> (en inglés).</li>
+          <li id="fuente_4">[4] <a href="https://github.com/logisim-evolution/logisim-evolution">Logisim-evolution — Editor y simulador libre de lógica digital (repositorio oficial)</a> (en inglés).</li>
+          <li id="fuente_5">[5] <a href="https://www.falstad.com/circuit/">Paul Falstad — Circuit Simulator, demostraciones de lógica combinacional y familias lógicas</a> (en inglés).</li>
+          <li id="fuente_6">[6] <a href="https://www.iso.org/standard/51528.html">ISO 12100:2010 — Safety of machinery: general principles for design, risk assessment and risk reduction</a> (en inglés; norma de pago, resumen público).</li>
+          <li id="fuente_7">[7] <a href="https://www.iso.org/standard/73481.html">ISO 13849-1:2023 — Safety-related parts of control systems. Part 1: general principles for design</a> (en inglés; norma de pago, resumen público).</li>
+          <li id="fuente_8">[8] <a href="https://www.iso.org/standard/75942.html">ISO 14119:2024 — Interlocking devices associated with guards: principles for design and selection</a> (en inglés; norma de pago, resumen público).</li>
+          <li id="fuente_9">[9] <a href="https://webstore.iec.ch/en/publication/68533">IEC 61131-3:2025 — Programmable controllers. Part 3: programming languages (ladder diagram, function block diagram)</a> (en inglés).</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema05.html">← Tema 5</a>
+  <a href="tema07.html">Tema 7 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>
