@@ -73,13 +73,18 @@ h1, h2, h3 { font-family: Georgia, Cambria, serif; line-height: 1.18; }
 .t4-concept-tag, .idea_clave > strong, .aviso > strong { display: block; margin-bottom: 4px; color: var(--blue); text-transform: uppercase; letter-spacing: .07em; font-size: .75rem; }
 .aviso { background: #fff0ec; border-left: 4px solid #c85c40; color: #713322; }
 .tabla_responsiva { overflow-x: auto; margin: 18px 0; }
+.t4-diagrama { margin: 24px 0; padding: 16px; background: #f7faf8; border: 1px solid var(--line); border-radius: 14px; }
+.t4-diagrama img { display: block; width: 100%; height: auto; }
+.t4-diagrama figcaption { margin-top: 10px; color: var(--muted); font-size: .9rem; text-align: center; }
 table, .t4-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: .93rem; }
 th { padding: 10px 12px; color: white; background: var(--blue); text-align: left; }
 td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tbody th[scope="row"] { padding: 10px 12px; color: var(--navy); background: #eef6f5; border-bottom: 1px solid var(--line); vertical-align: top; }
 tr:nth-child(even) td { background: #f6f8f6; }
+tr:nth-child(even) th[scope="row"] { background: #e5f0ee; }
 code { padding: .12em .35em; color: #6e3141; background: #f3e9e6; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .9em; }
 pre { overflow-x: auto; padding: 18px 20px; background: #142b3b; color: #e8f4f5; border-radius: 10px; line-height: 1.55; }
-pre:focus-visible, .tabla_responsiva:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+pre:focus-visible, .tabla_responsiva:focus-visible, .t4-diagrama:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 pre code { padding: 0; color: inherit; background: transparent; }
 .t4-timeline { margin: 20px 0 20px 10px; padding-left: 24px; border-left: 3px solid var(--teal); }
 .t4-tl-item { position: relative; margin-bottom: 20px; }
@@ -122,6 +127,8 @@ pre code { padding: 0; color: inherit; background: transparent; }
   .t4-glosario { grid-template-columns: 1fr; }
   .t4-glosario dd { margin-bottom: 8px; }
   .topic-footer { flex-direction: column; }
+  .t4-diagrama { overflow-x: auto; }
+  .t4-diagrama img { min-width: 600px; }
 }
 @media print {
   body { background: white; }
@@ -130,6 +137,8 @@ pre code { padding: 0; color: inherit; background: transparent; }
   .hero-inner { display: block; padding: 20px 0; }
   .hero h1, .kicker { color: black; }
   .hero-note { border: 1px solid #aaa; }
+  .hero-lead, .hero-note, .hero-note p, .hero-note strong, .objectives, .summary, .summary h2, th { color: #000; }
+  .objectives, .summary, th { background: #fff; background-image: none; }
   .layout { display: block; padding: 0; }
   .paper { padding: 0; border: 0; box-shadow: none; }
   .paper h2 { break-after: avoid; }

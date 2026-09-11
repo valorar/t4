@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="title desc">
+<title id="title">Proceso iterativo de diseño en doble diamante</title><desc id="desc">El proceso alterna investigar, definir, idear y validar. Tras aprender de las pruebas se vuelve al punto necesario.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1a6b7a"/></marker></defs>
+<rect width="900" height="360" rx="24" fill="#f7faf8"/>
+<text x="450" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#18384a">Del problema a una solución comprobada</text>
+<path d="M70 175 L205 85 L335 175 L205 265 Z" fill="#dff3ef" stroke="#2b8c7f" stroke-width="3"/>
+<path d="M335 175 L470 85 L610 175 L470 265 Z" fill="#e7eef8" stroke="#386da0" stroke-width="3"/>
+<text x="130" y="180" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#245c49">Investigar</text><text x="278" y="180" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#245c49">Definir</text>
+<text x="405" y="180" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#28567a">Idear</text><text x="545" y="180" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#28567a">Prototipar</text>
+<rect x="665" y="120" width="165" height="110" rx="18" fill="#fff1d5" stroke="#c6922d" stroke-width="3"/><text x="747" y="164" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#705015">Verificar y</text><text x="747" y="191" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#705015">validar</text>
+<path d="M610 175 H655" stroke="#1a6b7a" stroke-width="3" marker-end="url(#arrow)"/><path d="M747 240 C747 320 210 330 135 275" fill="none" stroke="#1a6b7a" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow)"/><text x="455" y="318" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#46616a">La evidencia decide a qué fase volver</text>
+</svg>

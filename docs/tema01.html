@@ -1,27 +1,447 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 1 del Bloque A de Tecnología de 4.º de la ESO: Cómo detectar necesidades del entorno próximo, idear soluciones con método y organizar el trabajo de un proyecto tecnológico.">
-<title>Tema 1. Problemas, necesidades y gestión de proyectos · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 1 del Bloque A de Tecnología de 4.º de la ESO: necesidades, requisitos, Design Thinking, gestión colaborativa, prototipado, validación y diseño accesible.">
+  <title>Tema 1. Problemas, necesidades y gestión de proyectos · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 01 · Bloque A · Proceso de resolución de problemas</p><h1>Tema 1. Problemas, necesidades y gestión de proyectos</h1><p class="hero-lead">Cómo detectar necesidades del entorno próximo, idear soluciones con método y organizar el trabajo de un proyecto tecnológico.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>1.1, 1.2, 1.3</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>detección de necesidades del centro, del barrio y de la localidad; planteamiento de proyectos colaborativos.</li><li>fases de un proyecto tecnológico: investigación, ideación, diseño, fabricación y difusión.</li><li>estrategias y herramientas de gestión de proyectos colaborativos.</li><li>técnicas de ideación y pensamiento de diseño (<em>Design Thinking</em>); proceso iterativo de validación.</li><li>accesibilidad, diseño inclusivo y atención a la diversidad de las personas usuarias.</li><li>reparto de tareas, coordinación y trabajo en equipo.</li><li>emprendimiento, perseverancia y creatividad; interés por la calidad del trabajo.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque A «Proceso de resolución de problemas» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>1.1, 1.2, 1.3</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="index.html">← Índice del bloque</a><a href="tema02.html">Tema 2 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 01 · Bloque A · Proceso de resolución de problemas</p>
+        <h1>Tema 1. Problemas, necesidades y gestión de proyectos</h1>
+        <p class="hero-lead">Cómo observar el entorno, transformar una necesidad en requisitos verificables y coordinar un proyecto iterativo, accesible y útil.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 1">
+        <strong>Pregunta guía</strong>
+        <p>¿Cómo diseñar en equipo un organizador modular de herramientas y pequeños componentes que sea seguro, accesible y realmente útil en el aula-taller?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#reto">Del entorno al reto</a></li>
+        <li><a href="#investigacion">Investigar sin sesgos</a></li>
+        <li><a href="#requisitos">Requisitos y calidad</a></li>
+        <li><a href="#design-thinking">Design Thinking e ideación</a></li>
+        <li><a href="#decision">Comparar y decidir</a></li>
+        <li><a href="#planificacion">Planificar el proyecto</a></li>
+        <li><a href="#equipo">Roles, acuerdos y colaboración</a></li>
+        <li><a href="#prototipo">Prototipar, validar e iterar</a></li>
+        <li><a href="#criterios">Criterios de evaluación</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">La tecnología comienza antes del dibujo y mucho antes de fabricar: comienza al comprender qué necesita una comunidad. A lo largo del tema seguiremos un mismo hilo, el diseño de un <strong>organizador modular accesible</strong> para guardar destornilladores, alicates, tornillos, cables y otros componentes del aula-taller. El objeto será nuestro ejemplo, pero el método sirve también para un servicio, una aplicación o un sistema. El currículo de Madrid pide observar el entorno cercano, gestionar el proyecto de forma colaborativa y validar iterativamente soluciones eficientes, accesibles e innovadoras.<sup><a href="#fuente_1">[1]</a></sup></p>
+
+      <div class="question"><strong>Antes de empezar:</strong> «La mesa está desordenada» parece un problema evidente. Sin embargo, ¿ocurre porque faltan recipientes, porque no se distinguen sus contenidos, porque algunos quedan fuera de alcance, porque nadie sabe dónde devolver cada pieza o por varias causas a la vez? Diseñar bien exige no enamorarse de la primera explicación.</div>
+
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>distinguir problema, necesidad, requisito y solución;</li>
+          <li>observar y consultar a personas usuarias sin confundir opiniones con pruebas;</li>
+          <li>formular requisitos concretos, medibles y relacionados con una necesidad;</li>
+          <li>combinar pensamiento divergente y convergente dentro de un proceso no lineal;</li>
+          <li>planificar tareas, hitos, dependencias, recursos, riesgos y controles de calidad;</li>
+          <li>colaborar mediante roles, acuerdos, registros y decisiones transparentes;</li>
+          <li>prototipar, validar con evidencias e iterar sin tratar el error como fracaso;</li>
+          <li>incorporar accesibilidad y diseño inclusivo desde el inicio.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="reto">
+        <h2 id="reto">1. Del entorno al reto tecnológico</h2>
+        <p>Un proyecto con valor no parte de «quiero construir algo», sino de una situación que merece mejorar. El centro, el barrio o la localidad contienen oportunidades: objetos difíciles de usar, desperdicio de materiales, recorridos inseguros, información confusa o tareas repetitivas. Observarlas con atención permite proponer problemas tecnológicos conectados con la vida real, como establece la competencia específica 1 del currículo.<sup><a href="#fuente_1">[1]</a></sup></p>
+
+        <h3>Cuatro palabras que no significan lo mismo</h3>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Del diagnóstico a una posible respuesta en el organizador del aula-taller">
+          <table>
+            <caption>Del diagnóstico a una posible respuesta en el organizador del aula-taller</caption>
+            <thead>
+              <tr><th scope="col">Concepto</th><th scope="col">Qué expresa</th><th scope="col">Ejemplo</th><th scope="col">Error frecuente</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><strong>Problema</strong></th><td>Situación observable que produce una dificultad o un efecto no deseado.</td><td>Se pierde tiempo buscando piezas y algunas herramientas quedan en lugares inseguros.</td><td>Describir ya una solución: «no hay una caja impresa en 3D».</td></tr>
+              <tr><th scope="row"><strong>Necesidad</strong></th><td>Resultado humano o funcional que debe satisfacerse.</td><td>Encontrar, alcanzar, identificar y devolver cada elemento con facilidad y seguridad.</td><td>Suponer que todas las personas necesitan exactamente lo mismo.</td></tr>
+              <tr><th scope="row"><strong>Requisito</strong></th><td>Condición que la solución deberá cumplir y que puede comprobarse.</td><td>Los módulos deben distinguirse sin depender solo del color y no deben volcar durante el uso previsto.</td><td>Usar términos vagos como «bonito», «cómodo» o «resistente» sin criterio de prueba.</td></tr>
+              <tr><th scope="row"><strong>Solución</strong></th><td>Propuesta concreta que intenta cumplir los requisitos.</td><td>Bandejas modulares inclinadas, con etiquetas en texto y relieve, fijadas a una base estable.</td><td>Elegirla antes de investigar y buscar después datos que la justifiquen.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Cadena de trazabilidad</strong>Una buena decisión puede explicarse hacia atrás: <strong>característica de la solución → requisito → necesidad → evidencia del problema</strong>. Si no existe esa conexión, quizá estemos añadiendo una función porque nos gusta, no porque aporte valor.</div>
+
+        <h3>Enmarcar sin cerrar demasiado pronto</h3>
+        <p>El reto debe ser suficientemente concreto para orientar y suficientemente abierto para admitir varias respuestas. «¿Cómo podríamos facilitar que cualquier persona del grupo localice y devuelva pequeños componentes con rapidez y seguridad?» abre más posibilidades que «¿cómo imprimimos una cajonera azul?». El formato «¿Cómo podríamos…?» se emplea en el diseño centrado en las personas para convertir observaciones en oportunidades sin imponer de antemano una respuesta.<sup><a href="#fuente_5">[5]</a></sup></p>
+        <div class="comparacion">
+          <div><h3>Reto demasiado amplio</h3><p>«Mejorar el taller». No indica qué experiencia, tarea o grupo se quiere comprender.</p></div>
+          <div><h3>Reto demasiado cerrado</h3><p>«Fabricar doce cajones de 8 cm». La forma y la cantidad aparecen antes de conocer los requisitos.</p></div>
+          <div><h3>Reto útil</h3><p>«Facilitar el almacenamiento y la identificación de herramientas y componentes para personas con distintas capacidades y estaturas».</p></div>
+        </div>
+        <div class="t4-think"><strong>Piensa:</strong> si el alumnado devuelve mal las piezas, ¿es falta de atención o el sistema hace difícil reconocer el lugar correcto? Cambiar la pregunta puede cambiar por completo la solución.</div>
+      </section>
+
+      <section aria-labelledby="investigacion">
+        <h2 id="investigacion">2. Investigar necesidades sin fabricar certezas</h2>
+        <p>Investigar no consiste en reunir muchas respuestas, sino en obtener información pertinente y reconocer sus límites. Conviene combinar técnicas porque cada una muestra una parte distinta: la observación revela conductas reales; la entrevista aporta motivos y experiencias; las mediciones describen dimensiones o tiempos; y la consulta documental permite contrastar normas, materiales o soluciones existentes.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Qué aporta cada técnica al estudio del organizador modular">
+          <table>
+            <caption>Qué aporta cada técnica al estudio del organizador modular</caption>
+            <thead><tr><th scope="col">Técnica</th><th scope="col">Pregunta que ayuda a responder</th><th scope="col">Evidencia posible</th><th scope="col">Precaución</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Observación contextual</strong></th><td>¿Qué ocurre durante una sesión real?</td><td>Recorridos, objetos fuera de lugar, bloqueos y tiempos aproximados.</td><td>No interpretar una conducta aislada como regla general.</td></tr>
+              <tr><th scope="row"><strong>Entrevista breve</strong></th><td>¿Qué resulta difícil y por qué?</td><td>Relatos y ejemplos en palabras de la persona.</td><td>Evitar preguntas que sugieren la respuesta deseada.</td></tr>
+              <tr><th scope="row"><strong>Medición</strong></th><td>¿Qué tamaños, alcances, pesos o cantidades intervienen?</td><td>Dimensiones del espacio, inventario y frecuencia de uso.</td><td>Indicar unidades, procedimiento y margen de error.</td></tr>
+              <tr><th scope="row"><strong>Consulta documental</strong></th><td>¿Qué recomendaciones, normas o antecedentes existen?</td><td>Fuentes identificadas, actuales y contrastables.</td><td>No copiar una solución de otro contexto sin comprobar su adecuación.</td></tr>
+              <tr><th scope="row"><strong>Prueba de una tarea</strong></th><td>¿Puede una persona localizar y devolver una pieza?</td><td>Éxito, tiempo, errores y comentarios durante el uso.</td><td>No convertir una demostración guiada en una falsa validación.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>El diseño centrado en las personas propone aprender directamente de quienes usarán la solución, generar alternativas, crear prototipos y volver a recibir retroalimentación.<sup><a href="#fuente_5">[5]</a></sup> Esto no significa que «el usuario dicte el objeto»: el equipo interpreta evidencias, restricciones técnicas y posibles conflictos entre necesidades.</p>
+
+        <h3>Sesgos que pueden deformar la investigación</h3>
+        <ul>
+          <li><strong>Sesgo de confirmación:</strong> prestar atención solo a los datos que apoyan la idea favorita.</li>
+          <li><strong>Muestra de conveniencia:</strong> preguntar únicamente a amistades o a quienes usan el taller del mismo modo.</li>
+          <li><strong>Pregunta dirigida:</strong> «¿Verdad que sería mejor una cajonera?»; es preferible «¿qué dificulta encontrar una pieza?».</li>
+          <li><strong>Efecto de observación:</strong> las personas pueden comportarse de otro modo porque saben que están siendo observadas.</li>
+          <li><strong>Promedio engañoso:</strong> diseñar para una persona «media» y excluir a quienes tienen menor alcance, visión reducida, temblor, lesión temporal o poca experiencia.</li>
+        </ul>
+        <div class="t4-note"><strong>Separar dato e interpretación.</strong> «Tres personas tardaron más en encontrar arandelas que tornillos» es un registro. «Las arandelas importan menos» es una interpretación y necesita más pruebas. Anota ambos por separado.</div>
+
+        <h3>Una investigación respetuosa</h3>
+        <p>Hay que explicar el propósito, pedir permiso antes de registrar imágenes o datos personales, recoger solo lo necesario y evitar exponer a nadie. La participación será voluntaria y supervisada, sin recopilar diagnósticos ni señalar públicamente a una persona por su salud o discapacidad. Las personas participantes pueden revisar si hemos entendido bien su experiencia. Para reducir sesgos, conviene combinar pruebas voluntarias, principios de diseño inclusivo y simulaciones del contexto; nunca imitar una discapacidad mediante juegos estereotipados.<sup><a href="#fuente_9">[9]</a></sup></p>
+        <div class="t4-curio"><strong>Lo que una persona dice y lo que hace pueden diferir sin que mienta.</strong> Quizá recuerde de forma imprecisa, adapte su conducta al contexto o haya aprendido a soportar una dificultad. Esa diferencia es una pista que merece explorar, no una razón para desacreditarla.</div>
+      </section>
+
+      <section aria-labelledby="requisitos">
+        <h2 id="requisitos">3. Convertir necesidades en requisitos y criterios de calidad</h2>
+        <p>Los requisitos traducen lo aprendido en condiciones de diseño. Un requisito útil indica <strong>qué debe conseguirse</strong>, no necesariamente <strong>cómo</strong>. «Cada módulo se extraerá con una mano» deja abiertas muchas geometrías; «tendrá un tirador semicircular» obliga prematuramente a una sola forma.</p>
+
+        <h3>Características de un buen requisito</h3>
+        <ul>
+          <li><strong>Necesario:</strong> responde a una evidencia o a una restricción legítima.</li>
+          <li><strong>Claro:</strong> dos integrantes del equipo lo interpretan de manera parecida.</li>
+          <li><strong>Verificable:</strong> existe una prueba, medición u observación que permite decidir si se cumple.</li>
+          <li><strong>Compatible:</strong> no contradice otros requisitos; si hay tensión, se hace explícita.</li>
+          <li><strong>Priorizado:</strong> se distingue lo imprescindible de lo deseable.</li>
+          <li><strong>Trazable:</strong> se conoce la necesidad y la evidencia que lo originaron.</li>
+        </ul>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Especificación inicial del organizador, pendiente de validar">
+          <table>
+            <caption>Especificación inicial del organizador, pendiente de validar</caption>
+            <thead><tr><th scope="col">Necesidad</th><th scope="col">Requisito</th><th scope="col">Cómo se comprobará</th><th scope="col">Prioridad</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Identificar contenidos</th><td>Cada módulo tendrá texto legible y un segundo indicio que no dependa solo del color.</td><td>Personas distintas emparejan una pieza con su módulo sin explicación previa.</td><td>Imprescindible</td></tr>
+              <tr><th scope="row">Uso seguro</th><td>No presentará aristas cortantes ni volcará al extraer un módulo en el uso previsto.</td><td>Inspección visual y comprobación con un método seguro —paño, galga o útil adecuado—, más una prueba de estabilidad definida por el equipo.</td><td>Imprescindible</td></tr>
+              <tr><th scope="row">Adaptarse al inventario</th><td>Permitirá sustituir o añadir módulos sin rehacer el conjunto.</td><td>Montaje y retirada de módulos de tamaños acordados.</td><td>Imprescindible</td></tr>
+              <tr><th scope="row">Alcance diverso</th><td>Los elementos de uso frecuente se situarán en una zona alcanzable por las personas previstas.</td><td>Prueba de alcance con participantes de perfiles diferentes.</td><td>Imprescindible</td></tr>
+              <tr><th scope="row">Aprovechar recursos</th><td>Usará materiales y procesos disponibles sin superar el límite acordado de tiempo y coste.</td><td>Lista de recursos, estimación y registro real.</td><td>Deseable</td></tr>
+              <tr><th scope="row">Mantenimiento</th><td>Las etiquetas podrán actualizarse y las superficies habituales podrán limpiarse.</td><td>Cambio de etiqueta y limpieza de una muestra.</td><td>Deseable</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Calidad no es lujo</strong>La calidad es el grado en que una solución cumple los requisitos relevantes de forma consistente. Un acabado brillante no compensa una etiqueta ilegible, una unión inestable o un módulo que no cabe.</div>
+        <p>Los requisitos cambian cuando aparece nueva evidencia. Cambiarlos no equivale a improvisar: hay que registrar qué se modifica, por qué, quién lo acuerda y qué tareas quedan afectadas. Así se evita que el proyecto crezca sin control o que una mejora aparente destruya otra característica importante.</p>
+      </section>
+
+      <section aria-labelledby="design-thinking">
+        <h2 id="design-thinking">4. Design Thinking: alternar comprensión, ideas y pruebas</h2>
+        <p><em>Design Thinking</em> reúne modos de trabajo para comprender a las personas, definir un reto, idear, prototipar y probar. La d.school de Stanford presenta cinco modos —empatizar, definir, idear, prototipar y probar— y señala que sus herramientas pueden emplearse de manera flexible, no como una receta rígida.<sup><a href="#fuente_4">[4]</a></sup></p>
+
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">Comprender</div><p>Observar el aula-taller, escuchar experiencias, medir el espacio e identificar a quién afecta la situación.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">Definir</div><p>Sintetizar evidencias, formular la necesidad, reconocer restricciones y redactar un reto abierto.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">Idear</div><p>Generar muchas posibilidades antes de juzgarlas: paneles, carros, bandejas, códigos táctiles, sombras de herramientas o soluciones mixtas.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">Prototipar</div><p>Representar lo incierto con el menor coste útil: esquema, cartón, cinta, impresión parcial o simulación del uso.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">Probar</div><p>Observar tareas reales, comparar con los requisitos y decidir qué conservar, cambiar o descartar.</p></div>
+        </div>
+
+        <h3>No es una escalera de una sola dirección</h3>
+        <p>En un esquema escolar las fases aparecen en fila para poder explicarlas. En un proyecto real se retrocede y se salta entre ellas. Una prueba puede revelar que el reto estaba mal definido; una idea puede exigir investigar un material; un requisito de accesibilidad puede llevar a descartar una forma y generar otras. El modelo del Doble Diamante del Design Council representa dos movimientos de apertura y cierre: explorar ampliamente el problema y concretarlo; explorar muchas respuestas y concretar una.<sup><a href="#fuente_3">[3]</a></sup></p>
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable del proceso iterativo de diseño">
+          <img src="assets/tema01_doble_diamante.svg" alt="Proceso iterativo: investigar, definir, idear, prototipar, verificar y validar; la evidencia permite volver a una fase anterior.">
+          <figcaption>El proceso abre posibilidades y después las enfoca. La prueba no cierra siempre el proyecto: puede obligar a investigar o definir de nuevo.</figcaption>
+        </figure>
+        <div class="comparacion">
+          <div><h3>Pensamiento divergente: abrir</h3><p>Busca cantidad, variedad y enfoques inesperados. Se aplaza el juicio, se construye sobre ideas ajenas y se evitan las críticas prematuras.</p></div>
+          <div><h3>Pensamiento convergente: enfocar</h3><p>Agrupa, contrasta y selecciona mediante requisitos, evidencias y restricciones. No elige «la idea más popular», sino la más prometedora para probar.</p></div>
+        </div>
+
+        <h3>Técnicas sencillas de ideación</h3>
+        <ul>
+          <li><strong>Brainwriting:</strong> cada persona escribe o dibuja propuestas antes de compartirlas; puede facilitar que las voces menos rápidas o dominantes aporten ideas.</li>
+          <li><strong>Ideas por categorías:</strong> generar opciones para almacenar, identificar, fijar, transportar, limpiar y ampliar.</li>
+          <li><strong>Combinación:</strong> unir rasgos valiosos de dos propuestas sin copiar todos sus inconvenientes.</li>
+          <li><strong>Analogías:</strong> preguntar cómo resuelven un problema parecido una biblioteca, una cocina, una caja de pesca o un panel de emergencia.</li>
+          <li><strong>Idea extrema:</strong> imaginar «sin etiquetas», «sin visión», «con una sola mano» o «para cien tipos de piezas» para descubrir principios, no para fabricar literalmente el extremo.</li>
+        </ul>
+        <div class="t4-think"><strong>Analogía del embudo doble:</strong> primero abrimos la mirada para no confundir el primer síntoma con el problema; después enfocamos una definición. Volvemos a abrir para producir alternativas y cerramos al elegir qué prototipar. Si cerramos siempre, repetimos lo conocido; si abrimos siempre, nunca decidimos.</div>
+      </section>
+
+      <section aria-labelledby="decision">
+        <h2 id="decision">5. Comparar propuestas y tomar una decisión justificable</h2>
+        <p>Seleccionar es una decisión de diseño, no un concurso de dibujos. Antes de puntuar conviene eliminar las propuestas que incumplen una condición imprescindible. Las restantes pueden compararse con una matriz. Los criterios y sus pesos deben acordarse <strong>antes</strong> de conocer el resultado para no manipularlos a favor de una idea favorita.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Matriz cualitativa para elegir qué concepto prototipar primero">
+          <table>
+            <caption>Matriz cualitativa para elegir qué concepto prototipar primero</caption>
+            <thead><tr><th scope="col">Criterio</th><th scope="col">Peso orientativo</th><th scope="col">Panel fijo</th><th scope="col">Bandejas modulares</th><th scope="col">Carro móvil</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Acceso e identificación</th><td>Muy alto</td><td>Medio</td><td>Alto</td><td>Alto</td></tr>
+              <tr><th scope="row">Estabilidad y seguridad</th><td>Muy alto</td><td>Alto</td><td>Por comprobar</td><td>Medio</td></tr>
+              <tr><th scope="row">Adaptación a cambios</th><td>Alto</td><td>Bajo</td><td>Alto</td><td>Alto</td></tr>
+              <tr><th scope="row">Uso de recursos disponibles</th><td>Medio</td><td>Alto</td><td>Alto</td><td>Bajo</td></tr>
+              <tr><th scope="row">Limpieza y mantenimiento</th><td>Medio</td><td>Medio</td><td>Alto</td><td>Medio</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Esta tabla no demuestra que las bandejas sean «la solución correcta». Hace visibles hipótesis y desacuerdos. «Por comprobar» es una respuesta válida y útil: indica qué incertidumbre debe atacar el siguiente prototipo. Si dos propuestas resuelven necesidades distintas, puede aparecer una solución combinada.</p>
+
+        <h3>Valor para la comunidad y actitud emprendedora</h3>
+        <p>Emprender significa detectar una oportunidad de mejora, movilizar recursos y convertir una idea en valor; no exige crear una empresa ni obtener beneficio económico. En nuestro caso, el valor puede medirse en menos tiempo perdido, mayor autonomía, menos piezas extraviadas y un acceso más equitativo. La iniciativa empuja a actuar, pero debe convivir con la responsabilidad: escuchar objeciones, reconocer límites y abandonar una característica cuando la evidencia lo aconseja.</p>
+        <div class="t4-note"><strong>Creatividad con propósito.</strong> Una idea puede considerarse innovación cuando se pone en práctica y genera una mejora o un valor comprobable en su contexto. Lo novedoso no sustituye a lo seguro, accesible o mantenible.</div>
+      </section>
+
+      <section aria-labelledby="planificacion">
+        <h2 id="planificacion">6. Planificar: del objetivo al trabajo coordinado</h2>
+        <p>Un plan convierte el propósito en acciones coordinadas. Debe ser suficientemente claro para mostrar qué ocurre, quién se responsabiliza y cuándo se revisa, pero también debe poder adaptarse. La metodología PM² de la Comisión Europea organiza la gestión mediante ciclo de vida, funciones, actividades y documentos adaptables al proyecto.<sup><a href="#fuente_8">[8]</a></sup> En un proyecto escolar basta una versión ligera y visible.</p>
+
+        <h3>Descomponer sin perder el conjunto</h3>
+        <p>«Hacer el organizador» es demasiado grande para gestionarlo. Se descompone en entregables —por ejemplo, mapa de necesidades, lista de requisitos, conceptos, prototipos y versión validada— y después en tareas breves. Cada tarea necesita una condición de finalización: «entrevistas hechas» es ambiguo; «cuatro entrevistas anonimizadas y sintetizadas en una tabla de hallazgos» es comprobable.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Elementos de un plan colaborativo">
+          <table>
+            <caption>Elementos de un plan colaborativo</caption>
+            <thead><tr><th scope="col">Elemento</th><th scope="col">Pregunta</th><th scope="col">Ejemplo en el proyecto</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Tarea</strong></th><td>¿Qué acción concreta hay que completar?</td><td>Medir la mesa y el alcance disponible.</td></tr>
+              <tr><th scope="row"><strong>Entregable</strong></th><td>¿Qué resultado revisable produce el trabajo?</td><td>Plano de zona disponible con cotas y obstáculos.</td></tr>
+              <tr><th scope="row"><strong>Hito</strong></th><td>¿Qué punto importante permite decidir o pasar de fase?</td><td>Requisitos iniciales aceptados antes de comparar conceptos.</td></tr>
+              <tr><th scope="row"><strong>Dependencia</strong></th><td>¿Qué debe ocurrir antes de comenzar otra tarea?</td><td>No dimensionar módulos definitivos antes de inventariar componentes.</td></tr>
+              <tr><th scope="row"><strong>Recurso</strong></th><td>¿Qué persona, tiempo, material, herramienta o información hace falta?</td><td>Cartón precortado, tijeras escolares cuando proceda, regla y franja de una sesión.</td></tr>
+              <tr><th scope="row"><strong>Riesgo</strong></th><td>¿Qué suceso incierto podría afectar al proyecto?</td><td>Que la unión modular no soporte el uso repetido.</td></tr>
+              <tr><th scope="row"><strong>Control de calidad</strong></th><td>¿Cómo sabremos que el resultado parcial sirve?</td><td>Revisión de requisitos, cotas y legibilidad antes de fabricar más unidades.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Hitos y dependencias</h3>
+        <p>Un hito no es una tarea larga, sino un punto de control: «reto definido», «concepto seleccionado» o «prototipo preparado para prueba». Las dependencias explican el orden lógico. Algunas tareas pueden realizarse en paralelo —medir el espacio e inventariar componentes—; otras deben esperar —elegir dimensiones depende de ambos resultados—. Visualizarlas evita que una persona quede parada o que se fabrique algo basado en datos aún no confirmados.</p>
+
+        <h3>Riesgo no es problema</h3>
+        <p>Un <strong>riesgo</strong> todavía no ha ocurrido; un <strong>problema o incidencia</strong> ya está afectando al proyecto. Cada riesgo relevante se describe mediante causa, suceso y efecto, se estima por probabilidad e impacto y recibe una respuesta. Por ejemplo: «Si las etiquetas adhesivas se despegan con la limpieza, la identificación fallará; probaremos dos sistemas en una muestra antes de producir todas». Gestionar riesgos pronto cuesta menos que corregir tarde.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Registro mínimo de riesgos">
+          <table>
+            <caption>Registro mínimo de riesgos</caption>
+            <thead><tr><th scope="col">Riesgo</th><th scope="col">Probabilidad</th><th scope="col">Impacto</th><th scope="col">Respuesta</th><th scope="col">Señal de revisión</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">La base vuelca al abrir una bandeja cargada.</th><td>Media</td><td>Alto</td><td>Prototipar la base y probar el caso de carga desfavorable.</td><td>Movimiento o levantamiento de un apoyo.</td></tr>
+              <tr><th scope="row">Falta el material previsto.</th><td>Media</td><td>Medio</td><td>Comprobar existencias y definir una alternativa compatible.</td><td>Inventario inferior al necesario.</td></tr>
+              <tr><th scope="row">Las etiquetas se confunden con poca luz.</th><td>Media</td><td>Alto</td><td>Ensayar contraste, tamaño, icono y relieve con usuarios.</td><td>Errores repetidos de identificación.</td></tr>
+              <tr><th scope="row">Una tarea crítica depende de una sola persona.</th><td>Alta</td><td>Medio</td><td>Compartir archivos, documentar y trabajar por parejas en esa tarea.</td><td>Nadie puede continuar en su ausencia.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-concept"><strong class="t4-concept-tag">Plan adaptable</strong>Planificar no es adivinar el futuro. Es construir una referencia para detectar desviaciones, decidir con tiempo y comunicar cambios. Un tablero sencillo con «pendiente», «en curso», «en revisión» y «terminado» puede bastar si cada tarjeta tiene responsable y criterio de finalización.</div>
+      </section>
+
+      <section aria-labelledby="equipo">
+        <h2 id="equipo">7. Equipo: roles, acuerdos y responsabilidad compartida</h2>
+        <p>Colaborar no es dividir el objeto en cuatro partes y unirlas al final. El equipo comparte objetivos, evidencias y decisiones; coordina dependencias; revisa el trabajo y ayuda a desbloquear tareas. Un rol asigna una responsabilidad temporal, no una jerarquía personal ni una etiqueta sobre quién «es creativo» o «es hábil».</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Roles rotatorios para un equipo pequeño">
+          <table>
+            <caption>Roles rotatorios para un equipo pequeño</caption>
+            <thead><tr><th scope="col">Rol</th><th scope="col">Responsabilidad principal</th><th scope="col">No significa</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Coordinación</strong></th><td>Hace visible el objetivo, facilita decisiones y revisa bloqueos y dependencias.</td><td>Mandar ni decidir en solitario.</td></tr>
+              <tr><th scope="row"><strong>Investigación y accesibilidad</strong></th><td>Cuida la calidad de la evidencia y que participen perfiles diversos.</td><td>Ser la única persona que piensa en usuarios.</td></tr>
+              <tr><th scope="row"><strong>Diseño y prototipado</strong></th><td>Traduce hipótesis en representaciones y versiones comprobables.</td><td>Ser propietario de la idea o trabajar sin revisión.</td></tr>
+              <tr><th scope="row"><strong>Planificación y recursos</strong></th><td>Actualiza tareas, tiempos, materiales, costes y riesgos.</td><td>Hacer toda la documentación administrativa.</td></tr>
+              <tr><th scope="row"><strong>Calidad y validación</strong></th><td>Prepara pruebas, registra resultados y comprueba trazabilidad.</td><td>Buscar culpables cuando algo falla.</td></tr>
+              <tr><th scope="row"><strong>Comunicación</strong></th><td>Sintetiza decisiones, versiones y resultados para el equipo y otras personas.</td><td>Ser la única voz pública del grupo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>En equipos pequeños una persona puede asumir dos roles, y los roles pueden rotar entre iteraciones para repartir aprendizaje y evitar dependencias. Las tareas, en cambio, deben tener una persona responsable clara, aunque varias colaboren. «Lo hacemos entre todos» suele significar que nadie sabe quién comprobará que termina.</p>
+
+        <h3>Acuerdos de trabajo que previenen conflictos</h3>
+        <ul>
+          <li><strong>Canales:</strong> dónde se guardan archivos, decisiones y avisos; cuál es la versión vigente.</li>
+          <li><strong>Ritmo:</strong> cuándo se revisa el tablero y cuánto puede permanecer bloqueada una tarea antes de pedir ayuda.</li>
+          <li><strong>Decisiones:</strong> qué se decide por consenso, qué puede decidir un rol y cómo se registra un desacuerdo.</li>
+          <li><strong>Participación:</strong> turnos de palabra, tiempo para pensar y obligación de criticar propuestas sin atacar a personas.</li>
+          <li><strong>Calidad:</strong> ninguna tarea pasa a «terminada» sin cumplir su criterio de finalización y recibir la revisión acordada.</li>
+          <li><strong>Seguridad y cuidado:</strong> normas del taller, uso responsable de materiales y respuesta ante una situación insegura.</li>
+        </ul>
+
+        <div class="t4-note"><strong>Una reunión breve necesita salida.</strong> Puede responder solo a cuatro preguntas: ¿qué cambió?, ¿qué está bloqueado?, ¿qué decisión hace falta?, ¿qué hará cada persona después? El acta mínima registra decisiones, responsables y fecha de revisión; no transcribe toda la conversación.</div>
+
+        <h3>Perseverar con criterio</h3>
+        <p>La perseverancia no consiste en repetir exactamente lo mismo pese a la evidencia. Consiste en mantener el propósito mientras se cambia de estrategia: reducir el alcance, ensayar otro material, pedir ayuda, volver a investigar o descartar una idea costosa. Un equipo emprendedor aprende del error sin ocultarlo y conserva un registro de qué intentó y qué descubrió.</p>
+        <div class="t4-think"><strong>Conflicto productivo:</strong> «No estoy de acuerdo porque la prueba de alcance deja fuera a dos participantes» aporta una razón revisable. «Mi diseño es mejor» convierte la discusión en una competición personal. El criterio común debe ser la evidencia y los requisitos.</div>
+      </section>
+
+      <section aria-labelledby="prototipo">
+        <h2 id="prototipo">8. Prototipar, validar, iterar e incluir</h2>
+        <p>Un prototipo es una representación construida para aprender. No tiene que parecer el producto final: debe responder a una pregunta. Para comprobar la altura de acceso basta una silueta de cartón; para estudiar la legibilidad sirven etiquetas impresas; para ensayar una unión hace falta una muestra funcional. Prototipar todo con el máximo acabado demasiado pronto hace costoso cambiar y puede provocar apego a la primera versión.</p>
+        <div class="aviso"><strong>Seguridad antes de prototipar</strong>En este tema se usarán materiales precortados o técnicas de bajo riesgo. Cualquier herramienta o ensayo requiere autorización y supervisión docente, una valoración previa del riesgo, la pieza bien sujeta, la herramienta apropiada y la zona despejada. Las técnicas de taller se desarrollan con detalle en el Tema 3.</div>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Elegir el prototipo mínimo que permita aprender">
+          <table>
+            <caption>Elegir el prototipo mínimo que permita aprender</caption>
+            <thead><tr><th scope="col">Pregunta</th><th scope="col">Prototipo adecuado</th><th scope="col">Dato que interesa</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">¿Se entiende la organización?</th><td>Esquema a escala o tarjetas que simulan módulos.</td><td>Cómo agrupan y buscan las personas.</td></tr>
+              <tr><th scope="row">¿Se alcanzan los elementos frecuentes?</th><td>Volumen de cartón colocado en el lugar previsto.</td><td>Alcance, postura y obstáculos.</td></tr>
+              <tr><th scope="row">¿Se distingue cada contenido?</th><td>Variantes de etiqueta con texto, icono, contraste y relieve.</td><td>Errores, tiempo y preferencias explicadas.</td></tr>
+              <tr><th scope="row">¿Resiste la unión modular?</th><td>Una sola unión con material y carga representativos.</td><td>Holgura, deformación y ciclos de uso.</td></tr>
+              <tr><th scope="row">¿El conjunto es estable?</th><td>Base funcional con la situación de carga más desfavorable prevista.</td><td>Deslizamiento, vuelco y esfuerzo de extracción.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Contrastar y validar, no defender un objeto</h3>
+        <p><strong>Contrastar una hipótesis</strong> permite aceptar, revisar o rechazar una predicción concreta; <strong>verificar</strong> comprueba si el prototipo cumple requisitos especificados; y <strong>validar</strong> comprueba si la solución responde a la necesidad y al contexto de uso. No basta preguntar «¿te gusta?». Una prueba debe indicar participantes, contexto, tarea, medida de éxito y forma de registro.</p>
+        <div class="t4-note"><strong>Orden obligatorio de las pruebas.</strong> Primero se realiza la inspección técnica y se obtiene autorización docente; después se prueba sin personas la estabilidad, las aristas y las cargas. Solo entonces puede hacerse una prueba de uso voluntaria, de bajo riesgo y supervisada. Los ensayos de carga se detienen ante deformación, fisura, deslizamiento o inestabilidad y nunca superan el límite fijado por el profesorado.</div>
+        <ol>
+          <li><strong>Hipótesis:</strong> las etiquetas multimodales permiten identificar módulos sin depender del color.</li>
+          <li><strong>Prueba:</strong> localizar y devolver componentes bajo condiciones de uso realistas.</li>
+          <li><strong>Evidencia:</strong> resultados observados y comentarios literales, no solo impresiones del equipo.</li>
+          <li><strong>Decisión:</strong> conservar, modificar, combinar o descartar; actualizar requisitos y plan.</li>
+          <li><strong>Nueva iteración:</strong> probar el cambio sobre la incertidumbre más importante que quede.</li>
+        </ol>
+        <div class="t4-concept"><strong class="t4-concept-tag">Iterar no es repetir</strong>Cada ciclo incorpora aprendizaje: cambia una hipótesis, un requisito, un prototipo o una decisión. Si se fabrica la misma versión sin analizar resultados, hay repetición, no iteración.</div>
+
+        <h3>Accesibilidad y diseño inclusivo desde el comienzo</h3>
+        <p>La accesibilidad busca que productos, entornos y servicios puedan ser percibidos, comprendidos y utilizados por personas con capacidades diversas. W3C/WAI explica que es esencial para algunas personas y beneficiosa para muchas otras, y que las barreras aparecen cuando el diseño no considera la diversidad.<sup><a href="#fuente_6">[6]</a></sup> Aunque sus recursos se centran en la web, principios como ofrecer alternativas, permitir distintas formas de interacción y asegurar comprensión son transferibles al diseño de nuestro organizador.<sup><a href="#fuente_7">[7]</a></sup></p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Barreras posibles y respuestas que ayudan a más personas">
+          <table>
+            <caption>Barreras posibles y respuestas que ayudan a más personas</caption>
+            <thead><tr><th scope="col">Barrera</th><th scope="col">Decisión inclusiva</th><th scope="col">A quién puede beneficiar</th><th scope="col">Cómo validarla</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">El color es la única pista.</th><td>Combinar texto, alto contraste, icono o forma táctil coherente.</td><td>Personas con baja visión, alteraciones en percepción del color o poca experiencia.</td><td>Prueba sin color o con iluminación desfavorable.</td></tr>
+              <tr><th scope="row">Tiradores pequeños o duros.</th><td>Zona de agarre amplia, esfuerzo moderado y espacio para los dedos.</td><td>Personas con menor destreza, guantes, lesión temporal o manos grandes.</td><td>Observación con una sola mano y distintos agarres.</td></tr>
+              <tr><th scope="row">Elementos frecuentes demasiado altos o bajos.</th><td>Ordenar por frecuencia y comprobar rangos de alcance.</td><td>Personas de distinta estatura, movilidad o posición de trabajo.</td><td>Prueba en el emplazamiento real con perfiles diversos.</td></tr>
+              <tr><th scope="row">Clasificación difícil de comprender.</th><td>Grupos consistentes, vocabulario familiar y ejemplo visual o físico.</td><td>Quien se incorpora al taller, tiene dificultad lectora o usa otra lengua.</td><td>Tarea sin instrucciones adicionales.</td></tr>
+              <tr><th scope="row">Montaje que exige demasiada fuerza.</th><td>Uniones guiadas, tolerancias adecuadas y pasos reversibles.</td><td>Todo el grupo, especialmente personas con fuerza limitada.</td><td>Medición y observación de esfuerzo y errores.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Diseñar de forma inclusiva no consiste en imaginar «usuarios especiales» al final ni en añadir una adaptación aislada. Consiste en incorporar diversidad real a investigación, requisitos, ideación y pruebas. Una rampa improvisada al terminar un edificio ilustra el coste del añadido tardío; en cambio, una entrada sin escalón puede servir a una silla de ruedas, un carro, una lesión temporal y el transporte de materiales. En el organizador, una etiqueta redundante y un agarre claro mejoran el uso para casi todo el grupo.</p>
+
+        <h3>Cerrar una iteración con calidad</h3>
+        <p>Antes de considerar válida una versión, el equipo revisa: cumplimiento de requisitos imprescindibles; seguridad; accesibilidad; estabilidad; uso de recursos; posibilidad de mantenimiento; evidencia de las pruebas; y cambios pendientes. La estética importa porque puede facilitar comprensión y cuidado, pero se evalúa junto con la función, no en su lugar.</p>
+        <div class="t4-curio"><strong>Un resultado negativo puede ser un buen resultado de proyecto.</strong> Descubrir con cartón que una distribución excluye a parte del grupo evita gastar tiempo y material en una versión definitiva. Falló la hipótesis, no el aprendizaje.</div>
+      </section>
+
+      <section aria-labelledby="criterios">
+        <h2 id="criterios">Criterios de evaluación 1.1, 1.2 y 1.3</h2>
+        <p>Este tema prepara tres desempeños del currículo de Tecnología de 4.º de la ESO de la Comunidad de Madrid.<sup><a href="#fuente_1">[1]</a></sup> La tabla traduce cada criterio a evidencias observables sin sustituir su formulación oficial.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Qué debería mostrar el trabajo del proyecto">
+          <table>
+            <caption>Qué debería mostrar el trabajo del proyecto</caption>
+            <thead><tr><th scope="col">Criterio</th><th scope="col">Núcleo del desempeño</th><th scope="col">Evidencias posibles</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>1.1</strong></th><td>Idear y planificar soluciones emprendedoras con valor para la comunidad a partir del entorno, sus necesidades, requisitos y oportunidades de mejora.</td><td>Mapa de evidencias, necesidad bien formulada, requisitos trazables, propuesta de valor y plan coherente.</td></tr>
+              <tr><th scope="row"><strong>1.2</strong></th><td>Aplicar estrategias colaborativas como <em>Design Thinking</em>, con perspectiva interdisciplinar y validación iterativa desde la idea hasta la difusión.</td><td>Alternativas diversas, criterios de selección, prototipos sucesivos, pruebas con usuarios, registro de cambios y coordinación del equipo.</td></tr>
+              <tr><th scope="row"><strong>1.3</strong></th><td>Gestionar creativamente el proyecto mediante técnicas colaborativas e investigación para lograr soluciones eficientes, accesibles e innovadoras.</td><td>Métodos de investigación justificados, participación diversa, decisiones de accesibilidad, gestión de riesgos, uso responsable de recursos y controles de calidad.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>El marco estatal de la ESO sitúa estas competencias dentro de una formación orientada a aplicar saberes en situaciones y a afrontar retos de manera responsable.<sup><a href="#fuente_2">[2]</a></sup> Por eso no basta con presentar un objeto acabado: importan la comprensión de la necesidad, la calidad del proceso, la colaboración y las evidencias que justifican cada mejora.</p>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Accesibilidad</dt><dd>Condición que permite percibir, comprender y utilizar un producto, entorno o servicio a personas con capacidades diversas.</dd>
+          <dt>Dependencia</dt><dd>Relación por la que una tarea o entregable necesita que otro trabajo o recurso esté disponible.</dd>
+          <dt>Diseño inclusivo</dt><dd>Enfoque que incorpora la diversidad de las personas durante todo el proceso y evita crear barreras.</dd>
+          <dt>Entregable</dt><dd>Resultado concreto y revisable producido por una tarea o fase.</dd>
+          <dt>Hito</dt><dd>Punto relevante del proyecto usado para revisar, decidir o autorizar el paso siguiente.</dd>
+          <dt>Hipótesis</dt><dd>Explicación o predicción provisional que puede contrastarse mediante evidencia.</dd>
+          <dt>Iteración</dt><dd>Ciclo de trabajo que usa lo aprendido para modificar una propuesta, requisito o plan.</dd>
+          <dt>Necesidad</dt><dd>Resultado humano o funcional que conviene satisfacer, identificado a partir del contexto.</dd>
+          <dt>Problema</dt><dd>Situación observable que causa una dificultad, riesgo o resultado no deseado.</dd>
+          <dt>Prototipo</dt><dd>Representación parcial o completa construida para responder preguntas y reducir incertidumbre.</dd>
+          <dt>Requisito</dt><dd>Condición clara y verificable que una solución debe cumplir.</dd>
+          <dt>Riesgo</dt><dd>Suceso incierto que, si ocurre, puede afectar a los objetivos del proyecto.</dd>
+          <dt>Sesgo</dt><dd>Tendencia sistemática que puede distorsionar la recogida, interpretación o selección de información.</dd>
+          <dt>Solución</dt><dd>Respuesta concreta diseñada para satisfacer necesidades y requisitos dentro de unas restricciones.</dd>
+          <dt>Trazabilidad</dt><dd>Capacidad de relacionar una decisión o característica con su requisito, necesidad y evidencia de origen.</dd>
+          <dt>Validación</dt><dd>Obtención y análisis de evidencia para decidir si una hipótesis o solución responde a la necesidad prevista.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Un problema describe una dificultad; una necesidad, el resultado buscado; un requisito, una condición comprobable; y una solución, una respuesta concreta.</li>
+          <li>Investigar exige combinar observación, entrevistas, mediciones y fuentes, separar datos de interpretaciones y reducir sesgos.</li>
+          <li>Los requisitos deben ser claros, necesarios, verificables, compatibles, priorizados y trazables.</li>
+          <li><em>Design Thinking</em> no es una receta lineal: comprender, definir, idear, prototipar y probar se alternan según lo aprendido.</li>
+          <li>El pensamiento divergente genera variedad; el convergente selecciona mediante evidencias, requisitos y restricciones.</li>
+          <li>Un plan visible conecta tareas, entregables, responsables, hitos, dependencias, recursos, riesgos y controles de calidad.</li>
+          <li>Los roles reparten responsabilidades y deben facilitar participación, revisión y aprendizaje compartido, no crear jerarquías fijas.</li>
+          <li>Un prototipo sirve para aprender; una validación contrasta hipótesis; una iteración convierte la evidencia en cambios.</li>
+          <li>Accesibilidad, seguridad, sostenibilidad de recursos y mantenimiento se consideran desde el inicio, no como añadidos finales.</li>
+          <li>Emprendimiento, creatividad y perseverancia producen valor cuando se apoyan en responsabilidad, evidencia y calidad.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_1">[1] <a href="https://www.bocm.es/boletin/CM_Orden_BOCM/2022/07/26/BOCM-20220726-2.PDF">Comunidad de Madrid — Decreto 65/2022, de 20 de julio, currículo de Educación Secundaria Obligatoria (PDF)</a>. Véanse el Anexo II, la materia Tecnología, la competencia específica 1, los criterios 1.1–1.3 y el bloque A.</li>
+          <li id="fuente_2">[2] <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-4975">BOE — Real Decreto 217/2022, de 29 de marzo, ordenación y enseñanzas mínimas de la ESO</a>.</li>
+          <li id="fuente_3">[3] <a href="https://www.designcouncil.org.uk/resources/the-double-diamond/">Design Council — The Double Diamond</a> (en inglés).</li>
+          <li id="fuente_4">[4] <a href="https://dschool.stanford.edu/tools/design-thinking-bootleg">Stanford d.school — Design Thinking Bootleg</a> (en inglés).</li>
+          <li id="fuente_5">[5] <a href="https://www.designkit.org/methods.html">IDEO.org — Design Kit: métodos de diseño centrado en las personas</a> (en inglés).</li>
+          <li id="fuente_6">[6] <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/">W3C Web Accessibility Initiative — Introduction to Web Accessibility</a> (en inglés).</li>
+          <li id="fuente_7">[7] <a href="https://www.w3.org/WAI/fundamentals/accessibility-principles/">W3C Web Accessibility Initiative — Accessibility Principles</a> (en inglés).</li>
+          <li id="fuente_8">[8] <a href="https://pm2.europa.eu/pm2-methodologies/pm2-project-management_en">Comisión Europea — PM² Project Management Methodology</a> (en inglés).</li>
+          <li id="fuente_9">[9] <a href="https://www.aepd.es/guias/guia-centros-educativos.pdf">Agencia Española de Protección de Datos — Guía para centros educativos (PDF)</a>.</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="index.html">← Índice del bloque</a>
+  <a href="tema02.html">Tema 2 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>

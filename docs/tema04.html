@@ -1,27 +1,409 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 4 del Bloque A de Tecnología de 4.º de la ESO: Cómo documentar un proyecto técnico y presentarlo para que otras personas lo entiendan y puedan usarlo.">
-<title>Tema 4. Documentación, comunicación y difusión del proyecto · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 4 de Tecnología de 4.º de la ESO: documentación técnica, comunicación, colaboración, publicación, SEO, accesibilidad y licencias en un proyecto tecnológico.">
+  <title>Tema 4. Documentación, comunicación y difusión del proyecto · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 04 · Bloque A · Proceso de resolución de problemas</p><h1>Tema 4. Documentación, comunicación y difusión del proyecto</h1><p class="hero-lead">Cómo documentar un proyecto técnico y presentarlo para que otras personas lo entiendan y puedan usarlo.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>3.1, 3.2, 3.3</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>documentación técnica: memoria, planos, esquemas, listas de materiales y presupuesto.</li><li>vocabulario técnico, símbolos y esquemas de sistemas tecnológicos.</li><li>comunicación efectiva: entonación, expresión, gestión del tiempo y adaptación del discurso.</li><li>herramientas digitales de presentación, colaboración y publicación de contenidos.</li><li>difusión en internet e introducción al posicionamiento de contenidos (SEO).</li><li>respeto a la propiedad intelectual y a las licencias de los recursos utilizados.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque A «Proceso de resolución de problemas» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>3.1, 3.2, 3.3</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema03.html">← Tema 3</a><a href="tema05.html">Tema 5 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 04 · Bloque A · Proceso de resolución de problemas</p>
+        <h1>Tema 4. Documentación, comunicación y difusión del proyecto</h1>
+        <p class="hero-lead">Cómo dejar constancia de una solución tecnológica, explicarla con precisión y compartirla de forma accesible, responsable y fácil de encontrar.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 4">
+        <strong>Pregunta guía</strong>
+        <p>¿Podría otro equipo construir, comprobar y mejorar nuestro organizador del aula-taller usando solo la documentación entregada?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#documentar">Documentar para comprender y verificar</a></li>
+        <li><a href="#expediente">El expediente técnico</a></li>
+        <li><a href="#representar">Planos, esquemas y lenguaje técnico</a></li>
+        <li><a href="#materiales">Materiales y presupuesto</a></li>
+        <li><a href="#colaborar">Colaboración y control de versiones</a></li>
+        <li><a href="#presentar">Presentación efectiva y accesible</a></li>
+        <li><a href="#publicar">Publicación y SEO básico</a></li>
+        <li><a href="#licencias">Autoría, licencias y atribución</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">En el aula-taller diseñamos un <strong>organizador modular y accesible</strong> para guardar herramientas y componentes. Fabricarlo no basta: habrá que explicar qué problema resuelve, qué decisiones se tomaron, cómo se monta, cuánto cuesta y cómo se comprobó. La documentación convierte un objeto aislado en una solución que otras personas pueden comprender, reproducir, verificar y mejorar.</p>
+      <div class="question"><strong>Antes de empezar:</strong> si el equipo autor no estuviera presente, ¿qué información necesitarías para distinguir una pieza de 120&nbsp;mm de otra parecida, montarla en la orientación correcta, conocer su coste y comprobar que una persona con movilidad o visión reducida puede usarla?</div>
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>organizar una memoria técnica coherente y enlazarla con planos, esquemas, materiales, presupuesto y pruebas;</li>
+          <li>emplear vocabulario, magnitudes, unidades y símbolos técnicos sin ambigüedad;</li>
+          <li>elaborar una lista de materiales y un presupuesto trazables, con cantidades y precios claramente explicados;</li>
+          <li>coordinar archivos y cambios de equipo mediante permisos, comentarios, nombres sencillos y versiones identificables;</li>
+          <li>presentar una solución con estructura, buena expresión y respeto al tiempo y al público;</li>
+          <li>crear documentos, diapositivas y publicaciones accesibles;</li>
+          <li>aplicar un SEO introductorio basado en contenido útil y descriptivo, no en trucos;</li>
+          <li>comprobar derechos de uso y atribuir correctamente los recursos ajenos.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="documentar">
+        <h2 id="documentar">1. Documentar para comprender, reproducir y verificar</h2>
+        <p><strong>Documentar no es decorar el proyecto al final.</strong> Es registrar información útil mientras se investiga, diseña, fabrica y comprueba. Una fotografía bonita del resultado puede comunicar su aspecto, pero no sustituye una medida, una decisión justificada, una instrucción de montaje o el resultado de una prueba.</p>
+        <p>En Tecnología, un documento cumple su función cuando responde con claridad a preguntas de otras personas:</p>
+        <div class="t4-grid">
+          <div class="t4-card"><h3>Comprender</h3><p>¿Qué necesidad resuelve? ¿Quién lo usará? ¿Por qué se eligió esta solución y no otra?</p></div>
+          <div class="t4-card"><h3>Reproducir</h3><p>¿Qué piezas, materiales, dimensiones, herramientas y pasos hacen falta para construirlo de nuevo?</p></div>
+          <div class="t4-card"><h3>Verificar</h3><p>¿Qué requisitos debía cumplir? ¿Cómo se midieron estabilidad, capacidad, alcance y seguridad? ¿Qué resultado se obtuvo?</p></div>
+          <div class="t4-card"><h3>Mejorar</h3><p>¿Qué falló, qué cambió entre versiones y qué recomendación queda para el siguiente equipo?</p></div>
+        </div>
+        <p>El currículo madrileño pide intercambiar información con vocabulario, símbolos y esquemas adecuados; presentar y difundir soluciones de forma efectiva; y valorar el posicionamiento de contenidos en la red. Son los criterios <strong>3.1, 3.2 y 3.3</strong> que articula este tema.<sup><a href="#fuente_30">[30]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Los criterios 3.1–3.3 convertidos en evidencias observables">
+          <table>
+            <caption>Los criterios 3.1–3.3 convertidos en evidencias observables</caption>
+            <thead><tr><th scope="col">Criterio</th><th scope="col">Qué se espera</th><th scope="col">Evidencia en el organizador</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>3.1</strong></th><td>Intercambiar información y trabajar en equipo de forma asertiva con herramientas digitales, vocabulario, símbolos y esquemas apropiados.</td><td>Carpeta compartida ordenada, comentarios resueltos, planos y esquemas coherentes, registro de decisiones.</td></tr>
+              <tr><th scope="row"><strong>3.2</strong></th><td>Presentar y difundir la solución con entonación, expresión, gestión del tiempo y adaptación del discurso.</td><td>Exposición ensayada, demostración comprensible y materiales accesibles ajustados al público.</td></tr>
+              <tr><th scope="row"><strong>3.3</strong></th><td>Valorar la importancia del posicionamiento web para difundir ideas y productos.</td><td>Página con título descriptivo, estructura clara, texto útil, imágenes explicadas y enlace fácil de compartir.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>La documentación es una parte del diseño: si una medida, prueba o decisión no queda registrada, el proyecto pierde trazabilidad y depende de la memoria de quienes lo hicieron.</div>
+      </section>
+
+      <section aria-labelledby="expediente">
+        <h2 id="expediente">2. La documentación técnica: memoria y documentos asociados</h2>
+        <div class="t4-note"><strong>Nombre escolar.</strong> En este tema llamamos «documentación técnica del proyecto» al conjunto organizado de documentos del trabajo. No equivale a un expediente reglamentario de certificación o conformidad.</div>
+        <p>La <strong>memoria técnica</strong> cuenta de forma razonada el proyecto. No es un diario minuto a minuto ni una colección de capturas. Selecciona y conecta la información necesaria para entender el problema, la solución y su validación. Los planos, esquemas, listas y presupuesto pueden integrarse en ella o presentarse como documentos asociados, pero deben estar identificados y citados desde el texto.</p>
+        <div class="t4-note"><strong>Estado heredado del proyecto · versión V04.</strong> Se documentan la adaptación del bastidor existente y los módulos reemplazables de la V03. Los supuestos aún no confirmados se marcan como tales; no se transforman en datos definitivos al redactar la memoria.</div>
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable de la documentación técnica">
+          <img src="assets/tema04_mapa_documentacion.svg" alt="La memoria técnica conecta requisitos y decisiones, planos y materiales, pruebas y resultados, y versiones, fuentes y licencias.">
+          <figcaption>Los documentos no son piezas aisladas: códigos, revisiones y referencias permiten recorrer la decisión desde su origen hasta la evidencia.</figcaption>
+        </figure>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Contenido mínimo de la documentación del organizador modular">
+          <table>
+            <caption>Contenido mínimo de la documentación del organizador modular</caption>
+            <thead><tr><th scope="col">Documento</th><th scope="col">Pregunta que responde</th><th scope="col">Contenido útil</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Portada y ficha</strong></th><td>¿Qué es y de qué versión hablamos?</td><td>Título, equipo, grupo, fecha, versión, responsables y licencia del documento.</td></tr>
+              <tr><th scope="row"><strong>Necesidad y requisitos</strong></th><td>¿Qué problema se intenta resolver?</td><td>Personas usuarias, contexto, límites de tamaño y coste, seguridad, accesibilidad y criterios medibles.</td></tr>
+              <tr><th scope="row"><strong>Alternativas y elección</strong></th><td>¿Por qué esta solución?</td><td>Bocetos comparados, ventajas, inconvenientes y decisión justificada.</td></tr>
+              <tr><th scope="row"><strong>Descripción de la solución</strong></th><td>¿Cómo es y cómo funciona?</td><td>Módulos, uniones, zonas de agarre, etiquetado, configuración y relación con planos.</td></tr>
+              <tr><th scope="row"><strong>Planos y esquemas</strong></th><td>¿Qué forma, medida y conexión tiene cada parte?</td><td>Vistas, cotas, escala, despiece, esquema de montaje y leyenda.</td></tr>
+              <tr><th scope="row"><strong>Plan de fabricación</strong></th><td>¿En qué orden y con qué medios se construye?</td><td>Operaciones, herramientas, responsables, tiempos previstos, seguridad y controles intermedios.</td></tr>
+              <tr><th scope="row"><strong>Materiales y presupuesto</strong></th><td>¿Qué se necesita y qué coste se estima?</td><td>Referencia, unidad, cantidad, precio unitario, subtotal, procedencia y fecha del precio.</td></tr>
+              <tr><th scope="row"><strong>Pruebas y resultados</strong></th><td>¿Cumple los requisitos?</td><td>Método, medida obtenida, evidencia, incidencias y conclusión: cumple, no cumple o requiere cambios.</td></tr>
+              <tr><th scope="row"><strong>Conclusiones y mejoras</strong></th><td>¿Qué aprendimos y qué cambiaríamos?</td><td>Valoración argumentada, límites conocidos y siguientes pasos.</td></tr>
+              <tr><th scope="row"><strong>Fuentes y anexos</strong></th><td>¿De dónde procede la información?</td><td>Bibliografía, enlaces, fichas técnicas, atribuciones, fotografías y registros complementarios.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Del requisito a la prueba</h3>
+        <p>Un requisito útil debe poder comprobarse. «Que sea bueno» no indica cómo decidir. «El módulo no vuelca al extraer una herramienta de 0,5&nbsp;kg en las condiciones descritas» permite diseñar una prueba. En accesibilidad, «fácil de usar» debe concretarse, por ejemplo, en altura de alcance, tamaño de rótulo, contraste, fuerza de accionamiento o posibilidad de reconocer el contenido sin depender solo del color.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Ejemplo de matriz requisito–evidencia">
+          <table>
+            <caption>Ejemplo de matriz requisito–evidencia</caption>
+            <thead><tr><th scope="col">Requisito</th><th scope="col">Cómo se comprueba</th><th scope="col">Resultado que se registra</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Admite tres configuraciones sin fabricar piezas nuevas.</th><td>Montar y fotografiar las tres configuraciones con el mismo juego de módulos.</td><td>Configuraciones logradas y piezas utilizadas.</td></tr>
+              <tr><th scope="row">Las herramientas frecuentes quedan al alcance acordado.</th><td>Medir desde el suelo la zona de agarre en la instalación real y probarla con personas usuarias diversas.</td><td>Alturas medidas, observaciones y cambios necesarios.</td></tr>
+              <tr><th scope="row">Las etiquetas no dependen solo del color.</th><td>Revisar que cada categoría incluya texto o símbolo comprensible además del color.</td><td>Lista de etiquetas verificadas y correcciones.</td></tr>
+              <tr><th scope="row">El coste no supera el límite fijado.</th><td>Comparar el total presupuestado, incluidos imprevistos, con el límite.</td><td>Importe, fecha y conclusión.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-note"><strong>Registra durante el proceso.</strong> Toma la fotografía junto a una referencia de escala, anota el resultado de la prueba cuando ocurre y guarda la causa de cada cambio. Reconstruir esos datos al final conduce a omisiones y recuerdos poco fiables.</div>
+      </section>
+
+      <section aria-labelledby="representar">
+        <h2 id="representar">3. Planos, esquemas y lenguaje técnico sin ambigüedad</h2>
+        <p>El texto explica propósitos y decisiones; una representación gráfica muestra relaciones espaciales o funcionales con mayor eficacia. Hay que elegir el documento por la pregunta que debe responder, no por el programa que apetece utilizar.</p>
+        <div class="comparacion">
+          <div><h3>Plano</h3><p>Representa geometría: forma, vistas, dimensiones, posición y, cuando corresponda, escala. Sirve para fabricar o comprobar piezas.</p></div>
+          <div><h3>Esquema</h3><p>Simplifica el sistema para mostrar conexiones, orden o función. Un esquema de montaje puede indicar qué módulo se une con cuál sin reproducir su aspecto exacto.</p></div>
+          <div><h3>Diagrama</h3><p>Organiza procesos o relaciones: flujo de fabricación, árbol de decisiones, calendario o reparto de responsabilidades.</p></div>
+        </div>
+        <p>Los símbolos técnicos forman un lenguaje compartido. En este proyecto se usarán sobre todo códigos de pieza, vistas, cotas y símbolos de diámetro o radio. Cuando un proyecto incorpore circuitos, la colección IEC&nbsp;60617 ofrece símbolos normalizados para diagramas electrotécnicos.<sup><a href="#fuente_32">[32]</a></sup> Todo símbolo específico o simplificado debe aparecer en una <strong>leyenda</strong>.</p>
+        <h3>Lista de comprobación para un plano útil</h3>
+        <ul>
+          <li><strong>Identificación:</strong> nombre de la pieza o conjunto, código, fecha y versión.</li>
+          <li><strong>Vistas suficientes:</strong> las necesarias para eliminar dudas, sin repetir información.</li>
+          <li><strong>Cotas:</strong> dimensiones necesarias para fabricar y verificar, sin obligar a medir el dibujo.</li>
+          <li><strong>Unidad y escala:</strong> indicadas explícitamente. Si una impresión o pantalla puede alterar el tamaño, las cotas escritas mandan sobre la medición gráfica.</li>
+          <li><strong>Correspondencia:</strong> los códigos de pieza coinciden en plano, lista de materiales y pasos de montaje.</li>
+          <li><strong>Legibilidad:</strong> líneas, textos, flechas y símbolos se distinguen también al imprimir en gris o ampliar.</li>
+        </ul>
+        <p>Las magnitudes deben escribirse con número y unidad. El Sistema Internacional distingue entre el nombre de una unidad y su símbolo: <code>mm</code>, <code>kg</code> y <code>s</code> no cambian en plural y no se improvisan abreviaturas. Conviene mantener un espacio entre el valor y el símbolo, como en <code>120 mm</code>.<sup><a href="#fuente_31">[31]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: De una expresión ambigua a una instrucción verificable">
+          <table>
+            <caption>De una expresión ambigua a una instrucción verificable</caption>
+            <thead><tr><th scope="col">Evita</th><th scope="col">Escribe mejor</th><th scope="col">Por qué</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">«Tabla grande»</th><td>«Panel P01 de 300&nbsp;mm × 200&nbsp;mm × 10&nbsp;mm»</td><td>Identifica pieza, dimensiones y espesor.</td></tr>
+              <tr><th scope="row">«Poner bien los tornillos»</th><td>«Fijar U02 a P01 con cuatro tornillos T01 en los orificios señalados»</td><td>Relaciona acción, piezas, cantidad y ubicación.</td></tr>
+              <tr><th scope="row">«Aguanta bastante»</th><td>«No presenta vuelco ni deformación visible en la prueba descrita con una carga total de 3&nbsp;kg»</td><td>Vincula la afirmación a condiciones y evidencia.</td></tr>
+              <tr><th scope="row">«Versión final definitiva»</th><td>«Conjunto general, revisión 03, 2026-09-11»</td><td>Permite reconocer la revisión sin adjetivos confusos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="aviso"><strong>Un plano no es una ilustración a escala libre</strong>Si falta una cota necesaria, cada equipo puede fabricar una pieza distinta. Si una cota contradice el modelo, hay que resolver la discrepancia y publicar una revisión, no elegir a ojo.</div>
+      </section>
+
+      <section aria-labelledby="materiales">
+        <h2 id="materiales">4. Lista de materiales y presupuesto trazable</h2>
+        <p>La <strong>lista de materiales</strong> describe lo necesario para construir una unidad del producto. El <strong>presupuesto</strong> estima su coste monetario. Comparten códigos y cantidades, pero responden a preguntas diferentes. También conviene distinguir lo comprado de lo reutilizado: un material recuperado puede tener coste de compra de 0&nbsp;€, pero no cantidad cero ni impacto material nulo.</p>
+        <h3>Una tabla que se pueda revisar</h3>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Presupuesto de ejemplo para adaptar el organizador modular V03">
+          <table>
+            <caption>Presupuesto de ejemplo para adaptar el organizador modular V03</caption>
+            <thead><tr><th scope="col">Código y concepto</th><th scope="col">Unidad de compra</th><th scope="col">Cantidad</th><th scope="col">Precio unitario</th><th scope="col">Subtotal</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">M01 · Panel para módulos y adaptadores</th><td>pieza</td><td>2</td><td>4,80&nbsp;€</td><td>9,60&nbsp;€</td></tr>
+              <tr><th scope="row">M02 · Tornillos, paquete</th><td>paquete</td><td>1</td><td>3,50&nbsp;€</td><td>3,50&nbsp;€</td></tr>
+              <tr><th scope="row">M03 · Separador impreso</th><td>pieza</td><td>8</td><td>0,35&nbsp;€</td><td>2,80&nbsp;€</td></tr>
+              <tr><th scope="row">M04 · Etiquetas de alto contraste</th><td>juego</td><td>1</td><td>2,10&nbsp;€</td><td>2,10&nbsp;€</td></tr>
+              <tr><th scope="row">M05 · Acabado protector</th><td>cantidad imputada</td><td>1</td><td>3,40&nbsp;€</td><td>3,40&nbsp;€</td></tr>
+              <tr><th scope="row" colspan="4"><strong>Base estimada</strong></th><td><strong>21,40&nbsp;€</strong></td></tr>
+              <tr><th scope="row" colspan="4">Imprevistos (10&nbsp;% de 21,40&nbsp;€)</th><td>2,14&nbsp;€</td></tr>
+              <tr><th scope="row" colspan="4"><strong>Total estimado</strong></th><td><strong>23,54&nbsp;€</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>En cada línea, el subtotal se obtiene como <strong>cantidad × precio unitario</strong>. Después se suman los subtotales y se añade, si está previsto, un porcentaje de imprevistos sobre una base declarada. En el ejemplo, los importes son didácticos: para un presupuesto real habría que registrar proveedor, fecha, impuestos, gastos de envío y qué incluye cada unidad de compra.</p>
+        <div class="t4-note"><strong>No escondas supuestos.</strong> «Una lata cuesta 12&nbsp;€» y «se imputan 3,40&nbsp;€ del acabado consumido» son estimaciones distintas. Explica si presupuestas la compra completa o solo la fracción utilizada. No mezcles unas líneas con IVA y otras sin él.</div>
+        <h3>Errores que producen cálculos engañosos</h3>
+        <ul>
+          <li>usar «1» como cantidad sin indicar si significa una pieza, un metro, un paquete o una licencia;</li>
+          <li>multiplicar piezas utilizadas por el precio de un paquete completo, o hacer lo contrario sin explicarlo;</li>
+          <li>redondear cada dato de forma diferente hasta que el total ya no coincide;</li>
+          <li>olvidar consumibles, transporte, impuestos o imprevistos mientras se afirma que el presupuesto es completo;</li>
+          <li>dar precio cero a material reutilizado sin marcarlo como disponible, donado o recuperado;</li>
+          <li>presentar el total como coste definitivo cuando sigue siendo una estimación.</li>
+        </ul>
+        <p>Una hoja de cálculo reduce trabajo repetitivo, pero no garantiza datos correctos. Revisa unidades, fórmulas, celdas incluidas y redondeo; compara además la cantidad presupuestada con la lista de materiales y el plano de despiece.</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Trazabilidad del coste</strong>Cada importe debe poder seguirse desde el total hasta una línea, una cantidad, una unidad de compra y una fuente fechada. Una fórmula correcta aplicada a una unidad equivocada sigue dando un resultado incorrecto.</div>
+      </section>
+
+      <section aria-labelledby="colaborar">
+        <h2 id="colaborar">5. Colaboración, nombres de archivo y control de versiones</h2>
+        <p>Trabajar en equipo no significa que todas las personas editen todo a la vez. Significa repartir responsabilidades, compartir el estado real del proyecto y acordar cómo se revisan y aprueban los cambios. Una plataforma colaborativa permite asignar permisos de lectura, comentario o edición; hay que conceder solo el acceso necesario y revisar qué información queda visible al compartir un enlace.<sup><a href="#fuente_34">[34]</a></sup></p>
+        <h3>Una estructura sencilla de carpetas</h3>
+        <pre tabindex="0"><code>organizador_modular/
+├── 01_memoria/
+├── 02_planos/
+├── 03_materiales_presupuesto/
+├── 04_pruebas/
+├── 05_presentacion/
+├── 06_publicacion/
+└── 07_fuentes_licencias/</code></pre>
+        <p>Los nombres deben ser breves, descriptivos y coherentes. Es preferible <code>plano_conjunto_r03.pdf</code> a <code>plano_final_BUENO_ahora_si_2.pdf</code>. Puede usarse el patrón <code>contenido_revision.extensión</code> y reservar la fecha ISO <code>AAAA-MM-DD</code> cuando aporte contexto. No incluyas datos personales innecesarios.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Protocolo mínimo de colaboración">
+          <table>
+            <caption>Protocolo mínimo de colaboración</caption>
+            <thead><tr><th scope="col">Acuerdo</th><th scope="col">Aplicación</th><th scope="col">Problema que evita</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Una fuente de verdad</th><td>La carpeta o repositorio acordado contiene la versión vigente.</td><td>Entregar una copia antigua encontrada en otro dispositivo.</td></tr>
+              <tr><th scope="row">Responsable por documento</th><td>Una persona coordina; otras revisan mediante comentarios.</td><td>Cambios incompatibles o apartados abandonados.</td></tr>
+              <tr><th scope="row">Cambio descrito</th><td>«R03: se aumenta a 20&nbsp;mm el asa tras la prueba de agarre».</td><td>No saber qué cambió ni por qué.</td></tr>
+              <tr><th scope="row">Revisión antes de publicar</th><td>Otra persona comprueba enlaces, cotas, importes, accesibilidad y permisos.</td><td>Que el mismo error pase del borrador a la entrega.</td></tr>
+              <tr><th scope="row">Exportación identificada</th><td>El editable y el PDF o archivo publicado comparten revisión.</td><td>Que la presentación muestre datos distintos de la memoria.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Un sistema de <strong>control de versiones</strong> conserva el historial y permite saber qué cambió, quién lo hizo y cuándo; también el motivo, si el equipo lo documenta en un mensaje, comentario o acta. Además, facilita recuperar estados anteriores.<sup><a href="#fuente_33">[33]</a></sup> No es obligatorio usar Git para todo proyecto escolar: el historial de una suite colaborativa o revisiones numeradas pueden bastar. Lo importante es no sobrescribir sin rastro y poder relacionar una entrega con sus archivos fuente.</p>
+        <div class="t4-think"><strong>Comunicación asertiva en la revisión.</strong> Sustituye «esto está mal» por una observación concreta y comprobable: «La pieza P03 figura con 120&nbsp;mm en el plano y 125&nbsp;mm en la memoria; debemos decidir la medida vigente y actualizar ambos documentos». Se critica el resultado, no a la persona.</div>
+      </section>
+
+      <section aria-labelledby="presentar">
+        <h2 id="presentar">6. Presentar una solución de forma efectiva y accesible</h2>
+        <p>Una presentación técnica no consiste en leer diapositivas. Su propósito es guiar al público desde la necesidad hasta la evidencia de que la solución funciona. La misma información debe adaptarse: el profesorado puede pedir justificación y pruebas; una persona usuaria necesita ventajas e instrucciones; el equipo de mantenimiento necesita piezas, riesgos y sustituciones.</p>
+        <h3>Guion con principio, evidencia y cierre</h3>
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">1 — Situar</div><p>Presentar en una frase el problema del aula-taller, las personas usuarias y el objetivo del organizador.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">2 — Explicar</div><p>Mostrar la solución modular y dos decisiones relevantes: por ejemplo, unión reconfigurable y etiquetado redundante.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">3 — Demostrar</div><p>Enseñar el montaje o una prueba. Comunicar condiciones y resultado, no solo «funcionó».</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">4 — Valorar</div><p>Indicar coste estimado, límite conocido, mejora realizada y siguiente paso.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">5 — Cerrar</div><p>Recuperar la idea principal y dejar acceso a la documentación completa.</p></div>
+        </div>
+        <p>Para una exposición de 6 minutos, el equipo puede reservar 45 segundos para el problema, 2 minutos para la solución, 2 minutos para demostración y pruebas, 45 segundos para coste y mejoras, y 30 segundos para el cierre. Es un reparto, no una garantía: se comprueba ensayando con cronómetro y dejando margen para cambiar de turno o resolver una incidencia.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Comunicación oral que ayuda a comprender">
+          <table>
+            <caption>Comunicación oral que ayuda a comprender</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Aplicación</th><th scope="col">Señal de alerta</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Expresión</strong></th><td>Frases directas, vocabulario técnico explicado y datos vinculados a una evidencia.</td><td>Muletillas, lectura literal o palabras técnicas usadas sin saber definirlas.</td></tr>
+              <tr><th scope="row"><strong>Entonación y ritmo</strong></th><td>Volumen suficiente, pausas entre ideas y énfasis en resultados clave.</td><td>Hablar deprisa para «meterlo todo» o mantener un tono monótono.</td></tr>
+              <tr><th scope="row"><strong>Tiempo</strong></th><td>Ensayo real, reparto visible y una versión recortable del guion.</td><td>Dedicar casi todo al proceso y omitir pruebas o conclusión.</td></tr>
+              <tr><th scope="row"><strong>Adaptación</strong></th><td>Ejemplos, detalle y canal adecuados al público y al contexto.</td><td>Explicar a todas las personas como si ya conocieran el proyecto.</td></tr>
+              <tr><th scope="row"><strong>Equipo</strong></th><td>Transiciones ensayadas; cada integrante comprende el conjunto.</td><td>Fragmentos aislados que se contradicen o dependen de una sola persona.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Accesibilidad desde el principio</h3>
+        <p>La accesibilidad beneficia a personas con distintas capacidades y también a quien está lejos de la pantalla, escucha con ruido, usa un móvil o no conoce todavía el tema. W3C/WAI recomienda, entre otras medidas, una estructura consistente, contenido claro, texto y elementos visuales suficientemente grandes, buen contraste y materiales en formatos adaptables.<sup><a href="#fuente_36">[36]</a></sup></p>
+        <ul>
+          <li>usa títulos que expliquen la idea de cada diapositiva y un orden lógico;</li>
+          <li>limita el texto proyectado y entrega el detalle en un documento separado;</li>
+          <li>no comuniques estados solo mediante rojo y verde: añade texto, forma o símbolo;</li>
+          <li>describe oralmente los datos importantes de planos, fotografías y gráficos;</li>
+          <li>añade subtítulos o transcripción al vídeo y comprueba que se entienden;</li>
+          <li>incluye texto alternativo que transmita la función o información relevante de cada imagen; las imágenes puramente decorativas se marcan como tales.<sup><a href="#fuente_35">[35]</a></sup></li>
+        </ul>
+        <div class="t4-concept"><strong class="t4-concept-tag">Diapositiva y discurso no compiten</strong>La diapositiva orienta y muestra evidencia; quien presenta conecta las ideas. Si el público debe leer un párrafo y escuchar otro a la vez, tendrá que elegir.</div>
+      </section>
+
+      <section aria-labelledby="publicar">
+        <h2 id="publicar">7. Publicación en internet y SEO básico y honesto</h2>
+        <p><strong>Publicar</strong> no es lo mismo que compartir para editar. Antes de hacer visible una página o un archivo hay que comprobar audiencia, permisos, datos personales, licencias, accesibilidad y versión. Una entrega pública debería ser de solo lectura; los editables se conservan en el espacio de trabajo con permisos adecuados.</p>
+        <p>El <strong>SEO</strong> (<em>Search Engine Optimization</em>) reúne prácticas que ayudan a los buscadores y a las personas a comprender y encontrar contenido. No garantiza aparecer primero. Google recomienda crear contenido útil, fiable y pensado principalmente para las personas, usar palabras que el público emplearía, títulos y enlaces descriptivos y texto alternativo adecuado; también advierte que algunos cambios tardan en reflejarse y que no hay secretos para ocupar automáticamente la primera posición.<sup><a href="#fuente_37">[37]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: SEO introductorio aplicado a la página del proyecto">
+          <table>
+            <caption>SEO introductorio aplicado a la página del proyecto</caption>
+            <thead><tr><th scope="col">Práctica honesta</th><th scope="col">Ejemplo</th><th scope="col">Evita</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Título específico</th><td>«Organizador modular accesible para herramientas del aula-taller»</td><td>«Proyecto increíble» o una sucesión de palabras clave.</td></tr>
+              <tr><th scope="row">Descripción clara</th><td>Dos frases que explican problema, solución y documentación disponible.</td><td>Promesas como «el mejor del mundo» sin evidencia.</td></tr>
+              <tr><th scope="row">Encabezados jerárquicos</th><td>Problema, diseño, montaje, pruebas, presupuesto y descargas.</td><td>Usar títulos solo por su tamaño visual o saltar niveles sin lógica.</td></tr>
+              <tr><th scope="row">Contenido útil</th><td>Medidas, planos, resultados, límites y fecha de actualización.</td><td>Repetir la misma expresión muchas veces para manipular el buscador.</td></tr>
+              <tr><th scope="row">Enlaces comprensibles</th><td>«Descargar plano de conjunto, revisión 03 (PDF)»</td><td>Varios enlaces llamados «clic aquí».</td></tr>
+              <tr><th scope="row">Imágenes accesibles y ligeras</th><td>Nombre descriptivo, tamaño razonable y alternativa textual según su función.</td><td>Publicar una fotografía enorme o convertir toda la explicación en una imagen.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Flujo de publicación</h3>
+        <ol>
+          <li><strong>Definir audiencia y objetivo:</strong> qué necesita saber una clase, una familia o el personal del taller.</li>
+          <li><strong>Seleccionar:</strong> publicar lo necesario, no toda la carpeta de trabajo ni datos personales.</li>
+          <li><strong>Preparar:</strong> estructura, formatos, enlaces, metadatos básicos, alternativas textuales y licencia.</li>
+          <li><strong>Comprobar:</strong> abrir desde otro dispositivo, usar teclado, revisar móvil, enlaces, contraste y permisos.</li>
+          <li><strong>Difundir:</strong> compartir una URL estable mediante los canales acordados, con una descripción fiel.</li>
+          <li><strong>Mantener:</strong> indicar fecha o revisión, corregir enlaces rotos y retirar versiones obsoletas.</li>
+        </ol>
+        <div class="aviso"><strong>SEO no es engañar al buscador</strong>Comprar enlaces, ocultar texto, copiar contenido o saturar de palabras clave perjudica a las personas y puede incumplir las políticas del servicio. El objetivo escolar es que una página útil se describa con precisión y pueda encontrarse, no simular popularidad.</div>
+      </section>
+
+      <section aria-labelledby="licencias">
+        <h2 id="licencias">8. Propiedad intelectual, licencias y atribución</h2>
+        <p>Que una fotografía, icono, plano o texto aparezca en internet no significa que pueda copiarse. Los derechos de autor protegen desde su creación la <strong>expresión original</strong> de una obra; las ideas, los hechos o los datos aislados no reciben la misma protección y existen límites y excepciones legales.<sup><a href="#fuente_40">[40]</a></sup> Una <strong>licencia</strong> indica qué usos autoriza su titular.<sup><a href="#fuente_38">[38]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Condiciones Creative Commons que puede encontrar el equipo">
+          <table>
+            <caption>Condiciones Creative Commons que puede encontrar el equipo</caption>
+            <thead><tr><th scope="col">Condición</th><th scope="col">Significado resumido</th><th scope="col">Pregunta antes de usar</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>BY · Reconocimiento</strong></th><td>Exige atribuir la obra.</td><td>¿Tenemos autoría, título, fuente y enlace a la licencia?</td></tr>
+              <tr><th scope="row"><strong>SA · CompartirIgual</strong></th><td>La adaptación debe compartirse con la misma licencia o una compatible.</td><td>¿La licencia de nuestra publicación es compatible?</td></tr>
+              <tr><th scope="row"><strong>NC · NoComercial</strong></th><td>Restringe usos principalmente orientados a ventaja comercial o compensación económica.</td><td>¿El uso previsto entra en lo permitido? «Educativo» no resuelve por sí solo cualquier caso.</td></tr>
+              <tr><th scope="row"><strong>ND · SinDerivadas</strong></th><td>No autoriza compartir versiones adaptadas.</td><td>¿Hemos recortado, traducido, mezclado o modificado la obra?</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-note"><strong>CC0 no es una de las seis licencias CC.</strong> Es una herramienta de dedicación al dominio público con mecanismos de respaldo. Solo puede aplicarla quien tenga autoridad sobre los derechos. La Marca de Dominio Público señala obras que ya están libres de restricciones conocidas.<sup><a href="#fuente_41">[41]</a></sup></div>
+        <h3>Atribuir no es pegar una URL suelta</h3>
+        <p>Una atribución útil identifica <strong>título, autoría, fuente y licencia</strong> —la pauta TASL por sus iniciales en inglés— e indica los cambios realizados cuando corresponda.<sup><a href="#fuente_39">[39]</a></sup></p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Modelo de atribución</strong>«<em>Panel perforado del taller</em>», de Ana Ejemplo, disponible en <code>https://ejemplo.org/panel</code>, licencia CC BY 4.0 (enlace a la licencia). Imagen recortada y etiquetas añadidas.</div>
+        <p>La atribución se coloca junto al recurso o en una sección claramente relacionada. Siempre que sea posible, autoría, fuente y licencia se enlazan. No debe sugerir que la persona autora apoya nuestro proyecto.</p>
+        <h3>Registro de recursos</h3>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Datos que conviene guardar al incorporar un recurso">
+          <table>
+            <caption>Datos que conviene guardar al incorporar un recurso</caption>
+            <thead><tr><th scope="col">Dato</th><th scope="col">Motivo</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Título y autoría</th><td>Identificar la obra y reconocer a quien la creó.</td></tr>
+              <tr><th scope="row">URL de la página original</th><td>Permitir que otra persona compruebe procedencia y contexto.</td></tr>
+              <tr><th scope="row">Licencia exacta y versión</th><td>Saber qué está permitido y con qué condiciones.</td></tr>
+              <tr><th scope="row">Fecha de consulta o descarga</th><td>Conservar contexto si la página cambia.</td></tr>
+              <tr><th scope="row">Cambios realizados</th><td>Informar con transparencia de recortes, traducciones o adaptaciones.</td></tr>
+              <tr><th scope="row">Ubicación en el proyecto</th><td>Encontrar dónde aparece para corregir o retirar el recurso.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Antes de reutilizar, llega a la fuente original, lee la licencia exacta y comprueba si permite el uso y las modificaciones previstas. Un filtro del buscador solo ayuda a localizar candidatos: <strong>no concede derechos</strong>. También pueden existir derechos de imagen de personas, marcas o privacidad que una licencia de autor no resuelve.</p>
+        <div class="t4-note"><strong>Licenciar el trabajo propio.</strong> El equipo solo puede aplicar una licencia a aquello sobre lo que tiene derechos o permiso. Debe respetar las licencias compatibles de recursos incorporados y seguir las normas del centro antes de publicar nombres, imágenes o datos.</div>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Accesibilidad</dt><dd>Condición que permite percibir, comprender y utilizar un producto o contenido a personas con capacidades y situaciones diversas.</dd>
+          <dt>Atribución</dt><dd>Reconocimiento de la autoría, procedencia, licencia y, cuando corresponde, cambios de una obra reutilizada.</dd>
+          <dt>Cota</dt><dd>Valor numérico que expresa una dimensión o posición en un dibujo técnico.</dd>
+          <dt>Diagrama</dt><dd>Representación simplificada de un proceso, relación o estructura.</dd>
+          <dt>Esquema</dt><dd>Representación que prioriza conexiones o funcionamiento sobre el aspecto real.</dd>
+          <dt>Documentación técnica del proyecto</dt><dd>Conjunto escolar organizado de memoria, representaciones, materiales, presupuesto, pruebas, fuentes y anexos; no equivale a un expediente reglamentario.</dd>
+          <dt>Licencia</dt><dd>Permiso que establece las condiciones bajo las que puede usarse una obra.</dd>
+          <dt>Lista de materiales</dt><dd>Relación codificada de piezas, materiales y cantidades necesarias para construir una unidad.</dd>
+          <dt>Memoria técnica</dt><dd>Documento que explica y justifica el problema, el diseño, la fabricación, las pruebas y las conclusiones.</dd>
+          <dt>Metadatos</dt><dd>Datos que describen un archivo o publicación, como título, autoría, fecha o descripción.</dd>
+          <dt>Plano</dt><dd>Representación técnica de la geometría de una pieza o conjunto mediante vistas, cotas, escala y convenciones.</dd>
+          <dt>Presupuesto</dt><dd>Estimación desglosada y trazable del coste de realizar el proyecto.</dd>
+          <dt>Revisión</dt><dd>Estado identificado de un documento después de uno o más cambios controlados.</dd>
+          <dt>SEO</dt><dd>Prácticas para ayudar a buscadores y personas a encontrar y comprender contenido publicado en la web.</dd>
+          <dt>Trazabilidad</dt><dd>Capacidad de seguir un requisito, dato, coste o cambio hasta su origen y sus evidencias.</dd>
+          <dt>Versión</dt><dd>Estado concreto y recuperable de un archivo o conjunto de archivos.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Documentar no es decorar al final: permite comprender, reproducir, verificar y mejorar una solución tecnológica.</li>
+          <li>La memoria conecta necesidad, requisitos, alternativas, diseño, fabricación, pruebas, conclusiones y fuentes con sus documentos asociados.</li>
+          <li>Planos y esquemas deben usar códigos, cotas, unidades, símbolos y leyendas coherentes para evitar interpretaciones distintas.</li>
+          <li>Lista de materiales y presupuesto se relacionan, pero no son lo mismo; cada coste debe indicar unidad, cantidad, precio unitario, subtotal, supuestos e imprevistos.</li>
+          <li>La colaboración necesita una fuente de verdad, permisos adecuados, responsables, comentarios concretos, nombres sencillos y revisiones recuperables.</li>
+          <li>Una presentación efectiva estructura problema, solución, evidencia y cierre; se ensaya con tiempo real y se adapta al público.</li>
+          <li>La accesibilidad exige orden, contraste, tamaño legible, alternativas textuales, subtítulos y medios que no dependan solo del color.</li>
+          <li>El SEO básico y honesto describe contenido útil con títulos, encabezados, enlaces y textos alternativos claros; no promete posiciones ni usa trucos.</li>
+          <li>Reutilizar una obra exige comprobar procedencia y licencia, respetar sus condiciones y atribuir título, autoría, fuente, licencia y cambios.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_30">[30] <a href="https://www.bocm.es/boletin/CM_Orden_BOCM/2022/07/26/BOCM-20220726-2.PDF">Comunidad de Madrid — Decreto 65/2022, currículo de Educación Secundaria Obligatoria (PDF)</a>. Anexo II, Tecnología de 4.º de ESO.</li>
+          <li id="fuente_31">[31] <a href="https://www.nist.gov/publications/guide-use-international-system-units-si">NIST — Guide for the Use of the International System of Units (SI)</a> (en inglés).</li>
+          <li id="fuente_32">[32] <a href="https://tc3.iec.ch/standard-as-database/">International Electrotechnical Commission, TC&nbsp;3 — IEC 60617, símbolos gráficos para diagramas</a> (en inglés).</li>
+          <li id="fuente_33">[33] <a href="https://docs.github.com/en/get-started/using-git/about-git">GitHub Docs — About Git: control de versiones e historial de cambios</a> (en inglés).</li>
+          <li id="fuente_34">[34] <a href="https://support.google.com/docs/answer/2494822">Ayuda de Google Docs — Compartir archivos y gestionar permisos</a>.</li>
+          <li id="fuente_35">[35] <a href="https://www.w3.org/WAI/tutorials/images/">W3C Web Accessibility Initiative — Tutorial de imágenes accesibles</a> (en inglés).</li>
+          <li id="fuente_36">[36] <a href="https://www.w3.org/WAI/teach-advocate/accessible-presentations/">W3C Web Accessibility Initiative — Presentaciones y reuniones accesibles</a> (en inglés).</li>
+          <li id="fuente_37">[37] <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide">Google Search Central — Guía de introducción a la optimización para buscadores (SEO)</a>.</li>
+          <li id="fuente_38">[38] <a href="https://creativecommons.org/cc-licenses/">Creative Commons — Descripción oficial de las licencias CC</a>.</li>
+          <li id="fuente_39">[39] <a href="https://wiki.creativecommons.org/wiki/Recommended_practices_for_attribution">Creative Commons Wiki — Prácticas recomendadas para la atribución</a> (en inglés).</li>
+          <li id="fuente_40">[40] <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1996-8930">BOE — Texto refundido de la Ley de Propiedad Intelectual</a>.</li>
+          <li id="fuente_41">[41] <a href="https://creativecommons.org/faq/">Creative Commons — Preguntas frecuentes sobre CC0 y la Marca de Dominio Público</a> (en inglés).</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema03.html">← Tema 3</a>
+  <a href="tema05.html">Tema 5 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>

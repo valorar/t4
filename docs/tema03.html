@@ -1,27 +1,365 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 3 del Bloque A de Tecnología de 4.º de la ESO: Cómo pasar de la idea al objeto: representación de piezas, diseño asistido por ordenador, taller y fabricación digital.">
-<title>Tema 3. Diseño y fabricación: del plano al prototipo · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 3 del Bloque A de Tecnología de 4.º de la ESO: representación técnica, CAD 3D, fabricación, seguridad, prototipado, verificación y mejora.">
+  <title>Tema 3. Diseño y fabricación: del plano al prototipo · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 03 · Bloque A · Proceso de resolución de problemas</p><h1>Tema 3. Diseño y fabricación: del plano al prototipo</h1><p class="hero-lead">Cómo pasar de la idea al objeto: representación de piezas, diseño asistido por ordenador, taller y fabricación digital.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>2.2, 5.1</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>bocetos, croquis y vistas; escalas y acotación normalizada.</li><li>diseño asistido por ordenador (CAD) en tres dimensiones para representar y fabricar piezas.</li><li>técnicas de fabricación manual y mecánica: herramientas, materiales y seguridad en el taller.</li><li>fabricación digital: impresión en tres dimensiones y corte.</li><li>prototipado rápido, verificación del resultado y mejora del producto.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque A «Proceso de resolución de problemas» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>2.2, 5.1</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema02.html">← Tema 2</a><a href="tema04.html">Tema 4 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 03 · Bloque A · Proceso de resolución de problemas</p>
+        <h1>Tema 3. Diseño y fabricación: del plano al prototipo</h1>
+        <p class="hero-lead">Cómo comunicar una forma con precisión, convertirla en un modelo digital, fabricarla con seguridad y comprobar si resuelve de verdad la necesidad.</p>
+      </div>
+      <aside class="hero-note" aria-label="Criterios de evaluación del tema 3">
+        <strong>Criterios de evaluación</strong>
+        <p>2.2 · Fabricar soluciones<br>5.1 · Resolver tareas con herramientas digitales</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#definir">De la necesidad a la definición</a></li>
+        <li><a href="#representar">Boceto, croquis, plano y modelo</a></li>
+        <li><a href="#medir">Escala, acotación y tolerancias</a></li>
+        <li><a href="#cad">CAD 3D paramétrico</a></li>
+        <li><a href="#fabricar">Procesos de fabricación</a></li>
+        <li><a href="#seguridad">Seguridad y control del riesgo</a></li>
+        <li><a href="#prototipar">Prototipar, verificar y mejorar</a></li>
+        <li><a href="#integrar">El organizador como sistema</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">A lo largo del tema seguiremos un mismo caso: un <strong>organizador modular accesible</strong> para guardar herramientas y componentes del aula-taller. Sus bandejas deben poder cambiar de posición, distinguirse con facilidad, agarrarse sin esfuerzo excesivo y encajar sin atascarse. El reto permite ver que una buena idea no basta: hay que representarla, fabricarla, medirla y revisarla. Estos aprendizajes desarrollan los saberes del bloque A y los criterios 2.2 y 5.1 del currículo madrileño.<sup><a href="#fuente_20">[20]</a></sup></p>
+      <div class="question"><strong>Pregunta guía:</strong> ¿qué información necesita otra persona para fabricar nuestro organizador y conseguir que sus módulos encajen, sean seguros y resulten cómodos para usuarios diferentes?</div>
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>distinguir boceto, croquis, plano técnico y modelo tridimensional y elegir cuál conviene en cada fase;</li>
+          <li>interpretar vistas diédricas y representar solo las necesarias para definir una pieza;</li>
+          <li>usar escalas, cotas funcionales y tolerancias sencillas sin repetir información;</li>
+          <li>explicar un flujo introductorio de CAD 3D paramétrico basado en bocetos, restricciones y operaciones;</li>
+          <li>comparar fabricación manual, mecanizada y digital, y procesos aditivos y sustractivos;</li>
+          <li>seleccionar medidas preventivas según la jerarquía de controles, sin reducir la seguridad al uso de EPI;</li>
+          <li>entender el prototipo como una hipótesis física que se prueba, mide y mejora, no como el producto final.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="definir">
+        <h2 id="definir">1. De una necesidad abierta a una definición fabricable</h2>
+        <p>Diseñar es tomar decisiones para transformar una necesidad en una solución posible. «Ordenar el taller» es demasiado amplio para fabricar nada. Primero hay que convertir esa necesidad en <strong>requisitos verificables</strong>: qué debe contener el organizador, quién lo utilizará, dónde se colocará, qué dimensiones máximas tendrá y cómo sabremos si funciona.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: De la necesidad a requisitos comprobables en el organizador modular">
+          <table>
+            <caption>De la necesidad a requisitos comprobables en el organizador modular</caption>
+            <thead><tr><th scope="col">Necesidad</th><th scope="col">Requisito de diseño</th><th scope="col">Cómo se comprobará</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Encontrar rápido cada elemento</th><td>Etiquetas legibles, contraste visual y posiciones estables.</td><td>Una persona localiza tres elementos sin ayuda y sin mover otros módulos.</td></tr>
+              <tr><th scope="row">Adaptarse a materiales distintos</th><td>Módulos intercambiables de dos o tres tamaños compatibles.</td><td>Cada módulo encaja en más de una posición de la base.</td></tr>
+              <tr><th scope="row">Facilitar el agarre</th><td>Tirador amplio, bordes redondeados y espacio para introducir los dedos.</td><td>Usuarios con manos de distinto tamaño lo extraen sin pinza fina ni fuerza excesiva.</td></tr>
+              <tr><th scope="row">Evitar caídas y enganches</th><td>Base estable, aristas no cortantes y bandejas que no sobresalgan del paso.</td><td>Permanece estable con la carga prevista y supera una inspección visual y una comprobación con paño, galga o útil adecuado; nunca con la mano desnuda.</td></tr>
+              <tr><th scope="row">Ajustarse al aula</th><td>Anchura, altura y fondo máximos definidos a partir del espacio real.</td><td>Medición con regla, calibre o cinta y prueba en el lugar de uso.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Un requisito útil describe una condición, no impone prematuramente una solución. «Debe poder identificarse sin depender solo del color» deja abiertas opciones como texto, iconos o relieve; «debe llevar una etiqueta azul» decide antes de investigar. La accesibilidad se incorpora desde el comienzo: no se añade al final como adorno.</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>Antes de dibujar una pieza hay que definir qué función cumple, con qué otras piezas se relaciona y qué pruebas permitirán aceptar o rechazar el resultado.</div>
+      </section>
+
+      <section aria-labelledby="representar">
+        <h2 id="representar">2. Boceto, croquis, plano y modelo: representaciones con distinta finalidad</h2>
+        <p>Una solución tecnológica se representa varias veces y con distintos grados de precisión. No son nombres intercambiables ni pasos que haya que completar por rutina: cada representación responde a una pregunta.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Representaciones habituales durante el diseño">
+          <table>
+            <caption>Representaciones habituales durante el diseño</caption>
+            <thead><tr><th scope="col">Representación</th><th scope="col">Características</th><th scope="col">Para qué sirve</th><th scope="col">En el organizador</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Boceto</strong></th><td>Dibujo rápido, normalmente a mano alzada, sin obligación de escala ni medidas completas.</td><td>Explorar alternativas y comunicar la idea general.</td><td>Comparar una base mural, una caja apilable y una bandeja de sobremesa.</td></tr>
+              <tr><th scope="row"><strong>Croquis</strong></th><td>Dibujo a mano alzada, proporcionado y acompañado de las medidas y notas necesarias.</td><td>Concretar la solución y preparar su definición técnica.</td><td>Anotar anchura de módulos, profundidad y forma del tirador tras medir el espacio.</td></tr>
+              <tr><th scope="row"><strong>Plano técnico</strong></th><td>Representación normalizada, precisa, a escala indicada, con vistas, cotas y datos de fabricación.</td><td>Comunicar sin ambigüedad qué debe fabricarse o verificarse.</td><td>Definir la base y un módulo para que otra persona pueda reproducirlos.</td></tr>
+              <tr><th scope="row"><strong>Modelo 3D</strong></th><td>Representación espacial física o digital. El digital puede contener geometría exacta y parámetros; el físico permite tocar y probar.</td><td>Visualizar, simular relaciones, generar documentación o ensayar.</td><td>Comprobar el alcance del tirador y el encaje antes de fabricar la versión completa.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Un render atractivo no sustituye al plano: puede enseñar el aspecto, pero ocultar dimensiones, tolerancias o caras interiores. Tampoco un archivo para imprimir sustituye al modelo CAD editable. El conjunto de documentos debe conservar la <strong>intención de diseño</strong>.</p>
+
+        <h3>Vistas diédricas: observar sin perspectiva</h3>
+        <p>Las vistas diédricas representan una pieza mediante proyecciones perpendiculares sobre planos. Las principales son <strong>alzado</strong> (vista principal), <strong>planta</strong> (desde arriba) y <strong>perfil</strong> (lateral). Las superficies paralelas al plano de proyección aparecen en verdadera forma y los segmentos paralelos, en verdadera longitud; los elementos oblicuos aparecen acortados.</p>
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable de las vistas de una pieza">
+          <img src="assets/tema03_vistas_pieza.svg" alt="Alzado, planta y perfil alineados de una pieza escalonada, con ejemplos de cotas de anchura, altura y fondo.">
+          <figcaption>Las tres vistas describen la misma pieza. La alineación permite relacionar anchura, altura y fondo sin recurrir a la perspectiva.</figcaption>
+        </figure>
+        <ul>
+          <li>Se elige como <strong>alzado</strong> la vista que mejor explica la forma o la función, no necesariamente la cara «delantera» por costumbre.</li>
+          <li>Las vistas se mantienen <strong>alineadas</strong>: una misma altura coincide entre alzado y perfil; una misma anchura, entre alzado y planta.</li>
+          <li>Las <strong>líneas continuas</strong> muestran contornos visibles; las discontinuas pueden indicar aristas ocultas.</li>
+          <li>Se dibuja el <strong>mínimo número de vistas</strong> que defina la pieza sin ambigüedad. Una pieza prismática sencilla quizá necesite dos; una geometría compleja puede exigir tres, un corte o un detalle.</li>
+        </ul>
+        <div class="t4-think"><strong>Razona con el caso:</strong> la planta de una bandeja permite ver su anchura y su fondo, pero no muestra bien la altura del borde. El perfil revela esa altura. Si un rebaje interior queda oculto, puede ser más claro usar una sección que llenar la vista de líneas discontinuas.</div>
+      </section>
+
+      <section aria-labelledby="medir">
+        <h2 id="medir">3. Escala, acotación y tolerancias: del dibujo a la medida real</h2>
+        <p>La <strong>escala</strong> relaciona la medida dibujada con la medida real mediante la expresión <strong>escala = medida en el dibujo / medida real</strong>. En <strong>1:1</strong> ambas coinciden; en <strong>1:2</strong> el dibujo mide la mitad; en <strong>2:1</strong> se representa al doble para ver un detalle. La cifra escrita en una cota expresa la medida real, aunque el plano esté ampliado o reducido.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Elección orientativa de la escala">
+          <table>
+            <caption>Elección orientativa de la escala</caption>
+            <thead><tr><th scope="col">Situación</th><th scope="col">Tipo</th><th scope="col">Ejemplo</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">La pieza cabe con claridad en la hoja.</th><td>Escala natural</td><td>1:1 para una pestaña o un separador.</td></tr>
+              <tr><th scope="row">El objeto es mayor que el espacio disponible.</th><td>Escala de reducción</td><td>1:2 o 1:5 para la vista general del organizador.</td></tr>
+              <tr><th scope="row">Un detalle es demasiado pequeño.</th><td>Escala de ampliación</td><td>2:1 o 5:1 para explicar un encaje.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Acotar</strong> es indicar de manera normalizada las dimensiones necesarias para definir y fabricar. ISO 129-1 establece principios generales para presentar dimensiones y tolerancias en documentación técnica.<sup><a href="#fuente_21">[21]</a></sup> Una cota se compone habitualmente de líneas auxiliares, línea de cota, terminaciones y cifra; se coloca donde se interprete con claridad y, siempre que sea posible, fuera del contorno.</p>
+
+        <h3>Cotas funcionales y cotas no duplicadas</h3>
+        <p>Las <strong>cotas funcionales</strong> controlan la relación de la pieza con su función o con otras piezas: anchura de un módulo que entra en un hueco, distancia entre anclajes o diámetro de un eje. Deben priorizarse porque un error en ellas puede impedir el uso aunque el objeto «se parezca» al dibujo.</p>
+        <ul>
+          <li>Cada dimensión necesaria se indica <strong>una sola vez</strong>. Repetirla en dos vistas puede crear contradicciones cuando se modifica el plano.</li>
+          <li>No se obliga a quien fabrica a obtener medidas importantes sumando, restando o midiendo sobre el papel.</li>
+          <li>Las cotas parten de referencias coherentes para evitar que pequeños errores se acumulen en una cadena.</li>
+          <li>Se emplean símbolos normalizados cuando proceda: por ejemplo, <strong>Ø</strong> para diámetro y <strong>R</strong> para radio.</li>
+          <li>No se escribe una precisión que el proceso no puede conseguir ni que la función no necesita.</li>
+        </ul>
+        <div class="aviso"><strong>Medir el dibujo no sustituye a leer la cota</strong>Una fotocopia, una pantalla o una impresión pueden cambiar de tamaño. La cifra de cota define la medida nominal; la escala ayuda a organizar y comprender la representación.</div>
+
+        <h3>Medida nominal, medida real y tolerancia</h3>
+        <p>Fabricar no produce dimensiones matemáticamente exactas. La <strong>medida nominal</strong> es la indicada en el diseño; la <strong>medida real</strong> es la obtenida al medir la pieza. La <strong>tolerancia</strong> expresa el intervalo de variación aceptable. Si una anchura se especifica como 40 ± 0,3 mm, se acepta entre 39,7 y 40,3 mm.</p>
+        <p>La tolerancia se decide según función, material, proceso y medios de medida. Una tolerancia demasiado estrecha aumenta tiempo, coste y rechazos; una demasiado amplia puede causar holgura, atasco o inestabilidad. En un encaje no basta con diseñar dos medidas idénticas: hay que prever la variación del proceso, el acabado y la holgura necesaria.</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Cota funcional del hilo común</strong>La anchura exterior del cajetín y la interior de su alojamiento forman una pareja crítica. Se miden por separado y se prueba el conjunto: el valor adecuado depende del proceso y del material, no de una «holgura universal» memorizada.</div>
+      </section>
+
+      <section aria-labelledby="cad">
+        <h2 id="cad">4. Del croquis al CAD 3D paramétrico</h2>
+        <p>El <strong>diseño asistido por ordenador</strong> o CAD permite construir una representación geométrica precisa, modificarla y obtener vistas o archivos de intercambio. No diseña por nosotros: hace más rápida y coherente la gestión de decisiones. FreeCAD, por ejemplo, es una aplicación de modelado paramétrico y su documentación presenta los entornos y objetos con los que se construyen modelos.<sup><a href="#fuente_22">[22]</a></sup></p>
+        <p>En un flujo <strong>paramétrico</strong>, la forma depende de medidas y relaciones explícitas. Si la anchura de un módulo es un parámetro, cambiar su valor puede actualizar las operaciones posteriores. Esto es más robusto que desplazar caras «a ojo», siempre que el modelo esté bien organizado.</p>
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">1 — Definir referencias y parámetros</div><p>Elegir origen, planos de trabajo y dimensiones clave: anchura del módulo, espesor, profundidad y holgura prevista.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">2 — Crear un boceto 2D</div><p>Dibujar un perfil sencillo con líneas, arcos o círculos sobre un plano.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">3 — Restringir el boceto</div><p>Añadir dimensiones y relaciones geométricas: horizontalidad, perpendicularidad, igualdad, simetría, coincidencia o tangencia. La documentación de Sketcher explica que las restricciones controlan posiciones y geometría.<sup><a href="#fuente_23">[23]</a></sup></p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">4 — Generar volumen</div><p>Aplicar una operación como extrusión, revolución, vaciado, redondeo o chaflán, y construir la pieza en una secuencia comprensible.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">5 — Revisar y documentar</div><p>Comprobar medidas, interferencias, espesores y orientación; nombrar operaciones y guardar el archivo editable.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">6 — Exportar para el proceso</div><p>Generar una copia en el formato que admita el flujo de fabricación, sin perder el original paramétrico.</p></div>
+        </div>
+        <p>Un boceto queda <strong>bien definido</strong> cuando no conserva movimientos que puedan alterar la intención. No se trata de acumular cotas: conviene combinar pocas dimensiones significativas con relaciones geométricas. Para una bandeja simétrica, definir un eje y restringir ambos lados respecto a él es más claro que acotar cada lado por separado.</p>
+
+        <h3>Archivo editable, formato de intercambio y archivo de máquina</h3>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Capas de información del flujo digital">
+          <table>
+            <caption>Capas de información del flujo digital</caption>
+            <thead><tr><th scope="col">Tipo</th><th scope="col">Qué conserva</th><th scope="col">Precaución</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Proyecto CAD editable</strong></th><td>Operaciones, restricciones, parámetros y, según el programa, historial.</td><td>Es la fuente para modificar el diseño; no debe sustituirse por una malla exportada.</td></tr>
+              <tr><th scope="row"><strong>Intercambio geométrico</strong></th><td>La forma en una representación que otros programas pueden leer.</td><td>Puede perder parámetros o características; hay que comprobar unidades y compatibilidad.</td></tr>
+              <tr><th scope="row"><strong>STL</strong></th><td>Una superficie aproximada mediante triángulos.</td><td>No conserva por sí mismo la intención paramétrica y tiene limitaciones para unidades, color y materiales.</td></tr>
+              <tr><th scope="row"><strong>3MF</strong></th><td>Una o varias mallas con unidades definidas y posibilidad de incluir más información en un contenedor.</td><td>Que el formato permita datos no garantiza que todos los programas interpreten todas las extensiones.</td></tr>
+              <tr><th scope="row"><strong>Instrucciones de fabricación</strong></th><td>Trayectorias y parámetros preparados para un equipo y una configuración concretos.</td><td>No son un modelo editable universal ni deben ejecutarse sin revisar proceso, material y equipo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>La especificación 3MF define un formato de fabricación tridimensional empaquetado, con geometría, unidades y mecanismos de extensión.<sup><a href="#fuente_24">[24]</a></sup> La documentación de un laminador real confirma que admite formatos como 3MF y STL y que 3MF puede conservar un proyecto con más información que una malla STL.<sup><a href="#fuente_25">[25]</a></sup> Aun así, <strong>STL o 3MF son copias de intercambio o fabricación, no garantía de imprimibilidad</strong>: hay que verificar que la malla sea cerrada, que la escala y la orientación sean correctas y que los espesores y detalles sean viables.</p>
+        <div class="t4-note"><strong>Regla de conservación:</strong> mantener el archivo CAD editable y exportar copias identificadas para cada prueba. Un nombre como <code>modulo_v03_holgura04.3mf</code> permite relacionar el objeto fabricado con la decisión ensayada mejor que <code>final_definitivo_2.stl</code>.</div>
+      </section>
+
+      <section aria-labelledby="fabricar">
+        <h2 id="fabricar">5. Elegir un proceso de fabricación</h2>
+        <p>Fabricar es transformar material mediante una secuencia de operaciones. La elección depende de la geometría, el material, la precisión necesaria, el número de unidades, el tiempo, el coste, los residuos, los equipos disponibles y los riesgos. La misma pieza puede producirse por métodos diferentes, pero no con idéntico resultado.</p>
+        <div class="t4-note"><strong>Dos clasificaciones compatibles.</strong> Manual, mecanizada o con control digital describe principalmente quién controla la herramienta; aditiva, sustractiva, conformado, unión o acabado describe cómo se transforma el material. Una fresadora CNC es mecanizada, digital y sustractiva a la vez.</div>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Familias de fabricación y su aplicación al organizador">
+          <table>
+            <caption>Familias de fabricación y su aplicación al organizador</caption>
+            <thead><tr><th scope="col">Familia</th><th scope="col">Cómo transforma</th><th scope="col">Ejemplos generales</th><th scope="col">Decisiones clave</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Manual</strong></th><td>La persona guía directamente la herramienta y aporta parte o toda la energía.</td><td>Medir, marcar, cortar con herramienta manual, perforar, limar, doblar y unir.</td><td>Sujeción, postura, trazado, habilidad, orden de operaciones y acabado.</td></tr>
+              <tr><th scope="row"><strong>Mecánica</strong></th><td>Una máquina aporta movimiento o energía; la persona prepara, controla y verifica.</td><td>Taladrado, aserrado, lijado o mecanizado con equipos adecuados.</td><td>Resguardos, parámetros compatibles, fijación y formación autorizada.</td></tr>
+              <tr><th scope="row"><strong>Digital</strong></th><td>Un archivo dirige una máquina programable.</td><td>Impresión 3D, corte o mecanizado controlado numéricamente.</td><td>Formato, material, trayectorias, escala, calibración y comprobación previa.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>«Digital» no significa automático en todo ni libre de error. Antes de iniciar una fabricación se prepara el material; después pueden ser necesarios retirada de soportes, limpieza, desbarbado, lijado, unión o inspección. La persona sigue siendo responsable de comprender el proceso y respetar el procedimiento del aula.</p>
+
+        <h3>Fabricación aditiva y sustractiva</h3>
+        <div class="comparacion">
+          <div>
+            <h3>Aditiva: añadir material</h3>
+            <p>Construye la pieza depositando, uniendo o solidificando material de forma selectiva, a menudo por capas. Facilita geometrías internas y piezas personalizadas, pero puede necesitar soportes, tiempo de fabricación y posprocesado. La orientación influye en superficie, resistencia y duración.</p>
+          </div>
+          <div>
+            <h3>Sustractiva: retirar material</h3>
+            <p>Parte de una pieza o plancha mayor y elimina material por corte, perforación, fresado o lijado. Puede producir caras precisas y aprovechar materiales comerciales, pero genera recortes o viruta y la herramienta debe poder acceder a la zona.</p>
+          </div>
+        </div>
+        <p>El <strong>corte digital de planchas</strong> es sustractivo aunque el archivo sea vectorial y la máquina esté controlada por ordenador. La <strong>impresión 3D</strong> es aditiva, pero no imprime «el objeto CAD» directamente: un programa prepara capas, recorridos y parámetros. Ninguna familia es siempre mejor. Para el organizador puede convenir una base de tablero cortado y módulos impresos, o una solución enteramente manual si cumple mejor los requisitos con menos recursos.</p>
+        <div class="t4-think"><strong>Decisión tecnológica:</strong> fabricar una maqueta rápida en cartón puede revelar un problema de alcance antes que una pieza precisa y lenta. La fidelidad del prototipo debe corresponder a la pregunta que se quiere responder.</div>
+      </section>
+
+      <section aria-labelledby="seguridad">
+        <h2 id="seguridad">6. Seguridad en el taller: controlar el riesgo antes de trabajar</h2>
+        <p>Un <strong>peligro</strong> es una fuente con capacidad de causar daño; el <strong>riesgo</strong> combina la posibilidad de que el daño ocurra y su gravedad. La seguridad empieza antes de tocar una herramienta: identificar peligros, valorar quién puede quedar expuesto y seleccionar medidas eficaces. Las herramientas manuales también provocan accidentes, por lo que su elección debe ajustarse a la persona, la tarea y el entorno.<sup><a href="#fuente_26">[26]</a></sup></p>
+
+        <h3>Jerarquía de controles</h3>
+        <p>Las medidas no protegen todas por igual. Se prioriza actuar sobre el peligro y no depender únicamente de la atención individual:</p>
+        <ol>
+          <li><strong>Eliminar:</strong> evitar una operación peligrosa si el diseño puede resolverla de otro modo.</li>
+          <li><strong>Sustituir:</strong> emplear un material, proceso o herramienta menos peligroso que cumpla la función.</li>
+          <li><strong>Controles técnicos o colectivos:</strong> resguardos, enclavamientos, extracción localizada, pantallas y sistemas de sujeción.</li>
+          <li><strong>Controles organizativos:</strong> formación, autorización, procedimiento, señalización, mantenimiento, orden, supervisión y limitación de acceso.</li>
+          <li><strong>Equipos de protección individual (EPI):</strong> protección ocular, auditiva, respiratoria o de otra clase seleccionada para el riesgo residual.</li>
+        </ol>
+        <p>Los EPI son el último escalón, no porque carezcan de importancia, sino porque protegen a quien los lleva y dependen de selección, ajuste y uso correctos. El INSST indica que deben emplearse cuando los riesgos no se han podido evitar o limitar suficientemente mediante protección colectiva u organización.<sup><a href="#fuente_27">[27]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Peligros y controles generales en un aula-taller">
+          <table>
+            <caption>Peligros y controles generales en un aula-taller</caption>
+            <thead><tr><th scope="col">Peligro</th><th scope="col">Control prioritario</th><th scope="col">Conducta segura complementaria</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Pieza que se mueve durante el corte o perforado</th><td>Sistema estable de sujeción y equipo con resguardos adecuados.</td><td>Comprobar la fijación con el equipo parado y mantener las manos fuera de la trayectoria.</td></tr>
+              <tr><th scope="row">Proyección de partículas o aristas</th><td>Elegir proceso que reduzca proyecciones; colocar resguardo o pantalla.</td><td>Usar protección indicada y retirar rebabas con la herramienta apropiada.</td></tr>
+              <tr><th scope="row">Polvo, vapores o humos</th><td>Sustituir el material si procede y emplear encerramiento o extracción adecuados.</td><td>No usar materiales no autorizados; limpiar con el método establecido.</td></tr>
+              <tr><th scope="row">Calor, partes móviles o energía eléctrica</th><td>Aislamiento, resguardos, enclavamientos y desconexión segura para intervenir.</td><td>No tocar ni ajustar durante el funcionamiento; esperar el tiempo indicado.</td></tr>
+              <tr><th scope="row">Incendio en corte térmico o láser</th><td>Equipo cerrado y mantenido, extracción operativa y materiales autorizados.</td><td>No dejar el proceso sin vigilancia y seguir el plan del taller.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>En corte láser o térmico importan tanto la radiación como los peligros no ópticos: incendio, humos y productos de descomposición. Una guía de seguridad de MIT recomienda equipos encerrados con enclavamientos, extracción adecuada, formación específica, lista de materiales admitidos y vigilancia durante el trabajo.<sup><a href="#fuente_28">[28]</a></sup> Estas ideas explican los controles, pero <strong>no sustituyen el manual, la evaluación de riesgos ni las normas del equipo y del centro</strong>.</p>
+        <div class="aviso"><strong>Antes de usar cualquier equipo</strong>Solo trabaja con autorización y formación, inspecciona herramienta, resguardo y zona, recoge cabello y ropa suelta, prepara la sujeción y conoce cómo detener el proceso. Si algo vibra, huele, suena o funciona de manera anormal, detén la tarea de forma segura y avisa; no improvises una reparación.</div>
+      </section>
+
+      <section aria-labelledby="prototipar">
+        <h2 id="prototipar">7. Prototipar, verificar y mejorar: aprender del resultado</h2>
+        <p>Un <strong>prototipo</strong> es una representación construida para responder preguntas y reducir incertidumbre. No es necesariamente bonito, completo, resistente ni idéntico al producto final. Puede probar solo el volumen, un encaje, la ergonomía, la estabilidad o el proceso de fabricación. Llamarlo «producto final» demasiado pronto oculta fallos y frena la mejora.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Prototipos según la pregunta que responden">
+          <table>
+            <caption>Prototipos según la pregunta que responden</caption>
+            <thead><tr><th scope="col">Pregunta</th><th scope="col">Prototipo suficiente</th><th scope="col">Evidencia</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">¿Cabe en el espacio y se alcanza con comodidad?</th><td>Maqueta de cartón a tamaño real.</td><td>Observación de uso y medidas del volumen ocupado.</td></tr>
+              <tr><th scope="row">¿Encajan base y módulo?</th><td>Fragmento que incluya solo el alojamiento y la pestaña.</td><td>Medición de ambas piezas y repetición de inserciones.</td></tr>
+              <tr><th scope="row">¿Soporta la carga prevista?</th><td>Módulo con material y unión representativos.</td><td>Ensayo hasta la carga máxima fijada, con zona aislada, supervisión, incremento controlado y parada ante deformación, fisura, deslizamiento o inestabilidad.</td></tr>
+              <tr><th scope="row">¿Se identifican los compartimentos?</th><td>Conjunto de etiquetas con texto, icono, contraste o relieve.</td><td>Prueba con varias personas y tiempo de localización.</td></tr>
+              <tr><th scope="row">¿Puede repetirse la fabricación?</th><td>Dos o más unidades producidas con el mismo archivo y proceso.</td><td>Comparación de medidas, encaje y defectos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Verificar con datos, no con impresiones</h3>
+        <p>Verificar es comparar el resultado con requisitos definidos antes de probar. «Parece que funciona» no basta. Cada requisito necesita un indicador, un instrumento o método, una condición de prueba y un criterio de aceptación.</p>
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">1 — Formular una hipótesis</div><p>Ejemplo: una forma de tirador permitirá extraer el módulo sin pinza fina.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">2 — Diseñar una prueba</div><p>Definir quién prueba, con qué carga, cuántas repeticiones y qué se observará o medirá.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">3 — Medir y registrar</div><p>Anotar valores reales, unidad, instrumento, versión de la pieza y observaciones. Registrar también fallos.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">4 — Comparar con el criterio</div><p>Decidir si se cumple, no se cumple o la prueba es insuficiente. Diferenciar un defecto de diseño de un defecto de fabricación.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">5 — Cambiar una decisión relevante</div><p>Modificar parámetro, geometría, material o proceso y justificarlo con la evidencia.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">6 — Repetir y comprobar efectos secundarios</div><p>Una mejora del agarre puede reducir volumen interior; se vuelven a comprobar los requisitos afectados.</p></div>
+        </div>
+        <p>Para dimensiones exteriores puede bastar una regla; para pequeños espesores o encajes puede requerirse un calibre si se sabe utilizar. La resolución del instrumento debe ser coherente con la tolerancia. Registrar «40 mm» con una regla graduada en milímetros no demuestra una precisión de centésimas.</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Calidad del dato</strong>Una medida siempre pertenece a una versión, un instrumento y unas condiciones. Sin esa información no se puede saber si la modificación mejoró la pieza ni reproducir el resultado.</div>
+      </section>
+
+      <section aria-labelledby="integrar">
+        <h2 id="integrar">8. El organizador modular como sistema de decisiones</h2>
+        <div class="t4-note"><strong>Estado heredado del proyecto · versión V03.</strong> Se mantienen la adaptación de un bastidor existente y los módulos reemplazables de la V02. El inventario definitivo y la vida prevista siguen pendientes de medida; esta versión define geometría, uniones, fabricación y pruebas sin inventar esos datos.</div>
+        <p>El resultado no es una colección de piezas aisladas. Es un sistema formado por módulos, base, uniones, información visual y personas usuarias. Cambiar una dimensión puede afectar a la fabricación, el coste, el acceso y la estabilidad. Por eso el proceso no es una línea recta, sino un ciclo documentado.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Trazabilidad desde el requisito hasta la mejora">
+          <table>
+            <caption>Trazabilidad desde el requisito hasta la mejora</caption>
+            <thead><tr><th scope="col">Decisión</th><th scope="col">Representación o dato</th><th scope="col">Fabricación o prueba</th><th scope="col">Posible mejora</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Arquitectura modular</th><td>Bocetos de alternativas y croquis del espacio.</td><td>Maqueta de volumen y reorganización simulada.</td><td>Reducir tamaños distintos para simplificar compatibilidad.</td></tr>
+              <tr><th scope="row">Interfaz base–módulo</th><td>Sección acotada con referencias y tolerancias.</td><td>Probeta de encaje medida y probada varias veces.</td><td>Ajustar holgura o añadir entrada achaflanada.</td></tr>
+              <tr><th scope="row">Agarre accesible</th><td>Modelo 3D y cotas del espacio para los dedos.</td><td>Prueba con usuarios y cargas representativas.</td><td>Aumentar abertura, redondear o cambiar orientación.</td></tr>
+              <tr><th scope="row">Identificación</th><td>Plano de etiquetas con texto, icono y contraste.</td><td>Prueba de localización en iluminación real.</td><td>Mejorar tamaño, relieve o posición sin depender solo del color.</td></tr>
+              <tr><th scope="row">Proceso elegido</th><td>Archivo maestro y exportación controlada.</td><td>Registro de material, tiempo, defectos y residuos.</td><td>Cambiar orientación, secuencia o proceso completo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>El diseño queda <strong>definido</strong> cuando una persona competente puede interpretarlo sin adivinar; queda <strong>verificado</strong> cuando las pruebas muestran que cumple los requisitos; y queda <strong>documentado</strong> cuando se conservan planos, modelo editable, versiones, resultados y cambios. Aun entonces sigue siendo un prototipo mientras no se hayan resuelto las condiciones propias de un producto: durabilidad, mantenimiento, repetibilidad, normativa aplicable, coste, impacto y uso prolongado.</p>
+        <div class="idea_clave"><strong>Ciclo completo</strong>Necesidad → requisitos → bocetos → croquis y vistas → cotas y tolerancias → modelo CAD → planificación segura → fabricación → medida y prueba → mejora. Si la evidencia contradice una decisión, se vuelve al punto necesario y se actualiza la documentación.</div>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Acotación</dt><dd>Conjunto normalizado de indicaciones que define dimensiones y otra información dimensional de una pieza.</dd>
+          <dt>Alzado</dt><dd>Vista principal elegida para describir una pieza mediante proyección ortogonal.</dd>
+          <dt>Boceto</dt><dd>Dibujo rápido para explorar y comunicar una idea, sin precisión completa.</dd>
+          <dt>CAD</dt><dd>Diseño asistido por ordenador; herramientas digitales para crear, modificar y documentar modelos geométricos.</dd>
+          <dt>Cota funcional</dt><dd>Dimensión que condiciona directamente el funcionamiento o la relación con otra pieza.</dd>
+          <dt>Croquis</dt><dd>Dibujo a mano alzada proporcionado que incorpora medidas y notas necesarias para concretar la solución.</dd>
+          <dt>Escala</dt><dd>Relación entre una medida representada y la medida real correspondiente.</dd>
+          <dt>Fabricación aditiva</dt><dd>Familia de procesos que crea una pieza añadiendo o uniendo material selectivamente.</dd>
+          <dt>Fabricación sustractiva</dt><dd>Familia de procesos que obtiene la forma retirando material de una pieza inicial.</dd>
+          <dt>Holgura</dt><dd>Diferencia prevista entre dimensiones relacionadas que permite movimiento, montaje o encaje.</dd>
+          <dt>Modelo paramétrico</dt><dd>Modelo cuya geometría depende de dimensiones, restricciones y relaciones editables.</dd>
+          <dt>Plano técnico</dt><dd>Documento gráfico preciso y normalizado que comunica la geometría y los datos necesarios.</dd>
+          <dt>Prototipo</dt><dd>Representación construida para comprobar hipótesis y reducir incertidumbre antes del producto final.</dd>
+          <dt>Restricción</dt><dd>Condición dimensional o geométrica que controla un boceto o modelo CAD.</dd>
+          <dt>Riesgo</dt><dd>Combinación de la probabilidad de sufrir un daño y de su gravedad ante un peligro.</dd>
+          <dt>Tolerancia</dt><dd>Variación permitida respecto a una dimensión nominal.</dd>
+          <dt>Verificación</dt><dd>Comparación mediante evidencias entre el resultado y los requisitos definidos.</dd>
+          <dt>Vista diédrica</dt><dd>Proyección ortogonal, como alzado, planta o perfil, que representa una pieza sin perspectiva.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Los requisitos convierten una necesidad en condiciones verificables e incorporan función, entorno, seguridad y accesibilidad desde el inicio.</li>
+          <li>El boceto explora, el croquis concreta, el plano define y el modelo 3D representa espacialmente; ninguno sustituye automáticamente a los demás.</li>
+          <li>Alzado, planta y perfil son proyecciones alineadas; se usan solo las vistas necesarias para evitar ambigüedad.</li>
+          <li>La escala relaciona dibujo y realidad. Las cotas indican medidas reales, se priorizan las funcionales y no se duplican.</li>
+          <li>La tolerancia admite la variación inevitable de fabricación. Se decide según función, proceso, material y capacidad de medida.</li>
+          <li>En CAD paramétrico, bocetos restringidos y operaciones ordenadas conservan la intención de diseño y facilitan cambios.</li>
+          <li>El archivo editable se conserva como maestro. STL y 3MF son formatos de intercambio o fabricación con capacidades distintas y deben verificarse.</li>
+          <li>La fabricación puede ser manual, mecánica o digital; la aditiva añade material y la sustractiva lo retira.</li>
+          <li>La seguridad prioriza eliminar o reducir el peligro mediante controles técnicos y organizativos; el EPI protege frente al riesgo residual.</li>
+          <li>Un prototipo sirve para aprender. Se mide, se compara con criterios y se mejora; no es sinónimo de producto final.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_20">[20] <a href="https://www.bocm.es/boletin/CM_Orden_BOCM/2022/07/26/BOCM-20220726-2.PDF">Comunidad de Madrid — Decreto 65/2022, currículo de Educación Secundaria Obligatoria (PDF)</a>. Anexo II: Tecnología de 4.º de la ESO.</li>
+          <li id="fuente_21">[21] <a href="https://www.sis.se/en/produkter/standardization/technical-drawings/general/ss-iso-129-12018/">SIS, organismo sueco de normalización — ISO 129-1:2018, presentación de dimensiones y tolerancias</a> (resumen en inglés; norma completa de pago).</li>
+          <li id="fuente_22">[22] <a href="https://wiki.freecad.org/Getting_started">FreeCAD — Documentación oficial: introducción y primeros pasos</a> (en inglés; selector de idioma disponible).</li>
+          <li id="fuente_23">[23] <a href="https://wiki.freecad.org/Sketcher_Workbench">FreeCAD — Documentación oficial del entorno Sketcher</a> (en inglés; selector de idioma disponible).</li>
+          <li id="fuente_24">[24] <a href="https://3mf.io/spec/core-v1-3-0/">3MF Consortium — Especificación básica 3MF, versión 1.3.0</a> (en inglés).</li>
+          <li id="fuente_25">[25] <a href="https://help.prusa3d.com/es/article/formatos-de-archivo-compatibles_1772">Prusa Research — Formatos de archivo compatibles con PrusaSlicer</a>.</li>
+          <li id="fuente_26">[26] <a href="https://www.insst.es/documentacion/material-tecnico/documentos-tecnicos/herramientas-manuales-criterios-ergonomicos-y-de-seguridad-para-su-seleccion-ano-2016">INSST — Herramientas manuales: criterios ergonómicos y de seguridad para su selección</a>.</li>
+          <li id="fuente_27">[27] <a href="https://www.insst.es/documents/94886/371286/FDN-07+Selecci%C3%B3n+y+uso+de+los+Equipos+de+Protecci%C3%B3n+Individual+-+A%C3%B1o+2010+(vigente).pdf/5ffdc9c1-1e20-4f60-b745-2590f96c4146?t=1535946006938">INSST — Selección y uso de los equipos de protección individual (PDF)</a>.</li>
+          <li id="fuente_28">[28] <a href="https://ehs.mit.edu/wp-content/uploads/MITEHS_Laser_Cutter_Guidance.pdf">MIT Environment, Health &amp; Safety — Laser Cutter Safety Guidance (PDF)</a> (en inglés).</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema02.html">← Tema 2</a>
+  <a href="tema04.html">Tema 4 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>
