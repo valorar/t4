@@ -16,6 +16,7 @@ Cómo detectar necesidades del entorno próximo, idear soluciones con método y 
 - fases de un proyecto tecnológico: investigación, ideación, diseño, fabricación y difusión.
 - estrategias y herramientas de gestión de proyectos colaborativos.
 - técnicas de ideación y pensamiento de diseño (*Design Thinking*); proceso iterativo de validación.
+- accesibilidad, diseño inclusivo y atención a la diversidad de las personas usuarias.
 - reparto de tareas, coordinación y trabajo en equipo.
 - emprendimiento, perseverancia y creatividad; interés por la calidad del trabajo.
 
@@ -84,7 +85,7 @@ Cómo el aire comprimido mueve máquinas: componentes, simbología y análisis d
 - simbología y representación de circuitos neumáticos.
 - análisis de circuitos neumáticos sencillos y montaje real o simulado.
 
-### Tema 8. Elementos mecánicos y neumáticos aplicados a la robótica
+### Tema 8. Elementos mecánicos, electrónicos y neumáticos aplicados a la robótica
 
 Qué mecanismos transmiten y transforman el movimiento y cómo se integran con la electrónica en una máquina.
 
@@ -116,7 +117,7 @@ Cómo se programan placas controladoras y aplicaciones informáticas para contro
 - entornos de programación por bloques y textuales para placas controladoras y microcontroladores.
 - entradas y salidas digitales y analógicas; lectura de sensores y activación de actuadores.
 - diseño de aplicaciones informáticas para el control de sistemas automáticos.
-- depuración, pruebas y mejora del programa de control.
+- simulación, verificación, depuración y mejora del programa de control.
 - espacios compartidos y discos virtuales para organizar los archivos del proyecto.
 
 ### Tema 11. Robótica: diseño, construcción y control
@@ -125,7 +126,8 @@ Cómo se construye un robot sencillo y se programa para que realice tareas de fo
 
 - fundamentos de la robótica; componentes básicos: sensores, microcontroladores y actuadores.
 - estructura, movimiento y alimentación de un robot sencillo.
-- diseño, construcción y control de robots de manera física o simulada.
+- diseño y construcción de robots sencillos de manera física o simulada.
+- uso de simuladores para verificar y ajustar el sistema antes o durante el montaje físico.
 - programación de comportamientos a partir de la lectura del entorno.
 - pruebas, ajuste, documentación y presentación del prototipo.
 
