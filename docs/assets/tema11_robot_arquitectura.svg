@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 632" role="img" aria-labelledby="title desc">
+<title id="title">Arquitectura del robot y ciclo percibir–decidir–actuar</title><desc id="desc">Diagrama en dos partes. Arriba, la arquitectura de un robot móvil educativo encadenada de izquierda a derecha: sensores, controlador, driver de motores (puente H), motores de corriente continua y ruedas con rueda loca; debajo, una barra indica que la batería y el regulador alimentan al controlador y al driver de motores con masa común. Abajo, el ciclo de control en cuatro pasos: percibir con los sensores, decidir en el controlador con reglas condición-acción, actuar con el driver y los motores, y comprobar cómo el movimiento cambia el entorno, que vuelve a los sensores como realimentación.</desc>
+<defs>
+<marker id="mA" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#1a6b7a"/></marker>
+<marker id="mC" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#14625f"/></marker>
+<marker id="mP" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#6b6fc4"/></marker>
+</defs>
+<rect width="900" height="632" rx="24" fill="#f7faf8"/>
+<text x="450" y="40" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#18384a">Arquitectura del robot y ciclo percibir–decidir–actuar</text>
+<text x="450" y="66" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#466a75">Un robot móvil percibe su entorno, decide con reglas y actúa sobre los motores; el resultado vuelve a los sensores.</text>
+
+<rect x="24" y="86" width="852" height="222" rx="16" fill="#eef6f5" stroke="#bfdcdc" stroke-width="2"/>
+<text x="44" y="112" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#14625f" letter-spacing="1">ARQUITECTURA DE UN ROBOT MÓVIL EDUCATIVO</text>
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="44" y="126" width="148" height="78" rx="10"/>
+<rect x="210" y="126" width="148" height="78" rx="10"/>
+<rect x="376" y="126" width="148" height="78" rx="10"/>
+<rect x="542" y="126" width="148" height="78" rx="10"/>
+<rect x="708" y="126" width="148" height="78" rx="10"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<text x="118" y="158" font-size="14" font-weight="700" fill="#14495c">Sensores</text>
+<text x="118" y="180" font-size="10.5" fill="#3f6672">ultrasónico · IR · encoder</text>
+<text x="284" y="158" font-size="14" font-weight="700" fill="#14495c">Controlador</text>
+<text x="284" y="180" font-size="10.5" fill="#3f6672">microcontrolador</text>
+<text x="450" y="158" font-size="14" font-weight="700" fill="#14495c">Driver</text>
+<text x="450" y="180" font-size="10.5" fill="#3f6672">puente H</text>
+<text x="616" y="158" font-size="14" font-weight="700" fill="#14495c">Motores</text>
+<text x="616" y="180" font-size="10.5" fill="#3f6672">corriente continua</text>
+<text x="782" y="158" font-size="14" font-weight="700" fill="#14495c">Ruedas</text>
+<text x="782" y="180" font-size="10.5" fill="#3f6672">2 motores + rueda loca</text>
+</g>
+<g stroke="#1a6b7a" stroke-width="3" marker-end="url(#mA)">
+<line x1="196" y1="165" x2="206" y2="165"/>
+<line x1="362" y1="165" x2="372" y2="165"/>
+<line x1="528" y1="165" x2="538" y2="165"/>
+<line x1="694" y1="165" x2="704" y2="165"/>
+</g>
+<rect x="44" y="238" width="812" height="52" rx="10" fill="#fff4d9" stroke="#e4a83d" stroke-width="2"/>
+<text x="450" y="269" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#654d1c">Alimentación: la batería y el regulador dan energía al controlador y al driver; todas las masas van unidas (GND común).</text>
+
+<rect x="24" y="326" width="852" height="290" rx="16" fill="#f1f3fb" stroke="#cfd3ec" stroke-width="2"/>
+<text x="44" y="352" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#4a4e9c" letter-spacing="1">CICLO: PERCIBIR · DECIDIR · ACTUAR · COMPROBAR</text>
+<g stroke="#6b6fc4" stroke-width="2" fill="#ffffff">
+<rect x="60" y="372" width="220" height="76" rx="10"/>
+<rect x="620" y="372" width="220" height="76" rx="10"/>
+<rect x="620" y="488" width="220" height="76" rx="10"/>
+<rect x="60" y="488" width="220" height="76" rx="10"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<text x="170" y="402" font-size="15" font-weight="700" fill="#3b3f85">1 · Percibir</text>
+<text x="170" y="424" font-size="11" fill="#5a5e9e">leer sensores y obtener un valor</text>
+<text x="730" y="402" font-size="15" font-weight="700" fill="#3b3f85">2 · Decidir</text>
+<text x="730" y="424" font-size="11" fill="#5a5e9e">comparar con umbrales y aplicar reglas</text>
+<text x="730" y="518" font-size="15" font-weight="700" fill="#3b3f85">3 · Actuar</text>
+<text x="730" y="540" font-size="11" fill="#5a5e9e">sentido de giro y velocidad (PWM)</text>
+<text x="170" y="518" font-size="15" font-weight="700" fill="#3b3f85">4 · Comprobar</text>
+<text x="170" y="540" font-size="11" fill="#5a5e9e">el movimiento cambia el entorno</text>
+</g>
+<g stroke="#6b6fc4" stroke-width="3" marker-end="url(#mP)">
+<line x1="282" y1="410" x2="616" y2="410"/>
+<line x1="730" y1="450" x2="730" y2="484"/>
+<line x1="618" y1="526" x2="284" y2="526"/>
+<line x1="170" y1="486" x2="170" y2="452"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="12" fill="#4a4e9c">
+<text x="449" y="398" text-anchor="middle">la medida del entorno llega al controlador</text>
+<text x="740" y="472" text-anchor="start">la orden</text>
+<text x="450" y="548" text-anchor="middle">el movimiento modifica el entorno</text>
+<text x="182" y="472" text-anchor="start">nueva lectura</text>
+</g>
+<g font-family="system-ui,sans-serif" font-size="12.5" fill="#3b3f85" text-anchor="middle">
+<text x="450" y="440">Reglas condición-acción, sin esperas bloqueantes:</text>
+<text x="450" y="462">«si distancia &lt; 20 cm, girar»</text>
+<text x="450" y="484">«si el sensor derecho ve negro, corregir»</text>
+</g>
+<rect x="44" y="576" width="812" height="32" rx="10" fill="#e7f3f6" stroke="#b8dae1" stroke-width="2"/>
+<text x="450" y="597" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#164d5f">La realimentación cierra el lazo: el robot comprueba el efecto de su acción y vuelve a empezar.</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" role="img" aria-labelledby="title desc">
+<title id="title">Máquina de estados del programa de la estación</title>
+<desc id="desc">Diagrama de estados del programa de control de la estación automática de clasificación. Hay cuatro estados: en espera, lista, clasificando y bloqueo. Desde en espera se pasa a lista cuando hay permiso de marcha. Desde lista se pasa a clasificando cuando el sensor detecta una pieza y sigue habiendo permiso, y se vuelve a lista cuando el tiempo medido con millis() supera la duración ajustada del empuje. Desde lista o desde clasificando se pasa a bloqueo en cuanto se retira el permiso de marcha, y desde bloqueo se vuelve a lista solo si hay permiso y la zona está despejada. En cada estado se indica qué salidas se activan.</desc>
+<defs>
+<marker id="flecha" markerWidth="10" markerHeight="10" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#1a6b7a"/></marker>
+</defs>
+<rect width="900" height="700" rx="24" fill="#f7faf8"/>
+<text x="450" y="42" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#18384a">Máquina de estados del programa de la estación</text>
+<text x="450" y="70" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#466a75">Cuatro estados, cuatro juegos de salidas y ninguna espera que detenga el programa.</text>
+
+<g stroke="#0b6680" stroke-width="2" fill="#ffffff">
+<rect x="40" y="150" width="200" height="90" rx="12"/>
+<rect x="330" y="150" width="200" height="90" rx="12"/>
+<rect x="620" y="150" width="200" height="90" rx="12"/>
+</g>
+<g stroke="#c85c40" stroke-width="2" fill="#fff4f1">
+<rect x="620" y="400" width="200" height="90" rx="12"/>
+</g>
+
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<text x="140" y="182" font-size="15" font-weight="700" fill="#14495c">EN ESPERA</text>
+<text x="140" y="204" font-size="12" fill="#3f6672">sin permiso de marcha</text>
+<text x="140" y="222" font-size="12" fill="#3f6672">luz roja encendida</text>
+<text x="430" y="182" font-size="15" font-weight="700" fill="#14495c">LISTA</text>
+<text x="430" y="204" font-size="12" fill="#3f6672">en servicio, sin pieza</text>
+<text x="430" y="222" font-size="12" fill="#3f6672">luz verde encendida</text>
+<text x="720" y="182" font-size="15" font-weight="700" fill="#14495c">CLASIFICANDO</text>
+<text x="720" y="204" font-size="12" fill="#3f6672">expulsor empujando</text>
+<text x="720" y="222" font-size="12" fill="#3f6672">ámbar con PWM y salida activa</text>
+<text x="720" y="432" font-size="15" font-weight="700" fill="#8a3a22">BLOQUEO</text>
+<text x="720" y="454" font-size="12" fill="#7c4a37">permiso retirado</text>
+<text x="720" y="472" font-size="12" fill="#7c4a37">todo detenido y luz roja</text>
+</g>
+
+<g stroke="#1a6b7a" stroke-width="3" fill="none" marker-end="url(#flecha)">
+<line x1="240" y1="195" x2="324" y2="195"/>
+<line x1="530" y1="195" x2="614" y2="195"/>
+<path d="M720 150 L720 120 L430 120 L430 144"/>
+<path d="M430 240 L430 540 L720 540 L720 496"/>
+<line x1="720" y1="240" x2="720" y2="394"/>
+<path d="M620 455 L600 455 L600 330 L480 330 L480 246"/>
+</g>
+
+<g font-family="system-ui,sans-serif" fill="#14625f">
+<text x="282" y="178" font-size="12" text-anchor="middle">permiso = 1</text>
+<text x="572" y="176" font-size="11" text-anchor="middle">pieza delante</text>
+<text x="572" y="190" font-size="11" text-anchor="middle">y permiso</text>
+<text x="575" y="108" font-size="12" text-anchor="middle">fin del empuje: el tiempo medido con millis() supera la duración ajustada</text>
+<text x="440" y="430" font-size="12">permiso = 0</text>
+<text x="732" y="320" font-size="12">permiso = 0</text>
+<text x="542" y="308" font-size="12" text-anchor="middle">permiso = 1</text>
+<text x="542" y="322" font-size="12" text-anchor="middle">y sin pieza</text>
+</g>
+
+<rect x="40" y="566" width="820" height="110" rx="12" fill="#e7f3f6" stroke="#b8dae1" stroke-width="2"/>
+<text x="60" y="592" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#164d5f">Lo que se activa en cada estado</text>
+<g font-family="system-ui,sans-serif" font-size="12.5" fill="#25525f">
+<text x="60" y="616">EN ESPERA y BLOQUEO: luz roja encendida, luz verde apagada y expulsor retirado.</text>
+<text x="60" y="638">LISTA: luz verde encendida. CLASIFICANDO: luz ámbar con PWM y electroválvula del expulsor activa.</text>
+<text x="60" y="662" fill="#7b4b1a">Sin ninguna llamada a delay(): el programa nunca deja de leer el sensor ni de vigilar el permiso.</text>
+</g>
+</svg>

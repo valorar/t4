@@ -1,27 +1,512 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 11 del Bloque C de Tecnología de 4.º de la ESO: Cómo se construye un robot sencillo y se programa para que realice tareas de forma autónoma.">
-<title>Tema 11. Robótica: diseño, construcción y control · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 11 de Tecnología de 4.º de la ESO: qué distingue a un robot de una máquina automática, cómo se construye y se alimenta un robot móvil educativo, cómo se percibe el entorno con sensores, cómo se programan comportamientos reactivos y cómo se prueba, se documenta y se presenta el prototipo.">
+  <title>Tema 11. Robótica: diseño, construcción y control · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 11 · Bloque C · Pensamiento computacional, automatización y robótica</p><h1>Tema 11. Robótica: diseño, construcción y control</h1><p class="hero-lead">Cómo se construye un robot sencillo y se programa para que realice tareas de forma autónoma.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>4.1, 5.2</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>fundamentos de la robótica; componentes básicos: sensores, microcontroladores y actuadores.</li><li>estructura, movimiento y alimentación de un robot sencillo.</li><li>diseño y construcción de robots sencillos de manera física o simulada.</li><li>uso de simuladores para verificar y ajustar el sistema antes o durante el montaje físico.</li><li>programación de comportamientos a partir de la lectura del entorno.</li><li>pruebas, ajuste, documentación y presentación del prototipo.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque C «Pensamiento computacional, automatización y robótica» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>4.1, 5.2</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema10.html">← Tema 10</a><a href="tema12.html">Tema 12 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 11 · Bloque C · Pensamiento computacional, automatización y robótica</p>
+        <h1>Tema 11. Robótica: diseño, construcción y control</h1>
+        <p class="hero-lead">Cómo se construye un robot sencillo y se programa para que realice tareas de forma autónoma.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 11">
+        <strong>Pregunta guía</strong>
+        <p>¿Cómo conseguimos que una versión pequeña y autónoma de nuestra célula de clasificación detecte lo que ocurre a su alrededor, decida por sí misma y actúe sin que nadie la maneje?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#robot">Del automatismo al robot</a></li>
+        <li><a href="#clasificar">Clasificar robots</a></li>
+        <li><a href="#arquitectura">Arquitectura del robot móvil</a></li>
+        <li><a href="#motores">Controlar los motores</a></li>
+        <li><a href="#sensores">Percibir el entorno</a></li>
+        <li><a href="#comportamientos">Comportamientos reactivos</a></li>
+        <li><a href="#simular">Simular, montar y ajustar</a></li>
+        <li><a href="#proyecto">Probar, documentar y presentar</a></li>
+        <li><a href="#comprueba">Comprueba lo aprendido</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">En el <strong>Tema 9</strong> aprendimos cómo decide una máquina con un controlador, unos sensores y unos actuadores, y en el <strong>Tema 10</strong> programamos esa decisión. Nos falta el paso que cierra el bloque: <strong>construir</strong> el sistema. Y lo haremos con el proyecto común en la mano, llevando nuestra estación de clasificación a su forma más pequeña y autónoma: un <strong>robot móvil educativo</strong> que recorre el banco de pruebas, detecta con sus sensores una pieza o una línea, decide qué hacer y actúa moviendo sus motores. Es la misma célula robotizada de siempre, pero ahora <strong>encima de unas ruedas</strong> y sin nadie manejándola.</p>
+
+      <div class="question"><strong>Pregunta guía:</strong> ¿cómo conseguimos que una versión pequeña y autónoma de nuestra célula de clasificación detecte lo que ocurre a su alrededor, decida por sí misma y actúe sin que nadie la maneje?</div>
+
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>explicar qué distingue a un robot de una máquina automática a partir de la percepción, la decisión, la actuación y el grado de autonomía;</li>
+          <li>clasificar robots —industriales, móviles, colaborativos y educativos— e identificar sus grados de libertad y tipos de articulación;</li>
+          <li>describir la arquitectura de un robot móvil educativo: chasis, motores, ruedas, controlador, sensores, batería, regulador y driver de motores;</li>
+          <li>controlar un motor de corriente continua con un puente H, razonando el sentido de giro y la velocidad por modulación de ancho de pulso (PWM);</li>
+          <li>interpretar la lectura de sensores de distancia, infrarrojos, siguelíneas y encoder, reconociendo sus límites y su incertidumbre;</li>
+          <li>programar comportamientos reactivos con reglas condición-acción y temporización no bloqueante, y calibrar umbrales y ganancias;</li>
+          <li>usar un simulador para verificar y ajustar el sistema, y probar, documentar y presentar el prototipo físico por etapas y con seguridad.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="robot">
+        <h2 id="robot">1. Del automatismo al robot: percibir, decidir y actuar</h2>
+        <p>Una <strong>máquina automática</strong> ejecuta una secuencia que alguien ha previsto de antemano: arranca, acciona, espera y vuelve a empezar. Nuestra estación de clasificación del Tema 8 era exactamente eso, y hasta una lavadora lo es. Un <strong>robot</strong>, en cambio, incorpora algo más: <strong>percibe</strong> lo que ocurre a su alrededor, <strong>decide</strong> entre varias alternativas según lo que ha percibido y <strong>actúa</strong> sobre el mundo para producir un efecto. Si además puede <strong>reprogramarse</strong> para otra tarea sin cambiar sus piezas, hablamos sin ninguna duda de un robot. La definición internacional lo confirma: un robot industrial es un manipulador <em>automáticamente controlado, reprogramable y multifunción, programable en tres o más ejes</em>.<sup><a href="#fuente_1">[1]</a></sup></p>
+
+        <h3>Las cuatro capacidades que hay que buscar</h3>
+        <div class="t4-grid">
+          <div class="t4-card">
+            <h3>Percibir</h3>
+            <p>Obtener información del entorno con sensores: distancia a un obstáculo, color del suelo, vueltas de una rueda. Sin percepción solo hay ciegos y repetidores.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Decidir</h3>
+            <p>Comparar lo percibido con unos umbrales y elegir una acción. Esa decisión vive en un programa que se ejecuta en el controlador.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Actuar</h3>
+            <p>Convertir la decisión en movimiento mediante actuadores: motores, servos, electroimanes, luces o avisos.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Adaptarse</h3>
+            <p>Repetir el ciclo y corregir: el robot comprueba el efecto de lo que ha hecho y vuelve a decidir. Eso es la realimentación del Tema 9.</p>
+          </div>
+        </div>
+
+        <p>Una máquina automática también puede tener sensores —un final de carrera, un termostato—, pero su decisión está escrita de una vez para siempre y no cambia de estrategia: si aparece algo imprevisto, se para o falla. Un robot, en cambio, <strong>elige</strong> entre varias respuestas posibles en función de la lectura del momento. Esa es la frontera que separa los dos conceptos, y también el motivo por el que un robot necesita un programa y no solo un cableado.</p>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>Automatizar es repetir una secuencia; robotizar es decidir una secuencia. Si el sistema solo sabe hacer una cosa en un orden fijo, tenemos un automatismo muy útil, pero no un robot.</div>
+
+        <h3>Grados de libertad: cuántos movimientos independientes tiene</h3>
+        <p>Un robot no se mueve «en general»: se mueve en direcciones concretas, y cada una de ellas es un <strong>grado de libertad</strong>. Un brazo que sube y baja tiene uno; si además gira sobre su base y alarga el brazo, tiene tres. Los grados de libertad se consiguen con <strong>articulaciones</strong>, que son de dos tipos:</p>
+        <ul>
+          <li><strong>Articulación rotativa (de revolución):</strong> las piezas giran alrededor de un eje. Los brazos articulados de la industria tienen tres o más articulaciones de este tipo.<sup><a href="#fuente_1">[1]</a></sup> Es la articulación del hombro y del codo de un brazo robot.</li>
+          <li><strong>Articulación prismática (de deslizamiento):</strong> las piezas se desplazan en línea recta, como el carro de una guía o el vástago de un cilindro. Un robot cartesiano tiene tres articulaciones prismáticas cuyos ejes forman un sistema de coordenadas.<sup><a href="#fuente_1">[1]</a></sup></li>
+        </ul>
+        <p>Contar grados de libertad es la primera pregunta técnica que se hace al robot: <strong>¿cuántos movimientos independientes necesita la tarea?</strong> Nuestro robot móvil solo necesita tres: avanzar y retroceder, girar a izquierda y derecha, y el giro propio de cada rueda. Un brazo industrial que suelda una carrocería necesita seis o más, porque debe colocar la herramienta en cualquier posición y con cualquier orientación.</p>
+
+        <h3>Cuánta autonomía tiene: del mando a distancia al robot que decide</h3>
+        <p>Conviene no confundir <em>robot</em> con <em>autónomo</em>. La autonomía es un <strong>grado</strong>, no un interruptor:</p>
+        <ul>
+          <li><strong>Teleoperado:</strong> una persona envía las órdenes en todo momento. El robot obedece; no decide. Es el caso de un coche de radiocontrol, que casi nadie llamaría robot autónomo.</li>
+          <li><strong>Semiautónomo:</strong> la persona fija el objetivo y el robot resuelve una parte del trabajo. Un dron que mantiene su altura solo mientras el piloto lo dirige estaría aquí.</li>
+          <li><strong>Autónomo con supervisión:</strong> el robot percibe, decide y actúa por sí mismo durante una tarea completa, dentro de un entorno acotado y con una persona pendiente por si algo va mal. Aquí está nuestro prototipo, y aquí están también las aspiradoras que esquivan muebles y los vehículos de almacén.</li>
+        </ul>
+        <div class="aviso"><strong>Honestidad técnica</strong>Que un robot sea autónomo no significa que sea inteligente ni que no se equivoque. Nuestro robot decide con reglas sencillas escritas por nosotros: si el entorno cambia o la luz es distinta, fallará. Reconocer esos límites forma parte del trabajo.</div>
+      </section>
+
+      <section aria-labelledby="clasificar">
+        <h2 id="clasificar">2. Clasificar robots: industriales, móviles, colaborativos y educativos</h2>
+        <p>Los robots son tan distintos entre sí que resulta útil agruparlos por su forma de trabajar. La clasificación que sigue es la habitual en la industria, y sirve para saber de qué estamos hablando cada vez que decimos «robot».</p>
+
+        <h3>Por su ámbito de trabajo</h3>
+        <ul>
+          <li><strong>Industriales.</strong> Brazos fijos anclados al suelo que repiten una tarea con mucha precisión y sin cansarse: soldar, pintar, colocar piezas, cargar y descargar máquinas. Según su estructura mecánica se clasifican en <strong>cartesianos</strong> (tres ejes rectos), <strong>SCARA</strong> (dos articulaciones paralelas), <strong>articulados</strong> (tres o más articulaciones de giro), <strong>paralelos o delta</strong>, <strong>cilíndricos</strong> y <strong>polares</strong>.<sup><a href="#fuente_1">[1]</a></sup> Trabajan en zonas valladas, porque su fuerza y su velocidad los hacen peligrosos.</li>
+          <li><strong>Móviles.</strong> No están fijos: se desplazan con ruedas, orugas o patas. Su problema principal no es moverse, sino <strong>saber dónde están</strong>, y de ahí que necesiten sensores de distancia, encoders y referencias en el suelo. Los vehículos automáticos de almacén y las aspiradoras pertenecen a esta familia.</li>
+          <li><strong>Colaborativos (cobots).</strong> Están diseñados para trabajar <em>con</em> personas, no en una jaula. La Federación Internacional de Robótica distingue los que cumplen los requisitos de diseño seguro y protección de la norma de robots industriales de los que se rigen por otras normas.<sup><a href="#fuente_1">[1]</a></sup> Suelen ser más lentos y menos potentes a cambio de ser más seguros.</li>
+          <li><strong>Educativos.</strong> Son los que usamos para aprender. Tienen pocos grados de libertad, velocidades bajas, alimentación de pila o batería y piezas accesibles, de modo que el montaje, el ajuste y el error se pueden ver y corregir sin riesgo grave.</li>
+        </ul>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Tipos de robot, su tarea, sus sensores y su grado de autonomía">
+          <table>
+            <caption>Tipos de robot: tarea, sensores habituales y autonomía</caption>
+            <thead><tr><th scope="col">Tipo</th><th scope="col">Qué hace</th><th scope="col">Sensores habituales</th><th scope="col">Grado de autonomía</th><th scope="col">Cerca de nosotros</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Industrial</strong></th><td>Repite una tarea de fabricación con precisión y muy deprisa.</td><td>Finales de carrera, encoders, visión artificial.</td><td>Alto dentro de su celda, nulo fuera de ella.</td><td>Brazo que suelda, pinta o paletiza en una fábrica.</td></tr>
+              <tr><th scope="row"><strong>Móvil</strong></th><td>Se desplaza por un entorno para transportar, limpiar o vigilar.</td><td>Ultrasónico, láser, infrarrojos, encoders.</td><td>Medio o alto, con supervisión y entorno acotado.</td><td>Robot de almacén, aspiradora, robot de reparto.</td></tr>
+              <tr><th scope="row"><strong>Colaborativo</strong></th><td>Trabaja junto a una persona en la misma tarea.</td><td>Sensores de fuerza, visión, láser de seguridad.</td><td>Medio: comparte la decisión con quien lo maneja.</td><td>Brazo ligero que ayuda a montar piezas en un taller.</td></tr>
+              <tr><th scope="row"><strong>Educativo</strong></th><td>Enseña montaje y programación con pocos movimientos.</td><td>Ultrasónico, infrarrojo, siguelíneas, encoder.</td><td>Bajo o medio: decide con reglas muy sencillas.</td><td>Nuestro robot del banco de pruebas.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Por su número de grados de libertad y sus articulaciones</h3>
+        <p>La segunda manera de clasificarlos atiende a su mecánica. Cuantos más grados de libertad, más posiciones puede alcanzar el robot, pero más difícil resulta calcularlas y controlarlas: cada articulación que se añade complica el programa, porque los movimientos se componen unos con otros.</p>
+        <div class="t4-think"><strong>Piensa un momento:</strong> nuestra célula de clasificación del Tema 8 clasificaba piezas, pero siempre en el mismo sitio y con el mismo recorrido. Si la colocamos sobre un robot móvil, ¿cuántos grados de libertad añadimos y para qué los necesitamos? La respuesta es la que justifica todo este tema: el robot ya no puede esperar a que la pieza llegue, sino que tiene que <strong>ir a buscarla</strong>.</div>
+        <div class="t4-note"><strong>El final del recorrido del bloque.</strong> Un robot o célula robotizada que detecta, decide y actúa es la versión pequeña y autónoma de lo que hemos construido en los temas 9 y 10: el mismo controlador, los mismos sensores y los mismos actuadores, ahora montados sobre un chasis que se mueve.</div>
+      </section>
+
+      <section aria-labelledby="arquitectura">
+        <h2 id="arquitectura">3. Arquitectura de un robot móvil educativo</h2>
+        <p>Nuestro robot necesita seis bloques: un <strong>chasis</strong> que sostiene todo, una <strong>locomoción</strong> con motores y ruedas, un <strong>controlador</strong> que piensa, unos <strong>sensores</strong> que informan, un <strong>driver</strong> que da la potencia y una <strong>alimentación</strong> que reparte la energía. Ninguno sobra: si falta la alimentación, el controlador es un adorno; si falta el driver, los motores no giran o el controlador se destruye.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Componentes de un robot móvil educativo, su función y sus cuidados">
+          <table>
+            <caption>Componentes de un robot móvil educativo</caption>
+            <thead><tr><th scope="col">Componente</th><th scope="col">Función</th><th scope="col">Detalle que importa</th><th scope="col">Cuidado o límite</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Chasis</strong></th><td>Sostiene motores, ruedas, controlador, sensores y batería.</td><td>Rígido, con el peso bajo y centrado, y hueco para el cableado.</td><td>Un chasis flexible desalinea las ruedas y hace que el robot no vaya recto.</td></tr>
+              <tr><th scope="row"><strong>Motores de corriente continua</strong></th><td>Giran las ruedas motrices; con reductora ganan fuerza y pierden velocidad.</td><td>Dos motores, uno por rueda, permiten girar haciendo que giren a distinta velocidad.</td><td>Consumen mucha corriente y se calientan; nunca se conectan directamente a un pin del controlador.</td></tr>
+              <tr><th scope="row"><strong>Servomotores</strong></th><td>Colocan un eje en un ángulo concreto; los de rotación continua giran como un motor.</td><td>Se ordenan con una señal de pulso, no con tensión continua.</td><td>Piden también corriente aparte y pueden vibrar si la orden está al límite.</td></tr>
+              <tr><th scope="row"><strong>Ruedas y rueda loca</strong></th><td>Dos ruedas motrices y una tercera rueda de apoyo que gira libremente en cualquier dirección.</td><td>La rueda loca evita tener que sincronizar tres motores y permite girar sobre el sitio.</td><td>Debe tocar el suelo con las otras dos, sin cargar demasiado ni quedar en el aire.</td></tr>
+              <tr><th scope="row"><strong>Controlador</strong></th><td>Lee los sensores, decide y ordena a los actuadores.</td><td>Es la placa del Tema 10: la misma que programamos antes.</td><td>Sus pines dan muy poca corriente y no toleran sobretensiones.</td></tr>
+              <tr><th scope="row"><strong>Sensores</strong></th><td>Informan de la distancia, la línea, la luz o las vueltas de la rueda.</td><td>Van montados en la parte delantera y baja, mirando al suelo o al frente.</td><td>Su lectura tiene ruido y depende del entorno: hay que calibrarlos.</td></tr>
+              <tr><th scope="row"><strong>Batería y regulador</strong></th><td>Almacenan la energía y la convierten a la tensión que necesita cada parte.</td><td>La tensión de motores y la de la lógica se mantienen separadas, con la masa común.</td><td>Cortocircuitarla o invertir la polaridad la daña y puede provocar un incendio.</td></tr>
+              <tr><th scope="row"><strong>Driver de motores</strong></th><td>Amplifica la orden débil del controlador y alimenta los motores.</td><td>El más habitual es el puente H, que además permite invertir el sentido de giro.</td><td>Trabaja con toda la corriente de los motores: es lo que más se calienta.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable de la arquitectura del robot y del ciclo percibir, decidir actuar y comprobar">
+          <img src="assets/tema11_robot_arquitectura.svg" alt="Arriba, la arquitectura del robot encadenada de izquierda a derecha: los sensores informan al controlador, el controlador ordena al driver de motores o puente H, el driver alimenta los motores de corriente continua y estos mueven las ruedas, con la rueda loca como apoyo; una barra inferior recuerda que la batería y el regulador alimentan al controlador y al driver con masa común. Abajo, el ciclo de control en cuatro pasos: percibir leyendo los sensores, decidir comparando con umbrales y aplicando reglas condición-acción, actuar fijando el sentido de giro y la velocidad por PWM, y comprobar cómo el movimiento cambia el entorno, que vuelve a los sensores como realimentación.">
+          <figcaption>La arquitectura del robot y su ciclo de control: percibir, decidir, actuar y comprobar. La alimentación sostiene el conjunto y la realimentación cierra el lazo.</figcaption>
+        </figure>
+
+        <h3>La alimentación: repartir energía sin mezclarla</h3>
+        <p>La alimentación es la parte que más averías causa y la que menos se mira. El controlador funciona con una tensión pequeña y estable, mientras que los motores necesitan más corriente y generan ruido eléctrico. Por eso se trabaja con <strong>dos ramas</strong>: la de la lógica, que alimenta la placa, y la de potencia, que alimenta los motores a través del driver. Las dos ramas comparten la <strong>masa común</strong>, porque sin una referencia de tensión común las señales no significan nada. Las placas modernas admiten baterías de una sola celda de ion-litio o litio-polímero con su circuito de carga incorporado, y en todos los casos hay que respetar la tensión y el conector que indica el fabricante.<sup><a href="#fuente_2">[3]</a></sup></p>
+
+        <div class="aviso"><strong>Seguridad: bloque previo a cualquier práctica</strong>Antes de montar, probar o programar un robot con batería y motores hay que tener presentes estas reglas, y repasarlas con el profesorado en cada sesión:<ul>
+          <li><strong>Baterías y cortocircuitos:</strong> nunca se unen los dos polos de una batería con un cable, una herramienta o una pieza metálica. Los terminales se cubren y se conectan siempre con la polaridad correcta.</li>
+          <li><strong>Calor de motores y drivers:</strong> el driver y los motores se calientan al trabajar. Si algo huele a quemado o quema al tacto, se <strong>desconecta la batería</strong> y se avisa antes de seguir.</li>
+          <li><strong>Partes móviles y atrapamiento:</strong> engranajes, correas y ruedas giran sin avisar. No se mete ningún dedo, pelo ni ropa en la zona de las ruedas mientras el robot tenga energía.</li>
+          <li><strong>Sujeción de ruedas en el banco de pruebas:</strong> para probar el programa con el robot quieto, las ruedas se <strong>inmovilizan</strong> con un soporte estable que impida que el robot avance por la mesa.</li>
+          <li><strong>Parada y desconexión:</strong> la desconexión de la batería debe estar siempre al alcance de la mano, y hay que usarla antes de tocar el cableado, cambiar una conexión o mover el robot.</li>
+          <li><strong>Nunca elevar el robot con las ruedas libres sin sujeción segura:</strong> un robot levantado en el aire y con las ruedas girando se escapa de las manos, cae o enreda el cable. O está sobre el suelo, o está apoyado en un soporte firme.</li>
+        </ul></div>
+      </section>
+
+      <section aria-labelledby="motores">
+        <h2 id="motores">4. Controlar los motores: sentido de giro, velocidad y puente H</h2>
+        <p>Un <strong>motor de corriente continua</strong> tiene una propiedad muy cómoda: si se intercambian sus dos cables, gira al revés. Y otra igual de cómoda: si se le da menos tensión, gira más despacio. Con esas dos ideas y un driver se gobierna todo el movimiento del robot.</p>
+
+        <h3>El sentido de giro</h3>
+        <p>El driver más común es el <strong>puente H</strong>, un circuito con cuatro interruptores que permiten hacer circular la corriente por el motor en los dos sentidos. Se controla con <strong>dos entradas lógicas</strong> y una <strong>entrada de velocidad</strong> por motor. El patrón es siempre el mismo:</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Combinaciones de las dos entradas del puente H y la señal de velocidad">
+          <table>
+            <caption>Cómo se ordena el movimiento a un puente H</caption>
+            <thead><tr><th scope="col">Entrada 1</th><th scope="col">Entrada 2</th><th scope="col">Velocidad</th><th scope="col">Qué hace el motor</th><th scope="col">Para qué se usa</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Alto</strong></th><td>Bajo</td><td>Modulada</td><td>Gira en un sentido, con esa velocidad.</td><td>Avanzar o retroceder la rueda.</td></tr>
+              <tr><th scope="row"><strong>Bajo</strong></th><td>Alto</td><td>Modulada</td><td>Gira en el sentido contrario.</td><td>Invertir el avance del robot.</td></tr>
+              <tr><th scope="row"><strong>Alto</strong></th><td>Alto</td><td>Indiferente</td><td>Frena: los dos extremos del motor quedan unidos.</td><td>Detenerse rápido sin seguir rodando.</td></tr>
+              <tr><th scope="row"><strong>Bajo</strong></th><td>Bajo</td><td>Indiferente</td><td>Se para y deja de frenar: queda libre.</td><td>Dejar que el robot ruede por inercia.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Esta tabla se corresponde con la lógica real de un driver de motores: cuando las dos entradas coinciden el motor se frena o se para, y solo cuando son distintas gira, en un sentido u otro según cuál esté activa; la velocidad la fija en todos los casos la señal de modulación.<sup><a href="#fuente_3">[5]</a></sup></p>
+
+        <h3>La velocidad: modulación de ancho de pulso</h3>
+        <p>Si el controlador solo supiera encender y apagar, el robot avanzaría siempre a la máxima velocidad. Para regularla se usa la <strong>modulación de ancho de pulso</strong> (PWM): la salida no entrega una tensión continua, sino una señal digital que se enciende y se apaga muchísimas veces por segundo. Lo que cambia no es la tensión, sino el <strong>tiempo que está encendida</strong> en cada ciclo, y de ahí el nombre: se modula el ancho del pulso.</p>
+        <p>La función del controlador que genera esa señal admite un valor entre 0 y 255, donde 0 es apagado, 255 es encendido permanente y 128 es aproximadamente la mitad del tiempo encendido y la mitad apagado.<sup><a href="#fuente_4">[8]</a></sup> Ese porcentaje se llama <strong>ciclo de trabajo</strong>. La salida analógica por modulación se explica paso a paso en la documentación de la placa.<sup><a href="#fuente_5">[7]</a></sup></p>
+        <div class="t4-note"><strong>Ejemplo resuelto · ¿cuánta velocidad necesito?</strong> Queremos que el robot avance a la mitad de su velocidad máxima para poder seguirlo con la vista. El valor sería <strong>255 × 0,5 ≈ 128</strong>. Si además necesitamos que la rueda derecha vaya un 20 % más despacio para corregir la deriva hacia la izquierda, escribiríamos <strong>255 × 0,4 ≈ 102</strong> en esa rueda y 128 en la otra. Con eso no se gira de golpe: se corrige suavemente la trayectoria.</div>
+        <p>Hay un límite práctico que conviene conocer: por debajo de cierto valor de PWM el motor no arranca, porque el rozamiento y la propia reductora se lo impiden. Ese valor se llama <strong>zona muerta</strong> y hay que medirlo en el banco: se sube el valor poco a poco hasta que la rueda empieza a girar, y se anota. En nuestro robot, la zona muerta puede estar alrededor de 60 o 80, así que las órdenes útiles empezarán por encima de ese valor.</p>
+
+        <h3>Por qué un motor no se conecta directamente a un pin</h3>
+        <p>Es la pregunta que más se repite en el taller, y la respuesta tiene dos motivos, ambos de seguridad:</p>
+        <ul>
+          <li><strong>La corriente.</strong> Un pin del controlador entrega unos pocos miliamperios, mientras que un motor pequeño puede pedir varios cientos. La diferencia es de más de diez veces: al conectar el motor directamente, el pin se sobrecalienta y se destruye. Para gobernar una carga grande desde una señal pequeña se intercala un elemento de potencia, como un transistor o un driver de motores.<sup><a href="#fuente_6">[6]</a></sup></li>
+          <li><strong>Los picos de tensión.</strong> Un motor es una bobina, y cuando se le corta la corriente de golpe devuelve un pico de tensión en sentido contrario que puede superar lo que resiste la electrónica del controlador. Los drivers incorporan internamente los diodos que absorben esos picos y protegen el conjunto.<sup><a href="#fuente_3">[5]</a></sup></li>
+        </ul>
+        <div class="t4-concept"><strong class="t4-concept-tag">La señal ordena, la potencia mueve</strong>El controlador no mueve nada: <em>ordena</em>. El driver es el que mueve, porque es el que tiene corriente y protección. Si esa separación queda clara en el esquema, cualquier avería se localiza mucho antes.<sup><a href="#fuente_7">[2]</a></sup></div>
+
+        <h3>Servomotores: cuando hace falta una posición</h3>
+        <p>Un <strong>servomotor</strong> no recibe una tensión, sino una <strong>señal de pulso</strong> que se repite unas cincuenta veces por segundo: la duración del pulso indica el ángulo, en torno a un milisegundo para un extremo y dos milisegundos para el otro.<sup><a href="#fuente_8">[9]</a></sup> Por eso no se controla como un motor de continua. Un servo puede colocarse en un ángulo exacto —por ejemplo, para orientar un sensor— o, en su versión de rotación continua, girar como un motor pero con la velocidad fijada por la señal. Como cualquier actuador, necesita su propia alimentación y comparte la masa con el controlador.</p>
+      </section>
+
+      <section aria-labelledby="sensores">
+        <h2 id="sensores">5. Percibir el entorno: sensores, límites e incertidumbre</h2>
+        <p>Sin sensores no hay robot, solo una máquina que se mueve. Un <strong>sensor</strong> convierte una magnitud física —distancia, luz, giro— en una señal eléctrica que el controlador pueda leer. Los hay que devuelven un valor de todo o nada, como un pulsador, y los hay que devuelven un número dentro de un margen, como un sensor de luz. Nuestro robot utiliza cuatro familias, y conviene conocer las cuatro a fondo antes de fiarse de ninguna.</p>
+
+        <h3>Sensor de distancia por ultrasonidos</h3>
+        <p>El sensor ultrasónico emite un <strong>pulso de sonido</strong> fuera del oído humano, espera a que el eco vuelva y mide cuánto ha tardado. Como el sonido ha ido hasta el obstáculo y ha vuelto, la distancia es la mitad del recorrido:</p>
+        <p class="t4-formula">d = (v · t) / 2 <span class="t4-formula-leyenda">donde d es la distancia, v la velocidad del sonido (unos 343 m/s en el aire, es decir 0,0343 cm por microsegundo) y t el tiempo total que ha tardado el eco</span></p>
+        <div class="t4-note"><strong>Ejemplo resuelto · leer un eco.</strong> Si el eco tarda <strong>580 µs</strong> en volver, el sonido ha recorrido 580 × 0,0343 cm ≈ 19,9 cm, y como ese camino es de ida y vuelta, el obstáculo está a unos <strong>10 cm</strong>. Un eco de 1 160 µs correspondería a 20 cm, y así proporcionalmente: cada 58 µs de eco equivalen a 1 cm de distancia. La placa ofrece una función que manda el pulso y devuelve el tiempo del eco, lista para usarse.<sup><a href="#fuente_9">[10]</a></sup></div>
+        <p><strong>Sus límites</strong> son tan importantes como su funcionamiento: emite en un <strong>cono</strong>, no en una línea, así que puede detectar algo que no está justo delante; las superficies blandas, inclinadas o con formas en punta devuelven mal el eco y la lectura se dispara o se pierde; dos sensores iguales que emiten a la vez se confunden entre sí; y por debajo de unos centímetros el eco se mezcla con la propia emisión. Por eso conviene pedir la medida, descartar valores absurdos y repetir la lectura.</p>
+
+        <h3>Sensores infrarrojos y seguidores de línea</h3>
+        <p>Un sensor <strong>infrarrojo de reflexión</strong> lleva un emisor de luz invisible y un fotorreceptor. Emite luz hacia el suelo y mide cuánta vuelve: una superficie <strong>blanca refleja mucho</strong> y una <strong>negra absorbe</strong> casi todo. El siguelíneas de nuestro robot usa tres de estos sensores en fila, y así sabe si la línea está a la izquierda, en el centro o a la derecha.<sup><a href="#fuente_10">[11]</a></sup> Para que funcionen, tienen que estar <strong>muy cerca del suelo</strong>, a pocos milímetros, y hay que caracterizarlos antes de usarlos: es decir, medir qué valor devuelven sobre la línea negra y qué valor devuelven sobre el fondo claro, y solo entonces elegir el umbral.<sup><a href="#fuente_10">[11]</a></sup> Una barra con más sensores, por ejemplo ocho, permite seguir curvas más cerradas y detectar cruces, porque aporta más información sobre la posición de la línea.<sup><a href="#fuente_11">[12]</a></sup></p>
+        <div class="t4-curio"><strong>Curiosidad del taller:</strong> el sensor infrarrojo no «ve» el color. Mide cuánta luz le llega de vuelta. Un suelo negro brillante puede reflejar tanto como un papel blanco mate, y entonces nuestro robot se equivoca. No está roto: está midiendo otra cosa.</div>
+
+        <h3>Encoder: contar las vueltas de la rueda</h3>
+        <p>Un <strong>encoder</strong> es un sensor que convierte el giro en pulsos. Va montado en el eje del motor y entrega dos señales que se desfasan noventa grados; contando los pulsos se sabe <em>cuánto</em> ha girado y comparando el orden de las dos señales se sabe <em>en qué sentido</em>. Es lo que permite al robot estimar la distancia recorrida sin depender de la luz ni del color del suelo. Las bibliotecas estándar ya resuelven el recuento de pulsos y la detección del sentido, así que el programa puede leer el contador directamente.<sup><a href="#fuente_12">[13]</a></sup></p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Sensores del robot, qué miden, cómo funcionan y sus límites">
+          <table>
+            <caption>Sensores del robot: qué miden y de qué no se puede uno fiar</caption>
+            <thead><tr><th scope="col">Sensor</th><th scope="col">Qué mide</th><th scope="col">Cómo lo hace</th><th scope="col">Límite que hay que conocer</th><th scope="col">Fuente de incertidumbre</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Ultrasonidos</strong></th><td>Distancia al obstáculo que tiene delante.</td><td>Emite un sonido, espera el eco y mide el tiempo.</td><td>Mide en un cono, no en una línea, y falla con superficies blandas o inclinadas.</td><td>Ecos falsos, rebotes en el suelo, dos sensores emitiendo a la vez.</td></tr>
+              <tr><th scope="row"><strong>Infrarrojo de reflexión</strong></th><td>Si debajo hay una superficie clara u oscura.</td><td>Emite luz invisible y mide la que vuelve reflejada.</td><td>Solo sirve a pocos milímetros del suelo; no distingue el color del brillo.</td><td>Cambios de luz ambiente, suelo sucio, acabado de la superficie.</td></tr>
+              <tr><th scope="row"><strong>Siguelíneas</strong></th><td>Dónde está la línea respecto al centro del robot.</td><td>Varios sensores infrarrojos en fila y comparación con un umbral.</td><td>Con tres sensores no resuelve giros de noventa grados.</td><td>El umbral mal elegido y la velocidad excesiva del robot.</td></tr>
+              <tr><th scope="row"><strong>Encoder</strong></th><td>Cuánto y en qué sentido ha girado la rueda.</td><td>Cuenta pulsos de dos señales desfasadas.</td><td>No mide el desplazamiento real si la rueda patina.</td><td>Resolución finita del contador, rebotes, deslizamiento.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Ningún sensor dice la verdad</strong>Toda medida lleva ruido y depende de las condiciones. Por eso el programa no pregunta «¿a qué distancia está?», sino «¿la distancia es menor que mi umbral?». Aceptar la incertidumbre y decidir con márgenes es lo que hace que un robot funcione en el mundo real y no solo sobre el papel.</div>
+      </section>
+
+      <section aria-labelledby="comportamientos">
+        <h2 id="comportamientos">6. Programar comportamientos reactivos</h2>
+        <p>Un <strong>comportamiento reactivo</strong> une directamente lo que el robot percibe con lo que hace, mediante una <strong>regla condición-acción</strong>: <em>si</em> ocurre esto, <em>entonces</em> hago aquello. No hay que planificar el futuro: el robot responde al presente, y de la suma de reglas sencillas surge una conducta que parece inteligente. Es el enfoque más adecuado para un robot educativo, porque cada regla se puede probar por separado.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Comportamientos reactivos, su regla y lo que hay que ajustar">
+          <table>
+            <caption>Cuatro comportamientos reactivos para nuestro robot</caption>
+            <thead><tr><th scope="col">Comportamiento</th><th scope="col">Qué consigue</th><th scope="col">Regla condición-acción</th><th scope="col">Qué se ajusta</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Seguir una línea</strong></th><td>Recorrer un circuito marcado sin salirse.</td><td>Si el sensor central ve la línea, avanzar recto; si la ve el derecho, girar a la derecha; si la ve el izquierdo, girar a la izquierda.</td><td>El umbral de cada sensor y la diferencia de velocidad entre ruedas.</td></tr>
+              <tr><th scope="row"><strong>Evitar un obstáculo</strong></th><td>No chocar con lo que aparece delante.</td><td>Si la distancia es menor que el umbral, girar; si no, avanzar.</td><td>El umbral de distancia y el tiempo mínimo de giro.</td></tr>
+              <tr><th scope="row"><strong>Seguir una pared</strong></th><td>Avanzar en paralelo a una pared o un borde.</td><td>Si la distancia es mayor que la deseada, acercarse; si es menor, separarse.</td><td>La distancia objetivo y la ganancia de la corrección.</td></tr>
+              <tr><th scope="row"><strong>Buscar</strong></th><td>Reencontrar la línea o el objeto perdido.</td><td>Si no se detecta nada, avanzar y girar alternativamente hasta volver a detectarlo.</td><td>El tiempo de cada intento y el sentido del giro.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>La corrección no es encender y apagar</h3>
+        <p>En el siguelíneas, la primera tentación es girar a tope cuando el sensor ve negro. Funciona mal: el robot da bandazos, se pasa de largo y vuelve a corregir, oscilando sobre la línea como una serpiente. Lo correcto es <strong>corregir suavemente</strong>, haciendo que una rueda gire algo más despacio que la otra. Cuanto mayor sea la diferencia, más brusca es la corrección. Ese factor se llama <strong>ganancia</strong>, y encontrarlo es trabajo de ajuste, no de adivinación:</p>
+        <ul>
+          <li>Si la ganancia es <strong>demasiado alta</strong>, el robot oscila de un lado a otro sin estabilizarse.</li>
+          <li>Si la ganancia es <strong>demasiado baja</strong>, el robot corrige con retraso y se sale en las curvas.</li>
+          <li>La ganancia buena es la que mantiene el robot sobre la línea a la <strong>mayor velocidad</strong> que aún controla. Y esa velocidad solo se descubre probando.</li>
+        </ul>
+
+        <h3>Temporización no bloqueante: el robot nunca debe quedarse sordo</h3>
+        <p>En el Tema 10 vimos que una espera detiene el programa. En un robot esto es grave: mientras el programa espera, el robot <strong>no lee los sensores</strong> y sigue avanzando a ciegas. La solución es no esperar nunca de forma larga y decidir siempre a partir del tiempo transcurrido, comparando el valor del contador de tiempo actual con el momento en que ocurrió la última acción.</p>
+        <pre><code>// Comportamiento "evitar obstáculo" sin detener el programa
+unsigned long ahora = millis();            // tiempo actual, en milisegundos
+int d = medirDistancia();                  // lectura del sensor ultrasónico
+
+if (d &gt; 0 &amp;&amp; d &lt; 20) {                   // condición: obstáculo a menos de 20 cm
+  girarDerecha(150);                       // acción: girar con PWM intermedio
+} else {
+  avanzar(180);                            // acción: seguir avanzando
+}
+
+// Ninguna orden bloquea: la vuelta siguiente vuelve a leer el sensor
+</code></pre>
+        <p>Como se ve, el patrón es siempre el mismo que ya conocemos del tema anterior: leer, comparar y ordenar. Lo que cambia en robótica es que ahora la orden mueve motores y que la lectura siguiente depende de dónde haya ido el robot.</p>
+
+        <div class="t4-think"><strong>Piensa y decide:</strong> si tu robot tiene que clasificar una pieza y llevarla a su sitio, ¿qué regla pondrías primero y cuál después? Escribe la lista de reglas <em>en orden</em> antes de programar. Casi todos los fallos de un robot educativo no están en el código, sino en el orden de las reglas: hay alguna que nunca llega a comprobarse porque otra la intercepta antes.</div>
+      </section>
+
+      <section aria-labelledby="simular">
+        <h2 id="simular">7. Simular, montar y ajustar con seguridad</h2>
+        <p>En el Tema 10 ya usamos simuladores para comprobar la lógica antes de montarla, y en robótica esa costumbre vale todavía más. Un <strong>simulador</strong> reproduce el controlador, los componentes y el programa en la pantalla, de modo que se puede ver qué ocurre antes de tener las piezas en la mesa. Con él se prueban circuitos, se corrigen errores de conexión y se ensaya el código sin riesgo de estropear nada: el simulador permite montar y codificar proyectos virtuales, y ver cómo responden los componentes antes de cablear el circuito real.<sup><a href="#fuente_13">[4]</a></sup></p>
+
+        <div class="t4-note"><strong>Lo que el simulador no puede contarte.</strong> La simulación respeta muy bien la lógica y las conexiones, pero <strong>no</strong> reproduce el rozamiento, el peso del chasis, el patinaje de las ruedas, el desgaste de la batería ni la luz del taller. Un programa que funciona en pantalla puede fallar en la mesa por cualquiera de esos motivos. Por eso simulamos <em>antes</em> y verificamos <em>después</em>: la simulación ahorra errores, no sustituye la prueba real.</div>
+
+        <h3>Calibrar umbrales y ganancias</h3>
+        <p><strong>Calibrar</strong> es medir el mundo con nuestros propios sensores antes de decidir con ellos. Se hace con el robot sujeto en el banco de pruebas y con el programa mostrando las lecturas:</p>
+        <ol>
+          <li>Se lee el sensor en la situación de referencia —sobre la línea negra, con el fondo claro, con la mano a distintas distancias— y se anotan los valores.</li>
+          <li>Se elige un <strong>umbral</strong> que separe bien los dos casos, y preferiblemente en el punto intermedio, no pegado a ninguno de los dos valores.</li>
+          <li>Se añade un poco de <strong>histéresis</strong>: el valor para activar y el valor para desactivar no son exactamente iguales. Así, si la lectura oscila alrededor del umbral, el robot no cambia de decisión nerviosamente.</li>
+          <li>Se ajusta la <strong>ganancia</strong> empezando por un valor pequeño y subiéndolo poco a poco hasta que el robot siga la línea con firmeza y sin oscilar.</li>
+        </ol>
+        <p>Todo lo que se mide y se ajusta se <strong>anota</strong> en la tabla de pruebas, con la fecha y las condiciones. Un ajuste que funciona hoy pero no se ha registrado se pierde mañana, y el robot parecerá que se ha vuelto loco.</p>
+
+        <h3>Odometría, localización y navegación: tres palabras que conviene entender</h3>
+        <p>Contar los pulsos del encoder para estimar cuánto ha avanzado el robot se llama <strong>odometría</strong>. Parece infalible, y no lo es: la odometría es útil en distancias cortas, pero su error <strong>se acumula</strong> paso a paso. El fallo principal no es la distancia, sino la <strong>orientación</strong>: cada pequeño error de ángulo se arrastra a todos los cálculos siguientes, de forma que el robot puede terminar muy lejos de donde cree estar.<sup><a href="#fuente_14">[14]</a></sup></p>
+        <ul>
+          <li><strong>Fuentes de error:</strong> ruedas que patinan, diámetros ligeramente distintos entre una rueda y otra, suelo irregular, contacto variable con el suelo y la propia resolución del contador.<sup><a href="#fuente_15">[15]</a></sup></li>
+          <li><strong>Dos familias de error:</strong> los errores que dependen del montaje —ruedas desalineadas, diámetros distintos— se pueden reducir con una buena <strong>calibración</strong>; los que dependen del azar —el deslizamiento— no se eliminan, solo se estiman.<sup><a href="#fuente_15">[15]</a></sup></li>
+          <li><strong>Localización</strong> es responder a la pregunta «¿dónde estoy?». Como la odometría sola no basta, se combina con referencias exteriores: una línea en el suelo, una pared, una marca o un punto conocido.</li>
+          <li><strong>Navegación</strong> es decidir el camino hasta el objetivo y recorrerlo. Nuestro robot no navega de verdad: solo sigue reglas sencillas. Saber que existe un problema mayor, y que se resuelve con más sensores y más cálculo, es suficiente en este curso.</li>
+        </ul>
+
+        <h3>Montar por etapas: de la mesa al robot completo</h3>
+        <p>El montaje sigue siempre el mismo orden, y no se pasa a la etapa siguiente hasta comprobar la anterior. Nunca se conecta la batería para ver «si funciona»:</p>
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">1 — Comprobar sin energía</div><p>Se revisa el cableado a mano, la polaridad de la alimentación y la separación entre la tensión de los motores y la de la lógica.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">2 — Solo el controlador</div><p>Se comprueba que el programa se carga y que las lecturas de los sensores se ven correctamente, sin los motores conectados.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">3 — Driver y motores con las ruedas sujetas</div><p>Se alimenta el driver y se prueba el sentido de giro y la velocidad con el robot inmovilizado en un soporte estable.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">4 — Sensores en su sitio</div><p>Se fijan el sensor de distancia y los siguelíneas, y se anotan sus lecturas características en la tabla de calibración.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">5 — Robot completo, a velocidad mínima</div><p>Se integra todo y se prueba en un espacio despejado, con la desconexión de la batería al alcance de la mano.</p></div>
+        </div>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Riesgos del robot, su origen, la medida de seguridad y cómo se comprueba">
+          <table>
+            <caption>Seguridad del robot: riesgo, medida y comprobación</caption>
+            <thead><tr><th scope="col">Riesgo</th><th scope="col">De dónde viene</th><th scope="col">Medida de seguridad</th><th scope="col">Cómo se comprueba</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Cortocircuito o sobrecalentamiento de la batería</strong></th><td>Unir los polos, invertir la polaridad, aplastar o perforar la célula.</td><td>Conectar siempre con la polaridad marcada, cubrir los terminales y no dejar la batería suelta entre piezas metálicas.<sup><a href="#fuente_16">[18]</a></sup></td><td>Revisión visual de los cables antes de conectar, con el robot apagado y la batería desconectada.</td></tr>
+              <tr><th scope="row"><strong>Calor de motores y driver</strong></th><td>Trabajo continuo, motor forzado, driver pequeño para ese motor.</td><td>Comprobar el calentamiento durante la prueba y no mantener el robot atascado contra un tope.</td><td>Tacto breve en el disipador y en el motor tras unos minutos; si quema, se desconecta y se avisa.</td></tr>
+              <tr><th scope="row"><strong>Atrapamiento en las partes móviles</strong></th><td>Ruedas, poleas y engranajes en movimiento.</td><td>Mantener dedos, pelo y ropa fuera del alcance de las ruedas con el robot energizado.</td><td>Se comprueba que el área de trabajo está despejada antes de conectar la batería.</td></tr>
+              <tr><th scope="row"><strong>Caída o fuga del robot del banco</strong></th><td>Ruedas girando sin sujeción sobre una mesa o un borde.</td><td>Sujetar el chasis con un soporte firme o dejarlo en el suelo; nunca elevarlo con las ruedas libres.</td><td>Se empuja suavemente el robot con la energía quitada para verificar que el soporte aguanta.</td></tr>
+              <tr><th scope="row"><strong>Arranque imprevisto</strong></th><td>Conectar la batería con el programa ya cargado y los motores listos.</td><td>Desconectar la batería antes de tocar el cableado o cambiar una conexión.<sup><a href="#fuente_17">[17]</a></sup></td><td>Comprobar que la desconexión es accesible sin mover el robot y que al quitarla los motores se detienen.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="aviso"><strong>Antes de conectar la batería, repasa esta lista</strong>El robot está sobre el suelo o sujeto en el banco; las ruedas no están libres en el aire; no hay dedos, pelo ni cables en la zona de las ruedas; el cableado está revisado y con la polaridad correcta; la desconexión de la batería está a mano; y hay una persona adulta supervisando. Si algo se calienta, huele raro o suena mal, se desconecta primero y se investiga después. La electricidad se maneja siempre con las cinco reglas de oro en la cabeza: cortar, bloquear, verificar la ausencia de tensión, poner a tierra y proteger los elementos próximos.<sup><a href="#fuente_18">[16]</a></sup></div>
+      </section>
+
+      <section aria-labelledby="proyecto">
+        <h2 id="proyecto">8. Probar por etapas, documentar y presentar el prototipo</h2>
+        <p>Un prototipo no está terminado cuando se mueve: está terminado cuando <strong>sabemos</strong> qué hace bien, qué hace mal y por qué. Eso exige probar con criterios claros, registrar lo que ocurre y contarlo después de forma honesta.</p>
+
+        <h3>Probar con criterios de aceptación</h3>
+        <p>Cada prueba compara lo que ocurre con lo que habíamos previsto, y la previsión debe estar escrita <strong>antes</strong> de probar. Un criterio de aceptación no es una opinión: es una condición que se cumple o no se cumple.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Pruebas por etapas, criterios de aceptación y registro">
+          <table>
+            <caption>Pruebas por etapas y criterios de aceptación</caption>
+            <thead><tr><th scope="col">Etapa</th><th scope="col">Qué se comprueba</th><th scope="col">Criterio de aceptación</th><th scope="col">Qué se registra</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Alimentación</strong></th><td>Que cada parte recibe la tensión que le corresponde y que la masa es común.</td><td>El controlador arranca y los motores giran cuando se lo ordenamos, sin calentarse nada anormalmente.</td><td>Tensión medida en cada rama y observaciones de temperatura.</td></tr>
+              <tr><th scope="row"><strong>Motores</strong></th><td>Sentido de giro de cada rueda y respuesta a la velocidad ordenada.</td><td>Cada rueda gira en el sentido correcto y arranca por encima del valor de la zona muerta.</td><td>Valor mínimo de PWM que mueve la rueda y sentido observado.</td></tr>
+              <tr><th scope="row"><strong>Sensores</strong></th><td>Que las lecturas se corresponden con la realidad.</td><td>Las distancias medidas coinciden con la cinta métrica dentro de un margen aceptado, y los siguelíneas distinguen negro de blanco.</td><td>Tabla de valores reales frente a valores medidos.</td></tr>
+              <tr><th scope="row"><strong>Comportamiento</strong></th><td>Cada regla por separado, antes de combinarlas.</td><td>La regla se cumple siempre en las condiciones previstas, no solo a veces.</td><td>Número de intentos, aciertos y fallos de cada regla.</td></tr>
+              <tr><th scope="row"><strong>Integración</strong></th><td>La tarea completa, con todas las reglas funcionando juntas.</td><td>El robot completa el recorrido previsto sin intervención y se detiene al terminar.</td><td>Resultado de cada intento y condiciones del entorno.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Depurar cuando algo falla</h3>
+        <p>Un robot que falla no está roto: está dando información. Lo importante es no cambiar tres cosas a la vez, porque entonces no se sabe cuál era el problema. El orden que mejor funciona es:</p>
+        <ol>
+          <li><strong>Reproducir el fallo</strong> y describirlo con precisión: ¿siempre o solo a veces? ¿con poca batería? ¿en el mismo tramo del recorrido?</li>
+          <li><strong>Aislar la parte sospechosa</strong> y probarla sola: si el sensor lee bien y el motor gira bien, el problema estará en la decisión o en el umbral.</li>
+          <li><strong>Cambiar una sola cosa</strong> cada vez, y volver a probar. Si no se anota lo que se ha cambiado, la siguiente prueba no vale nada.</li>
+          <li><strong>Registrar la solución</strong>, aunque parezca pequeña: la próxima persona que use el robot agradecerá saberlo.</li>
+        </ol>
+
+        <h3>Documentar el prototipo</h3>
+        <p>La documentación es la memoria del proyecto, y se escribe mientras se trabaja, no al final. Basta con que incluya: una descripción breve de la tarea que resuelve el robot; el <strong>esquema de conexiones</strong> con la alimentación claramente separada entre lógica y potencia; la <strong>lista de materiales</strong>; el <strong>programa comentado</strong>, con cada regla explicada; la <strong>tabla de calibración</strong> con los umbrales elegidos; y la <strong>tabla de pruebas</strong> con sus criterios de aceptación, lo que salió y lo que se corrigió.</p>
+
+        <h3>Presentar el prototipo</h3>
+        <p>Presentar no es leer el código en voz alta: es <strong>demostrar</strong> que el robot hace algo y <strong>explicar</strong> por qué lo hace. Una demostración que salga bien vale más que veinte diapositivas, y una que salga mal, si se explica, vale casi lo mismo.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Qué mostrar en la presentación del prototipo, cómo demostrarlo y qué explicar">
+          <table>
+            <caption>Qué mostrar en la presentación del prototipo</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Qué se muestra</th><th scope="col">Cómo se demuestra</th><th scope="col">Qué se explica</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>La tarea</strong></th><td>Qué problema resuelve el robot y en qué condiciones.</td><td>Una demostración de treinta segundos, sin tocar nada.</td><td>Qué se pretendía y cómo se comprueba que se consigue.</td></tr>
+              <tr><th scope="row"><strong>La arquitectura</strong></th><td>Los bloques del robot y cómo se alimentan.</td><td>Se señalan las piezas sobre el robot real.</td><td>Por qué cada pieza está ahí y qué pasaría si faltara.</td></tr>
+              <tr><th scope="row"><strong>Las reglas</strong></th><td>Las reglas condición-acción del programa.</td><td>Se provoca cada situación con la mano para que reaccione.</td><td>Qué umbral se eligió y por qué ese valor.</td></tr>
+              <tr><th scope="row"><strong>Los límites y los fallos</strong></th><td>Qué situaciones no sabe resolver y qué se intentó.</td><td>Se muestra honestamente un caso donde el robot falla.</td><td>Por qué falla, qué se cambió y qué quedaría por mejorar.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="aviso"><strong>Límites de lo que hemos construido</strong>Nuestro robot no es un robot industrial, no tiene precisión garantizada y no funciona igual con cualquier luz, cualquier suelo o cualquier batería. Clasifica o sigue una línea dentro de un banco de pruebas, con pocos grados de libertad y con reglas que hemos escrito nosotros. Decirlo así no es un defecto de la explicación: es la prueba de que se ha entendido lo que se ha hecho.</div>
+      </section>
+
+      <section aria-labelledby="comprueba">
+        <h2 id="comprueba">Comprueba lo que has aprendido</h2>
+        <p>Tu trabajo estará bien resuelto si puedes explicar cada decisión y mostrar qué comprobaste. Responde a estas preguntas y revisa después la tabla de evidencias.</p>
+        <ol>
+          <li>Enumera tres diferencias concretas entre nuestra estación automática de clasificación y un robot. ¿Cuál de ellas es la más importante y por qué?</li>
+          <li>Un robot móvil avanza con dos ruedas motrices y una rueda loca. ¿Cuántos grados de libertad tiene y para qué sirve cada uno?</li>
+          <li>Explica con tus palabras por qué un motor no se conecta directamente a un pin del controlador, citando los dos motivos.</li>
+          <li>El eco de un sensor ultrasónico tarda 464 µs en volver. ¿A qué distancia está el obstáculo?</li>
+          <li>Los sensores siguelíneas de tu robot devuelven 720 sobre la línea negra y 210 sobre el fondo claro. ¿Qué umbral elegirías y por qué no lo pondrías en 720?</li>
+          <li>Explica qué es la odometría, por qué su error crece al avanzar y qué diferencia hay entre localizar y navegar.</li>
+          <li>Antes de conectar la batería, ¿qué cuatro comprobaciones de seguridad harías?</li>
+        </ol>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Qué debe mostrar tu robot y con qué evidencias">
+          <table>
+            <caption>Qué debe mostrar tu robot</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Qué debes demostrar</th><th scope="col">Evidencias posibles</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Percibir</strong></th><td>Que los sensores informan de algo real y que has medido sus límites.</td><td>Tabla de calibración con valores reales frente a medidos.</td></tr>
+              <tr><th scope="row"><strong>Decidir</strong></th><td>Que cada regla condición-acción está justificada y ordenada con criterio.</td><td>Lista de reglas comentada y umbrales elegidos con su motivo.</td></tr>
+              <tr><th scope="row"><strong>Actuar</strong></th><td>Que el robot mueve los motores con el sentido y la velocidad ordenados.</td><td>Valores de PWM usados, zona muerta medida y esquema de conexiones.</td></tr>
+              <tr><th scope="row"><strong>Probar</strong></th><td>Que comparaste cada prueba con un criterio escrito antes de probar.</td><td>Tabla de pruebas con intentos, aciertos, fallos y correcciones.</td></tr>
+              <tr><th scope="row"><strong>Documentar y presentar</strong></th><td>Que otra persona puede entender y usar tu prototipo.</td><td>Memoria breve, esquema, programa comentado y demostración.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Antes de entregar, pide a alguien ajeno al equipo que intente explicar qué hace tu robot mirándolo funcionar. Si no puede decir si está percibiendo, decidiendo o actuando, probablemente falte claridad en la documentación o en la presentación.</p>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Actuador</dt><dd>Elemento que convierte una energía en movimiento útil; en nuestro robot, los motores de corriente continua y los servomotores.</dd>
+          <dt>Articulación prismática</dt><dd>Unión que permite un desplazamiento en línea recta entre dos piezas.</dd>
+          <dt>Articulación rotativa</dt><dd>Unión que permite que una pieza gire alrededor de un eje.</dd>
+          <dt>Autonomía</dt><dd>Grado en que un robot percibe, decide y actúa sin intervención de una persona.</dd>
+          <dt>Calibrar</dt><dd>Medir las lecturas reales de un sensor en cada situación para elegir después umbrales y ganancias adecuados.</dd>
+          <dt>Comportamiento reactivo</dt><dd>Conducta del robot que une directamente lo percibido con una acción, mediante reglas condición-acción.</dd>
+          <dt>Ciclo de trabajo</dt><dd>Porcentaje del tiempo que una señal de PWM permanece encendida en cada ciclo; determina la velocidad del motor.</dd>
+          <dt>Encoder</dt><dd>Sensor que convierte el giro de un eje en pulsos y permite saber cuánto ha girado y en qué sentido.</dd>
+          <dt>Ganancia</dt><dd>Factor que multiplica la corrección aplicada; si es grande, el robot oscila, y si es pequeña, corrige tarde.</dd>
+          <dt>Grado de libertad</dt><dd>Cada uno de los movimientos independientes que puede realizar un robot.</dd>
+          <dt>Histéresis</dt><dd>Margen entre el valor que activa una decisión y el que la desactiva, para evitar cambios nerviosos.</dd>
+          <dt>Localización</dt><dd>Determinar dónde está el robot combinando sus propias medidas con referencias del entorno.</dd>
+          <dt>Odometría</dt><dd>Estimación de la distancia y el giro recorridos a partir del recuento de pulsos de las ruedas; su error se acumula.</dd>
+          <dt>Puente H</dt><dd>Circuito de cuatro interruptores que permite invertir el sentido de la corriente en un motor y controlar su velocidad.</dd>
+          <dt>PWM</dt><dd>Modulación de ancho de pulso: señal digital que se enciende y apaga muy deprisa para regular la velocidad de un motor.</dd>
+          <dt>Rueda loca</dt><dd>Tercera rueda de apoyo que gira libremente en cualquier dirección y no recibe orden del controlador.</dd>
+          <dt>Sensor</dt><dd>Elemento que convierte una magnitud física del entorno en una señal que el controlador puede leer.</dd>
+          <dt>Simulador</dt><dd>Programa que reproduce el controlador, los componentes y el programa antes de montar el circuito real.</dd>
+          <dt>Umbral</dt><dd>Valor de referencia con el que se compara la lectura de un sensor para tomar una decisión.</dd>
+          <dt>Zona muerta</dt><dd>Valor mínimo de PWM por debajo del cual el motor no arranca y permanece parado.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Una máquina automática repite una secuencia; un robot <strong>percibe</strong>, <strong>decide</strong> y <strong>actúa</strong>, y puede reprogramarse para otra tarea.</li>
+          <li>La autonomía es un grado: teleoperado, semiautónomo y autónomo con supervisión. Nuestro prototipo está en el tercer nivel, con entorno acotado.</li>
+          <li>Los grados de libertad son los movimientos independientes del robot, y se consiguen con articulaciones rotativas (giro) y prismáticas (deslizamiento).</li>
+          <li>Los robots se clasifican en industriales, móviles, colaborativos y educativos; cada familia usa sensores distintos y tiene un grado de autonomía diferente.</li>
+          <li>La arquitectura de un robot móvil educativo es chasis, motores y ruedas con rueda loca, controlador, sensores, driver de motores, batería y regulador.</li>
+          <li>La alimentación se reparte en dos ramas —lógica y potencia— que comparten la masa común, y nunca se mezclan.</li>
+          <li>El sentido de giro se ordena con dos entradas lógicas del puente H; la velocidad, con la señal PWM, que admite valores entre 0 y 255.</li>
+          <li>Un motor no se conecta a un pin porque pide mucha más corriente de la que el pin entrega y porque devuelve picos de tensión que lo dañarían.</li>
+          <li>Los sensores miden con incertidumbre: el ultrasónico tiene cono y falsos ecos, los infrarrojos dependen de la luz y del acabado del suelo, y el encoder no mide si la rueda patina.</li>
+          <li>Los comportamientos reactivos se escriben con reglas condición-acción y se corrigen con diferencias de velocidad, no con giros bruscos.</li>
+          <li>La temporización no bloqueante permite que el robot siga leyendo los sensores mientras se mueve; una espera larga lo deja sordo.</li>
+          <li>El simulador ayuda a verificar y ajustar antes del montaje, pero no reproduce el rozamiento, el peso ni la batería real.</li>
+          <li>La odometría acumula error, sobre todo de orientación; por eso la localización combina medidas propias con referencias del entorno.</li>
+          <li>Las pruebas se hacen por etapas, con criterios de aceptación escritos antes de probar y con un registro de lo ocurrido.</li>
+          <li>Antes de cualquier práctica: baterías sin cortocircuitos, vigilancia del calor, manos fuera de las partes móviles, ruedas sujetas en el banco y desconexión siempre a mano.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_1">[1] <a href="https://ifr.org/industrial-robots">International Federation of Robotics — Robots industriales: definición, ejes y clasificación por estructura mecánica (cartesiano, SCARA, articulado, paralelo, cilíndrico y polar)</a> (en inglés).</li>
+          <li id="fuente_7">[2] <a href="https://learn.sparkfun.com/tutorials/tinker-kit-circuit-guide/circuit-10-motor-basics">SparkFun — Tinker Kit Circuit Guide: circuit 10, fundamentos de motor y driver</a> (en inglés).</li>
+          <li id="fuente_2">[3] <a href="https://docs.arduino.cc/learn/electronics/power-pins/">Arduino — Powering Alternatives for Arduino Boards: conectores, pines de alimentación, baterías de ion-litio y límites térmicos</a> (en inglés).</li>
+          <li id="fuente_13">[4] <a href="https://www.tinkercad.com/learn/circuits/collection/arduino">Tinkercad (Autodesk) — Tinkercad Circuits: simulador de circuitos y de programas para Arduino</a>.</li>
+          <li id="fuente_3">[5] <a href="https://learn.sparkfun.com/tutorials/tb6612fng-hookup-guide">SparkFun — TB6612FNG Hookup Guide: dos puentes H en un chip, entradas de dirección, PWM, frenado y diodos internos</a> (en inglés).</li>
+          <li id="fuente_6">[6] <a href="https://docs.arduino.cc/learn/electronics/transistor-motor-control/">Arduino — Transistor Motor Control: por qué un motor no se alimenta desde un pin y cómo se gobierna con un elemento de potencia</a> (en inglés).</li>
+          <li id="fuente_5">[7] <a href="https://docs.arduino.cc/learn/microcontrollers/analog-output/">Arduino — Analog Output: modulación de ancho de pulso y ciclo de trabajo</a> (en inglés).</li>
+          <li id="fuente_4">[8] <a href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogWrite/">Arduino — Referencia de la función analogWrite: valores de 0 a 255</a> (en inglés).</li>
+          <li id="fuente_8">[9] <a href="https://docs.arduino.cc/learn/electronics/servo-motors/">Arduino — Servo Motor Basics: señal de pulso, ángulo y alimentación independiente</a> (en inglés).</li>
+          <li id="fuente_9">[10] <a href="https://docs.arduino.cc/built-in-examples/sensors/Ping/">Arduino — Ejemplo de sensor de distancia por ultrasonidos: emisión del pulso y medida del tiempo de eco</a> (en inglés).</li>
+          <li id="fuente_10">[11] <a href="https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-redbot/experiment-6-line-following-with-ir-sensors">SparkFun — Experiment 6: Line Following with IR Sensors: caracterización del sensor de reflexión infrarroja y algoritmo de seguimiento</a> (en inglés).</li>
+          <li id="fuente_11">[12] <a href="https://learn.sparkfun.com/tutorials/sparkfun-line-follower-array-hookup-guide">SparkFun — Line Follower Array Hookup Guide: barra de ocho sensores, calibración de brillo y detección de posición</a> (en inglés).</li>
+          <li id="fuente_12">[13] <a href="https://docs.arduino.cc/libraries/rotaryencoder/">Arduino — Biblioteca RotaryEncoder: recuento de pulsos y detección del sentido de giro por cuadratura</a> (en inglés).</li>
+          <li id="fuente_14">[14] <a href="https://web.mit.edu/cathywu/6.186/2006/doc/odomtutorial/src/odomtutorial.pdf">MIT — Odometry tutorial: estimación de la posición a partir del movimiento de las ruedas y acumulación del error (PDF)</a> (en inglés).</li>
+          <li id="fuente_15">[15] <a href="https://www.hmc.edu/lair/ARW/ARW-Lecture01-Odometry.pdf">Harvey Mudd College — Odometry and dead reckoning: fuentes de error deterministas y no deterministas (PDF)</a> (en inglés).</li>
+          <li id="fuente_18">[16] <a href="https://www.insst.es/noticias-insst/riesgo-electrico-las-cinco-reglas-de-oro-2019">INSST — Riesgo eléctrico: las cinco reglas de oro</a>.</li>
+          <li id="fuente_17">[17] <a href="https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/32-serie-ntp-numeros-1101-a-1135-ano-2018/ntp-1.117-consignacion-de-maquinas">INSST — NTP 1117: Consignación de máquinas</a>.</li>
+          <li id="fuente_16">[18] <a href="https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/3-serie-ntp-numeros-086-a-120-ano-1984/ntp-97-baterias-de-arranque.-riesgos-de-accidentes-durante-su-manejo">INSST — NTP 97: Baterías. Riesgos de accidentes durante su manejo</a>.</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema10.html">← Tema 10</a>
+  <a href="tema12.html">Tema 12 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+<title id="title">La estación conectada: del sensor a la persona</title><desc id="desc">Diagrama del flujo de una solución conectada. Arriba, cuatro bloques en fila unidos por flechas: el dispositivo y los sensores de la estación, la red y la pasarela, la plataforma o servicio en la nube y la aplicación con la persona usuaria. Una flecha continua indica que los datos suben desde la estación hasta la persona; una flecha discontinua de vuelta indica que las órdenes bajan desde la persona hasta la estación. En medio, una banda recuerda que en el borde se mide, se filtra y se decide lo urgente. Abajo, otra banda reúne las salvaguardas locales: parada de emergencia y resguardo, control local que no depende de la red y comportamiento seguro cuando se cae la conexión.</desc>
+<defs>
+<marker id="flecha" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#1a6b7a"/></marker>
+<marker id="flechaVuelta" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#6b6fc4"/></marker>
+</defs>
+<rect width="900" height="620" rx="24" fill="#f7faf8"/>
+<text x="450" y="38" text-anchor="middle" font-family="system-ui,sans-serif" font-size="23" font-weight="700" fill="#18384a">La estación conectada: del sensor a la persona</text>
+<text x="450" y="63" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#466a75">Los datos suben y las órdenes bajan; la seguridad se queda siempre en la máquina.</text>
+
+<text x="30" y="98" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#14625f" letter-spacing="1">FLUJO DE DATOS: DE LA ESTACIÓN A LA PERSONA</text>
+
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="30" y="112" width="186" height="126" rx="12"/>
+<rect x="248" y="112" width="186" height="126" rx="12"/>
+<rect x="466" y="112" width="186" height="126" rx="12"/>
+<rect x="684" y="112" width="186" height="126" rx="12"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#14495c">
+<text x="123" y="140" font-size="14" font-weight="700">1. Dispositivo y sensores</text>
+<text x="123" y="164" font-size="12.5" fill="#3f6672">la estación: controlador,</text>
+<text x="123" y="182" font-size="12.5" fill="#3f6672">sensores y actuadores</text>
+<text x="123" y="210" font-size="12" fill="#6b7f86">genera el dato</text>
+
+<text x="341" y="140" font-size="14" font-weight="700">2. Red y pasarela</text>
+<text x="341" y="164" font-size="12.5" fill="#3f6672">cable o inalámbrica;</text>
+<text x="341" y="182" font-size="12.5" fill="#3f6672">direcciones IP y puertos</text>
+<text x="341" y="210" font-size="12" fill="#6b7f86">transporta el mensaje</text>
+
+<text x="559" y="140" font-size="14" font-weight="700">3. Plataforma o servicio</text>
+<text x="559" y="164" font-size="12.5" fill="#3f6672">recibe, guarda y ordena</text>
+<text x="559" y="182" font-size="12.5" fill="#3f6672">los registros</text>
+<text x="559" y="210" font-size="12" fill="#6b7f86">almacena y analiza</text>
+
+<text x="777" y="140" font-size="14" font-weight="700">4. Aplicación y usuario</text>
+<text x="777" y="164" font-size="12.5" fill="#3f6672">panel o móvil: ver,</text>
+<text x="777" y="182" font-size="12.5" fill="#3f6672">avisar y decidir</text>
+<text x="777" y="210" font-size="12" fill="#6b7f86">interpreta y actúa</text>
+</g>
+<g stroke="#1a6b7a" stroke-width="3" marker-end="url(#flecha)">
+<line x1="218" y1="160" x2="244" y2="160"/>
+<line x1="436" y1="160" x2="462" y2="160"/>
+<line x1="654" y1="160" x2="680" y2="160"/>
+</g>
+<text x="450" y="252" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#14625f">Datos y telemetría: medidas de los sensores, estado de la máquina y avisos.</text>
+
+<path d="M777 238 L777 282 L123 282 L123 242" fill="none" stroke="#6b6fc4" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#flechaVuelta)"/>
+<text x="450" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#4a4e9c">Órdenes, ajustes y consultas: lo que se pide a la estación desde la aplicación.</text>
+
+<rect x="30" y="320" width="840" height="126" rx="14" fill="#eef6f5" stroke="#bfdcdc" stroke-width="2"/>
+<text x="46" y="344" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#14625f" letter-spacing="1">EN EL BORDE: MEDIR, FILTRAR Y DECIDIR LO URGENTE</text>
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="46" y="358" width="258" height="72" rx="10"/>
+<rect x="321" y="358" width="258" height="72" rx="10"/>
+<rect x="596" y="358" width="258" height="72" rx="10"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#14495c">
+<text x="175" y="386" font-size="14" font-weight="700">Sensores y medidas</text>
+<text x="175" y="408" font-size="12.5" fill="#3f6672">temperatura, presencia, color</text>
+<text x="450" y="386" font-size="14" font-weight="700">Filtrado y agregación</text>
+<text x="450" y="408" font-size="12.5" fill="#3f6672">quedarse con lo útil, no con todo</text>
+<text x="725" y="386" font-size="14" font-weight="700">Decisión local inmediata</text>
+<text x="725" y="408" font-size="12.5" fill="#3f6672">detener, avisar o rechazar</text>
+</g>
+
+<rect x="30" y="462" width="840" height="126" rx="14" fill="#fff1d5" stroke="#c6922d" stroke-width="2"/>
+<text x="46" y="486" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#7b4b1a" letter-spacing="1">SALVAGUARDAS LOCALES: SE QUEDAN EN LA MÁQUINA</text>
+<g stroke="#c6922d" stroke-width="2" fill="#fffdf5">
+<rect x="46" y="500" width="258" height="72" rx="10"/>
+<rect x="321" y="500" width="258" height="72" rx="10"/>
+<rect x="596" y="500" width="258" height="72" rx="10"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#6b4218">
+<text x="175" y="528" font-size="14" font-weight="700">Parada y resguardo</text>
+<text x="175" y="550" font-size="12.5" fill="#7b5a2e">el mando de parada no espera a la red</text>
+<text x="450" y="528" font-size="14" font-weight="700">Control local</text>
+<text x="450" y="550" font-size="12.5" fill="#7b5a2e">la máquina decide lo esencial</text>
+<text x="725" y="528" font-size="14" font-weight="700">Sin conexión, sin peligro</text>
+<text x="725" y="550" font-size="12.5" fill="#7b5a2e">se detiene y avisa si falta el enlace</text>
+</g>
+</svg>

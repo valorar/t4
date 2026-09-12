@@ -1,27 +1,715 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 10 del Bloque C de Tecnología de 4.º de la ESO: Cómo se programan placas controladoras y aplicaciones informáticas para controlar un sistema automático.">
-<title>Tema 10. Programación y control de sistemas automáticos · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 10 de Tecnología de 4.º de la ESO: el ordenador y otros dispositivos como elementos de programación y control, el ciclo setup/loop de un sketch, variables y tipos, entradas y salidas digitales, analógicas y PWM, máquina de estados con millis() frente a delay(), depuración, simulación y organización de los archivos del proyecto.">
+  <title>Tema 10. Programación y control de sistemas automáticos · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 10 · Bloque C · Pensamiento computacional, automatización y robótica</p><h1>Tema 10. Programación y control de sistemas automáticos</h1><p class="hero-lead">Cómo se programan placas controladoras y aplicaciones informáticas para controlar un sistema automático.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>4.1, 5.1, 5.2</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>el ordenador y otros dispositivos como elementos de programación y control.</li><li>entornos de programación por bloques y textuales para placas controladoras y microcontroladores.</li><li>entradas y salidas digitales y analógicas; lectura de sensores y activación de actuadores.</li><li>diseño de aplicaciones informáticas para el control de sistemas automáticos.</li><li>simulación, verificación, depuración y mejora del programa de control.</li><li>espacios compartidos y discos virtuales para organizar los archivos del proyecto.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque C «Pensamiento computacional, automatización y robótica» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>4.1, 5.1, 5.2</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema09.html">← Tema 9</a><a href="tema11.html">Tema 11 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 10 · Bloque C · Pensamiento computacional, automatización y robótica</p>
+        <h1>Tema 10. Programación y control de sistemas automáticos</h1>
+        <p class="hero-lead">Cómo se escribe, se carga, se comprueba y se organiza el programa que gobierna una máquina automática, desde una sola instrucción hasta la máquina de estados completa de la estación de clasificación.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 10">
+        <strong>Pregunta guía</strong>
+        <p>¿Cómo consigue un programa leer un sensor, decidir en milésimas de segundo y mover un expulsor sin dejar nunca de vigilar la seguridad?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#dispositivos">El ordenador y otros dispositivos que programan y controlan</a></li>
+        <li><a href="#sketch">Un programa para la placa: el sketch y el ciclo setup/loop</a></li>
+        <li><a href="#variables">Variables, constantes y tipos: poner nombre a los datos</a></li>
+        <li><a href="#entradas">Entradas y salidas: digital, analógica y PWM</a></li>
+        <li><a href="#control">Decidir, repetir y reutilizar: condiciones, bucles y funciones</a></li>
+        <li><a href="#tiempo">Medir el tiempo sin bloquear: de delay() a la máquina de estados</a></li>
+        <li><a href="#programa">El programa de la estación, explicado paso a paso</a></li>
+        <li><a href="#trabajo">Escribir, cargar, depurar y organizar el proyecto</a></li>
+        <li><a href="#comprueba">Comprueba lo que has aprendido</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">En los temas anteriores la estación automática de clasificación quedó montada y verificada: la señal luminosa sabía avisar, la lógica de permiso y alarma sabía decidir, el expulsor neumático sabía empujar y los mecanismos sabían transmitir el movimiento. Faltaba lo que da vida a todo el conjunto: <strong>el programa</strong>. Un sistema automático no es automático porque tenga piezas caras, sino porque alguien fue capaz de escribir, en un lenguaje muy concreto, qué debe hacer la máquina en cada situación. En este tema escribimos ese programa, lo compilamos, lo cargamos en la placa, lo depuramos y aprendemos a guardarlo y compartirlo de forma ordenada.</p>
+
+      <div class="question"><strong>Pregunta guía:</strong> si la placa controladora debe leer un sensor de presencia, comprobar el permiso de marcha, encender la luz correspondiente y accionar el expulsor durante un tiempo ajustable, ¿cómo se escribe ese programa para que haga las cuatro cosas a la vez y siga vigilando la seguridad sin quedarse nunca «dormido»?</div>
+
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>explicar por qué el ordenador y otros dispositivos son elementos de programación y control, y distinguir la función del programa de la de la máquina que lo ejecuta;</li>
+          <li>reconocer la estructura de un <em>sketch</em>, describir el ciclo <code>setup()</code> y <code>loop()</code> y ordenar correctamente las instrucciones dentro de cada uno;</li>
+          <li>declarar variables y constantes con el tipo adecuado, elegir nombres legibles y asignar los pines de entrada y salida sin confundirlos;</li>
+          <li>leer entradas digitales y analógicas y activar salidas digitales y PWM, interpretando el valor que devuelve el convertidor analógico-digital y el rango 0–255 de la modulación por anchura de pulso;</li>
+          <li>escribir funciones con parámetros y valor de retorno y usarlas para dividir el programa en partes que se entienden y se prueban por separado;</li>
+          <li>sustituir una espera bloqueante por una máquina de estados basada en <code>millis()</code>, explicando por qué <code>delay()</code> pone en peligro el control de la estación;</li>
+          <li>depurar un programa de forma sistemática, distinguir los errores de compilación de los errores de lógica y organizar los archivos del proyecto en carpetas y espacios compartidos con nombres correctos.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="dispositivos">
+        <h2 id="dispositivos">1. El ordenador y otros dispositivos como elementos de programación y control</h2>
+        <p>En un sistema automático hay dos mundos que se tocan en un solo punto. En el mundo de la <strong>materia</strong> encontramos la fuente de alimentación, los sensores, las electroválvulas, los cilindros y los mecanismos. En el mundo de la <strong>información</strong> encontramos instrucciones: números que se leen, comparaciones que se resuelven y órdenes que se emiten. El aparato que pone en contacto los dos mundos es el <strong>microcontrolador</strong>: un circuito integrado que contiene procesador, memoria y entradas y salidas, capaz de ejecutar un programa guardado en su propia memoria y de repetirlo indefinidamente.</p>
+        <p>La placa controladora que usamos en el aula monta ese microcontrolador junto a los conectores, el regulador de tensión y el puerto de comunicación. Pero la placa, sola, no hace nada: <em>obedece</em>. Quien decide es el programa. Esa separación es la idea central del tema, y explica por qué un mismo circuito puede clasificar piezas, ordenar tornillos o no hacer absolutamente nada: basta con cambiar las instrucciones.</p>
+        <p>Alrededor de la placa aparecen otros dispositivos que también programan y controlan. El <strong>ordenador</strong> es el más importante, porque es donde escribimos, compilamos y cargamos el programa, y donde observamos lo que la placa nos cuenta. Una <strong>tableta o un portátil en el navegador</strong> puede hacer lo mismo con un simulador o con un entorno en la nube. Y un <strong>teléfono o una placa conectada a la red</strong> pueden enviar consignas y recibir avisos, que es el punto de partida de los sistemas conectados.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: dispositivos que programan y controlan un sistema automático, qué aporta cada uno y su papel en la estación">
+          <table>
+            <caption>Dispositivos que programan y controlan un sistema automático</caption>
+            <thead><tr><th scope="col">Dispositivo</th><th scope="col">Qué aporta</th><th scope="col">En nuestra estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Ordenador</strong></th><td>Permite escribir el programa, compilarlo, cargarlo en la placa y ver los mensajes que esta envía.</td><td>Es el puesto desde el que se edita el <em>sketch</em> y se sigue el monitor serie.</td></tr>
+              <tr><th scope="row"><strong>Placa controladora</strong></th><td>Ejecuta el programa de forma repetida, lee las entradas y activa las salidas.</td><td>Gobierna la luz, el expulsor y la lectura del sensor de presencia.</td></tr>
+              <tr><th scope="row"><strong>Simulador en el navegador</strong></th><td>Reproduce la placa y el circuito antes de montarlos; permite cargar el programa sin riesgo.</td><td>Se usa para probar el programa y ver la respuesta virtual de los componentes.<sup><a href="#fuente_1">[1]</a></sup></td></tr>
+              <tr><th scope="row"><strong>Entorno por bloques</strong></th><td>Sustituye la escritura de código por piezas que se encajan; es una alternativa equivalente para empezar.</td><td>Sirve para escribir la misma lógica sin teclear, y para entenderla antes de pasarla a texto.<sup><a href="#fuente_2">[2]</a></sup><sup><a href="#fuente_3">[3]</a></sup></td></tr>
+              <tr><th scope="row"><strong>Dispositivo conectado a la red</strong></th><td>Envía consignas y recibe avisos sin estar junto a la máquina.</td><td>Permitiría consultar desde el aula si la estación está en servicio o detenida.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>La máquina aporta energía y movimiento; el programa aporta decisiones. Programar un sistema automático es escribir esas decisiones de forma tan precisa que la máquina pueda tomarlas sola, en el orden correcto y en el momento correcto.</div>
+        <div class="aviso"><strong>Antes de escribir una sola línea</strong>La placa se alimenta siempre por el puerto USB del ordenador o con una fuente de muy baja tensión de seguridad aprobada por el profesorado. La red eléctrica, los cargadores improvisados y las baterías no autorizadas quedan fuera de toda práctica.<sup><a href="#fuente_4">[4]</a></sup> El expulsor y la electroválvula se prueban con el circuito sin presión y en zona despejada.</div>
+      </section>
+
+      <section aria-labelledby="sketch">
+        <h2 id="sketch">2. Un programa para la placa: el <em>sketch</em> y el ciclo <code>setup()</code> y <code>loop()</code></h2>
+        <p>En el entorno de programación que vamos a usar, un programa recibe el nombre de <strong><em>sketch</em></strong>: es la unidad de código que se carga y se ejecuta en la placa.<sup><a href="#fuente_5">[5]</a></sup> Todos los <em>sketches</em> comparten la misma armadura, y reconocerla es el primer paso para leer cualquiera de ellos.</p>
+        <p>La armadura tiene dos partes obligatorias. La función <code>setup()</code> se ejecuta <strong>una sola vez</strong>, después de cada encendido o reinicio de la placa, y sirve para inicializar variables, configurar los pines y arrancar los servicios que se vayan a usar.<sup><a href="#fuente_6">[6]</a></sup> La función <code>loop()</code> hace exactamente lo que su nombre indica: <strong>se repite sin parar</strong>, una y otra vez, mientras la placa esté alimentada, y es donde el programa cambia y responde a lo que ocurre fuera.<sup><a href="#fuente_7">[7]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: comparación entre lo que se programa en setup() y lo que se programa en loop()">
+          <table>
+            <caption>Qué se escribe en <code>setup()</code> y qué se escribe en <code>loop()</code></caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col"><code>setup()</code></th><th scope="col"><code>loop()</code></th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Cuándo se ejecuta</th><td>Una sola vez, tras cada encendido o reinicio.</td><td>De forma continua, tantas veces por segundo como permita la placa.</td></tr>
+              <tr><th scope="row">Para qué sirve</th><td>Preparar el terreno: configurar pines, arrancar el monitor serie, dar valores iniciales.</td><td>Leer entradas, decidir, actuar y volver a empezar.</td></tr>
+              <tr><th scope="row">Qué se configura aquí</th><td>Cada pin con <code>pinMode()</code>, la velocidad del puerto serie con <code>Serial.begin()</code> y las salidas que deben arrancar en reposo.</td><td>Nada de configuración: solo el trabajo del ciclo.</td></tr>
+              <tr><th scope="row">En la estación</th><td>Se declaran el sensor y el permiso como entradas con resistencia de <em>pull-up</em>, las luces y el expulsor como salidas, y el expulsor se deja retirado.</td><td>Se lee el sensor filtrando el rebote, se comprueba el permiso, se cambia de estado si procede y se actualizan luces y expulsor.</td></tr>
+              <tr><th scope="row">Error típico</th><td>Escribir en <code>setup()</code> tareas que deben repetirse; solo ocurrirían una vez.</td><td>Poner configuración de pines dentro de <code>loop()</code> o dejar el puerto serie sin arrancar.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Un mismo programa se puede escribir de dos maneras equivalentes. En un <strong>entorno por bloques</strong> se arrastran piezas —«si… entonces…», «repetir mientras…»— y el entorno genera el código por nosotros. En un <strong>entorno textual</strong> escribimos las instrucciones con el teclado. Los dos caminos llevan al mismo sitio y ninguno es «de verdad» y el otro «de mentira»: el bloque es más rápido para empezar y para ver la estructura, y el texto es más preciso, más fácil de revisar y el único que admite programas largos sin volverse un laberinto. En este tema usamos texto, pero conviene leer también el programa como bloques para comprobar que el orden de las decisiones es el que queremos.</p>
+        <h3>Comentarios: el programa también se explica</h3>
+        <p>Todo lo que va entre <code>/*</code> y <code>*/</code> o detrás de <code>//</code> es ignorado por la placa: sirve para quien lee el programa, no para la máquina. La documentación oficial recuerda que un comentario está ahí para explicar <em>qué hace</em> el programa, <em>cómo funciona</em> y <em>por qué</em> está escrito así.<sup><a href="#fuente_5">[5]</a></sup> Un programa sin comentarios es un programa que hay que descifrar; un programa lleno de comentarios que repiten lo que ya dice el código es ruido. La regla práctica: comentar el bloque al principio, explicar el porqué de las decisiones que sorprenden y no repetir lo evidente.</p>
+        <div class="t4-think"><strong>Razona con el caso:</strong> si un compañero abre el programa dentro de dos semanas, ¿sabrá distinguir el pin del sensor del pin del expulsor? ¿Entenderá por qué el expulsor arranca retirado? Si la respuesta es no, faltan comentarios o faltan nombres claros.</div>
+      </section>
+
+      <section aria-labelledby="variables">
+        <h2 id="variables">3. Variables, constantes y tipos: poner nombre a los datos</h2>
+        <p>Una <strong>variable</strong> es un lugar donde se guarda un dato: tiene un nombre, un valor y un tipo.<sup><a href="#fuente_8">[8]</a></sup> El tipo decide qué clase de valor cabe dentro y cuánta memoria ocupa. Elegir mal el tipo no suele dar un error al compilar: da un resultado raro en plena prueba, que es mucho peor.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: tipos de datos básicos en un sketch, qué guarda cada uno y con qué cuidado se eligen">
+          <table>
+            <caption>Tipos de datos que usarás en la estación</caption>
+            <thead><tr><th scope="col">Tipo</th><th scope="col">Qué guarda</th><th scope="col">Ejemplo en la estación</th><th scope="col">Con qué cuidado</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><code>int</code></th><td>Números enteros, positivos o negativos.</td><td>La lectura del potenciómetro que fija la duración del empuje.</td><td>No sirve para tiempos largos: se queda corto y desborda.</td></tr>
+              <tr><th scope="row"><code>unsigned long</code></th><td>Enteros positivos grandes, hasta unos 4 294 millones.</td><td>Cualquier instante o duración medida con <code>millis()</code>.</td><td>Es el tipo obligatorio para el tiempo; con <code>int</code> los cálculos fallan.<sup><a href="#fuente_9">[9]</a></sup></td></tr>
+              <tr><th scope="row"><code>float</code></th><td>Números con parte decimal.</td><td>Convertir la lectura del sensor en una temperatura o en milímetros.</td><td>Ocupa más y es más lento; se usa solo cuando hace falta decimal.</td></tr>
+              <tr><th scope="row"><code>bool</code></th><td>Solo dos valores: verdadero o falso.</td><td>Si hay una pieza delante del sensor; si el permiso está concedido.</td><td>Es el tipo natural para una condición; <code>true</code> es «sí», <code>false</code> es «no».</td></tr>
+              <tr><th scope="row"><code>String</code> o texto</th><td>Cadenas de caracteres.</td><td>Los mensajes que se imprimen en el monitor serie.</td><td>Ocupa memoria y su abuso agota la placa; casi siempre basta con textos fijos.</td></tr>
+              <tr><th scope="row"><code>uint8_t</code></th><td>Enteros de 0 a 255.</td><td>El número de pin y el valor de una salida PWM.</td><td>Es el tipo natural para un número de pin pequeño.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Junto a las variables están las <strong>constantes</strong>, que se declaran con la palabra <code>const</code> porque su valor no debe cambiar nunca durante el programa. Los números de pin son el ejemplo perfecto: si el sensor está conectado al pin 2, eso no va a cambiar mientras el programa se ejecuta, y escribirlo una sola vez con un nombre claro evita el error clásico de cambiar el cableado y olvidar una de las cinco veces que el número aparece escrito. Además, una constante con nombre se lee: <code>digitalRead(PIN_SENSOR_PRESENCIA)</code> dice mucho más que <code>digitalRead(2)</code>.</p>
+        <h3>Buenas prácticas para nombrar</h3>
+        <ul>
+          <li><strong>Un nombre, un significado.</strong> <code>tiempoExpulsion</code> se entiende; <code>t</code>, <code>aux</code> o <code>a2</code> obligan a adivinar.</li>
+          <li><strong>Distinguir lo que no cambia.</strong> Las constantes y los pines se escriben con palabras separadas por guiones bajos y en mayúsculas: <code>PIN_EXPULSOR</code>, <code>TIEMPO_ANTIRREBOTE</code>.</li>
+          <li><strong>Las variables, en minúscula inicial y con la palabra siguiente en mayúscula:</strong> <code>estadoActual</code>, <code>lecturaEstable</code>, <code>instanteAnterior</code>. Nunca <code>Estado_actual</code> ni <code>estado-actual</code>.</li>
+          <li><strong>Nada de guiones medios dentro de un nombre.</strong> El guion medio es el signo de restar: <code>tiempo-expulsion</code> significaría «<code>tiempo</code> menos <code>expulsion</code>» y el compilador protestará.</li>
+          <li><strong>Acentos fuera.</strong> Los nombres de variables se escriben sin tildes ni eñes para evitar incompatibilidades: <code>duracion</code>, <code>sensorPresencia</code>.</li>
+          <li><strong>Un dato, una variable.</strong> Si dos cosas distintas comparten nombre, acabarán compartiendo valor sin que nadie lo pretenda.</li>
+        </ul>
+        <div class="t4-note"><strong>Error clásico:</strong> guardar <code>millis()</code> dentro de un <code>int</code>. El tiempo de la placa se mide en milisegundos y crece sin parar; un entero de tipo <code>int</code> se desborda en cuanto el valor supera su límite y el programa empieza a comportarse de forma imposible. Todo lo que tenga que ver con el tiempo se declara como <code>unsigned long</code>.<sup><a href="#fuente_9">[9]</a></sup></div>
+      </section>
+
+      <section aria-labelledby="entradas">
+        <h2 id="entradas">4. Entradas y salidas: digital, analógica y PWM</h2>
+        <p>La placa solo sabe hacer dos cosas con el exterior: <strong>leer</strong> y <strong>escribir</strong>. Antes de leer o escribir hay que decirle a cada pin qué papel va a desempeñar, y eso se hace con <code>pinMode(pin, modo)</code>. Los modos posibles son <code>INPUT</code> para leer, <code>OUTPUT</code> para escribir y <code>INPUT_PULLUP</code>, que además conecta una resistencia interna que mantiene el pin en un nivel alto mientras nadie lo lleve a masa.<sup><a href="#fuente_10">[10]</a></sup></p>
+        <h3>Entradas digitales: sí o no</h3>
+        <p>Una entrada digital solo distingue dos situaciones, y se leen con <code>digitalRead(pin)</code>, que devuelve <code>HIGH</code> o <code>LOW</code>.<sup><a href="#fuente_11">[11]</a></sup> En un pulsador, un final de carrera o un contacto de resguardo, el «sí» y el «no» es toda la información que necesitamos. Hay un detalle que hay que respetar: <strong>un pin de entrada que no está conectado a nada puede devolver cualquier valor</strong>, y ese valor puede cambiar al azar.<sup><a href="#fuente_11">[11]</a></sup> Por eso los contactos se montan contra masa y se configura el pin con <code>INPUT_PULLUP</code>: la resistencia interna mantiene un nivel definido y el contacto solo tiene que llevarlo al nivel contrario.<sup><a href="#fuente_12">[12]</a></sup> Con este montaje la lógica se invierte respecto a lo que uno espera, y conviene tenerlo muy presente.</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>Con la resistencia de <em>pull-up</em> activada, el pin descansa en nivel alto y el contacto lo lleva a nivel bajo. La lectura se escribe por tanto <code>digitalRead(pin) == LOW</code> cuando queremos decir «está activado». Confundir esta polaridad es el error más frecuente de las primeras prácticas.</div>
+        <h3>Salidas digitales: encender o apagar</h3>
+        <p>Una salida digital se controla con <code>digitalWrite(pin, valor)</code>, donde el valor es <code>HIGH</code> o <code>LOW</code>. Si el pin se ha configurado como salida, con <code>HIGH</code> queda a la tensión de alimentación de la placa y con <code>LOW</code> a cero voltios.<sup><a href="#fuente_13">[13]</a></sup> Es exactamente lo que necesita la luz que avisa y la electroválvula que empuja: encendido o apagado, sin términos medios.</p>
+        <h3>Entradas analógicas: cuánto, no solo si</h3>
+        <p>Muchos sensores no devuelven un sí o un no, sino una cantidad: una temperatura, una distancia, la posición de un mando. Esos sensores entregan una tensión que la placa mide con <code>analogRead(pin)</code>. La placa no puede leer infinitos valores: un <strong>convertidor analógico-digital</strong> traduce la tensión a un número entero, y el tamaño de ese número depende de la resolución del convertidor. En una placa clásica con convertidor de 10 bits, las tensiones entre 0 y la tensión de alimentación se convierten en valores enteros entre 0 y 1023: 1024 escalones, con una separación de 5 V / 1024 = 0,0049 V, es decir, unos 4,9 mV por escalón.<sup><a href="#fuente_14">[14]</a></sup></p>
+        <p>Aquí conviene no generalizar. La resolución por defecto de <code>analogRead()</code> es de 10 bits por compatibilidad, pero existen placas con convertidores de 12, 14 o 16 bits, que devuelven valores entre 0 y 4095, entre 0 y 16383 o más, y la propia biblioteca incluye una función para cambiar la resolución cuando la placa lo permite.<sup><a href="#fuente_15">[15]</a></sup> La consecuencia práctica es clara: <strong>nunca supongas que el valor llega hasta 1023</strong>. Consulta la documentación de tu placa y define una constante con el máximo real; así el programa se puede trasladar de una placa a otra cambiando una sola línea.</p>
+        <h3>Salidas PWM: apagar y encender muy rápido</h3>
+        <p>¿Y si queremos que una luz no dé toda su intensidad? Una salida digital no puede dar valores intermedios, pero puede encenderse y apagarse miles de veces por segundo. Eso es la <strong>modulación por anchura de pulso</strong> (PWM): durante cada ciclo, la salida permanece encendida una fracción del tiempo y apagada el resto. La función <code>analogWrite(pin, valor)</code> hace ese trabajo, con un valor de 0 (siempre apagado) a 255 (siempre encendido), y por eso un valor de 90 deja la salida encendida el 35 % del tiempo.<sup><a href="#fuente_16">[16]</a></sup> Con ella podemos regular el brillo de una luz o la velocidad de un motor pequeño. Dos advertencias: solo funcionan los pines preparados para PWM, que en muchas placas van marcados con una tilde, y no hace falta llamar antes a <code>pinMode()</code>, porque la propia función lo configura.<sup><a href="#fuente_16">[16]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: comparación entre entrada y salida digital, entrada analógica y salida PWM, con su función y su uso en la estación">
+          <table>
+            <caption>Digital, analógico y PWM: qué hace cada uno</caption>
+            <thead><tr><th scope="col">Tipo de señal</th><th scope="col">Función</th><th scope="col">Valores posibles</th><th scope="col">En la estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Entrada digital</strong></th><td><code>digitalRead(pin)</code></td><td><code>HIGH</code> o <code>LOW</code>.</td><td>El sensor de presencia y el permiso de marcha.</td></tr>
+              <tr><th scope="row"><strong>Salida digital</strong></th><td><code>digitalWrite(pin, valor)</code></td><td><code>HIGH</code> o <code>LOW</code>.</td><td>Luz verde, luz roja y electroválvula del expulsor.</td></tr>
+              <tr><th scope="row"><strong>Entrada analógica</strong></th><td><code>analogRead(pin)</code></td><td>Entero entre 0 y el máximo del convertidor (0 a 1023 en una placa clásica de 10 bits).</td><td>El potenciómetro que fija cuánto dura el empuje.</td></tr>
+              <tr><th scope="row"><strong>Salida PWM</strong></th><td><code>analogWrite(pin, valor)</code></td><td>Entero de 0 a 255.</td><td>La luz ámbar de «pieza detectada».</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: mapa de pines de la estación con la constante, el tipo de señal y la función de cada uno">
+          <table>
+            <caption>Mapa de pines de la estación</caption>
+            <thead><tr><th scope="col">Pin</th><th scope="col">Constante del programa</th><th scope="col">Tipo</th><th scope="col">Qué hace</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">2</th><td><code>PIN_SENSOR_PRESENCIA</code></td><td>Entrada digital con <em>pull-up</em></td><td>Detecta la pieza; el contacto la lleva a nivel bajo.</td></tr>
+              <tr><th scope="row">3</th><td><code>PIN_PERMISO_MARCHA</code></td><td>Entrada digital con <em>pull-up</em></td><td>Resume el permiso: resguardo cerrado y seta liberada.</td></tr>
+              <tr><th scope="row">8</th><td><code>PIN_LED_VERDE</code></td><td>Salida digital</td><td>Estación en servicio, sin pieza delante.</td></tr>
+              <tr><th scope="row">9</th><td><code>PIN_LED_AMBAR</code></td><td>Salida PWM</td><td>Pieza detectada y expulsor activo.</td></tr>
+              <tr><th scope="row">10</th><td><code>PIN_LED_ROJO</code></td><td>Salida digital</td><td>Sin permiso de marcha.</td></tr>
+              <tr><th scope="row">11</th><td><code>PIN_EXPULSOR</code></td><td>Salida digital</td><td>Gobierna la electroválvula del cilindro del expulsor.</td></tr>
+              <tr><th scope="row">A0</th><td><code>PIN_AJUSTE</code></td><td>Entrada analógica</td><td>Potenciómetro que fija la duración del empuje.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="t4-curio"><strong>Curiosidad técnica:</strong> la señal PWM no es una tensión intermedia. El pin solo está a 0 V o a la tensión de alimentación, y lo que cambia es el tiempo que pasa en cada estado. Una luz o un motor, que no pueden seguir esos cambios tan rápidos, responden al valor medio. Por eso el mismo truco sirve para regular un brillo y para variar una velocidad.</div>
+      </section>
+
+      <section aria-labelledby="control">
+        <h2 id="control">5. Decidir, repetir y reutilizar: condiciones, bucles y funciones</h2>
+        <p>Con leer y escribir no basta: el programa tiene que <strong>decidir</strong> y tiene que <strong>repetir</strong>. Para decidir se usan las estructuras condicionales; para repetir, los bucles; y para no escribir dos veces lo mismo, las funciones.</p>
+        <h3>Tomar decisiones</h3>
+        <p>La estructura <code>if</code> ejecuta un bloque solo cuando se cumple una condición. Con <code>else</code> se indica qué hacer en caso contrario, y con <code>else if</code> se encadenan varias posibilidades. Los operadores de comparación —<code>==</code> igual a, <code>!=</code> distinto de, <code>&gt;</code> mayor, <code>&lt;</code> menor, <code>&gt;=</code> y <code>&lt;=</code>— devuelven verdadero o falso, y los operadores lógicos <code>&amp;&amp;</code> («y»), <code>||</code> («o») y <code>!</code> («no») permiten combinar condiciones. Es importantísimo no confundir <code>=</code>, que <em>asigna</em> un valor, con <code>==</code>, que <em>compara</em>. Escribir <code>if (permiso = true)</code> no pregunta nada: asigna y además siempre resulta verdadero.</p>
+        <h3>Repetir sin escribir de nuevo</h3>
+        <p>Un bucle <code>for</code> repite un bloque un número conocido de veces y es ideal para recorrer posiciones de una tabla. Un bucle <code>while</code> repite mientras se cumpla una condición. Y una estructura muy útil cuando hay muchas alternativas sobre un mismo dato es <code>switch</code>: compara una expresión con una lista de casos y ejecuta el que coincide. En un programa de control, <code>switch</code> es la herramienta natural para decidir qué hacer según el estado en que se encuentra la máquina, y es lo que usaremos en el programa de la estación.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: estructuras de control disponibles, cuándo conviene cada una y un ejemplo en la estación">
+          <table>
+            <caption>Estructuras de control que usarás</caption>
+            <thead><tr><th scope="col">Estructura</th><th scope="col">Para qué sirve</th><th scope="col">Ejemplo en la estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><code>if</code> / <code>else</code></th><td>Elegir entre dos o más caminos según una condición.</td><td>Si el permiso se ha retirado, detener todo; si no, seguir vigilando.</td></tr>
+              <tr><th scope="row"><code>switch</code> / <code>case</code></th><td>Elegir entre varias alternativas de un mismo dato.</td><td>Decidir qué hacer según el estado: en espera, lista, clasificando o bloqueo.</td></tr>
+              <tr><th scope="row"><code>for</code></th><td>Repetir un número conocido de veces.</td><td>Enviar varias lecturas seguidas al monitor serie durante una puesta a punto.</td></tr>
+              <tr><th scope="row"><code>while</code></th><td>Repetir mientras se cumpla una condición.</td><td>Esperar, dentro de una prueba aislada, a que el sensor cambie de nivel.</td></tr>
+              <tr><th scope="row"><code>&amp;&amp;</code> y <code>||</code></th><td>Combinar condiciones.</td><td>Rearmar solo si hay permiso <em>y</em> la zona está despejada.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Funciones: dividir para entender</h3>
+        <p>Una <strong>función</strong> es un trozo de código con nombre propio que realiza una tarea definida y devuelve el control al lugar desde el que se llamó. La documentación oficial destaca sus ventajas: obliga a ordenar el programa, reúne en un solo sitio cada acción para tener que pensarla y depurarla una sola vez, reduce el tamaño total porque el código se reutiliza y facilita trasladar ese código a otros programas.<sup><a href="#fuente_17">[17]</a></sup></p>
+        <p>Una función puede <strong>recibir datos</strong> —los parámetros, que se escriben entre paréntesis— y puede <strong>devolver un resultado</strong>, indicado por el tipo que figura antes del nombre. Si no devuelve nada, se escribe <code>void</code>. Estas dos capacidades son las que permiten que el programa principal se lea casi como una frase.</p>
+        <pre tabindex="0"><code>// Devuelve true si la lectura supera el limite indicado.
+bool superaElLimite(int lectura, int limite) {
+  return lectura &gt; limite;
+}
+
+// Actua sobre una salida a partir del resultado de la otra funcion.
+void avisarSiHaceFalta(int lectura) {
+  if (superaElLimite(lectura, 600)) {   // 600 es el limite de ejemplo
+    digitalWrite(PIN_LED_ROJO, HIGH);
+  }
+}</code></pre>
+        <p>Fíjate en el reparto de papeles: <code>superaElLimite()</code> decide y devuelve un valor booleano; <code>avisarSiHaceFalta()</code> no devuelve nada, pero aprovecha esa decisión para actuar sobre una salida. Dividir el programa así tiene una ventaja enorme durante la depuración: si la luz no se enciende, podemos comprobar por separado si el problema está en la condición o en la orden de encendido.</p>
+        <div class="t4-note"><strong>Estilo legible:</strong> sangrar el contenido de cada bloque, dejar una línea en blanco entre funciones, escribir cada instrucción en su propia línea y usar nombres que se lean en voz alta. Un programa bien escrito no es el más corto, sino el que otra persona puede entender sin que se lo expliquen.</div>
+      </section>
+
+      <section aria-labelledby="tiempo">
+        <h2 id="tiempo">6. Medir el tiempo sin bloquear: de <code>delay()</code> a la máquina de estados</h2>
+        <p>Casi todo programa de control necesita contar el tiempo: cuánto dura un empuje, cuánto hay que esperar antes de dar por bueno un contacto, cada cuánto se envía un aviso. La forma más evidente de esperar es <code>delay(ms)</code>, que detiene el programa la cantidad de milisegundos indicada.<sup><a href="#fuente_18">[18]</a></sup> Es cómoda, y por eso se usa en los primeros ejemplos. Pero tiene un inconveniente grave: mientras el programa está detenido, no se lee ningún sensor, no se hace ningún cálculo y no se modifica ninguna salida, de modo que la espera «detiene prácticamente toda la demás actividad».<sup><a href="#fuente_18">[18]</a></sup></p>
+        <p>El ejemplo oficial es revelador: si se enciende y se apaga un LED con esperas y alguien pulsa un botón justo durante la espera, el programa <strong>no verá la pulsación</strong>.<sup><a href="#fuente_19">[19]</a></sup> Trasladado a nuestra estación, el problema es de seguridad: si el programa se detiene un segundo empujando la pieza, durante ese segundo no mira el resguardo. Abrir el resguardo en ese momento no tendría efecto inmediato, y eso no es aceptable.</p>
+        <pre tabindex="0"><code>// Version que BLOQUEA: durante la espera no se comprueba nada mas.
+if (pieza) {
+  digitalWrite(PIN_EXPULSOR, HIGH);
+  delay(1000);                        // 1000 ms sin mirar el resguardo ni el sensor
+  digitalWrite(PIN_EXPULSOR, LOW);
+}</code></pre>
+        <p>La alternativa consiste en no esperar nunca. En lugar de detener el programa, se <strong>anota la hora</strong> con <code>millis()</code> y en cada vuelta del bucle se comprueba si ya ha pasado el tiempo suficiente. <code>millis()</code> devuelve cuántos milisegundos han transcurrido desde que la placa empezó a ejecutar el programa, y su valor se guarda en una variable de tipo <code>unsigned long</code>.<sup><a href="#fuente_9">[9]</a></sup></p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: comparación entre esperar con delay() y medir el tiempo con millis()">
+          <table>
+            <caption><code>delay()</code> frente a <code>millis()</code></caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col"><code>delay(ms)</code></th><th scope="col"><code>millis()</code></th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Qué hace el programa</th><td>Se detiene en esa instrucción.</td><td>Sigue dando vueltas al bucle sin parar.</td></tr>
+              <tr><th scope="row">¿Se leen los sensores?</th><td>No, durante toda la espera.</td><td>Sí, en cada vuelta.</td></tr>
+              <tr><th scope="row">¿Se atiende la seguridad?</th><td>No: el resguardo se comprueba tarde.</td><td>Sí: el permiso se revisa miles de veces por segundo.</td></tr>
+              <tr><th scope="row">¿Se pueden hacer dos cosas a la vez?</th><td>No: solo una después de otra.</td><td>Sí: cada tarea tiene su propio instante de referencia.</td></tr>
+              <tr><th scope="row">Cuándo conviene</th><td>En pruebas muy cortas o para filtrar un rebote simple.</td><td>Siempre que el sistema tenga que reaccionar a lo que ocurre.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>La máquina de estados</h3>
+        <p>Escribir un programa que no se detiene obliga a organizarlo de otra manera, y la forma habitual de hacerlo es la <strong>máquina de estados</strong>. La idea es sencilla: la máquina no está «a mitad de una instrucción», sino siempre <em>en uno</em> de un número pequeño de situaciones posibles —sus estados—, y en cada vuelta del bucle se decide si se sigue en el estado actual o se pasa a otro. En cada estado se sabe exactamente qué salidas deben estar activas, y el cambio de estado solo depende de las entradas y del tiempo transcurrido.</p>
+        <p>Cuatro estados bastan para gobernar la estación:</p>
+        <ul>
+          <li><strong>En espera:</strong> no hay permiso de marcha. La luz roja está encendida y el expulsor retirado.</li>
+          <li><strong>Lista:</strong> el permiso está concedido y no hay ninguna pieza delante. La luz verde está encendida.</li>
+          <li><strong>Clasificando:</strong> el sensor ha detectado una pieza y el expulsor está empujando. La luz ámbar luce con PWM y la electroválvula está activa.</li>
+          <li><strong>Bloqueo:</strong> el permiso se ha retirado en cualquier momento. Todo se detiene de inmediato y la luz roja vuelve a encenderse.</li>
+        </ul>
+        <p>La condición que distingue este programa de una simple sucesión de esperas es la siguiente: el paso de <em>clasificando</em> a <em>lista</em> no se produce al terminar una espera, sino cuando el tiempo medido con <code>millis()</code> supera la duración ajustada. Y si en cualquier instante se retira el permiso, el paso a <em>bloqueo</em> ocurre en la vuelta siguiente del bucle, es decir, en milésimas de segundo.</p>
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable: máquina de estados del programa de la estación, con los estados en espera, lista, clasificando y bloqueo, las condiciones de cada transición y las salidas activas en cada estado">
+          <img src="assets/tema10_diagrama_flujo.svg" alt="Diagrama de estados del programa de control. Cuatro recuadros representan los estados: en espera, con luz roja y expulsor retirado; lista, con luz verde; clasificando, con luz ámbar en PWM y la electroválvula del expulsor activa; y bloqueo, con todo detenido y luz roja. Las flechas indican las transiciones: de en espera a lista cuando hay permiso; de lista a clasificando cuando aparece una pieza y sigue habiendo permiso; de clasificando a lista cuando el tiempo medido con millis() supera la duración ajustada del empuje; de lista y de clasificando a bloqueo cuando se retira el permiso; y de bloqueo a lista cuando vuelve el permiso con la zona despejada.">
+          <figcaption>La máquina de estados del programa. Cada recuadro es una situación estable con sus salidas ya decididas, y cada flecha es una condición que se comprueba en cada vuelta del bucle, sin detener el programa en ningún momento.</figcaption>
+        </figure>
+        <div class="t4-think"><strong>Razona con el caso:</strong> imagina que el programa usara <code>delay(2000)</code> para que el expulsor empujara la pieza. ¿Cuántas vueltas del bucle se perdería el resguardo durante esos dos segundos? ¿Y qué pasaría si alguien abriera el resguardo en el primer segundo?</div>
+      </section>
+
+      <section aria-labelledby="programa">
+        <h2 id="programa">7. El programa de la estación, explicado paso a paso</h2>
+        <p>Ya tenemos todas las piezas del lenguaje. Este es el programa completo que gobierna la estación. Léelo primero entero, sin detenerte; después vuelve a cada bloque con la explicación que viene a continuación. Verás que no hay ni una sola llamada a <code>delay()</code>.</p>
+        <pre tabindex="0"><code>/* =====================================================================
+   ESTACIÓN AUTOMÁTICA DE CLASIFICACIÓN Y SEÑALIZACIÓN
+   Programa de control: sensor de presencia, permiso de marcha,
+   señal luminosa y expulsor neumático.
+
+   Solo baja tensión: la placa se alimenta por USB o con una fuente de
+   muy baja tensión de seguridad aprobada por el profesorado. La red
+   eléctrica nunca se conecta a la placa.
+   ===================================================================== */
+
+// ---------- Pines: constantes, no cambian durante el programa ----------
+const uint8_t PIN_SENSOR_PRESENCIA = 2;   // sensor de presencia, activo a nivel bajo
+const uint8_t PIN_PERMISO_MARCHA   = 3;   // resguardo cerrado + seta liberada + pulsador
+const uint8_t PIN_LED_VERDE        = 8;   // en servicio, sin pieza delante
+const uint8_t PIN_LED_AMBAR        = 9;   // pieza detectada, expulsor activo
+const uint8_t PIN_LED_ROJO         = 10;  // sin permiso de marcha
+const uint8_t PIN_EXPULSOR         = 11;  // electroválvula del cilindro del expulsor
+const uint8_t PIN_AJUSTE           = A0;  // potenciómetro que fija la duración del empuje
+
+// ---------- Tiempos, en milisegundos ----------
+const unsigned long TIEMPO_ANTIRREBOTE = 30;    // un cambio solo cuenta si dura esto
+const unsigned long PERIODO_INFORME    = 500;   // cada cuánto se informa por el puerto serie
+
+// ---------- Escala del convertidor analógico-digital ----------
+// En placas clásicas de 10 bits la lectura va de 0 a 1023.
+// Otras placas usan 0-4095 o 0-16383: ajusta LECTURA_MAX a la tuya.
+const int LECTURA_MAX = 1023;
+
+// ---------- Estados posibles de la máquina ----------
+enum Estado : uint8_t { ESPERA, LISTA, CLASIFICANDO, BLOQUEO };
+
+// ---------- Variables de estado ----------
+Estado estadoActual = ESPERA;              // estado en el que está la estación
+unsigned long instanteAnterior = 0;        // cuándo se entró en este estado
+unsigned long instanteInforme  = 0;        // cuándo se envió el último informe
+unsigned long tiempoExpulsion  = 1000;     // duración del empuje, en milisegundos
+
+bool lecturaAnterior = false;              // última lectura bruta del sensor
+bool lecturaEstable  = false;              // última lectura ya filtrada
+bool piezaPrevia     = false;              // lectura filtrada del ciclo anterior
+unsigned long instanteCambioSensor = 0;    // cuándo cambió por última vez la lectura bruta
+
+// ---------- Funciones auxiliares ----------
+
+// Devuelve true cuando el permiso de marcha está concedido.
+// El contacto está montado contra masa: cerrado se lee LOW.
+bool hayPermisoDeMarcha() {
+  return digitalRead(PIN_PERMISO_MARCHA) == LOW;
+}
+
+// Lee el potenciómetro y lo convierte en una duración de empuje
+// entre 500 y 2000 milisegundos. Es un parámetro del proceso,
+// no una constante del programa.
+unsigned long ajusteDelEmpuje() {
+  int lectura = analogRead(PIN_AJUSTE);
+  return (unsigned long)map(lectura, 0, LECTURA_MAX, 500, 2000);
+}
+
+// Filtro antirrebote sin bloqueos. Solo da por bueno un cambio de la
+// lectura cuando se mantiene estable TIEMPO_ANTIRREBOTE milisegundos.
+// Recibe el instante actual para no llamar a millis() dos veces.
+bool sensorDePieza(unsigned long ahora) {
+  bool bruto = (digitalRead(PIN_SENSOR_PRESENCIA) == LOW);
+  if (bruto != lecturaAnterior) {          // cambio reciente: reinicia el contador
+    lecturaAnterior = bruto;
+    instanteCambioSensor = ahora;
+  }
+  if ((ahora - instanteCambioSensor) &gt;= TIEMPO_ANTIRREBOTE) {
+    lecturaEstable = bruto;                // se mantiene: se acepta como estable
+  }
+  return lecturaEstable;                   // hay una pieza delante
+}
+
+// Traduce un estado a un texto legible para el monitor serie.
+const char *nombreDelEstado(Estado e) {
+  switch (e) {
+    case ESPERA:       return "EN ESPERA";
+    case LISTA:        return "LISTA";
+    case CLASIFICANDO: return "CLASIFICANDO";
+    case BLOQUEO:      return "BLOQUEO";
+  }
+  return "DESCONOCIDO";
+}
+
+// Cambia de estado guardando el instante del cambio.
+void cambiarEstado(Estado nuevo, unsigned long ahora) {
+  estadoActual = nuevo;
+  instanteAnterior = ahora;
+}
+
+// Traslada el estado actual a las salidas físicas.
+void aplicarSalidas(Estado e) {
+  digitalWrite(PIN_LED_VERDE, (e == LISTA) ? HIGH : LOW);
+  digitalWrite(PIN_LED_ROJO, (e == ESPERA || e == BLOQUEO) ? HIGH : LOW);
+  digitalWrite(PIN_EXPULSOR, (e == CLASIFICANDO) ? HIGH : LOW);
+  analogWrite(PIN_LED_AMBAR, (e == CLASIFICANDO) ? 90 : 0);   // PWM: 0 a 255
+}
+
+// Escribe un informe en el monitor serie, sin frenar el programa.
+void informar(unsigned long ahora) {
+  if (ahora - instanteInforme &lt; PERIODO_INFORME) {
+    return;
+  }
+  instanteInforme = ahora;
+  Serial.print("t=");
+  Serial.print(ahora);
+  Serial.print(" ms | estado=");
+  Serial.print(nombreDelEstado(estadoActual));
+  Serial.print(" | pieza=");
+  Serial.print(lecturaEstable ? "si" : "no");
+  Serial.print(" | permiso=");
+  Serial.print(hayPermisoDeMarcha() ? "si" : "no");
+  Serial.print(" | expulsor=");
+  Serial.println(estadoActual == CLASIFICANDO ? "activo" : "retirado");
+}
+
+// ---------- Puesta en marcha: se ejecuta una sola vez ----------
+void setup() {
+  pinMode(PIN_SENSOR_PRESENCIA, INPUT_PULLUP);
+  pinMode(PIN_PERMISO_MARCHA, INPUT_PULLUP);
+  pinMode(PIN_LED_VERDE, OUTPUT);
+  pinMode(PIN_LED_AMBAR, OUTPUT);
+  pinMode(PIN_LED_ROJO, OUTPUT);
+  pinMode(PIN_EXPULSOR, OUTPUT);
+
+  digitalWrite(PIN_EXPULSOR, LOW);       // el expulsor arranca siempre retirado
+  Serial.begin(9600);
+  cambiarEstado(ESPERA, millis());
+  aplicarSalidas(estadoActual);
+}
+
+// ---------- Bucle principal: se repite sin descanso ----------
+void loop() {
+  unsigned long ahora = millis();
+  bool permiso = hayPermisoDeMarcha();
+  bool pieza   = sensorDePieza(ahora);
+
+  switch (estadoActual) {
+    case ESPERA:                                  // esperando el permiso de marcha
+      if (permiso) {
+        cambiarEstado(LISTA, ahora);
+      }
+      break;
+
+    case LISTA:                                   // en servicio, vigilando el sensor
+      if (!permiso) {
+        cambiarEstado(BLOQUEO, ahora);            // el permiso se ha retirado
+      } else if (pieza &amp;&amp; !piezaPrevia) {         // flanco: ha llegado una pieza nueva
+        tiempoExpulsion = ajusteDelEmpuje();
+        cambiarEstado(CLASIFICANDO, ahora);
+      }
+      break;
+
+    case CLASIFICANDO:                            // expulsor empujando la pieza
+      if (!permiso) {
+        cambiarEstado(BLOQUEO, ahora);            // la seguridad manda siempre
+      } else if (ahora - instanteAnterior &gt;= tiempoExpulsion) {
+        cambiarEstado(LISTA, ahora);              // empuje terminado
+      }
+      break;
+
+    case BLOQUEO:                                 // sin permiso: todo detenido
+      if (permiso &amp;&amp; !pieza) {
+        cambiarEstado(LISTA, ahora);              // rearme con la zona despejada
+      }
+      break;
+  }
+
+  aplicarSalidas(estadoActual);
+  informar(ahora);
+  piezaPrevia = pieza;                            // se recuerda para el ciclo siguiente
+}</code></pre>
+
+        <h3>Bloque 1 · El comentario de cabecera y los pines</h3>
+        <p>El programa empieza con un comentario de bloque que declara qué hace, para qué sirve y en qué condiciones de seguridad se usa. Después se declaran las constantes de los pines: cada una lleva un nombre y un tipo, y ninguna cambia durante el programa. El sensor y el permiso están en los pines 2 y 3; las luces y el expulsor, en los pines 8, 9, 10 y 11; el potenciómetro de ajuste, en la entrada analógica A0.</p>
+
+        <h3>Bloque 2 · Los tiempos y la escala del convertidor</h3>
+        <p>Los tiempos se declaran como constantes de tipo <code>unsigned long</code>, porque todo lo que se compara con <code>millis()</code> debe tener ese tipo. El antirrebote se fija en 30 ms: un cambio en el sensor solo se acepta si se mantiene al menos ese tiempo. El periodo de informe se fija en 500 ms, para no inundar el monitor serie. Junto a ellos aparece <code>LECTURA_MAX</code>, la constante que guarda el máximo que puede devolver el convertidor analógico-digital en esta placa: 1023. Está escrita aparte y con su comentario precisamente para recordar que, en otra placa, ese valor puede ser distinto.<sup><a href="#fuente_15">[15]</a></sup></p>
+
+        <h3>Bloque 3 · Los estados y las variables de control</h3>
+        <p>La línea <code>enum Estado : uint8_t { ESPERA, LISTA, CLASIFICANDO, BLOQUEO };</code> crea un tipo propio con cuatro valores posibles y le da un nombre: <code>Estado</code>. Gracias a ella, la variable <code>estadoActual</code> no puede tomar un valor sin sentido, y el programa se lee como una frase. Alrededor hay tres grupos de variables: el estado y el instante en que se entró en él; los instantes de referencia para el informe serie; y las variables que llevan la cuenta del filtro del sensor —la última lectura bruta, la última lectura estable, la lectura del ciclo anterior y el instante del último cambio—.</p>
+
+        <h3>Bloque 4 · Las funciones auxiliares</h3>
+        <p><code>hayPermisoDeMarcha()</code> encapsula una comparación que se usa varias veces y que además es fácil de equivocar: el permiso está concedido cuando el contacto lleva el pin a nivel bajo. Escribirlo una sola vez y llamarlo por su nombre evita repetir el detalle de la polaridad en cinco sitios distintos.</p>
+        <p><code>ajusteDelEmpuje()</code> lee el potenciómetro y convierte su lectura, que va de 0 a <code>LECTURA_MAX</code>, en una duración de empuje de 500 a 2000 ms. La separación entre escalones es de 1500 / 1023, es decir, unos 1,47 ms por cada paso del convertidor, un margen más que suficiente para un proceso de este tipo.</p>
+        <p><code>sensorDePieza()</code> es la función más interesante del programa y contiene el <strong>filtro antirrebote</strong>. Los contactos mecánicos no cambian de estado de golpe: durante unos milisegundos rebotan, y una sola pulsación puede llegar a leerse como varias.<sup><a href="#fuente_20">[20]</a></sup> La función compara la lectura bruta con la anterior; si ha cambiado, anota el instante del cambio y reinicia la cuenta. Solo cuando la lectura se mantiene igual durante 30 ms acepta el valor como estable. Todo esto sin detener el programa ni una milésima: es exactamente el mismo principio que el ejemplo oficial de antirrebote, que también usa <code>millis()</code>.<sup><a href="#fuente_20">[20]</a></sup></p>
+        <p>La resta <code>ahora - instanteCambioSensor</code> merece un comentario aparte. <code>millis()</code> deja de crecer y vuelve a cero después de aproximadamente 50 días.<sup><a href="#fuente_9">[9]</a></sup> Si comparáramos <code>ahora &gt; instanteCambioSensor</code> el programa fallaría al llegar a ese punto, pero al restar dos números positivos grandes el resultado sigue siendo correcto aunque el reloj haya dado la vuelta. Restar en lugar de comparar es una costumbre que conviene adoptar desde el principio.</p>
+        <p>Las dos últimas funciones auxiliares tienen un papel sencillo y muy útil: <code>nombreDelEstado()</code> devuelve un texto legible a partir del estado, y <code>cambiarEstado()</code> modifica el estado y anota el instante del cambio en una sola línea, para que ningún cambio se quede sin registrar.</p>
+
+        <h3>Bloque 5 · <code>setup()</code>: preparar el terreno</h3>
+        <p>Aquí se configura cada pin con <code>pinMode()</code>: el sensor y el permiso como entradas con resistencia interna de <em>pull-up</em>, y las tres luces y el expulsor como salidas.<sup><a href="#fuente_10">[10]</a></sup> Después se escriben a nivel bajo las salidas, para que el expulsor arranque retirado por muy reciente que sea el encendido. Se arranca el puerto serie a 9600 baudios, que es el canal por el que la placa hablará con el ordenador.<sup><a href="#fuente_21">[21]</a></sup> Y por último se fija el estado inicial y se aplican las salidas correspondientes, para que la estación empiece siempre en una situación conocida.</p>
+
+        <h3>Bloque 6 · <code>loop()</code>: leer, decidir y actuar sin parar</h3>
+        <p>El bucle empieza anotando la hora con <code>millis()</code>, en una sola llamada que se usará en todo el ciclo. Inmediatamente después se leen las dos entradas que importan: el permiso y, a través del filtro, la presencia de una pieza. Solo entonces se decide.</p>
+        <p>La decisión se organiza con un <code>switch</code> sobre el estado actual. En <strong>en espera</strong>, si aparece el permiso, se pasa a lista. En <strong>lista</strong>, si se ha retirado el permiso se pasa a bloqueo, y si aparece el flanco de una pieza nueva se ajusta la duración del empuje y se pasa a clasificando. En <strong>clasificando</strong>, si se retira el permiso se pasa también a bloqueo —la seguridad tiene prioridad sobre cualquier otra consideración— y, si no, se comprueba si el tiempo transcurrido desde que se entró en el estado alcanza la duración ajustada; cuando la alcanza, se vuelve a lista. En <strong>bloqueo</strong> solo se sale si vuelve el permiso <em>y</em> la zona está despejada: es el rearme, y no se concede con una pieza delante.</p>
+        <p>Ese detalle del flanco merece explicación. Si bastara con «hay pieza», el programa volvería a clasificar una y otra vez mientras la pieza siguiera delante del sensor, incluso después de haberla expulsado, si por cualquier motivo se hubiera quedado atascada. Comparando la lectura actual con la del ciclo anterior se detecta la <em>llegada</em> de una pieza, no su presencia, y cada pieza se atiende una sola vez. Es la misma idea que el ejemplo oficial de detección de cambios de estado en un pulsador.</p>
+        <p>Al final del bucle se hacen dos cosas. <code>aplicarSalidas()</code> traduce el estado a las cuatro salidas, de manera que la luz y el expulsor siempre corresponden al estado en que se encuentra la máquina; escribir esta función aparte significa que no hay ninguna otra línea del programa capaz de encender una luz, y que revisar el comportamiento de la estación consiste en leer una sola función. <code>informar()</code> envía un mensaje al monitor serie cada 500 ms, y solo si ha pasado ese tiempo, con la misma técnica de <code>millis()</code> que el resto del programa.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: estados del programa, condición de salida de cada uno y salidas activas">
+          <table>
+            <caption>Estados, condiciones de salida y salidas activas</caption>
+            <thead><tr><th scope="col">Estado</th><th scope="col">Qué se comprueba en cada vuelta</th><th scope="col">A dónde se pasa</th><th scope="col">Salidas activas</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>En espera</strong></th><td>¿Hay permiso de marcha?</td><td>A lista cuando hay permiso.</td><td>Luz roja encendida; verde apagada; expulsor retirado.</td></tr>
+              <tr><th scope="row"><strong>Lista</strong></th><td>¿Sigue habiendo permiso? ¿Ha llegado una pieza?</td><td>A bloqueo si no hay permiso; a clasificando si llega una pieza.</td><td>Luz verde encendida; roja apagada; expulsor retirado.</td></tr>
+              <tr><th scope="row"><strong>Clasificando</strong></th><td>¿Sigue habiendo permiso? ¿Ha pasado el tiempo de empuje?</td><td>A bloqueo si no hay permiso; a lista si el empuje ha terminado.</td><td>Luz ámbar con PWM; electroválvula activa.</td></tr>
+              <tr><th scope="row"><strong>Bloqueo</strong></th><td>¿Ha vuelto el permiso? ¿Está la zona despejada?</td><td>A lista solo si se cumplen las dos condiciones.</td><td>Luz roja encendida; expulsor retirado.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Bloque 7 · El monitor serie</h3>
+        <p>El puerto serie es el canal de comunicación entre la placa y el ordenador, y su uso más frecuente es enviar mensajes para ver qué está pasando.<sup><a href="#fuente_21">[21]</a></sup> Nuestro programa imprime, cada medio segundo, el instante, el estado, si hay pieza, si hay permiso y si el expulsor está activo. Esa línea no es un adorno: es la ventana por la que observamos el programa mientras se ejecuta, y la herramienta número uno de la depuración. Un programa sin informes es un programa en el que solo vemos el resultado final; un programa con informes nos cuenta el camino.</p>
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>El programa no espera a nadie: mide. Cada tarea que necesita tiempo guarda su propio instante de referencia y en cada vuelta del bucle comprueba si ya ha pasado lo suficiente. Así el sensor, el permiso y el expulsor se atienden todos a la vez, miles de veces por segundo.</div>
+      </section>
+
+      <section aria-labelledby="trabajo">
+        <h2 id="trabajo">8. Escribir, cargar, depurar y organizar el proyecto</h2>
+        <p>Un programa no sale bien de una sola vez. Lo normal es escribir, compilar, cargar en la placa, observar, registrar lo que ocurre y corregir. Ese ciclo se repite tantas veces como haga falta, y cuanto más cortas sean las vueltas, antes llega el programa bueno.</p>
+        <h3>El ciclo de trabajo</h3>
+        <ol>
+          <li><strong>Escribir.</strong> Se redacta el programa por partes, empezando por lo más simple: encender una luz, leer un contacto, comprobar que la lectura llega. Conviene que cada paso sea lo bastante pequeño como para saber si funciona.</li>
+          <li><strong>Compilar.</strong> El entorno traduce el código a las instrucciones que entiende el microcontrolador y avisa de los errores que encuentra.<sup><a href="#fuente_22">[22]</a></sup> Un error de compilación impide cargar; hay que leerlo entero, porque suele indicar la línea exacta y el motivo.</li>
+          <li><strong>Cargar en la placa.</strong> El programa se transfiere por el cable de datos al puerto correspondiente.<sup><a href="#fuente_23">[23]</a></sup> Si la carga falla, casi siempre es el puerto o la placa mal elegidos en el menú, no el código.</li>
+          <li><strong>Observar.</strong> Se mira qué hace la estación y, sobre todo, qué dice el monitor serie. La observación sin registro se olvida; la observación anotada se compara.</li>
+          <li><strong>Registrar.</strong> Se anotan los valores esperados y los obtenidos, las luces que se encendieron y las que no, y el momento en que ocurrió. Una tabla de registro vale más que cualquier recuerdo.</li>
+          <li><strong>Corregir.</strong> Se cambia una sola cosa cada vez. Si se cambian tres a la vez y el problema desaparece, nadie sabrá cuál era el culpable ni si las otras dos eran necesarias.</li>
+        </ol>
+        <h3>Depurar es investigar, no adivinar</h3>
+        <p>Depurar es encontrar la causa de una diferencia entre lo que el programa debería hacer y lo que hace. Lo primero es clasificar el fallo, porque unos y otros se buscan de manera distinta.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: diferencias entre errores de compilación y errores de lógica, cómo se reconocen y cómo se localizan">
+          <table>
+            <caption>Errores de compilación y errores de lógica</caption>
+            <thead><tr><th scope="col">Rasgo</th><th scope="col">Error de compilación</th><th scope="col">Error de lógica</th><th scope="col">Cómo se localiza</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Cuándo aparece</th><td>Al compilar; el programa no llega a cargarse.</td><td>Con el programa ya funcionando.</td><td>Si hay mensaje de error, es de compilación; si la placa hace algo raro, es de lógica.</td></tr>
+              <tr><th scope="row">Ejemplos típicos</th><td>Un punto y coma olvidado, una llave sin cerrar, un nombre mal escrito, una variable sin declarar.</td><td>La polaridad del contacto invertida, una comparación con <code>=</code> en lugar de <code>==</code>, un tiempo calculado con <code>int</code>.</td><td>Leyendo la línea que indica el compilador, o comparando lo esperado con lo observado.</td></tr>
+              <tr><th scope="row">Síntoma</th><td>El entorno muestra un mensaje y no carga.</td><td>El programa compila y carga, pero la luz no se enciende, el expulsor no actúa o lo hace en el momento equivocado.</td><td>Con el monitor serie y con pruebas parciales.</td></tr>
+              <tr><th scope="row">Primer paso</th><td>Leer el mensaje completo y situarse en la línea señalada.</td><td>Escribir lo que debería ocurrir y lo que ocurre, y buscar el punto donde se separan.</td><td>Formular la hipótesis antes de tocar el código.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Para los errores de lógica hay cuatro técnicas que resuelven la mayoría de los casos:</p>
+        <ul>
+          <li><strong>El monitor serie.</strong> Imprimir el valor de las variables sospechosas en el momento en que importan. Si el programa cree que hay una pieza cuando no la hay, ver la lectura resuelve la duda en un segundo.</li>
+          <li><strong>Simplificar.</strong> Quitar temporalmente todo lo que no sea imprescindible hasta que el fallo desaparezca o aparezca con claridad. Un programa de diez líneas se entiende; el mismo problema dentro de doscientas líneas, no.</li>
+          <li><strong>Probar por partes.</strong> Comprobar una función cada vez. Primero que el sensor se lee bien; después que la decisión es correcta; por último, que la salida se activa.</li>
+          <li><strong>Comparar el valor esperado con el observado.</strong> Escribir en una tabla qué debería valer cada cosa y qué vale en realidad. La primera fila que no coincide señala el bloque culpable.</li>
+        </ul>
+        <div class="t4-think"><strong>Razona con el caso:</strong> la luz ámbar no se enciende nunca, pero el expulsor sí empuja. ¿Dónde buscarías el fallo: en la lectura del sensor, en la decisión del programa o en la salida? Escribe primero la hipótesis y luego el experimento con el que la comprobarías.</div>
+        <h3>Simular antes de montar</h3>
+        <p>Un simulador de circuitos reproduce la placa, los componentes y el programa dentro del navegador. Permite cargar el mismo <em>sketch</em>, ver cómo responden las luces y los actuadores virtuales y detectar errores de lógica sin gastar componentes ni arriesgar nada; algunos entornos permiten incluso programar por bloques además de con texto.<sup><a href="#fuente_1">[1]</a></sup><sup><a href="#fuente_2">[2]</a></sup> Existen también simuladores especializados que reproducen multitud de placas y sensores y que se usan mucho en proyectos de electrónica.<sup><a href="#fuente_24">[24]</a></sup></p>
+        <p>La simulación tiene un límite que conviene decir en voz alta: <strong>simular no es montar</strong>. Un simulador no conoce el rebote real de un contacto desgastado, la caída de tensión del cable, el rozamiento del cilindro ni el ruido eléctrico del taller. Por eso el orden correcto es simular, después montar y por último verificar midiendo y observando la máquina de verdad. Y hay una excepción importante: <strong>la seguridad no se valida solo en el simulador</strong>. Que el resguardo detenga la estación se comprueba siempre sobre el montaje real, a baja velocidad y sin carga.</p>
+        <h3>Organizar los archivos del proyecto</h3>
+        <p>Un proyecto de control tiene más archivos de los que parece: el programa, los esquemas, las fotografías del montaje, la tabla de medidas y esta misma documentación. Todos cambian, y todos necesitan un sitio. La primera regla es de nombres, y la documentación de los espacios de trabajo compartidos la recomienda expresamente: usar <strong>nombres cortos, sencillos y significativos</strong>, y añadir la fecha o un número cuando ayuden a ordenar.<sup><a href="#fuente_25">[25]</a></sup></p>
+        <ul>
+          <li><strong>Carpetas con guiones bajos, nunca con guiones medios:</strong> <code>programa_estacion</code>, <code>esquemas_electricos</code>, <code>fotos_montaje</code>. El guion medio puede confundirse con el signo de restar y algunos entornos lo interpretan mal; el guion bajo no plantea dudas en ningún sistema.</li>
+          <li><strong>Nada de espacios en blanco</strong> en nombres de archivo y carpeta. Un espacio obliga a escribir comillas al trabajar desde la línea de órdenes y provoca errores difíciles de ver.</li>
+          <li><strong>Todo en minúsculas</strong> para evitar problemas entre sistemas que distinguen mayúsculas y minúsculas.</li>
+          <li><strong>Fechas en formato año-mes-día</strong>, que se ordena solo: <code>2026_09_11_prueba_expulsor.jpg</code>.</li>
+          <li><strong>Sin tildes ni eñes</strong> en los nombres, por la misma razón que en los nombres de las variables.</li>
+        </ul>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: propuesta de carpetas y archivos del proyecto, con un ejemplo de nombre correcto y otro incorrecto">
+          <table>
+            <caption>Cómo organizar las carpetas del proyecto</caption>
+            <thead><tr><th scope="col">Carpeta</th><th scope="col">Qué guarda</th><th scope="col">Nombre correcto</th><th scope="col">Evita</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><code>programa_estacion</code></th><td>El <em>sketch</em> que se carga en la placa y sus versiones probadas.</td><td><code>estacion_clasificadora_v3.ino</code></td><td><code>estacion-clasificadora v3 definitiva.ino</code></td></tr>
+              <tr><th scope="row"><code>esquemas</code></th><td>Los esquemas eléctrico y neumático y el mapa de pines.</td><td><code>esquema_pines_estacion.svg</code></td><td><code>esquema pines (copia).svg</code></td></tr>
+              <tr><th scope="row"><code>pruebas</code></th><td>Tablas de medidas, valores esperados, incidencias y capturas del monitor serie.</td><td><code>2026_09_11_registro_pruebas.csv</code></td><td><code>Pruebas buenas.csv</code></td></tr>
+              <tr><th scope="row"><code>fotos_montaje</code></th><td>Fotografías del montaje en cada etapa y del detalle de las conexiones.</td><td><code>montaje_final_01.jpg</code></td><td><code>foto.JPG</code></td></tr>
+              <tr><th scope="row"><code>documentacion</code></th><td>Memoria del proyecto, decisiones tomadas y lista de componentes.</td><td><code>memoria_estacion.md</code></td><td><code>trabajo fin de.pdf</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Espacios compartidos y discos virtuales</h3>
+        <p>Carpetas bien nombradas dentro de un ordenador siguen siendo un proyecto para una sola persona. Cuando el proyecto es de un equipo, la carpeta tiene que estar en un <strong>espacio compartido</strong>: un almacenamiento en la nube con permisos, al que cada miembro accede con su cuenta. Lo importante no es la marca del servicio, sino entender que compartir no es enviar copias por correo. En una carpeta compartida, todos trabajan sobre <em>el mismo</em> archivo, con permisos definidos —quién puede solo leer, quién puede comentar y quién puede editar— y con la posibilidad de dejar de compartir un elemento cuando ya no hace falta.<sup><a href="#fuente_26">[26]</a></sup> Los espacios compartidos de equipo van un paso más allá: los archivos pertenecen al equipo y no a la cuenta de quien los creó, de modo que el proyecto no se pierde cuando alguien cambia de grupo o termina el curso.<sup><a href="#fuente_27">[27]</a></sup></p>
+        <p>Muchos de estos servicios permiten además montar el espacio como si fuera un <strong>disco virtual</strong> del ordenador: aparece una unidad más en el escritorio, con sus carpetas, y se trabaja con ella como con cualquier otra. Es cómodo, pero tiene un riesgo que hay que conocer: si se trabaja sobre archivos dentro de una carpeta con varias decenas de archivos que cambian a la vez, la sincronización puede dar problemas. La costumbre sana es mantener una copia de trabajo local, sincronizar al terminar la sesión y no editar el mismo archivo desde dos sitios a la vez.</p>
+        <p>La otra protección es el <strong>control de versiones</strong>. Su idea es guardar el historial de cambios, de manera que se pueda ver quién hizo qué y cuándo, y recuperar una versión anterior si algo se estropea.<sup><a href="#fuente_28">[28]</a></sup> Los sistemas de control de versiones como Git llevan esa idea mucho más lejos, y permiten que varias personas trabajen en el mismo proyecto sin pisarse.<sup><a href="#fuente_29">[29]</a></sup> A nuestro nivel basta con tres costumbres: guardar una versión numerada cada vez que el programa funciona, no reutilizar el mismo nombre para dos versiones distintas y anotar en la documentación qué cambió entre una y otra.</p>
+        <div class="t4-note"><strong>Regla de oro del proyecto:</strong> un archivo que solo existe en el ordenador de una persona no está guardado, está en préstamo. El programa, los esquemas y la documentación deben estar en el espacio compartido del equipo, con nombres correctos y con el historial de versiones activado.</div>
+        <h3>Antes de dar el programa por bueno</h3>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: comprobaciones que hay que superar antes de dar el programa por terminado">
+          <table>
+            <caption>Comprobaciones antes de dar el programa por bueno</caption>
+            <thead><tr><th scope="col">Qué se comprueba</th><th scope="col">Cómo</th><th scope="col">Criterio de aceptación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Compila sin avisos</strong></th><td>Se compila el programa en el entorno.</td><td>No hay ningún mensaje de error.</td></tr>
+              <tr><th scope="row"><strong>La simulación responde</strong></th><td>Se ejecuta en el simulador y se accionan las entradas virtuales.</td><td>Las salidas virtuales siguen la máquina de estados.</td></tr>
+              <tr><th scope="row"><strong>El filtro funciona</strong></th><td>Se provoca un contacto breve y otro sostenido.</td><td>El contacto breve no cuenta; el sostenido sí.</td></tr>
+              <tr><th scope="row"><strong>La seguridad manda</strong></th><td>Se retira el permiso con el expulsor activo.</td><td>El expulsor se detiene en la misma vuelta del bucle.</td></tr>
+              <tr><th scope="row"><strong>El rearme es seguro</strong></th><td>Se devuelve el permiso con una pieza delante del sensor.</td><td>La estación no arranca hasta que la zona está despejada.</td></tr>
+              <tr><th scope="row"><strong>El tiempo no bloquea</strong></th><td>Se observa el monitor serie durante un empuje.</td><td>Los informes siguen saliendo aunque el expulsor esté activo.</td></tr>
+              <tr><th scope="row"><strong>Todo está guardado</strong></th><td>Se revisa el espacio compartido.</td><td>Programa, esquemas, registros y documentación están, con nombres correctos y versionados.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="comprueba">
+        <h2 id="comprueba">Comprueba lo que has aprendido</h2>
+        <p>Tu trabajo estará bien resuelto si puedes explicar cada decisión del programa y mostrar qué comprobaste. Responde primero a estas preguntas y revisa después la tabla de evidencias.</p>
+        <ol>
+          <li>¿Qué diferencia hay entre <code>setup()</code> y <code>loop()</code>? Pon dos ejemplos de instrucciones que solo puedan ir en uno de los dos.</li>
+          <li>El sensor de presencia se ha montado con la resistencia interna de <em>pull-up</em>. ¿Qué valor devuelve <code>digitalRead()</code> cuando la pieza está delante del sensor y por qué?</li>
+          <li>Explica con tus palabras por qué <code>delay(1000)</code> dentro del programa de control sería un problema de seguridad.</li>
+          <li>¿Qué dos cosas distintas se guardan al declarar una variable y al declarar una constante? ¿Por qué los números de pin se escriben como constantes?</li>
+          <li>En la placa del aula el convertidor devuelve valores de 0 a 1023. ¿Qué habría que cambiar en el programa si se trasladara a otra placa con convertidor de 12 bits, y por qué no vale suponer que todas las placas funcionan igual?</li>
+          <li>¿Por qué el programa detecta la <em>llegada</em> de una pieza en lugar de su <em>presencia</em>? Describe qué ocurriría si no lo hiciera así.</li>
+          <li>La luz ámbar se activa con <code>analogWrite(PIN_LED_AMBAR, 90)</code>. Explica qué significa el 90 y calcula qué fracción del tiempo permanece encendida la salida.</li>
+          <li>Un compañero dice que el programa «debe estar mal» porque en el simulador todo funciona pero en el montaje real el expulsor no empuja. Enumera, en orden, las tres comprobaciones que harías antes de tocar el código.</li>
+          <li>¿Por qué los archivos y las carpetas del proyecto se nombran con guiones bajos y sin espacios? Escribe el nombre correcto para el registro de pruebas de hoy.</li>
+          <li>¿Qué ventaja aporta tener el proyecto en un espacio compartido frente a enviar copias por correo? ¿Y qué aporta el historial de versiones?</li>
+        </ol>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: metas de aprendizaje del tema y evidencias que las demuestran">
+          <table>
+            <caption>Metas de aprendizaje del tema y evidencias que las demuestran</caption>
+            <thead><tr><th scope="col">Meta</th><th scope="col">Qué debes demostrar</th><th scope="col">Evidencias posibles</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Entender la estructura</strong></th><td>Explicar qué hace un <em>sketch</em> y qué papel tiene cada bloque del programa de la estación.</td><td>Esquema de bloques del programa, con una frase por bloque y el nombre de los pines anotados.</td></tr>
+              <tr><th scope="row"><strong>Programar con criterio</strong></th><td>Declarar variables y constantes con el tipo correcto y elegir nombres legibles.</td><td>Listado del programa con las constantes y los tipos comentados, y explicación de por qué el tiempo se guarda en <code>unsigned long</code>.</td></tr>
+              <tr><th scope="row"><strong>Leer y activar</strong></th><td>Leer entradas digitales y analógicas y activar salidas digitales y PWM.</td><td>Tabla del mapa de pines y captura del monitor serie con los valores leídos en tres situaciones distintas.</td></tr>
+              <tr><th scope="row"><strong>Controlar el tiempo</strong></th><td>Explicar y aplicar la máquina de estados con <code>millis()</code> sin usar <code>delay()</code>.</td><td>Diagrama de estados propio y registro con el instante en que se produjo cada cambio de estado.</td></tr>
+              <tr><th scope="row"><strong>Depurar</strong></th><td>Distinguir errores de compilación y de lógica y localizarlos con un método.</td><td>Cuaderno de depuración con al menos tres incidencias: síntoma, hipótesis, prueba realizada y corrección.</td></tr>
+              <tr><th scope="row"><strong>Simular y verificar</strong></th><td>Comprobar el programa en el simulador antes de montarlo y verificar después sobre el montaje real.</td><td>Captura de la simulación, tabla de valores esperados y observados y conclusión de las pruebas.</td></tr>
+              <tr><th scope="row"><strong>Organizar</strong></th><td>Guardar el proyecto con nombres correctos en un espacio compartido y con versiones.</td><td>Árbol de carpetas del equipo, con el programa, los esquemas y el registro de pruebas en su sitio.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Autoevaluación</h3>
+        <p>Marca con sinceridad cómo te encuentras en cada punto antes de entregar el trabajo. Los que marques como «con ayuda» o «todavía no» indican dónde conviene volver a practicar.</p>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: puntos de autoevaluación del tema con tres niveles de seguridad">
+          <table>
+            <caption>Puntos de autoevaluación del tema</caption>
+            <thead><tr><th scope="col">Puedo hacerlo…</th><th scope="col">Sin ayuda</th><th scope="col">Con ayuda</th><th scope="col">Todavía no</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Explicar qué es un <em>sketch</em> y qué se ejecuta en <code>setup()</code> y qué en <code>loop()</code>.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Declarar variables y constantes eligiendo el tipo adecuado.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Configurar un pin como entrada con <em>pull-up</em> y leerlo correctamente.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Explicar qué devuelve <code>analogRead()</code> y de qué depende ese valor.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Regular una salida con PWM y justificar el valor empleado.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Escribir funciones con parámetros y valor de retorno.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Explicar por qué <code>delay()</code> bloquea el control de la estación.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Dibujar y describir la máquina de estados del programa.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Usar el monitor serie para localizar un error de lógica.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Comprobar el programa en un simulador antes de montarlo.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+              <tr><th scope="row">Guardar el proyecto con nombres correctos y en un espacio compartido.</th><td>☐</td><td>☐</td><td>☐</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Antirrebote</dt><dd>Filtro que ignora los cambios breves e inestables de un contacto mecánico y acepta una lectura solo cuando se mantiene el tiempo suficiente.</dd>
+          <dt>Bucle</dt><dd>Estructura que repite un bloque de instrucciones, sea un número fijo de veces o mientras se cumpla una condición.</dd>
+          <dt>Cargar</dt><dd>Transferir el programa desde el ordenador a la memoria de la placa controladora para que esta lo ejecute.</dd>
+          <dt>Compilar</dt><dd>Traducir el programa escrito a las instrucciones que entiende el microcontrolador y comprobar que no tiene errores de forma.</dd>
+          <dt>Constante</dt><dd>Dato con nombre cuyo valor no cambia durante la ejecución del programa; se declara con <code>const</code>.</dd>
+          <dt>Convertidor analógico-digital</dt><dd>Circuito que traduce una tensión a un número entero; el número de escalones depende de su resolución.</dd>
+          <dt>Depurar</dt><dd>Encontrar y corregir la causa de una diferencia entre lo que el programa debería hacer y lo que hace.</dd>
+          <dt>Disco virtual</dt><dd>Unidad que aparece en el ordenador y que en realidad corresponde a un almacenamiento en la red o en la nube.</dd>
+          <dt>Entorno de programación</dt><dd>Programa que permite escribir, compilar y cargar el código, y observar lo que ocurre en la placa.</dd>
+          <dt>Función</dt><dd>Bloque de código con nombre que realiza una tarea, puede recibir parámetros y puede devolver un resultado.</dd>
+          <dt>Flanco</dt><dd>Instante en que una señal cambia de nivel; detectarlo permite distinguir que algo ha llegado de que algo permanece.</dd>
+          <dt>Historial de versiones</dt><dd>Registro de los cambios de un archivo que permite ver quién hizo qué y recuperar una versión anterior.</dd>
+          <dt>Máquina de estados</dt><dd>Organización del programa en situaciones estables, con las condiciones que hacen pasar de una a otra y las salidas asociadas a cada una.</dd>
+          <dt>Microcontrolador</dt><dd>Circuito integrado con procesador, memoria y entradas y salidas, capaz de ejecutar un programa guardado y repetirlo.</dd>
+          <dt>Monitor serie</dt><dd>Ventana del entorno que muestra los mensajes que la placa envía por el puerto de comunicación.</dd>
+          <dt>Parámetro</dt><dd>Dato que se entrega a una función al llamarla, para que lo use en su tarea.</dd>
+          <dt>Pin</dt><dd>Cada uno de los terminales de la placa que pueden configurarse como entrada o como salida.</dd>
+          <dt>Pull-up</dt><dd>Resistencia interna que mantiene un pin de entrada en un nivel conocido mientras un contacto no lo lleva al nivel contrario.</dd>
+          <dt>PWM</dt><dd>Modulación por anchura de pulso: encender y apagar una salida muy deprisa para obtener un valor medio intermedio, con valores de 0 a 255.</dd>
+          <dt>Resolución</dt><dd>Número de escalones en que un convertidor analógico-digital divide su rango de tensión.</dd>
+          <dt>Simulación</dt><dd>Reproducción virtual de un circuito o de una placa que permite probar el programa antes de montarlo.</dd>
+          <dt>Sketch</dt><dd>Nombre que recibe el programa en el entorno de programación de la placa.</dd>
+          <dt>Variable</dt><dd>Lugar donde se guarda un dato; tiene nombre, valor y tipo.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Un sistema automático necesita alguien que decida. La máquina aporta energía y movimiento; el programa aporta las decisiones, y es lo único que cambia cuando la misma instalación debe hacer otra cosa.</li>
+          <li>El ordenador es donde se escribe y se carga el programa, pero también programan y controlan los simuladores, los entornos por bloques y los dispositivos conectados a la red.</li>
+          <li>Un <em>sketch</em> tiene dos partes obligatorias: <code>setup()</code> se ejecuta una sola vez tras el encendido y <code>loop()</code> se repite sin parar.</li>
+          <li>Las variables tienen nombre, valor y tipo. Elegir bien el tipo evita fallos silenciosos; todo lo relacionado con el tiempo se guarda en <code>unsigned long</code>.</li>
+          <li>Los números de pin se declaran como constantes con nombres claros, y los nombres se escriben sin guiones medios, sin espacios y sin tildes.</li>
+          <li><code>pinMode()</code> decide el papel de cada pin. Con <code>INPUT_PULLUP</code> el pin descansa en nivel alto y el contacto lo lleva a nivel bajo, de modo que «activado» se lee como <code>LOW</code>.</li>
+          <li><code>digitalRead()</code> y <code>digitalWrite()</code> manejan el sí y el no; <code>analogRead()</code> devuelve un número cuyo máximo depende de la resolución del convertidor, y <code>analogWrite()</code> genera PWM con valores de 0 a 255.</li>
+          <li>Las condiciones permiten elegir, los bucles permiten repetir y las funciones permiten dividir el programa en partes que se entienden y se prueban por separado.</li>
+          <li><code>delay()</code> detiene el programa: durante la espera no se leen sensores ni se vigila la seguridad. <code>millis()</code> permite medir el tiempo sin dejar de dar vueltas al bucle.</li>
+          <li>La máquina de estados organiza el programa en situaciones estables —en espera, lista, clasificando y bloqueo—, con una condición de salida y un juego de salidas para cada una.</li>
+          <li>El antirrebote y la detección de flancos evitan que un contacto inestable se lea como varias pulsaciones y que una misma pieza se clasifique dos veces.</li>
+          <li>La depuración es un método, no una corazonada: distinguir si el fallo es de compilación o de lógica y, en el segundo caso, usar el monitor serie, simplificar, probar por partes y comparar lo esperado con lo observado.</li>
+          <li>El simulador ahorra tiempo y componentes, pero no sustituye a la verificación sobre el montaje real, y menos aún en todo lo que afecta a la seguridad.</li>
+          <li>El proyecto está terminado cuando el programa, los esquemas y los registros están guardados en el espacio compartido del equipo, con nombres correctos, versiones numeradas e historial activado.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <p>Todas las direcciones se comprobaron el 11 de septiembre de 2026. La documentación de Arduino se publica en inglés; la de los servicios de almacenamiento, también en español.</p>
+        <ul>
+          <li id="fuente_1">[1] <a href="https://www.tinkercad.com/circuits">Autodesk Tinkercad — <em>Circuits</em></a> (simulador de circuitos en el navegador que permite ver cómo responden los componentes antes de montarlos de verdad).</li>
+          <li id="fuente_2">[2] <a href="https://www.tinkercad.com/codeblocks">Autodesk Tinkercad — <em>Codeblocks</em></a> (programación por bloques dentro del mismo simulador).</li>
+          <li id="fuente_3">[3] <a href="https://makecode.microbit.org/docs">Microsoft MakeCode — documentación</a> (entorno por bloques y entorno textual para tarjetas programables).</li>
+          <li id="fuente_4">[4] <a href="https://www.insst.es/materias/riesgos/seguridad-en-el-trabajo/riesgo-electrico">Instituto Nacional de Seguridad y Salud en el Trabajo (INSST) — Riesgo eléctrico</a> (efectos de la corriente en el cuerpo humano y clasificación de las instalaciones por niveles de tensión).</li>
+          <li id="fuente_5">[5] <a href="https://docs.arduino.cc/learn/programming/sketches/">Arduino — <em>Arduino Sketches</em></a> (qué es un <em>sketch</em>, las partes de un programa y el uso de los comentarios).</li>
+          <li id="fuente_6">[6] <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/setup/">Arduino — referencia de <code>setup()</code></a> (se ejecuta una sola vez, tras cada encendido o reinicio).</li>
+          <li id="fuente_7">[7] <a href="https://docs.arduino.cc/language-reference/en/structure/sketch/loop/">Arduino — referencia de <code>loop()</code></a> (se repite de forma consecutiva y permite responder a lo que ocurre).</li>
+          <li id="fuente_8">[8] <a href="https://docs.arduino.cc/learn/programming/variables/">Arduino — <em>Using Variables in Sketches</em></a> (una variable como lugar de almacenamiento con nombre, valor y tipo).</li>
+          <li id="fuente_9">[9] <a href="https://docs.arduino.cc/language-reference/en/functions/time/millis/">Arduino — referencia de <code>millis()</code></a> (milisegundos desde el inicio del programa, tipo <code>unsigned long</code> y desbordamiento a los 50 días).</li>
+          <li id="fuente_10">[10] <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/pinMode/">Arduino — referencia de <code>pinMode()</code></a> (modos <code>INPUT</code>, <code>OUTPUT</code> e <code>INPUT_PULLUP</code>, disponible desde la versión 1.0.1).</li>
+          <li id="fuente_11">[11] <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalread/">Arduino — referencia de <code>digitalRead()</code></a> (devuelve <code>HIGH</code> o <code>LOW</code>; un pin sin conectar puede devolver cualquiera de los dos valores).</li>
+          <li id="fuente_12">[12] <a href="https://docs.arduino.cc/learn/microcontrollers/digital-pins/">Arduino — <em>Digital Pins</em></a> (comportamiento de los pines configurados como entrada y sentido de la resistencia interna).</li>
+          <li id="fuente_13">[13] <a href="https://docs.arduino.cc/language-reference/en/functions/digital-io/digitalwrite/">Arduino — referencia de <code>digitalWrite()</code></a> (niveles <code>HIGH</code> y <code>LOW</code> en una salida digital).</li>
+          <li id="fuente_14">[14] <a href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogRead/">Arduino — referencia de <code>analogRead()</code></a> (convertidor de 10 bits en la placa del ejemplo, valores de 0 a 1023 y resolución de unos 4,9 mV por escalón).</li>
+          <li id="fuente_15">[15] <a href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogReadResolution/">Arduino — referencia de <code>analogReadResolution()</code></a> (la resolución por defecto es de 10 bits y existen placas con 12, 14 y 16 bits).</li>
+          <li id="fuente_16">[16] <a href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogWrite/">Arduino — referencia de <code>analogWrite()</code></a> (onda PWM, ciclo de trabajo de 0 a 255 y pines preparados para PWM).</li>
+          <li id="fuente_17">[17] <a href="https://docs.arduino.cc/learn/programming/functions/">Arduino — <em>Using Functions in a Sketch</em></a> (ventajas de dividir el programa en funciones y cómo se llaman).</li>
+          <li id="fuente_18">[18] <a href="https://docs.arduino.cc/language-reference/en/functions/time/delay/">Arduino — referencia de <code>delay()</code></a> (detiene el programa y con ello casi toda la demás actividad).</li>
+          <li id="fuente_19">[19] <a href="https://docs.arduino.cc/built-in-examples/digital/BlinkWithoutDelay/">Arduino — ejemplo <em>Blink Without Delay</em></a> (por qué una espera hace que el programa se pierda una pulsación).</li>
+          <li id="fuente_20">[20] <a href="https://docs.arduino.cc/built-in-examples/digital/Debounce/">Arduino — ejemplo <em>Debounce on a Pushbutton</em></a> (transiciones espurias del contacto y filtrado con <code>millis()</code>).</li>
+          <li id="fuente_21">[21] <a href="https://docs.arduino.cc/language-reference/en/functions/communication/serial/">Arduino — referencia del puerto <em>Serial</em></a> (comunicación entre la placa y el ordenador para enviar y recibir datos).</li>
+          <li id="fuente_22">[22] <a href="https://docs.arduino.cc/software/ide/">Arduino — entorno de desarrollo (IDE)</a> (edición, comprobación del código y carga en la placa).</li>
+          <li id="fuente_23">[23] <a href="https://docs.arduino.cc/learn/starting-guide/getting-started-arduino/">Arduino — guía de primeros pasos</a> (conexión de la placa, compilación y carga del programa).</li>
+          <li id="fuente_24">[24] <a href="https://docs.wokwi.com/">Wokwi — documentación</a> (simulador de electrónica en línea para placas Arduino, ESP32, STM32 y multitud de componentes).</li>
+          <li id="fuente_25">[25] <a href="https://support.google.com/drive/answer/2375091?hl=es">Google Drive — <em>Organiza tus archivos en Google Drive</em></a> (convención de nombres cortos, sencillos y significativos, y código de colores en las carpetas).</li>
+          <li id="fuente_26">[26] <a href="https://support.google.com/drive/answer/2494822?hl=es">Google Drive — <em>Comparte archivos</em></a> (permisos de lector, comentador y editor, y opción de dejar de compartir).</li>
+          <li id="fuente_27">[27] <a href="https://support.google.com/a/answer/7212025?hl=es">Google Workspace — <em>¿Qué son las unidades compartidas?</em></a> (archivos que pertenecen al equipo y no a una cuenta concreta).</li>
+          <li id="fuente_28">[28] <a href="https://support.google.com/drive/answer/2409045?hl=es">Google Drive — <em>Consulta la actividad y las versiones de los archivos</em></a> (seguimiento de quién hizo cada cambio y acceso a versiones anteriores).</li>
+          <li id="fuente_29">[29] <a href="https://docs.github.com/es/get-started/using-git/about-git">GitHub Docs — <em>Acerca de Git</em></a> (qué es el control de versiones y cómo permite que varias personas colaboren sin pisarse).</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema09.html">← Tema 9</a>
+  <a href="tema11.html">Tema 11 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>

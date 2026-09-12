@@ -1,27 +1,461 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 9 del Bloque C de Tecnología de 4.º de la ESO: Cómo decide una máquina: controladores, sensores, actuadores y la diferencia entre lazo abierto y lazo cerrado.">
-<title>Tema 9. Sistemas de control programado · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 9 de Tecnología de 4.º de la ESO: cómo decide una máquina. Controlador, sensores y actuadores, computación física, señal analógica y digital, lazo abierto y lazo cerrado, realimentación y verificación por etapas.">
+  <title>Tema 9. Sistemas de control programado · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 09 · Bloque C · Pensamiento computacional, automatización y robótica</p><h1>Tema 9. Sistemas de control programado</h1><p class="hero-lead">Cómo decide una máquina: controladores, sensores, actuadores y la diferencia entre lazo abierto y lazo cerrado.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>4.1</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>sistemas de control programado: controlador, sensores y actuadores.</li><li>computación física: del algoritmo al objeto que actúa.</li><li>lazo abierto y lazo cerrado; realimentación.</li><li>programación sencilla de dispositivos y uso de simuladores.</li><li>verificación y comprobación del funcionamiento de los sistemas diseñados.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque C «Pensamiento computacional, automatización y robótica» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>4.1</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema08.html">← Tema 8</a><a href="tema10.html">Tema 10 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 09 · Bloque C · Pensamiento computacional, automatización y robótica</p>
+        <h1>Tema 9. Sistemas de control programado</h1>
+        <p class="hero-lead">Cómo decide una máquina: controlador, sensores y actuadores; del algoritmo al objeto que actúa; lazo abierto, lazo cerrado y realimentación.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 9">
+        <strong>Pregunta guía</strong>
+        <p>¿Cómo harías que la estación de clasificación del taller decida por sí misma qué pieza tiene delante, qué debe hacer con ella y cómo comprobar que lo ha hecho bien?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#control">Qué es un sistema de control</a></li>
+        <li><a href="#bucle">El bucle de control</a></li>
+        <li><a href="#actuadores">Los actuadores</a></li>
+        <li><a href="#senales">Señal analógica y digital</a></li>
+        <li><a href="#lazos">Lazo abierto y lazo cerrado</a></li>
+        <li><a href="#programa">Del algoritmo al objeto</a></li>
+        <li><a href="#simular">Simular y programar</a></li>
+        <li><a href="#verificar">Verificar con seguridad</a></li>
+        <li><a href="#comprueba">Comprueba lo que has aprendido</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen esencial</a></li>
+        <li><a href="#fuentes">Fuentes y recursos</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">En los temas anteriores construimos una <strong>estación automática de clasificación y señalización</strong> para el organizador del aula-taller: la señalización luminosa y los circuitos eléctricos del <strong>Tema 5</strong>, las funciones lógicas del <strong>Tema 6</strong>, el cilindro neumático del <strong>Tema 7</strong> y los mecanismos, la neumática y la estructura del <strong>Tema 8</strong>. Toda esa máquina funcionaba con <strong>lógica cableada</strong>: las decisiones estaban escritas en la forma de conectar pulsadores, finales de carrera y relés, y cambiar una condición obligaba a mover cables. Ahora damos el paso que abre la recta final del curso: sustituimos ese cableado por un <strong>controlador programable</strong> que decide mediante un programa que podemos escribir, probar y corregir tantas veces como haga falta. El objetivo del tema no es aprender a programar —eso llegará después—, sino entender <strong>qué es un sistema de control</strong>, cómo se lee el mundo real con sensores y señales, cómo se actúa sobre él con actuadores y cómo se comprueba que el sistema hace lo que se había previsto.</p>
+
+      <div class="question"><strong>Pregunta guía:</strong> ¿cómo harías que la estación de clasificación del taller decida por sí misma qué pieza tiene delante, qué debe hacer con ella y cómo comprobar que lo ha hecho bien?</div>
+
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>explicar qué es un sistema de control y reconocer sus tres partes: controlador, sensores y actuadores;</li>
+          <li>describir el bucle entrada–proceso–salida y explicar el papel de cada parte con ejemplos de la estación;</li>
+          <li>comparar el control cableado con el control programado y decidir cuándo conviene cada uno;</li>
+          <li>clasificar sensores (final de carrera, óptico o infrarrojo, ultrasónico, temperatura, luz y pulsador) y actuadores (LED, zumbador, motor, servomotor, relé y electroválvula) según su función y su tipo de señal;</li>
+          <li>distinguir una señal analógica de una señal digital, explicar para qué sirve muestrear y qué hace un convertidor analógico-digital;</li>
+          <li>diferenciar lazo abierto y lazo cerrado, definir consigna y error, y reconocer la realimentación en una máquina real;</li>
+          <li>escribir el programa de control de una función sencilla en pseudocódigo y en diagrama de flujo, y verificar el sistema por etapas, en simulador o en el montaje, con las medidas de seguridad.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="control">
+        <h2 id="control">1. Qué es un sistema de control: controlador, sensores y actuadores</h2>
+        <p>Un <strong>sistema de control</strong> es el conjunto de componentes capaz de regular el funcionamiento de un proceso para que se mantenga en lo previsto: mide lo que ocurre, lo compara con lo que se desea y actúa en consecuencia.<sup><a href="#fuente_1">[1]</a></sup> Toda la asignatura apunta a esto: primero aprendimos a construir objetos (organizador modular, prototipo documentado), después a que esos objetos hicieran cosas (electricidad, lógica, neumática, mecanismos) y ahora a que <strong>decidan</strong>.</p>
+        <p>La diferencia con lo que hacíamos hasta ahora es importante y conviene decirla con precisión: en la estación de los temas 5 a 8, la decisión estaba <strong>en el cableado</strong>. Si cambiábamos la regla de clasificación, había que rehacer conexiones. A partir de este tema, la decisión estará en un <strong>programa</strong>: las conexiones pueden seguir siendo las mismas y basta con escribir otras instrucciones.</p>
+
+        <h3>Las tres partes que siempre aparecen</h3>
+        <ul>
+          <li><strong>Controlador.</strong> Es el elemento que decide. Ejecuta un programa paso a paso, recibe información de las entradas y ordena el estado de las salidas. En nuestro taller será una <strong>placa controladora</strong> con un <strong>microcontrolador</strong>: un circuito integrado que reúne en un solo chip la unidad de proceso, la memoria y los circuitos de entrada y salida.<sup><a href="#fuente_2">[2]</a></sup> En la industria se emplean <strong>autómatas programables</strong> (también llamados controladores lógicos programables), preparados para trabajar durante años con muchas entradas y salidas y en condiciones duras.<sup><a href="#fuente_3">[3]</a></sup></li>
+          <li><strong>Sensores.</strong> Recogen información del mundo real y la convierten en una señal eléctrica que el controlador puede leer: un final de carrera avisa de que una pieza ha llegado a su tope, un sensor de luz informa de si el hueco está ocupado.</li>
+          <li><strong>Actuadores.</strong> Ejecutan la orden: un motor mueve la cinta, un servomotor coloca la compuerta, un LED avisa.</li>
+        </ul>
+        <p>Cuando un programa no se queda en la pantalla del ordenador, sino que lee el mundo real y produce un efecto físico en él, hablamos de <strong>computación física</strong>. Es la idea que resume el tema: el algoritmo —esa receta ordenada de pasos que ya sabes escribir— se convierte en algo que mide, decide y actúa.<sup><a href="#fuente_4">[4]</a></sup></p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Comparación entre el control cableado que usa la estación actual y el control programado que vamos a estudiar">
+          <table>
+            <caption>Control cableado y control programado: la misma estación, dos formas de decidir</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Control cableado (la estación actual)</th><th scope="col">Control programado (la versión nueva)</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Dónde está la decisión</strong></th><td>En las conexiones: pulsadores, finales de carrera, relés y contactos unidos de una forma fija.</td><td>En el programa almacenado en el controlador, que se ejecuta paso a paso.</td></tr>
+              <tr><th scope="row"><strong>Cambiar la regla de decisión</strong></th><td>Hay que rehacer el cableado y volver a comprobarlo todo.</td><td>Se modifica el programa y se vuelve a cargar; el cableado no cambia.</td></tr>
+              <tr><th scope="row"><strong>Funciones distintas</strong></th><td>Cada montaje suele servir para una sola función.</td><td>El mismo montaje puede cumplir varias funciones según el programa.</td></tr>
+              <tr><th scope="row"><strong>Diagnóstico</strong></th><td>Se busca el fallo entre cables, contactos y componentes.</td><td>Se pueden leer las entradas y seguir el programa paso a paso para localizar la causa.</td></tr>
+              <tr><th scope="row"><strong>Cuándo conviene</strong></th><td>Funciones muy simples y fijas, sin más elementos que unos pocos contactos.</td><td>Funciones que cambian, con varias condiciones, avisos y comprobaciones.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="idea_clave"><strong>Lo esencial de esta sección</strong>Un sistema de control mide, compara y actúa. Cambiar de control cableado a control programado no cambia los sensores ni los actuadores: cambia <strong>dónde se guarda la decisión</strong>, que pasa del cableado al programa.</div>
+
+        <div class="aviso"><strong>Antes de conectar nada</strong>En este tema se trabaja <strong>únicamente con muy baja tensión de seguridad</strong>: la fuente o la batería aprobada que autorice el profesorado. Nunca la red eléctrica, ni cargadores, ni fuentes improvisadas. El controlador, los sensores y los actuadores se conectan y se desconectan <strong>siempre con la alimentación cortada</strong> y bajo supervisión docente.</div>
+      </section>
+
+      <section aria-labelledby="bucle">
+        <h2 id="bucle">2. El bucle de control: entrada, proceso y salida</h2>
+        <p>Todo sistema de control, desde un semáforo hasta la estación del taller, puede dibujarse con la misma estructura: las <strong>entradas</strong> traen información del mundo real, el <strong>proceso</strong> decide qué hacer con ella y las <strong>salidas</strong> actúan sobre ese mundo. Cuando el resultado de las salidas vuelve a las entradas mediante un sensor, el bucle se cierra y el sistema puede corregirse a sí mismo.</p>
+
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable de la arquitectura de control de la estación: entradas de sensores a la izquierda, controlador y programa en el centro, salidas de actuadores a la derecha y realimentación desde las salidas hacia las entradas">
+          <img src="assets/tema09_arquitectura_control.svg" alt="Arquitectura de control de la estación. A la izquierda, las entradas: final de carrera, sensor óptico o infrarrojo, LDR, sensor ultrasónico, termistor y pulsador. En el centro, el controlador: lee las entradas, las convierte en números con el convertidor analógico-digital, las compara con la consigna, decide y ordena las salidas. A la derecha, las salidas: LED, zumbador, servomotor, motor de la cinta con relé y electroválvula. Una flecha de realimentación baja desde las salidas y vuelve a las entradas. Abajo se recuerda que solo se trabaja con baja tensión autorizada y sin cargas peligrosas.">
+          <figcaption>La arquitectura de control de la estación: los sensores informan, el programa decide y los actuadores actúan. La realimentación devuelve la medida del resultado.</figcaption>
+        </figure>
+
+        <h3>Las entradas: sensores que informan</h3>
+        <p>Un <strong>sensor</strong> transforma una magnitud física —posición, presencia de un objeto, distancia, temperatura o luz— en una señal eléctrica que el controlador puede leer. No todos miden lo mismo ni todos entregan el mismo tipo de señal, y elegir bien es la mitad del trabajo.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Tipos de sensores, qué detecta cada uno, el tipo de señal que entrega y su uso previsto en la estación">
+          <table>
+            <caption>Sensores habituales y su papel en la estación</caption>
+            <thead><tr><th scope="col">Sensor</th><th scope="col">Qué detecta</th><th scope="col">Tipo de señal</th><th scope="col">Uso previsto en la estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Final de carrera</strong></th><td>Que un elemento móvil ha llegado al final de su recorrido. Internamente es un interruptor que se abre o se cierra al ser accionado.<sup><a href="#fuente_5">[5]</a></sup></td><td>Digital (accionado o no accionado).</td><td>Confirmar que la compuerta ha alcanzado su posición.</td></tr>
+              <tr><th scope="row"><strong>Sensor óptico o infrarrojo</strong></th><td>El paso o la presencia de un objeto que interrumpe un haz de luz o lo refleja hacia un receptor.<sup><a href="#fuente_6">[6]</a></sup></td><td>Digital (hay pieza o no la hay).</td><td>Detectar el instante exacto en que una pieza cruza el punto de lectura.</td></tr>
+              <tr><th scope="row"><strong>LDR (sensor de luz)</strong></th><td>La cantidad de luz que recibe. Es una resistencia cuyo valor disminuye al aumentar la luz.<sup><a href="#fuente_7">[7]</a></sup></td><td>Analógica (el valor cambia de forma continua).</td><td>Comprobar si el hueco del organizador queda a oscuras porque está ocupado.</td></tr>
+              <tr><th scope="row"><strong>Sensor de distancia por ultrasonidos</strong></th><td>La distancia a un obstáculo: emite un pulso de sonido y cronometra el tiempo que tarda en volver el eco.<sup><a href="#fuente_8">[8]</a></sup></td><td>Según el módulo, digital o analógica.</td><td>Medir si la bandeja está en su sitio o a qué distancia está la pieza.</td></tr>
+              <tr><th scope="row"><strong>Termistor (temperatura)</strong></th><td>La temperatura: es una resistencia cuyo valor cambia con ella.<sup><a href="#fuente_9">[9]</a></sup></td><td>Analógica.</td><td>Vigilar que el motor de la cinta no se caliente y avisar antes de que se dañe.</td></tr>
+              <tr><th scope="row"><strong>Pulsador</strong></th><td>La acción de una persona. Es un interruptor que vuelve solo a su posición cuando se suelta.<sup><a href="#fuente_10">[10]</a></sup></td><td>Digital.</td><td>Arrancar, parar o confirmar el modo de trabajo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-note"><strong>Ejemplo resuelto · medir con el eco.</strong> Un sensor de ultrasonidos emite un pulso, el sonido viaja hasta la pieza, rebota y vuelve. Si el eco tarda 6 milisegundos (0,006 s) y el sonido viaja a unos 343 m/s en el aire, la distancia recorrida es 343 × 0,006 ≈ 2,06 m. Como ese recorrido es de ida y vuelta, la distancia a la pieza es la mitad: <strong>≈ 1,03 m</strong>. El controlador no «ve» la distancia: mide un tiempo muy corto y calcula a partir de él.<sup><a href="#fuente_8">[8]</a></sup></div>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>Una señal de entrada no es energía: es <strong>información</strong>. Un final de carrera no mueve nada, solo informa de una posición; un pulsador no alimenta el motor, solo lo pide. Si esa separación no queda clara, cualquier avería resulta muy difícil de localizar.</div>
+      </section>
+
+      <section aria-labelledby="actuadores">
+        <h2 id="actuadores">3. Los actuadores: de la señal al movimiento</h2>
+        <p>Si los sensores son los sentidos del sistema, los <strong>actuadores</strong> son sus músculos: reciben una orden del controlador y producen un efecto sobre el mundo real —luz, sonido, giro, empuje—. Un actuador puede limitarse a <strong>avisar</strong> (un LED o un zumbador) o puede <strong>modificar</strong> el estado de la máquina (un motor, un servomotor o una electroválvula).</p>
+        <p>Hay una regla que no se puede saltar: la salida de una placa controladora solo puede entregar una corriente muy pequeña, muy inferior a la que necesita cualquier motor. Por eso, entre la placa y los actuadores «grandes» se coloca un elemento intermedio —un relé, un transistor o una etapa de potencia— que recibe la orden pequeña y conmuta la corriente grande. Es el mismo escalón que ya viste en el <strong>Tema 5</strong> con el transistor como interruptor.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Actuadores del tema, efecto que producen, cómo los gobierna el controlador y su uso en la estación">
+          <table>
+            <caption>Actuadores: qué hacen y cómo se gobiernan</caption>
+            <thead><tr><th scope="col">Actuador</th><th scope="col">Qué efecto produce</th><th scope="col">Cómo lo gobierna el controlador</th><th scope="col">Uso previsto en la estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>LED</strong></th><td>Avisa con luz. Es un diodo que emite luz y siempre necesita una resistencia que limite la corriente (Tema 5).</td><td>Salida digital: encendido o apagado.</td><td>Señalar el puesto activo y el estado de la clasificación.</td></tr>
+              <tr><th scope="row"><strong>Zumbador</strong></th><td>Avisa con sonido. Convierte una señal eléctrica en una vibración audible.<sup><a href="#fuente_11">[11]</a></sup></td><td>Salida digital o por frecuencia: el programa fija el tono y la duración.<sup><a href="#fuente_12">[12]</a></sup></td><td>Avisar de la pieza mal colocada con un tono distinto del de la pieza correcta.</td></tr>
+              <tr><th scope="row"><strong>Servomotor</strong></th><td>Gira y mantiene un ángulo concreto, no solo da vueltas: incorpora un sensor de posición y su propio circuito de control.<sup><a href="#fuente_13">[13]</a></sup></td><td>Salida de control de posición: se le ordena un ángulo.</td><td>Colocar la compuerta o el desvío en el ángulo exacto que necesita la pieza.</td></tr>
+              <tr><th scope="row"><strong>Relé</strong></th><td>Es un interruptor gobernado por una señal: con una bobina pequeña abre o cierra un circuito por el que circula mucha más corriente.<sup><a href="#fuente_14">[14]</a></sup></td><td>Salida digital (con la electrónica de mando que necesita la bobina).</td><td>Hacer que la placa pueda gobernar el motor o una lámpara de más potencia.</td></tr>
+              <tr><th scope="row"><strong>Electroválvula</strong></th><td>Deja pasar o corta el aire comprimido; una pequeña señal eléctrica gobierna un circuito neumático.<sup><a href="#fuente_15">[15]</a></sup></td><td>Salida digital.</td><td>Accionar el cilindro neumático que empuja la pieza (Tema 7).</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-think"><strong>Razona con el caso:</strong> para señalizar con una luz basta una salida digital, pero para colocar una compuerta en un ángulo concreto hace falta decirle al servomotor <em>cuánto</em> debe girar, no solo <em>que</em> gire. ¿Qué diferencia hay entre esos dos tipos de orden y qué debe saber el programa en cada caso?</div>
+
+        <div class="aviso"><strong>Los actuadores se prueban sin carga</strong>Antes de mover nada de verdad, cada actuador se conecta y se prueba <strong>en vacío</strong>, sin el mecanismo acoplado y sin cargas que puedan golpear, caer o atrapar. Un motor probado con la cinta ya montada puede arrastrar los dedos; un cilindro conectado a la compuerta puede golpear. Primero se comprueba que el actuador responde a la orden; solo después se integra en la máquina, con supervisión docente.</div>
+      </section>
+
+      <section aria-labelledby="senales">
+        <h2 id="senales">4. Señal analógica y señal digital: cómo se lee el mundo real</h2>
+        <p>Las señales que maneja un sistema de control son de dos tipos. Una <strong>señal analógica</strong> varía de forma continua y puede tomar cualquier valor dentro de un margen: la resistencia de una LDR, la de un termistor o la tensión que entrega un sensor de temperatura. Una <strong>señal digital</strong> solo puede estar en dos estados —presencia o ausencia, cerrado o abierto, 1 o 0— y por eso es mucho más fácil de leer y de tratar.<sup><a href="#fuente_16">[16]</a></sup></p>
+        <p>Un controlador digital no puede guardar un valor continuo: en su interior todo son números. Cada vez que mide una señal analógica obtiene una <strong>muestra</strong>. Para que esa muestra sea útil tiene que decidir <strong>cuántas veces por segundo</strong> lee y <strong>con qué precisión</strong> convierte el valor.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Comparación entre señal analógica y señal digital en sus valores, ejemplos, lectura y sensibilidad al ruido">
+          <table>
+            <caption>Señal analógica y señal digital</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Señal analógica</th><th scope="col">Señal digital</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Valores posibles</strong></th><td>Infinitos valores intermedios dentro de un margen.</td><td>Solo dos estados, que se representan como 0 y 1.</td></tr>
+              <tr><th scope="row"><strong>Ejemplos en la estación</strong></th><td>Luz que recibe la LDR, temperatura del motor, tensión del sensor de distancia.</td><td>Final de carrera accionado o no, pulsador apretado o suelto.</td></tr>
+              <tr><th scope="row"><strong>Cómo la lee el controlador</strong></th><td>Necesita un convertidor analógico-digital que la transforme en un número.</td><td>Se lee directamente el nivel de tensión de la patilla.</td></tr>
+              <tr><th scope="row"><strong>Sensibilidad a las perturbaciones</strong></th><td>Alta: cualquier ruido, cable largo o mal contacto desvía el valor.</td><td>Baja: mientras el nivel esté en el margen correcto, no hay duda.</td></tr>
+              <tr><th scope="row"><strong>Cómo se actúa con ella</strong></th><td>No se puede «escribir» un valor continuo: se aproxima encendiendo y apagando muy rápido.</td><td>Se activa o se desactiva una salida.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>El convertidor analógico-digital</h3>
+        <p>En una placa controladora como la que usaremos, las entradas analógicas se leen con un <strong>convertidor analógico-digital</strong> (A/D). El convertidor divide el margen de tensión en un número fijo de escalones y asigna a cada muestra el escalón más cercano: eso es <strong>cuantificar</strong>. Cuantos más escalones, más fina es la medida.<sup><a href="#fuente_17">[17]</a></sup></p>
+        <p>En placas como el Arduino UNO ese convertidor tiene <strong>10 bits</strong> de resolución: reparte de 0 a 5 V en 1024 escalones y devuelve números enteros entre 0 y 1023. A cada escalón le corresponden unos <strong>4,9 mV</strong> (5 V dividido entre 1024), de modo que un cambio de una sola unidad en la lectura equivale a menos de cinco milésimas de voltio.<sup><a href="#fuente_18">[18]</a></sup></p>
+        <div class="t4-note"><strong>Ejemplo resuelto · de número a tensión.</strong> Si la lectura de la LDR es 512, la tensión medida es 512 × 4,9 mV ≈ <strong>2,5 V</strong>, justo la mitad del margen. Si fuera 1023, la entrada está en el máximo (unos 5 V) y si fuera 0, en el mínimo. El mismo número no significa lo mismo en todas las placas: la resolución depende del convertidor de cada modelo y hay que comprobarla antes de dar por válida una medida.<sup><a href="#fuente_18">[18]</a></sup></div>
+
+        <h3>Muestrear: leer muchas veces, pero no de cualquier manera</h3>
+        <p><strong>Muestrear</strong> es tomar medidas de una señal a intervalos regulares para poder tratarla como una sucesión de números.<sup><a href="#fuente_19">[19]</a></sup> La elección del intervalo de muestreo es una decisión de diseño con consecuencias muy visibles:</p>
+        <ul>
+          <li>Si se <strong>muestrea demasiado despacio</strong>, el programa se pierde lo que ocurre entre dos lecturas: una pieza que cruza rápido el sensor puede pasar sin ser vista.</li>
+          <li>Si se <strong>muestrea sin necesidad</strong> muy a menudo, se acumulan lecturas inútiles y el programa se llena de trabajo que no aporta nada.</li>
+          <li>Aunque la lectura parezca correcta, conviene <strong>filtrar</strong>: exigir, por ejemplo, que una pieza sea detectada en varias lecturas seguidas antes de dar por buena la detección. Así se evita reaccionar a un parpadeo o a un falso contacto.</li>
+        </ul>
+        <p>Cada patilla digital puede configurarse como entrada o como salida, y el programa decide en cada momento qué papel cumple: leer si un pulsador está apretado o activar el LED que avisa.<sup><a href="#fuente_20">[20]</a></sup> Esa asignación de papeles es la primera decisión que hay que tomar al conectar el sistema.</p>
+        <p>Queda un caso intermedio que conviene entender: ¿y si necesitamos un efecto que no sea estar encendido ni apagado, como una luz a media intensidad o un motor a media velocidad? Un controlador digital no puede entregar un valor continuo, pero puede encender y apagar la salida <strong>muchas veces por segundo</strong>, de forma que el efecto medio sea el deseado. Esa técnica se llama <strong>modulación por ancho de pulsos</strong> y es la forma habitual de aproximar valores intermedios con una salida digital.<sup><a href="#fuente_21">[21]</a></sup></p>
+      </section>
+
+      <section aria-labelledby="lazos">
+        <h2 id="lazos">5. Lazo abierto y lazo cerrado: cuando el sistema se corrige</h2>
+        <p>Ya tenemos entradas, proceso y salidas. La última pregunta es si el sistema <strong>comprueba</strong> lo que ha hecho. La respuesta divide los sistemas de control en dos familias:</p>
+        <ul>
+          <li>En un sistema de <strong>lazo abierto</strong>, la salida no interviene en la acción de control: el programa ordena y da por hecho que la orden se cumple. Es sencillo y barato, pero no detecta que algo se haya desviado.</li>
+          <li>En un sistema de <strong>lazo cerrado</strong>, se mide la salida y esa medida vuelve a la entrada para corregir la acción. La información que regresa se llama <strong>realimentación</strong>, y es el mecanismo por el que una parte de la salida se redirige a la entrada del sistema.<sup><a href="#fuente_1">[1]</a></sup><sup><a href="#fuente_22">[22]</a></sup></li>
+        </ul>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Comparación entre lazo abierto y lazo cerrado, con ejemplos de la estación de clasificación">
+          <table>
+            <caption>Lazo abierto y lazo cerrado</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Lazo abierto</th><th scope="col">Lazo cerrado</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>¿Se mide el resultado?</strong></th><td>No. El programa supone que la orden se cumple tal como se pidió.</td><td>Sí. Un sensor mide lo que ha ocurrido y esa información vuelve al controlador.</td></tr>
+              <tr><th scope="row"><strong>Elementos que necesita</strong></th><td>Controlador, actuador y, como mucho, un sensor de mando.</td><td>Controlador, actuador y un sensor de realimentación que mida el efecto.</td></tr>
+              <tr><th scope="row"><strong>Ventajas</strong></th><td>Montaje y programa muy simples; pocos componentes.</td><td>Corrige desviaciones, detecta fallos y no depende de que todo salga siempre bien.</td></tr>
+              <tr><th scope="row"><strong>Límites</strong></th><td>No avisa si el actuador se agarrota, si el motor pierde fuerza o si una pieza se atasca.</td><td>Requiere más sensores, más cableado y un programa más elaborado.</td></tr>
+              <tr><th scope="row"><strong>Ejemplo en la estación</strong></th><td>Encender el LED de aviso durante un tiempo fijo al detectar la pieza.</td><td>Mover la compuerta hasta que el final de carrera confirme que ha llegado a su tope.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Consigna, error y corrección</h3>
+        <p>En un lazo cerrado hay tres conceptos que conviene nombrar bien:</p>
+        <ul>
+          <li><strong>Consigna</strong> (o valor deseado): lo que queremos que ocurra, por ejemplo «compuerta a 45°».</li>
+          <li><strong>Medición</strong>: lo que el sensor informa en ese momento, por ejemplo «compuerta a 20°».</li>
+          <li><strong>Error</strong>: la diferencia entre las dos, error = consigna − medición. Mientras el error no sea cero, el programa sigue actuando; cuando llega a cero, deja de actuar.</li>
+        </ul>
+        <p>Ese es todo el secreto del control: si el sistema puede medir su propio error, puede corregirlo. Cuanto más fino sea el sensor de realimentación, más pequeña será la corrección necesaria.</p>
+
+        <div class="t4-think"><strong>Razona con el caso:</strong> en la estación, ¿qué funciones pueden trabajar en lazo abierto sin problemas y cuáles necesitan obligatoriamente realimentación? Piensa en la diferencia entre «avisar con un LED» y «dejar la compuerta en la posición exacta»: la primera no depende de que nada falle; la segunda, sí.</div>
+      </section>
+
+      <section aria-labelledby="programa">
+        <h2 id="programa">6. Del algoritmo al objeto: el programa de control</h2>
+        <p>Un <strong>algoritmo</strong> es una secuencia ordenada de pasos que resuelve un problema y termina en un tiempo finito. Cuando ese algoritmo va destinado a un dispositivo, se escribe primero en <strong>pseudocódigo</strong>: una forma de expresar los pasos con lenguaje humano y estructura de programa, sin las reglas exactas de ningún lenguaje concreto, de modo que se pueda revisar y corregir antes de traducirlo.<sup><a href="#fuente_23">[23]</a></sup></p>
+        <p>Un programa de control tiene casi siempre la misma forma: <strong>leer las entradas</strong>, <strong>decidir</strong> según lo leído y la consigna, <strong>actuar sobre las salidas</strong> y <strong>repetir</strong> el ciclo sin parar mientras el sistema esté en marcha.</p>
+
+        <h3>Un ejemplo en pseudocódigo</h3>
+        <p>Estos pasos describen la clasificación de una pieza. Léelos como si fueran las instrucciones que sigue una persona:</p>
+        <pre><code>repetir siempre:
+    pieza = leer(sensor óptico)
+    si pieza = SÍ entonces
+        encender(LED de clasificación)
+        ordenar(servomotor) a 45 grados
+        esperar hasta que final de carrera = SÍ
+        parar(servomotor)
+        apagar(LED de clasificación)
+    fin si
+fin repetir</code></pre>
+        <p>Y estos otros describen la misma función <strong>en lazo cerrado</strong>, comprobando el resultado en cada vuelta:</p>
+        <pre><code>consigna = 45 grados
+repetir siempre:
+    posición = leer(sensor de posición de la compuerta)
+    error = consigna - posición
+    si error &gt; 0 entonces
+        girar(servomotor) hacia adelante
+    fin si
+    si error &lt; 0 entonces
+        girar(servomotor) hacia atrás
+    fin si
+    si error = 0 entonces
+        parar(servomotor)
+    fin si
+fin repetir</code></pre>
+        <div class="t4-note"><strong>Esto no es un lenguaje de programación.</strong> El pseudocódigo se escribe así a propósito: describe <em>qué</em> debe hacer el sistema, paso a paso, sin depender de comas, paréntesis ni nombres de instrucciones concretas. La sintaxis real de un lenguaje de programación y los entornos con los que se carga en la placa se trabajan en el tema siguiente.</div>
+
+        <h3>Los diagramas de flujo: el mismo programa, dibujado</h3>
+        <p>Un <strong>diagrama de flujo</strong> representa un algoritmo con símbolos unidos por flechas que indican el orden de ejecución.<sup><a href="#fuente_24">[24]</a></sup> Conviene conocer cuatro símbolos:</p>
+        <ul>
+          <li><strong>Óvalo:</strong> inicio y fin del programa.</li>
+          <li><strong>Rectángulo:</strong> un proceso, una acción, como «encender el LED».</li>
+          <li><strong>Rombo:</strong> una decisión con dos caminos de salida, sí y no.</li>
+          <li><strong>Paralelogramo:</strong> una entrada o una salida de información, como «leer el sensor óptico».</li>
+        </ul>
+        <p>El programa de clasificación, dibujado, sería: inicio → leer el sensor óptico → ¿hay pieza? → si no hay, volver a leer; si hay, encender el LED → mover la compuerta → ¿ha llegado el final de carrera? → si no ha llegado, seguir esperando; si ha llegado, parar, apagar el LED y volver a empezar. El dibujo y el pseudocódigo cuentan lo mismo: la diferencia es solo la forma de mirarlo.</p>
+        <div class="idea_clave"><strong>Lo esencial de esta sección</strong>Escribir el programa es <strong>traducir el algoritmo</strong>. Primero se piensa en pasos (pseudocódigo) y después se dibuja o se traduce al lenguaje del dispositivo. Ningún programa se escribe directamente sobre la placa: primero se piensa, luego se prueba y solo al final se carga.</div>
+      </section>
+
+      <section aria-labelledby="simular">
+        <h2 id="simular">7. Simular y programar: del ordenador a la placa</h2>
+        <p>Antes de montar nada físico, los sistemas de control se pueden <strong>simular</strong> en el ordenador: se dibuja el circuito con sus componentes, se escribe el programa y se observa qué ocurre al accionar los sensores, sin riesgo de dañar componentes ni de provocar un accidente. Es la misma idea que ya usamos en los temas 5 y 6.<sup><a href="#fuente_25">[25]</a></sup></p>
+        <p>La simulación no sustituye a la prueba real, pero permite llegar al taller con el programa mucho más maduro:</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Qué se comprueba en una simulación, qué solo se comprueba en el montaje real y cuándo conviene cada uno">
+          <table>
+            <caption>Simulación y montaje real: qué aporta cada uno</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Simulación</th><th scope="col">Montaje real</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Qué se comprueba</strong></th><td>La lógica del programa y las conexiones: si al accionar la entrada ocurre lo previsto en la salida.</td><td>El comportamiento con componentes reales, sus tolerancias y sus límites.</td></tr>
+              <tr><th scope="row"><strong>Ventajas</strong></th><td>Sin riesgo; se puede equivocar uno todas las veces que haga falta y se repite en segundos.</td><td>Mide valores reales y demuestra que el sistema funciona de verdad.</td></tr>
+              <tr><th scope="row"><strong>Límites</strong></th><td>No reproduce bien los malos contactos, el ruido eléctrico, el calentamiento ni los rozamientos mecánicos.</td><td>Requiere más tiempo, materiales y medidas de seguridad.</td></tr>
+              <tr><th scope="row"><strong>Cuándo usarlo</strong></th><td>Al empezar: para pensar, corregir y explicar el programa.</td><td>Al final: para verificar y medir sobre la máquina montada.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Un orden de trabajo que evita sustos</h3>
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">1 — Definir la función</div><p>Escribir qué debe detectar el sistema, qué debe hacer y qué debe avisar. Cada condición debe poder comprobarse.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">2 — Escribir el algoritmo</div><p>Pseudocódigo primero y, si ayuda a verlo claro, diagrama de flujo. Todavía no se toca ningún componente.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">3 — Simular</div><p>Montar el circuito en el simulador, cargar el programa y forzar las entradas: ¿responde la salida como estaba previsto?</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">4 — Montar sin energía</div><p>Reproducir el circuito en la placa de pruebas y revisar conexiones con la alimentación desconectada.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">5 — Probar y verificar</div><p>Alimentar, probar primero las entradas, después las salidas sin carga y por último el conjunto, registrando los resultados.</p></div>
+        </div>
+
+        <div class="t4-curio"><strong>Un detalle que sorprende a todo el mundo:</strong> los contactos de un pulsador no se cierran de golpe. Durante unos milisegundos rebotan, es decir, hacen y deshacen contacto varias veces, y un controlador rápido puede leerlos como si alguien hubiera pulsado varias veces seguidas. Ese fenómeno se llama <strong>rebote</strong> y se resuelve con un pequeño retardo en el programa o con un condensador que suaviza la señal.<sup><a href="#fuente_10">[10]</a></sup></div>
+      </section>
+
+      <section aria-labelledby="verificar">
+        <h2 id="verificar">8. Verificar el sistema por etapas y con seguridad</h2>
+        <p><strong>Verificar</strong> no es mirar si la máquina «parece funcionar»: es comparar lo que ocurre con lo que se había previsto, medir y anotar el resultado. Como en los temas anteriores, la verificación se hace <strong>por etapas</strong>, de la más sencilla a la más completa, y nunca de golpe.</p>
+
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">Etapa 1 — El programa, en el simulador</div><p>Se fuerza cada entrada a mano y se comprueba que la salida responde según la tabla prevista, incluidos los casos en los que no debe hacer nada.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">Etapa 2 — Las conexiones, sin energía</div><p>Con la alimentación cortada se revisa patilla por patilla que cada sensor y cada actuador está donde dice el esquema.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">Etapa 3 — Las entradas</div><p>Se acciona cada sensor y se comprueba que el controlador lo registra: el final de carrera, el pulsador, el sensor óptico.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">Etapa 4 — Las salidas, sin carga</div><p>Se comprueba que el LED, el zumbador y el servomotor responden a la orden, todavía sin el mecanismo acoplado.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">Etapa 5 — El conjunto</div><p>Se integra el actuador en la máquina, con carga ligera y la zona despejada, y se registran los valores medidos y las diferencias con lo previsto.</p></div>
+        </div>
+
+        <h3>Qué muestra una verificación bien hecha</h3>
+        <ul>
+          <li><strong>Que el sistema hace lo previsto</strong> en las condiciones normales y también en los casos extremos: pieza mal colocada, pieza que no llega, sensor que no se activa.</li>
+          <li><strong>Que los valores coinciden</strong> con los calculados o simulados, dentro de un margen razonable, y que las diferencias tienen explicación.</li>
+          <li><strong>Que el sistema reacciona bien cuando algo falla</strong>: qué hace si un sensor no detecta, si el actuador no responde o si se pulsa la parada.</li>
+          <li><strong>Que los resultados están registrados</strong>: sin anotaciones, una prueba no demuestra nada a nadie, ni siquiera a tu propio equipo dentro de una semana.</li>
+        </ul>
+
+        <h3>Seguridad: las reglas que no se negocian</h3>
+        <p>Un sistema que decide solo puede moverse cuando nadie lo espera, y eso lo hace más peligroso que una máquina que se acciona a mano. Por eso, en este tema trabajamos <strong>solo con muy baja tensión de seguridad</strong> y <strong>nunca con la red eléctrica</strong>: la alimentación del controlador y de los actuadores es la fuente o la batería aprobada que indique el profesorado, y no hay ninguna excepción a esta regla. Antes de intervenir en el montaje se corta la alimentación, se bloquea el interruptor, se etiqueta y se comprueba que ya no hay tensión: son las mismas precauciones que se aplican a cualquier equipo de trabajo y que se resumen en las cinco reglas de oro de la seguridad eléctrica.<sup><a href="#fuente_26">[26]</a></sup><sup><a href="#fuente_27">[27]</a></sup></p>
+
+        <div class="aviso"><strong>Límites que se respetan siempre en el taller</strong>
+          <ul>
+            <li>Solo se conecta a la <strong>fuente de muy baja tensión</strong> autorizada. Nunca a la red eléctrica (230 V), ni a un cargador, ni a una batería no autorizada.</li>
+            <li>Los <strong>actuadores se prueban sin cargas peligrosas</strong>: sin mecanismos acoplados que puedan atrapar, golpear o proyectar piezas, y siempre con la zona despejada.</li>
+            <li>El montaje se conecta y se modifica con la <strong>alimentación cortada</strong>, y el sistema se prueba <strong>bajo supervisión docente</strong>.</li>
+            <li>La <strong>parada tiene que estar siempre al alcance de la mano</strong>, y el resguardo puesto antes de que la máquina se mueva.</li>
+            <li>Si algo huele a quemado, se calienta, suena raro o simplemente no se entiende qué está pasando, se corta la alimentación y se avisa.</li>
+          </ul>
+        </div>
+
+        <div class="idea_clave"><strong>Cierre del tema</strong>La estación que construimos tiene ahora dos versiones. La primera, con la lógica en el cableado, sigue siendo una máquina útil y fácil de entender. La segunda, con el controlador y su programa, hace lo mismo y además se puede cambiar sin tocar un solo cable. Antes de programar hay que saber qué se quiere medir, qué se va a decidir y cómo se comprobará: eso es un sistema de control.</div>
+      </section>
+
+      <section aria-labelledby="comprueba">
+        <h2 id="comprueba">Comprueba lo que has aprendido</h2>
+        <p>Tu trabajo está bien resuelto si puedes explicar cada decisión y mostrar con qué la comprobaste. Responde a estas preguntas y revisa después la tabla de metas y evidencias.</p>
+        <ol>
+          <li>Explica con tus palabras qué es un sistema de control y cuáles son sus tres partes. Pon un ejemplo de la estación distinto de los que aparecen en el tema.</li>
+          <li>¿Qué diferencia hay entre control cableado y control programado? ¿Qué ventaja concreta aporta el programado cuando hay que cambiar la regla de clasificación?</li>
+          <li>Clasifica estos elementos en sensores y actuadores: zumbador, final de carrera, electroválvula, LDR, pulsador y servomotor. Indica en cada caso si la señal es analógica o digital.</li>
+          <li>Un sensor de temperatura entrega una lectura de 256 en un convertidor de 10 bits con un margen de 0 a 5 V. ¿A qué tensión corresponde, sabiendo que cada escalón vale unos 4,9 mV?</li>
+          <li>Explica la diferencia entre lazo abierto y lazo cerrado usando dos funciones de la estación. ¿En cuál de las dos hace falta definir una consigna y calcular un error?</li>
+          <li>Escribe en pseudocódigo el programa que enciende un LED de aviso cuando el final de carrera se acciona y lo apaga cuando se suelta. Después describe el mismo programa como diagrama de flujo, indicando qué símbolo usarías en cada paso.</li>
+          <li>Antes de probar el sistema con la alimentación conectada, ¿qué tres comprobaciones se hacen y en qué orden? Cita dos límites de seguridad que se respeten siempre en este montaje.</li>
+        </ol>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: Metas de aprendizaje del tema y evidencias que las demuestran">
+          <table>
+            <caption>Qué debes demostrar en este tema</caption>
+            <thead><tr><th scope="col">Meta</th><th scope="col">Qué debes demostrar</th><th scope="col">Evidencias posibles</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Entender el sistema</strong></th><td>Explicar qué es un sistema de control y distinguir controlador, sensores y actuadores.</td><td>Esquema propio del sistema, con las tres partes etiquetadas.</td></tr>
+              <tr><th scope="row"><strong>Leer el bucle de control</strong></th><td>Describir el recorrido entrada–proceso–salida y situar cada elemento de la estación en su bloque.</td><td>Diagrama del bucle con las entradas y las salidas reales del montaje.</td></tr>
+              <tr><th scope="row"><strong>Elegir sensores y actuadores</strong></th><td>Justificar la elección de cada sensor y de cada actuador según la magnitud que se mide y el efecto que se busca.</td><td>Tabla de elementos con su tipo de señal y su función.</td></tr>
+              <tr><th scope="row"><strong>Distinguir analógico y digital</strong></th><td>Identificar qué señales son analógicas, explicar qué es muestrear y qué hace el convertidor A/D.</td><td>Ejemplo numérico resuelto con la resolución del convertidor.</td></tr>
+              <tr><th scope="row"><strong>Reconocer el lazo</strong></th><td>Diferenciar lazo abierto y lazo cerrado, y definir consigna, medición y error.</td><td>Comparación escrita de dos funciones de la estación, una de cada tipo.</td></tr>
+              <tr><th scope="row"><strong>Escribir el programa de control</strong></th><td>Traducir una función sencilla a pseudocódigo y a diagrama de flujo.</td><td>Pseudocódigo y diagrama de flujo con los símbolos correctos.</td></tr>
+              <tr><th scope="row"><strong>Verificar con seguridad</strong></th><td>Planificar la comprobación por etapas y respetar los límites del taller.</td><td>Registro de pruebas con la etapa, lo que se midió y el resultado.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Antes de dar por terminado el trabajo, pide a alguien ajeno al equipo que accione un sensor y explique qué espera que ocurra. Si no puede predecirlo, el programa o el esquema todavía no están lo bastante claros.</p>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Actuador</dt><dd>Elemento que recibe una orden del controlador y produce un efecto sobre el mundo real: luz, sonido, giro, empuje.</dd>
+          <dt>Algoritmo</dt><dd>Secuencia ordenada y finita de pasos que resuelve un problema.</dd>
+          <dt>Antirrebote</dt><dd>Medida que evita que el controlador interprete como varias pulsaciones el rebote de los contactos de un pulsador.</dd>
+          <dt>Computación física</dt><dd>Programa que no se queda en la pantalla: lee el mundo real mediante sensores y produce un efecto físico mediante actuadores.</dd>
+          <dt>Consigna</dt><dd>Valor deseado que se quiere alcanzar; en un lazo cerrado se compara con la medición para obtener el error.</dd>
+          <dt>Controlador</dt><dd>Elemento que decide. Ejecuta un programa, lee las entradas y ordena el estado de las salidas.</dd>
+          <dt>Convertidor analógico-digital</dt><dd>Circuito que transforma una señal continua en un número, dividiendo el margen de tensión en escalones.</dd>
+          <dt>Diagrama de flujo</dt><dd>Representación gráfica de un algoritmo mediante símbolos unidos por flechas que indican el orden de ejecución.</dd>
+          <dt>Entrada</dt><dd>Información que llega al controlador procedente de los sensores y de los elementos de mando.</dd>
+          <dt>Error</dt><dd>Diferencia entre la consigna y la medición. Mientras no es cero, el sistema sigue corrigiendo.</dd>
+          <dt>Final de carrera</dt><dd>Sensor que detecta que un elemento móvil ha llegado al final de su recorrido.</dd>
+          <dt>Lazo abierto</dt><dd>Sistema de control en el que la salida no interviene en la acción de control: no se comprueba el resultado.</dd>
+          <dt>Lazo cerrado</dt><dd>Sistema de control que mide su salida y la usa para corregir la acción; incorpora realimentación.</dd>
+          <dt>Microcontrolador</dt><dd>Circuito integrado que reúne en un solo chip la unidad de proceso, la memoria y los periféricos de entrada y salida.</dd>
+          <dt>Muestreo</dt><dd>Toma de medidas de una señal a intervalos regulares para tratarla como una sucesión de números.</dd>
+          <dt>Programa</dt><dd>Conjunto ordenado de instrucciones que el controlador ejecuta para gobernar el sistema.</dd>
+          <dt>Pseudocódigo</dt><dd>Forma de escribir un algoritmo con lenguaje humano y estructura de programa, sin las reglas de un lenguaje concreto.</dd>
+          <dt>Realimentación</dt><dd>Redirigir una parte de la salida del sistema hacia la entrada para compararla y corregir el comportamiento.</dd>
+          <dt>Salida</dt><dd>Orden que el controlador envía a los actuadores para que produzcan un efecto.</dd>
+          <dt>Sensor</dt><dd>Elemento que transforma una magnitud física del entorno en una señal eléctrica que el controlador puede leer.</dd>
+          <dt>Señal analógica</dt><dd>Señal que varía de forma continua y puede tomar cualquier valor dentro de un margen.</dd>
+          <dt>Señal digital</dt><dd>Señal que solo puede estar en dos estados, que se representan como 0 y 1.</dd>
+          <dt>Simulación</dt><dd>Reproducción del circuito y del programa en el ordenador para comprobarlos sin montar los componentes reales.</dd>
+          <dt>Verificación</dt><dd>Comprobación mediante medidas y registros de que el sistema hace lo que se había previsto.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Un sistema de control mide, compara con lo que se desea y actúa para mantener el proceso en lo previsto.</li>
+          <li>Sus tres partes son el controlador, que decide en función de un programa; los sensores, que informan; y los actuadores, que ejecutan.</li>
+          <li>La computación física hace que el algoritmo deje de estar en la pantalla y pase a leer el mundo real y a producir un efecto en él.</li>
+          <li>El control cableado guarda la decisión en las conexiones; el control programado la guarda en un programa que se puede cambiar sin tocar el cableado.</li>
+          <li>El bucle de control tiene tres bloques: entradas, proceso y salidas. Con realimentación, el resultado vuelve a la entrada y el bucle se cierra.</li>
+          <li>Los sensores habituales son el final de carrera, el óptico o infrarrojo, el ultrasónico, el termistor, la LDR y el pulsador; los actuadores, el LED, el zumbador, el motor, el servomotor, el relé y la electroválvula.</li>
+          <li>Una señal de entrada es información, no energía: el sensor informa, el actuador ejecuta y el controlador decide.</li>
+          <li>La señal analógica varía de forma continua; la señal digital solo tiene dos estados. El convertidor analógico-digital transforma la primera en números, dividiendo el margen en escalones (por ejemplo, 1024 escalones y 4,9 mV cada uno en una entrada de 10 bits con 5 V de fondo de escala).</li>
+          <li>Muestrear es leer a intervalos regulares; hay que elegir el intervalo, comprobar la resolución real del convertidor y filtrar las lecturas dudosas.</li>
+          <li>En lazo abierto no se comprueba el resultado; en lazo cerrado se mide la salida mediante realimentación y se corrige la acción.</li>
+          <li>La consigna es el valor deseado, la medición es el valor real y el error es su diferencia: mientras el error no es cero, el programa sigue actuando.</li>
+          <li>El programa de control se piensa primero en pseudocódigo o en diagrama de flujo, se prueba después en un simulador y solo al final se monta y se verifica por etapas, siempre con baja tensión autorizada, sin cargas peligrosas y bajo supervisión docente.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_1">[1] <a href="https://es.wikipedia.org/wiki/Sistema_de_control">Wikipedia — Sistema de control: definición, partes y clasificación entre lazo abierto y lazo cerrado</a>.</li>
+          <li id="fuente_2">[2] <a href="https://es.wikipedia.org/wiki/Microcontrolador">Wikipedia — Microcontrolador: unidad de proceso, memoria y periféricos en un solo chip</a>.</li>
+          <li id="fuente_3">[3] <a href="https://es.wikipedia.org/wiki/Controlador_l%C3%B3gico_programable">Wikipedia — Controlador lógico programable (autómata programable)</a>.</li>
+          <li id="fuente_4">[4] <a href="https://docs.arduino.cc/learn/starting-guide/whats-arduino/">Arduino Docs — What is Arduino? Guía de introducción a las placas controladoras</a> (en inglés).</li>
+          <li id="fuente_5">[5] <a href="https://es.wikipedia.org/wiki/Final_de_carrera">Wikipedia — Final de carrera o interruptor de límite</a>.</li>
+          <li id="fuente_6">[6] <a href="https://es.wikipedia.org/wiki/Sensor_infrarrojo">Wikipedia — Sensor infrarrojo: detección por interrupción o reflexión de un haz</a>.</li>
+          <li id="fuente_7">[7] <a href="https://es.wikipedia.org/wiki/Fotorresistor">Wikipedia — Fotorresistor (LDR): resistencia que varía con la luz recibida</a>.</li>
+          <li id="fuente_8">[8] <a href="https://es.wikipedia.org/wiki/Sensor_ultras%C3%B3nico">Wikipedia — Sensor ultrasónico: medida de distancia por el tiempo de retorno del eco</a>.</li>
+          <li id="fuente_9">[9] <a href="https://es.wikipedia.org/wiki/Termistor">Wikipedia — Termistor: resistencia que varía con la temperatura</a>.</li>
+          <li id="fuente_10">[10] <a href="https://docs.arduino.cc/built-in-examples/digital/Button/">Arduino Docs — Button: lectura de un pulsador y problema del rebote de los contactos</a> (en inglés).</li>
+          <li id="fuente_11">[11] <a href="https://es.wikipedia.org/wiki/Zumbador">Wikipedia — Zumbador: dispositivo que produce un aviso sonoro</a>.</li>
+          <li id="fuente_12">[12] <a href="https://docs.arduino.cc/language-reference/en/functions/advanced-io/tone/">Arduino Docs — tone(): generar un tono de frecuencia y duración determinadas</a> (en inglés).</li>
+          <li id="fuente_13">[13] <a href="https://docs.arduino.cc/libraries/servo/">Arduino Docs — Librería Servo: control de la posición de un servomotor</a> (en inglés).</li>
+          <li id="fuente_14">[14] <a href="https://es.wikipedia.org/wiki/Rel%C3%A9">Wikipedia — Relé: interruptor gobernado por una señal de mando</a>.</li>
+          <li id="fuente_15">[15] <a href="https://es.wikipedia.org/wiki/Electrov%C3%A1lvula">Wikipedia — Electroválvula: válvula accionada eléctricamente</a>.</li>
+          <li id="fuente_16">[16] <a href="https://es.wikipedia.org/wiki/Se%C3%B1al_digital">Wikipedia — Señal digital: dos estados y su diferencia con la señal analógica</a>.</li>
+          <li id="fuente_17">[17] <a href="https://docs.arduino.cc/learn/microcontrollers/analog-input/">Arduino Docs — Analog Inputs: entradas analógicas y conversión</a> (en inglés).</li>
+          <li id="fuente_18">[18] <a href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogRead/">Arduino Docs — analogRead(): convertidor de 10 bits, valores de 0 a 1023 y resolución de 4,9 mV por unidad</a> (en inglés).</li>
+          <li id="fuente_19">[19] <a href="https://es.wikipedia.org/wiki/Muestreo_digital">Wikipedia — Muestreo digital: toma de muestras a intervalos regulares</a>.</li>
+          <li id="fuente_20">[20] <a href="https://docs.arduino.cc/learn/microcontrollers/digital-pins/">Arduino Docs — Digital Pins: configuración de las patillas como entrada o como salida</a> (en inglés).</li>
+          <li id="fuente_21">[21] <a href="https://docs.arduino.cc/language-reference/en/functions/analog-io/analogWrite/">Arduino Docs — analogWrite(): modulación por ancho de pulsos para aproximar valores intermedios</a> (en inglés).</li>
+          <li id="fuente_22">[22] <a href="https://es.wikipedia.org/wiki/Realimentaci%C3%B3n">Wikipedia — Realimentación (feedback): una parte de la salida se redirige a la entrada</a>.</li>
+          <li id="fuente_23">[23] <a href="https://es.wikipedia.org/wiki/Pseudoc%C3%B3digo">Wikipedia — Pseudocódigo: descripción de un algoritmo sin la sintaxis de un lenguaje concreto</a>.</li>
+          <li id="fuente_24">[24] <a href="https://es.wikipedia.org/wiki/Diagrama_de_flujo">Wikipedia — Diagrama de flujo: representación gráfica de un algoritmo y sus símbolos</a>.</li>
+          <li id="fuente_25">[25] <a href="https://www.tinkercad.com/circuits">Autodesk Tinkercad — Circuits: simulador en línea de circuitos y placas controladoras</a>.</li>
+          <li id="fuente_26">[26] <a href="https://www.insst.es/noticias-insst/riesgo-electrico-las-cinco-reglas-de-oro-2019">INSST — Riesgo eléctrico: las cinco reglas de oro</a>.</li>
+          <li id="fuente_27">[27] <a href="https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/32-serie-ntp-numeros-1101-a-1135-ano-2018/ntp-1.117-consignacion-de-maquinas">INSST — NTP 1117: Consignación de máquinas</a>.</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema08.html">← Tema 8</a>
+  <a href="tema10.html">Tema 10 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>

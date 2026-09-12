@@ -1,27 +1,488 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 12 del Bloque C de Tecnología de 4.º de la ESO: Cómo se conectan los sistemas de control a la red y qué aportan el internet de las cosas, la inteligencia artificial y el big data.">
-<title>Tema 12. Internet de las cosas (IoT) e IA · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 12 de Tecnología de 4.º de la ESO: cómo se conecta un sistema de control a la red y qué aportan el internet de las cosas, la inteligencia artificial y el big data, con sentido crítico.">
+  <title>Tema 12. Internet de las cosas, IA y big data · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 12 · Bloque C · Pensamiento computacional, automatización y robótica</p><h1>Tema 12. Internet de las cosas, inteligencia artificial y big data</h1><p class="hero-lead">Cómo se conectan los sistemas de control a la red y qué aportan el internet de las cosas, la inteligencia artificial y el big data.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>4.2</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>telecomunicaciones en los sistemas de control digital.</li><li>internet de las cosas: elementos, comunicaciones y control.</li><li>monitorización y control de dispositivos IoT mediante plataformas en la nube.</li><li>iniciación a la inteligencia artificial y al big data: aplicaciones.</li><li>uso crítico y responsable: datos, privacidad, consumo energético y dependencia tecnológica.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque C «Pensamiento computacional, automatización y robótica» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>4.2</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema11.html">← Tema 11</a><a href="tema13.html">Tema 13 →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 12 · Bloque C · Pensamiento computacional, automatización y robótica</p>
+        <h1>Tema 12. Internet de las cosas, inteligencia artificial y big data</h1>
+        <p class="hero-lead">Cómo se conectan los sistemas de control a la red, qué se puede hacer con sus datos y por qué conviene mirar estas tecnologías con criterio.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 12">
+        <strong>Pregunta guía</strong>
+        <p>¿Qué gana nuestra estación de clasificación cuando se conecta a la red y qué no deberíamos delegar nunca en ella?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#conectado">Conectado frente a aislado</a></li>
+        <li><a href="#arquitectura">La arquitectura conectada</a></li>
+        <li><a href="#redes">Redes y telecomunicaciones</a></li>
+        <li><a href="#telemetria">Telemetría, monitorización y control</a></li>
+        <li><a href="#datos">Medidas, datos y registros</a></li>
+        <li><a href="#bigdata">Big data</a></li>
+        <li><a href="#ia">Inteligencia artificial</a></li>
+        <li><a href="#responsabilidad">Uso crítico y responsable</a></li>
+        <li><a href="#comprueba">Comprueba lo aprendido</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">En el <strong>Tema 9</strong> aprendimos cómo decide una máquina; en el <strong>Tema 10</strong> la programamos y en el <strong>Tema 11</strong> construimos un robot sencillo que se maneja solo. Pero toda esa estación de clasificación ha trabajado hasta ahora <strong>encerrada en sí misma</strong>: decide con lo que ven sus sensores y no cuentan con nadie más. En este tema damos el último paso del curso dentro de la automatización: <strong>conectar la estación a la red</strong>. La máquina empezará a enviar el estado y los datos de sus sensores, podrá recibir órdenes desde fuera y dejará registros que después se pueden analizar. En ese salto aparecen tres tecnologías que conviene entender sin exagerarlas: el <strong>internet de las cosas</strong>, la <strong>inteligencia artificial</strong> y el <strong>big data</strong>. Y, con ellas, una pregunta que no es técnica sino de criterio: qué hacemos con los datos de los demás y hasta dónde conviene delegar en una máquina.</p>
+
+      <div class="question"><strong>Pregunta guía:</strong> ¿qué gana nuestra estación de clasificación cuando se conecta a la red y qué no deberíamos delegar nunca en ella?</div>
+
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>explicar qué cambia cuando un sistema de control pasa de estar aislado a estar conectado, y qué aporta y qué exige cada cambio;</li>
+          <li>identificar los elementos de una solución conectada —dispositivo y sensores, red o pasarela, plataforma o servicio, aplicación y persona usuaria— y describir el recorrido de los datos;</li>
+          <li>reconocer los medios de transmisión y los parámetros que condicionan un sistema de control: direcciones y puertos, latencia, ancho de banda, cobertura, fiabilidad y consumo;</li>
+          <li>distinguir telemetría, monitorización y control remoto, y justificar por qué el control a distancia necesita realimentación y salvaguardas locales;</li>
+          <li>explicar cómo se generan los datos en la máquina y diferenciar dato, medida y registro, aplicando criterios básicos de calidad de los datos;</li>
+          <li>describir qué caracteriza al big data y cómo se muestrean, limpian, agregan y representan los datos antes de analizarlos;</li>
+          <li>explicar qué hace un sistema de inteligencia artificial, en qué se diferencia de uno basado en reglas, por qué puede equivocarse y qué responsabilidades implica su uso.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="conectado">
+        <h2 id="conectado">1. De una máquina aislada a una máquina conectada</h2>
+        <p>Nuestra estación, tal como la dejamos, es un <strong>sistema de control aislado</strong>. Lee sus sensores, decide con su programa y actúa sobre sus actuadores. Todo lo que sabe ocurre dentro de la célula, y todo lo que sabe se pierde cuando se apaga. No es un defecto: es una elección de diseño que tiene ventajas claras, como la <strong>independencia</strong> y la <strong>sencillez</strong>.</p>
+        <p>Conectar la estación significa añadir una <strong>cadena de datos</strong> que se suma a las que ya conocemos: la energía mueve, la señal decide y ahora la información <strong>viaja</strong>. Para eso hace falta transmitir información a distancia, que es justo lo que estudian las <strong>telecomunicaciones</strong>, la técnica y la tecnología de comunicar a distancia mediante señales.<sup><a href="#fuente_1">[1]</a></sup> El <strong>internet de las cosas</strong> es la consecuencia de llevar esa capacidad a todo tipo de objetos: la digitalización y la conectividad de dispositivos que van desde los sensores y actuadores hasta objetos de uso cotidiano, que así pueden <strong>enviar y recibir información</strong> y realizar tareas que antes no eran posibles.<sup><a href="#fuente_2">[2]</a></sup></p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: qué cambia cuando la estación deja de estar aislada y se conecta">
+          <table>
+            <caption>Qué cambia cuando la estación deja de estar aislada</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Estación aislada</th><th scope="col">Estación conectada</th><th scope="col">Ejemplo en el proyecto</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Información</strong></th><td>Vive y muere dentro de la máquina.</td><td>Sale de la célula y queda registrada.</td><td>Saber cuántas piezas pasaron y de qué tipo.</td></tr>
+              <tr><th scope="row"><strong>Alcance</strong></th><td>Solo quien está delante ve lo que ocurre.</td><td>Se puede observar desde otro lugar.</td><td>Consultar el estado de la estación desde el aula.</td></tr>
+              <tr><th scope="row"><strong>Órdenes</strong></th><td>Se dan con mandos locales.</td><td>Se pueden enviar a distancia, con condiciones.</td><td>Cambiar el criterio de clasificación sin tocar el programa.</td></tr>
+              <tr><th scope="row"><strong>Análisis</strong></th><td>Ninguno: no hay histórico.</td><td>Con muchos registros se pueden buscar tendencias.</td><td>Detectar a qué hora se atasca más la cinta.</td></tr>
+              <tr><th scope="row"><strong>Dependencias</strong></th><td>No depende de nada externo.</td><td>Depende de la red, de la alimentación y del servicio.</td><td>Si se cae la red, hay que decidir qué hace la máquina.</td></tr>
+              <tr><th scope="row"><strong>Riesgos nuevos</strong></th><td>Atrapamientos, golpes y contactos eléctricos.</td><td>Además, accesos no autorizados y datos personales.</td><td>Alguien ajeno que apague o altere la estación.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-note"><strong>Conectar no es mejorar por sí solo.</strong> Un sistema conectado no es automáticamente mejor que uno aislado: gana alcance, información y posibilidades de análisis, pero también incorpora nuevas averías, nuevas dependencias y nuevas responsabilidades. La pregunta correcta no es «¿se puede conectar?», sino <strong>«¿para qué, con qué coste y quién responde si falla?»</strong>.</div>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>Conectar añade una cadena de datos a la máquina. Como en la cadena de señal del <strong>Tema 8</strong>, conviene dibujarla aparte, porque los fallos de información son distintos de los fallos de energía y de los fallos mecánicos.</div>
+      </section>
+
+      <section aria-labelledby="arquitectura">
+        <h2 id="arquitectura">2. La arquitectura de una solución conectada: del sensor a la persona</h2>
+        <p>Cuando conectamos algo no basta con «ponerle internet». Se monta una <strong>arquitectura</strong> con varias piezas, y cada una tiene su función. Los organismos de normalización describen el internet de las cosas como un conjunto de objetos identificados y conectados a la red que intercambian información y pueden ser gestionados.<sup><a href="#fuente_3">[3]</a></sup> En la práctica, eso se organiza en cinco niveles que conviene saber nombrar.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: los cinco niveles de una solución conectada">
+          <table>
+            <caption>Los cinco niveles de una solución conectada</caption>
+            <thead><tr><th scope="col">Nivel</th><th scope="col">Qué hace</th><th scope="col">En nuestra estación</th><th scope="col">Qué puede fallar</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>1. Dispositivo y sensores</strong></th><td>Mide el entorno, decide lo urgente y actúa. Es el <strong>borde</strong> del sistema.</td><td>El controlador, los sensores de presencia y color, el motor y el cilindro.</td><td>Sensor sucio o descalibrado; alimentación insuficiente.</td></tr>
+              <tr><th scope="row"><strong>2. Red y pasarela</strong></th><td>Transporta los mensajes y concentra el tráfico de varios dispositivos.</td><td>El cable o la red inalámbrica del taller y el equipo que hace de pasarela.</td><td>Sin cobertura, red saturada o enlace que se cae.</td></tr>
+              <tr><th scope="row"><strong>3. Plataforma o servicio</strong></th><td>Recibe, guarda, ordena y pone a disposición los registros.</td><td>El servicio, en la nube o en un ordenador del centro, donde quedan los históricos.</td><td>Servicio no disponible; cambios de condiciones; coste.</td></tr>
+              <tr><th scope="row"><strong>4. Aplicación o panel</strong></th><td>Muestra la información y permite dar órdenes con controles claros.</td><td>La página o la aplicación con el estado de la estación y sus avisos.</td><td>Información mal interpretada; permisos demasiado amplios.</td></tr>
+              <tr><th scope="row"><strong>5. Persona usuaria</strong></th><td>Interpreta, decide y responde de lo que ocurre.</td><td>Quien supervisa la estación y toma las decisiones de mantenimiento.</td><td>Confiar en el dato sin comprobarlo ni saber qué mide.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Para que otro sistema entienda qué es nuestro dispositivo y qué puede ofrecer, se describe con un documento normalizado: una <strong>descripción del objeto</strong> que recoge sus datos y sus formas de interacción, de modo que aplicaciones distintas puedan entenderse con él.<sup><a href="#fuente_4">[4]</a></sup> Ese documento incluye <strong>identificadores</strong> del dispositivo, y conviene recordar que un identificador fijo permite seguir los pasos de quien lo lleva o lo usa, algo que los propios estándares tratan como un asunto de privacidad.</p>
+
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable de la arquitectura de la estación conectada">
+          <img src="assets/tema12_arquitectura_iot.svg" alt="Diagrama del flujo de datos de la estación conectada: la estación y sus sensores generan la medida; la red y la pasarela transportan el mensaje; la plataforma o servicio recibe, guarda y ordena los registros; la aplicación y la persona usuaria los interpretan y deciden. Los datos suben desde la estación hasta la persona y las órdenes bajan desde la aplicación hasta la estación. En el borde se mide, se filtra y se decide lo urgente, y las salvaguardas locales —parada y resguardo, control local y comportamiento seguro sin conexión— se quedan siempre en la máquina.">
+          <figcaption>Los datos suben y las órdenes bajan, pero la seguridad se queda en la máquina. Recorre el diagrama empezando por el nivel 1 y fíjate en qué nivel hace cada cosa.</figcaption>
+        </figure>
+
+        <div class="t4-curio"><strong>No siempre hace falta la nube.</strong> La plataforma puede ser un servicio en internet o un servidor pequeño dentro del propio centro. Lo importante no es que esté «en la nube», sino que <strong>reciba, guarde y ordene</strong> los datos. Para un proyecto de aula, una red local y un servidor propio suelen ser suficientes, más baratos y más fáciles de controlar.</div>
+
+        <div class="t4-think"><strong>Decide con el caso:</strong> si solo queremos ver el estado de la estación desde el aula, bastan los niveles 1 a 4. Si además queremos guardar meses de medidas para analizarlas, el nivel 3 se vuelve imprescindible. Y si queremos que la máquina siga clasificando cuando se cae la red, el nivel 1 debe poder trabajar solo.</div>
+      </section>
+
+      <section aria-labelledby="redes">
+        <h2 id="redes">3. Redes y telecomunicaciones aplicadas al control</h2>
+        <p>Un sistema conectado es, antes que nada, un sistema que <strong>se comunica</strong>. Y comunicarse plantea decisiones muy parecidas a las del montaje de la estación: elegir el medio, comprobar que llega la señal y calcular qué necesita el sistema para funcionar. Estas son las que más nos afectan en un sistema de control.</p>
+
+        <h3>El medio: cable o aire</h3>
+        <p>El <strong>cableado</strong> transporta la información por un conductor: es estable, difícil de interceptar sin acceso físico y admite alimentar el dispositivo por el mismo cable, pero obliga a tenderlo y no permite mover la máquina con libertad. El <strong>inalámbrico</strong> usa ondas de radio: da movilidad y ahorra instalación, a cambio de depender de la cobertura, de posibles interferencias y de la energía de las baterías. La elección no es ideológica: un robot que se desplaza necesita radio; una pasarela fija en el taller está mejor con cable.</p>
+
+        <div class="comparacion">
+          <div>
+            <h3>Cableado</h3>
+            <p>Estable, predecible y con menos interferencias. Permite llevar alimentación además de datos. A cambio, ata el dispositivo a un punto fijo y encarece cualquier cambio de distribución.</p>
+          </div>
+          <div>
+            <h3>Inalámbrico</h3>
+            <p>Da movilidad y se instala sin obra. A cambio, depende de la cobertura, puede sufrir interferencias y obliga a pensar en baterías, consumo y seguridad del enlace.</p>
+          </div>
+        </div>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: tecnologías de comunicación inalámbrica y cableada">
+          <table>
+            <caption>Tecnologías de comunicación que pueden usarse en el proyecto</caption>
+            <thead><tr><th scope="col">Tecnología</th><th scope="col">Cómo se usa</th><th scope="col">Alcance y características</th><th scope="col">Cuándo conviene aquí</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Cable de red</strong></th><td>Un latiguillo conecta la placa o la pasarela al router del taller.</td><td>Enlace muy estable, sin cobertura que se degrade; el dispositivo queda fijo.</td><td>Estación en un banco fijo que debe funcionar siempre igual.</td></tr>
+              <tr><th scope="row"><strong>Wi-Fi</strong></th><td>El dispositivo se une a la red local sin cables. Se apoya en la familia de normas <abbr title="Institute of Electrical and Electronics Engineers">IEEE</abbr> 802.11, que define las redes de área local inalámbricas.<sup><a href="#fuente_5">[5]</a></sup></td><td>Cubre una sala o un edificio; puede degradarse con la distancia y las paredes.</td><td>Robot móvil o panel que se consulta desde un móvil dentro del centro.</td></tr>
+              <tr><th scope="row"><strong>Bluetooth</strong></th><td>Conecta directamente dispositivos muy próximos entre sí, con soluciones pensadas para un consumo reducido.<sup><a href="#fuente_6">[6]</a></sup></td><td>Pensado para distancias cortas y para enviar poco volumen de datos.</td><td>Configurar la placa desde el móvil o leer un sensor cercano.</td></tr>
+              <tr><th scope="row"><strong>Red móvil</strong></th><td>El dispositivo se conecta a internet a través de la red de telefonía.</td><td>Llega donde no hay otra cobertura, pero tiene coste y depende de un operador.</td><td>Estaciones situadas en lugares sin red local disponible.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Direcciones, puertos e identificadores</h3>
+        <p>Para que un mensaje llegue a su destino hacen falta una <strong>dirección</strong> y una <strong>puerta</strong>. La dirección es la <strong>dirección IP</strong>, que identifica a cada dispositivo dentro de la red. En casa y en el centro se usan direcciones <strong>privadas</strong>, reservadas justamente para eso: los rangos que van de 10.0.0.0 a 10.255.255.255, de 172.16.0.0 a 172.31.255.255 y de 192.168.0.0 a 192.168.255.255.<sup><a href="#fuente_7">[7]</a></sup> Por eso muchas redes domésticas empiezan por 192.168.</p>
+        <p>El <strong>puerto</strong> es un número que distingue <em>qué servicio</em> se está usando dentro de ese dispositivo: a una misma dirección pueden llegar peticiones para servicios distintos, y el puerto indica cuál. Los números más conocidos están registrados y son iguales en todo el mundo.<sup><a href="#fuente_8">[8]</a></sup> Además de la dirección y el puerto, cada dispositivo tiene su <strong>identificador</strong> propio, que es lo que permite nombrarlo y reconocerlo dentro del sistema.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: protocolos, puertos y para qué sirve cada uno">
+          <table>
+            <caption>Protocolos y puertos habituales en un sistema conectado</caption>
+            <thead><tr><th scope="col">Protocolo</th><th scope="col">Puerto</th><th scope="col">Para qué sirve</th><th scope="col">Ejemplo en la estación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>HTTP</strong></th><td>80</td><td>Petición y respuesta entre un cliente y un servidor.</td><td>Que el panel pida el estado actual de la máquina.</td></tr>
+              <tr><th scope="row"><strong>HTTPS</strong></th><td>443</td><td>Igual que HTTP, pero con la comunicación cifrada.</td><td>Consultar el panel desde fuera del centro sin exponer los datos.</td></tr>
+              <tr><th scope="row"><strong>MQTT</strong></th><td>1883</td><td>Mensajería ligera de publicación y suscripción.</td><td>Enviar cada medida de temperatura al servicio.</td></tr>
+              <tr><th scope="row"><strong>MQTT seguro</strong></th><td>8883</td><td>El mismo protocolo con la conexión cifrada.</td><td>Enviar las medidas protegidas cuando salen a internet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Dos formas de hablar: HTTP y MQTT</h3>
+        <p><strong>HTTP</strong> funciona por <strong>petición y respuesta</strong>: un cliente pide algo y un servidor contesta, normalmente con un código de estado que indica cómo fue la petición. Es un protocolo <strong>sin memoria</strong> entre peticiones, lo que lo hace muy cómodo para consultar información de vez en cuando.<sup><a href="#fuente_9">[9]</a></sup></p>
+        <p><strong>MQTT</strong> funciona al revés: en lugar de preguntar, se <strong>publica</strong>. Un dispositivo <em>publica</em> un mensaje en un <strong>tema</strong> y el servidor se lo entrega a todos los que estén <em>suscritos</em> a ese tema. Es un protocolo de mensajería <strong>ligero</strong>, pensado precisamente para dispositivos sencillos y para la comunicación entre máquinas, y está diseñado para funcionar donde hay poco ancho de banda.<sup><a href="#fuente_10">[10]</a></sup> Esa es la razón de que se use tanto en el internet de las cosas.</p>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Publicar y suscribirse</strong>Imagina el tablón de anuncios del instituto. Quien tiene algo que decir <strong>publica</strong> una nota en un apartado concreto; quien quiere enterarse se apunta a ese apartado y recibe solo las notas de ese tema. Nadie tiene que llamar a nadie por teléfono: el tablón se encarga. Publicar en <code>taller/estacion1/temperatura</code> es dejar la nota en un apartado con ese nombre.</div>
+
+        <h3>Los parámetros que deciden si la comunicación sirve</h3>
+        <div class="t4-grid">
+          <div class="t4-card">
+            <h3>Latencia</h3>
+            <p>El retraso entre enviar un mensaje y recibir su efecto. Para enviar una temperatura cada minuto da igual; para detener algo a distancia, es decisivo.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Ancho de banda</h3>
+            <p>La cantidad de información que puede transmitirse por el canal en un tiempo dado.<sup><a href="#fuente_11">[11]</a></sup> Unas pocas medidas por segundo no necesitan casi nada de capacidad.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Cobertura</h3>
+            <p>Hasta dónde llega la red con calidad suficiente. Es un dato real y medible: en España se puede consultar la cobertura disponible por zonas.<sup><a href="#fuente_12">[12]</a></sup></p>
+          </div>
+          <div class="t4-card">
+            <h3>Fiabilidad y consumo</h3>
+            <p>Que la red no falle justo cuando hace falta y que el dispositivo pueda alimentarse. Un equipo a batería obliga a gastar menos energía y a enviar menos.</p>
+          </div>
+        </div>
+
+        <div class="t4-note"><strong>Elige según lo que se envía.</strong> Enviar una medida cada minuto exige poca capacidad y tolera bastante retraso. Recibir una orden para parar exige poco retraso y mucha fiabilidad, y aun así debe existir una parada física en la máquina. Antes de elegir tecnología, decide <strong>qué datos</strong> viajan, <strong>cada cuánto</strong> y <strong>qué pasa si no llegan</strong>.</div>
+      </section>
+
+      <section aria-labelledby="telemetria">
+        <h2 id="telemetria">4. Telemetría, monitorización y control remoto</h2>
+        <p>Estas tres palabras se usan como sinónimos y no lo son. Distinguirlas es la clave para no prometer más de lo que el sistema puede hacer.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: diferencia entre telemetría, monitorización y control remoto">
+          <table>
+            <caption>Telemetría, monitorización y control remoto</caption>
+            <thead><tr><th scope="col">Función</th><th scope="col">Qué hace</th><th scope="col">Hacia dónde va la información</th><th scope="col">Qué exige</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Telemetría</strong></th><td>La máquina informa por sí misma de sus medidas y de su estado.</td><td>Sube: del dispositivo hacia la red.</td><td>Sensores fiables, muestreo razonable y un formato acordado para los mensajes.</td></tr>
+              <tr><th scope="row"><strong>Monitorización</strong></th><td>Alguien observa esos datos, con umbrales y avisos automáticos.</td><td>Sube, y vuelve en forma de alertas.</td><td>Umbrales bien elegidos, panel claro y un responsable que mire los avisos.</td></tr>
+              <tr><th scope="row"><strong>Control remoto</strong></th><td>Se envían órdenes que cambian el estado de la máquina.</td><td>Baja: de la aplicación hacia el dispositivo, y confirma la vuelta.</td><td>Realimentación para comprobar el efecto y salvaguardas locales que no dependan de la red.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>La telemetría y la monitorización solo <strong>informan</strong>. El control remoto, en cambio, <strong>actúa</strong>, y ahí está el problema: quien da una orden a distancia no está viendo la máquina. Por eso el control remoto exige <strong>realimentación</strong>, es decir, la misma idea de lazo cerrado que vimos en el <strong>Tema 9</strong>: no basta con enviar la orden, hay que recibir la confirmación de que la orden se cumplió y de que el efecto fue el previsto. Si el motor no arranca porque hay una pieza atascada, el sistema debe saberlo, no suponerlo.</p>
+        <p>Y exige, sobre todo, <strong>salvaguardas locales</strong>. La parada de emergencia, el resguardo con enclavamiento y los finales de carrera se quedan en la máquina y funcionan aunque la red esté caída. Un sistema de control conectado que solo puede pararse «desde la aplicación» es un sistema mal diseñado: la red puede fallar justo cuando más se necesita.</p>
+
+        <div class="aviso"><strong>La red no sustituye a la seguridad</strong>Las órdenes a distancia se dan bajo supervisión docente y nunca sobre una máquina que pueda dañar a alguien. No se acciona nada a distancia sin ver la zona despejada y sin que la parada local esté al alcance de la mano. Si el enlace se cae, la estación debe <strong>detenerse de forma segura o mantenerse en un estado seguro</strong>, jamás quedarse actuando a ciegas. Y nunca se conecta a la red un montaje que antes no funcione de forma aislada.</div>
+
+        <div class="t4-think"><strong>Decide con el caso:</strong> si solo queremos saber cuántas piezas se clasificaron, hacemos telemetría. Si además queremos un aviso cuando la cinta se atasca, hacemos monitorización. Si queremos cambiar el criterio de clasificación sin tocar la máquina, necesitamos control remoto, y entonces hay que diseñar la confirmación y las salvaguardas desde el primer esquema.</div>
+      </section>
+
+      <section aria-labelledby="datos">
+        <h2 id="datos">5. Los datos: del fenómeno a la medida y al registro</h2>
+        <p>Todo empieza en el mundo real: una pieza pasa por delante de un sensor, la temperatura del motor sube, el vástago del cilindro termina su recorrido. Eso es el <strong>fenómeno</strong>. Un sensor lo convierte en una señal, y el controlador la lee: ahí nace la <strong>medida</strong>. Cuando esa medida se guarda junto con su unidad, el momento en que se tomó y el elemento que la mide, se convierte en un <strong>registro</strong>. Guardar un registro es lo que permite que algo ocurrido hace un mes siga sirviendo hoy.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: diferencia entre fenómeno, medida, dato y registro">
+          <table>
+            <caption>Del fenómeno al registro, con un ejemplo de la estación</caption>
+            <thead><tr><th scope="col">Concepto</th><th scope="col">Qué es</th><th scope="col">Ejemplo</th><th scope="col">Cuidado con…</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Fenómeno</strong></th><td>Lo que ocurre de verdad en la máquina o en el entorno.</td><td>El motor se calienta más de lo habitual.</td><td>No se puede medir directamente: solo a través de indicios.</td></tr>
+              <tr><th scope="row"><strong>Medida</strong></th><td>El valor que un instrumento concreto obtiene en un momento concreto.</td><td>El sensor marca 42 °C.</td><td>Un instrumento con error, mal colocado o sin calibrar da una medida equivocada.</td></tr>
+              <tr><th scope="row"><strong>Dato</strong></th><td>La representación de esa medida, con su <strong>unidad</strong> y su contexto.</td><td>42 °C. Sin la unidad, 42 no dice nada.</td><td>Confundir unidades o mezclar escalas distintas.</td></tr>
+              <tr><th scope="row"><strong>Registro</strong></th><td>El dato guardado con un identificador y una marca de tiempo.</td><td>estacion1 · temperatura · 42 °C · 10:32:07.</td><td>Registros sin hora ni origen: después no se sabe de quién son.</td></tr>
+              <tr><th scope="row"><strong>Serie</strong></th><td>Muchos registros del mismo tipo a lo largo del tiempo.</td><td>La temperatura de toda la mañana.</td><td>Sacar conclusiones de dos registros aislados.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Los datos se generan en el borde</h3>
+        <p>Se llama <strong>el borde</strong> al lugar donde está la máquina, en el extremo de la red. Medir y decidir en el borde tiene tres ventajas claras: se reacciona <strong>antes</strong>, porque no hay que esperar a que el mensaje vaya y vuelva; se envía <strong>menos tráfico</strong>, porque podemos quedarnos solo con lo relevante; y el sistema <strong>depende menos</strong> de que la conexión funcione. Las decisiones urgentes —detener, avisar, rechazar una pieza— siempre se toman en el borde.</p>
+
+        <h3>El muestreo: cada cuánto medimos</h3>
+        <p>Medir no es gratis: cada medición consume tiempo, energía y espacio de almacenamiento. El <strong>muestreo</strong> es la decisión de <strong>cada cuánto</strong> tomamos una medida. Si muestreamos demasiado, acumulamos ruido y datos inútiles; si muestreamos demasiado poco, la pieza pasa entre dos medidas y no la vemos. El intervalo adecuado depende del fenómeno: no se mide igual un motor que tarda media hora en calentarse que una pieza que cruza un sensor en una fracción de segundo.</p>
+
+        <h3>Sin calidad no hay análisis</h3>
+        <p>Un dato mal tomado no se arregla después. Antes de analizar nada hay que revisar de dónde viene la información, si es representativa y si es fiable, y cuidar su calidad, porque <strong>sin datos limpios no hay análisis serio</strong>.<sup><a href="#fuente_13">[13]</a></sup> También hay que dejar constancia de cómo se tomaron, para que otra persona pueda repetir el proceso.</p>
+
+        <div class="idea_clave"><strong>Idea clave</strong>Un dato no <em>es</em> la realidad: es una medida de la realidad, hecha con un instrumento concreto, en un momento concreto y con su unidad. Preguntar «¿qué se está midiendo, con qué y con qué error?» es tan importante como leer el número.</div>
+      </section>
+
+      <section aria-labelledby="bigdata">
+        <h2 id="bigdata">6. Big data: volumen, velocidad y variedad</h2>
+        <p>El <strong>big data</strong> o macrodatos se refiere a las grandes cantidades de datos que se producen muy deprisa y proceden de un número elevado de fuentes diversas.<sup><a href="#fuente_14">[14]</a></sup> De esa descripción salen sus tres rasgos característicos, que se refuerzan entre sí.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: las tres dimensiones del big data aplicadas a la estación">
+          <table>
+            <caption>Las tres dimensiones del big data, aplicadas a nuestro proyecto</caption>
+            <thead><tr><th scope="col">Dimensión</th><th scope="col">Qué significa</th><th scope="col">Con muchas estaciones conectadas</th><th scope="col">Por qué complica el análisis</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Volumen</strong></th><td>La cantidad de datos es enorme y crece sin parar.</td><td>Miles de medidas por segundo si cada estación envía varias señales.</td><td>No caben ni se revisan a mano: hacen falta máquinas y criterios.</td></tr>
+              <tr><th scope="row"><strong>Velocidad</strong></th><td>Los datos llegan muy deprisa y casi siempre en tiempo real.</td><td>El estado de la cinta, del motor y de la compuerta, mensaje a mensaje.</td><td>Cuando se termina de mirar un dato, ya hay otro detrás.</td></tr>
+              <tr><th scope="row"><strong>Variedad</strong></th><td>Proceden de fuentes muy distintas y con formatos distintos.</td><td>Números de los sensores, avisos de error, imágenes de una cámara, registros del panel.</td><td>Hay que unificar formatos antes de poder comparar nada.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>La consecuencia práctica es que el big data no consiste en <strong>tener</strong> muchos datos, sino en <strong>tratarlos</strong> para convertirlos en información útil. Ese tratamiento sigue unos pasos que conviene conocer aunque trabajemos con pocos registros.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: etapas del tratamiento de datos, del bruto al útil">
+          <table>
+            <caption>Del dato bruto al dato útil</caption>
+            <thead><tr><th scope="col">Etapa</th><th scope="col">Qué se hace</th><th scope="col">Ejemplo con la estación</th><th scope="col">Riesgo si se hace mal</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Muestreo</strong></th><td>Decidir qué medimos y cada cuánto.</td><td>Leer el sensor de color solo cuando la pieza está delante del lector.</td><td>Medir demasiado y ahogar el sistema, o medir poco y perder piezas.</td></tr>
+              <tr><th scope="row"><strong>Limpieza</strong></th><td>Corregir o descartar registros erróneos, incompletos o duplicados.</td><td>Eliminar la temperatura disparatada del momento en que se movió el cable.</td><td>Analizar ruido y sacar conclusiones falsas.</td></tr>
+              <tr><th scope="row"><strong>Agregación</strong></th><td>Resumir muchos registros en unos pocos valores útiles.</td><td>Calcular cuántas piezas se clasificaron por hora y cuántas se rechazaron.</td><td>Perder los casos extremos al quedarnos solo con la media.</td></tr>
+              <tr><th scope="row"><strong>Representación</strong></th><td>Mostrar el resultado de forma que se entienda de un vistazo.</td><td>Una gráfica de piezas por hora con el máximo señalado.</td><td>Una gráfica con ejes sin unidades ni escala: no dice nada.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-curio"><strong>La media esconde historias.</strong> Si la temperatura media de la mañana fue de 40 °C, el dato parece tranquilo… pero puede que hubiera unos segundos a 90 °C que expliquen por qué se deformó una pieza. Agregar es necesario para resumir, y peligroso si borra justo lo que buscábamos.</div>
+
+        <div class="t4-note"><strong>Seamos honestos con la escala.</strong> Nuestra estación sola no produce big data: genera unos pocos registros al día. El big data aparece cuando se suman <strong>muchos sistemas y mucho tiempo</strong>: toda una fábrica, todas las estaciones de un centro o meses enteros de medidas. Lo valioso de este tema no es exagerar lo que tenemos, sino entender <strong>qué habría que hacer</strong> si la cantidad de datos creciera de verdad.</div>
+      </section>
+
+      <section aria-labelledby="ia">
+        <h2 id="ia">7. Inteligencia artificial: aprender de los datos</h2>
+        <p>Hasta ahora, todo lo que sabe nuestra estación se lo hemos <strong>programado con reglas</strong>: si el sensor detecta metal, mueve el cilindro. Las reglas las escribimos nosotros y las entendemos por completo. La <strong>inteligencia artificial</strong> que hoy se usa en la práctica trabaja de otra manera: sus herramientas más destacadas se basan en el <strong>aprendizaje automático</strong>, en el que los programas aprenden a partir de la experiencia y son capaces de identificar <strong>patrones</strong> en los datos sin que se les indique previamente cuáles son los parámetros relevantes.<sup><a href="#fuente_15">[15]</a></sup></p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: comparación entre un sistema basado en reglas y uno de aprendizaje automático">
+          <table>
+            <caption>Reglas escritas frente a aprendizaje automático</caption>
+            <thead><tr><th scope="col">Característica</th><th scope="col">Sistema basado en reglas</th><th scope="col">Sistema de aprendizaje automático</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>De dónde sale su comportamiento</strong></th><td>De las reglas que escribe la persona que programa.</td><td>De los patrones que encuentra en los <strong>datos de entrenamiento</strong>.</td></tr>
+              <tr><th scope="row"><strong>Podemos explicarlo</strong></th><td>Sí: se puede señalar la regla que decidió cada cosa.</td><td>Solo en parte: normalmente no hay una regla sencilla que justifique la respuesta.</td></tr>
+              <tr><th scope="row"><strong>Qué necesita para funcionar</strong></th><td>Un requisito claro y un programa bien probado.</td><td>Muchos ejemplos variados y bien etiquetados, además de capacidad de cálculo.</td></tr>
+              <tr><th scope="row"><strong>Qué pasa con un caso nuevo</strong></th><td>Si no estaba previsto, falla de forma previsible.</td><td>Puede generalizar bien… o responder con seguridad algo equivocado.</td></tr>
+              <tr><th scope="row"><strong>Cómo se comprueba</strong></th><td>Probando cada regla con casos conocidos.</td><td>Probando el modelo con datos que no vio durante el entrenamiento.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Qué tareas sabe hacer</h3>
+        <div class="t4-grid">
+          <div class="t4-card">
+            <h3>Clasificación</h3>
+            <p>Decidir a qué grupo pertenece algo: por ejemplo, si una pieza es metálica, plástica o defectuosa, a partir de sus medidas.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Predicción</h3>
+            <p>Estimar un valor que todavía no ha ocurrido, como la temperatura que alcanzará el motor en los próximos minutos.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Detección de patrones</h3>
+            <p>Encontrar regularidades que nadie había señalado: por ejemplo, que los atascos siempre ocurren tras un cambio de lote.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Visión por computador</h3>
+            <p>Interpretar imágenes: identificar piezas, contar objetos o detectar una pieza mal colocada a partir de una cámara.</p>
+          </div>
+        </div>
+
+        <p>Un ejemplo aplicado a nuestro proyecto: en lugar de programar un umbral fijo para decidir si una pieza es buena, podríamos colocar una cámara y <strong>entrenar</strong> un modelo con muchas fotos de piezas correctas y defectuosas. El modelo aprendería a distinguirlas… si las fotos son suficientes y representativas. Si solo le mostramos piezas de un color, aprenderá mal y fallará con las demás.</p>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Un modelo aprende de datos, y por eso puede equivocarse</strong>El conocimiento de un modelo no viene de entender por qué ocurren las cosas, sino de haber visto muchos ejemplos; sus respuestas se basan en probabilidades, no en reglas lógicas, y por eso la información que produce <strong>no siempre es fiable</strong> y puede convertirse en fuente de desinformación.<sup><a href="#fuente_15">[15]</a></sup> Un modelo puede fallar con casos que no se parecen a los que vio, generalizar mal, heredar los <strong>sesgos</strong> presentes en los datos con los que se entrenó o acertar por casualidad.</div>
+
+        <div class="aviso"><strong>Ni magia ni monstruo</strong>Un sistema de inteligencia artificial no «sabe» qué mide la estación: <strong>estima</strong>. Tampoco es un peligro por sí mismo: es una herramienta con límites concretos. Los riesgos documentados incluyen el sesgo, el exceso de confianza en sus respuestas, los errores que parecen plausibles, la vigilancia y la pérdida de privacidad, y el gasto energético y el coste ambiental que exige entrenar y usar estos sistemas.<sup><a href="#fuente_15">[15]</a></sup> Antes de usar la respuesta de un modelo para decidir algo importante, hay que comprobarla con otra fuente.</div>
+
+        <div class="t4-curio"><strong>Si quieres entenderlo por dentro.</strong> Existe un curso en línea gratuito, creado por una universidad y una entidad educativa, que explica sin jerga qué es la inteligencia artificial, qué se puede y qué no se puede hacer con ella y cómo se construyen los métodos que usa.<sup><a href="#fuente_16">[16]</a></sup></div>
+      </section>
+
+      <section aria-labelledby="responsabilidad">
+        <h2 id="responsabilidad">8. Uso crítico y responsable: datos, seguridad y dependencia</h2>
+        <p>Una máquina conectada no solo intercambia información con otra máquina: muy a menudo intercambia información <strong>sobre personas</strong>. Ahí ya no hablamos de rendimiento, sino de derechos, de seguridad y de responsabilidad.</p>
+
+        <h3>Privacidad y datos personales</h3>
+        <p>Cualquier dato que permita identificar a una persona —su nombre, su imagen, su voz, sus costumbres o su ubicación— es un <strong>dato personal</strong> y está protegido. La normativa europea de protección de datos reconoce a las personas un conjunto de derechos: <strong>acceso</strong> a sus datos, <strong>rectificación</strong> de los incorrectos, <strong>supresión</strong> cuando ya no son necesarios, <strong>limitación</strong> del tratamiento y <strong>portabilidad</strong>, entre otros.<sup><a href="#fuente_17">[17]</a></sup> Y hay una regla que nos afecta directamente en este curso: por debajo de los <strong>14 años</strong>, el consentimiento para tratar datos personales deben darlo los padres, madres o tutores.<sup><a href="#fuente_18">[18]</a></sup></p>
+        <p>Aplicado al proyecto, esto se traduce en decisiones concretas: no poner una cámara apuntando a personas para clasificar piezas, no publicar registros que incluyan nombres o imágenes identificables, no usar la estación para medir a quién le cuesta más una tarea y ser cuidadoso con cualquier dato que salga del taller. También al usar servicios en línea conviene saber qué datos se entregan y cuidar la propia privacidad.<sup><a href="#fuente_19">[19]</a></sup></p>
+
+        <h3>Seguridad: la conectividad es también un punto débil</h3>
+        <p>La propia conectividad que da valor a estos dispositivos es <strong>su principal punto débil</strong>: mal configurados, con vulnerabilidades de diseño o con contraseñas débiles o de fábrica, cualquiera podría llegar a acceder a ellos.<sup><a href="#fuente_2">[2]</a></sup> Las <strong>actualizaciones de seguridad</strong> son una de las principales líneas de defensa de cualquier dispositivo, porque corrigen vulnerabilidades ya conocidas.<sup><a href="#fuente_2">[2]</a></sup> Antes de conectar algo conviene responder a tres preguntas: <strong>¿quién puede encenderlo o apagarlo?, ¿qué pasa si alguien entra donde no debe?, ¿podemos desconectarlo sin dejar de trabajar con seguridad?</strong></p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: riesgos del sistema conectado y qué podemos hacer">
+          <table>
+            <caption>Riesgos de un sistema conectado y respuestas posibles</caption>
+            <thead><tr><th scope="col">Riesgo</th><th scope="col">En qué consiste</th><th scope="col">Qué podemos hacer</th><th scope="col">Señal de alarma</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Privacidad</strong></th><td>Recoger datos personales sin necesidad, sin permiso o sin saber para qué.</td><td>Recoger lo mínimo, informar de para qué se usa, pedir consentimiento cuando corresponda y borrar lo que ya no hace falta.</td><td>Nadie sabe explicar para qué se guarda un dato concreto.</td></tr>
+              <tr><th scope="row"><strong>Accesos indebidos</strong></th><td>Contraseñas débiles o de fábrica, programas sin actualizar y accesos abiertos.</td><td>Cambiar las contraseñas, actualizar, limitar quién puede dar órdenes y cerrar lo que no se usa.</td><td>El panel se ve desde cualquier sitio sin ninguna credencial.</td></tr>
+              <tr><th scope="row"><strong>Dependencia</strong></th><td>Que la máquina deje de trabajar porque falla la red o porque un servicio externo cambia o desaparece.</td><td>Mantener el funcionamiento esencial en local y no depender de un único proveedor.</td><td>Sin conexión, la estación no puede ni pararse de forma ordenada.</td></tr>
+              <tr><th scope="row"><strong>Consumo y residuo</strong></th><td>Gastar más energía y generar residuos electrónicos al multiplicar dispositivos que además quedan obsoletos.</td><td>Elegir bien, alargar la vida útil y reutilizar antes de sustituir. Se estudiará con detalle en el bloque final del curso.</td><td>Se cambia de equipo por moda, no porque se haya estropeado.</td></tr>
+              <tr><th scope="row"><strong>Desinformación</strong></th><td>Repetir cifras, capacidades o promesas sobre la inteligencia artificial sin comprobarlas.</td><td>Exigir la fuente de cada dato y comprobar qué se está midiendo antes de sacar conclusiones.</td><td>«Lo dice la inteligencia artificial» como único argumento.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Cuatro reglas de trabajo para este curso</h3>
+        <ol>
+          <li><strong>Verifica la fuente de un dato.</strong> Si no sabes quién lo midió, con qué instrumento y cuándo, no lo uses para decidir nada. Esto vale igual para una gráfica del panel y para lo que responde un modelo.</li>
+          <li><strong>Saber qué se está midiendo.</strong> Un número sin unidad ni contexto no informa: puede ser una temperatura, un tiempo o una cuenta. Pregunta siempre magnitud, unidad y momento.</li>
+          <li><strong>No delegues decisiones de seguridad en un sistema no verificado.</strong> Detener, proteger o dejar pasar a una persona son decisiones que se quedan con responsables humanos y con salvaguardas locales.</li>
+          <li><strong>Publica con transparencia.</strong> Al presentar el proyecto, explica qué datos se recogen, cómo se miden, qué se ha hecho con ellos y qué <em>no</em> demuestran. En España, además, existe un organismo público encargado de supervisar que el desarrollo y el uso de la inteligencia artificial sean éticos y seguros.<sup><a href="#fuente_20">[20]</a></sup></li>
+        </ol>
+
+        <div class="idea_clave"><strong>Idea clave</strong>La pregunta tecnológica es «¿se puede hacer?». La pregunta responsable es «¿debería hacerse, con qué datos y quién responde si falla?». Un buen proyecto contesta a las dos.</div>
+      </section>
+
+      <section aria-labelledby="comprueba">
+        <h2 id="comprueba">Comprueba lo que has aprendido</h2>
+        <p>Tu trabajo estará bien resuelto si puedes explicar cada decisión y mostrar qué comprobaste. Responde a estas preguntas y revisa después la tabla de evidencias.</p>
+        <ol>
+          <li>Enumera tres cosas que gana nuestra estación al conectarse y tres cosas que pierde o que gana en riesgo. ¿Qué nivel de la arquitectura añade cada una?</li>
+          <li>Un compañero dice: «si conectamos la estación a internet, ya podemos pararla desde el móvil y nos ahorramos la parada de emergencia». Explícalo con rigor: ¿qué está mal en esa afirmación y por qué?</li>
+          <li>Distingue telemetría, monitorización y control remoto con un ejemplo de la estación para cada una. ¿En cuál de las tres hace falta realimentación y por qué?</li>
+          <li>El panel muestra «23». ¿Puedes decidir algo con ese dato? Justifica qué información falta para que sea un registro útil.</li>
+          <li>Queremos saber si la cinta se atasca siempre a la misma hora. ¿Basta con la media de piezas por hora? Explica qué etapa del tratamiento de datos usarías y qué se puede perder por el camino.</li>
+          <li>Propón una tarea de la estación que podría resolverse con visión por computador. ¿Qué fotos necesitarías para entrenar el modelo y qué podría salir mal si esas fotos no son representativas?</li>
+          <li>Antes de conectar la estación, enumera tres comprobaciones de seguridad y una decisión sobre privacidad que tomarías con el equipo.</li>
+        </ol>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: qué debe mostrar la versión conectada de la estación">
+          <table>
+            <caption>Qué debe mostrar la versión conectada de tu estación</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Qué debes demostrar</th><th scope="col">Evidencias posibles</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Arquitectura</strong></th><td>Identificar los niveles de la solución y qué hace cada uno.</td><td>Esquema propio del recorrido de los datos, con cada nivel nombrado.</td></tr>
+              <tr><th scope="row"><strong>Comunicación</strong></th><td>Justificar el medio y la tecnología elegidos y comprobar que comunican.</td><td>Prueba de envío y recepción de un mensaje, con su tema y su puerto anotados.</td></tr>
+              <tr><th scope="row"><strong>Datos</strong></th><td>Definir qué se mide, cada cuánto y con qué unidad.</td><td>Lista de magnitudes, unidades e intervalo de muestreo, con un registro de ejemplo.</td></tr>
+              <tr><th scope="row"><strong>Funciones</strong></th><td>Distinguir qué es telemetría, qué es monitorización y qué es control remoto.</td><td>Tabla de funciones con la dirección de la información y las condiciones de cada orden.</td></tr>
+              <tr><th scope="row"><strong>Seguridad</strong></th><td>Explicar las salvaguardas locales y qué ocurre si se cae la red.</td><td>Descripción de la prueba de parada local y del comportamiento sin conexión.</td></tr>
+              <tr><th scope="row"><strong>Responsabilidad</strong></th><td>Razonar sobre privacidad, seguridad y transparencia de los datos usados.</td><td>Lista de datos recogidos, para qué se usan y qué no se publica.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Antes de entregar, pide a alguien ajeno al equipo que mire el panel y explique qué está viendo y qué haría si apareciera un aviso. Si no puede decirlo con sus propias palabras, la información no está bien presentada.</p>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Agregación</dt><dd>Resumir muchos registros en unos pocos valores (sumas, medias, cuentas) para poder interpretarlos.</dd>
+          <dt>Ancho de banda</dt><dd>Cantidad de información que puede transmitirse por un canal de comunicación en un tiempo dado.</dd>
+          <dt>Aprendizaje automático</dt><dd>Conjunto de técnicas de inteligencia artificial en las que el programa aprende patrones a partir de datos de entrenamiento en lugar de recibir reglas escritas.</dd>
+          <dt>Big data</dt><dd>Grandes cantidades de datos producidos muy deprisa y procedentes de muchas fuentes diversas, que exigen herramientas específicas para tratarlos.</dd>
+          <dt>Borde</dt><dd>El lugar donde está el dispositivo, en el extremo de la red; allí se mide y se toman las decisiones urgentes.</dd>
+          <dt>Control remoto</dt><dd>Envío de órdenes a un dispositivo desde otro lugar; exige realimentación y no sustituye a las salvaguardas locales.</dd>
+          <dt>Dato</dt><dd>Representación de una medida, con su unidad y su contexto, que puede guardarse y transmitirse.</dd>
+          <dt>Dirección IP</dt><dd>Número que identifica a un dispositivo dentro de una red. En redes privadas se usan rangos reservados, como los que empiezan por 192.168.</dd>
+          <dt>Dato personal</dt><dd>Cualquier información que permita identificar a una persona; su tratamiento está protegido por la normativa de protección de datos.</dd>
+          <dt>HTTP</dt><dd>Protocolo de petición y respuesta, sin memoria entre peticiones, usado para consultar información en la web.</dd>
+          <dt>Identificador</dt><dd>Nombre o código propio de un dispositivo, que permite reconocerlo dentro del sistema.</dd>
+          <dt>Internet de las cosas</dt><dd>Conectividad digital de todo tipo de dispositivos, de los sensores a los objetos cotidianos, que así pueden enviar y recibir información.</dd>
+          <dt>Latencia</dt><dd>Retraso entre el envío de un mensaje y la recepción de su efecto.</dd>
+          <dt>Modelo</dt><dd>Resultado del entrenamiento de un sistema de aprendizaje automático; estima respuestas a partir de los patrones que ha visto.</dd>
+          <dt>MQTT</dt><dd>Protocolo de mensajería ligera de publicación y suscripción, pensado para dispositivos sencillos y para la comunicación entre máquinas.</dd>
+          <dt>Muestreo</dt><dd>Decisión sobre qué se mide y cada cuánto se toma cada medida.</dd>
+          <dt>Pasarela</dt><dd>Equipo que concentra el tráfico de uno o varios dispositivos y lo conecta con la red o con el servicio.</dd>
+          <dt>Plataforma</dt><dd>Servicio, en la nube o en un servidor propio, que recibe, guarda, ordena y pone a disposición los registros.</dd>
+          <dt>Puerto</dt><dd>Número que identifica qué servicio se está usando dentro de un dispositivo conectado a la red.</dd>
+          <dt>Registro</dt><dd>Dato guardado junto con su identificador y una marca de tiempo, de modo que después se puede consultar y analizar.</dd>
+          <dt>Sesgo</dt><dd>Desviación sistemática en los datos o en un modelo que hace que sus resultados perjudiquen a unos casos y favorezcan a otros.</dd>
+          <dt>Telemetría</dt><dd>Envío automático de medidas y del estado de un dispositivo desde el propio dispositivo hacia la red.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>Conectar un sistema de control añade una <strong>cadena de datos</strong>: la máquina envía medidas y estado, puede recibir órdenes y deja registros analizables.</li>
+          <li>Un sistema conectado no es mejor por el simple hecho de estarlo: gana alcance, información y análisis, y suma dependencias, riesgos y responsabilidades.</li>
+          <li>Una solución conectada tiene cinco niveles: <strong>dispositivo y sensores</strong>, <strong>red o pasarela</strong>, <strong>plataforma o servicio</strong>, <strong>aplicación o panel</strong> y <strong>persona usuaria</strong>. Conviene saber qué hace y qué puede fallar en cada uno.</li>
+          <li>El medio puede ser cableado, estable y fijo, o inalámbrico, flexible y dependiente de la cobertura, la batería y las interferencias.</li>
+          <li>Cada dispositivo necesita una dirección IP y cada servicio un puerto; los puertos más habituales están registrados y son iguales en todo el mundo (HTTP 80, HTTPS 443, MQTT 1883 y su versión cifrada 8883).</li>
+          <li>HTTP funciona por petición y respuesta; MQTT funciona publicando y suscribiéndose a temas, y es ligero porque está pensado para dispositivos sencillos y poco ancho de banda.</li>
+          <li>Latencia, ancho de banda, cobertura, fiabilidad y consumo deciden si una comunicación sirve para lo que queremos hacer con ella.</li>
+          <li><strong>Telemetría</strong> informa, <strong>monitorización</strong> vigila con umbrales y avisos, y <strong>control remoto</strong> actúa. Solo el control a distancia exige realimentación y salvaguardas locales que no dependan de la red.</li>
+          <li>Los datos nacen en el borde: medir y decidir en la máquina reduce el retraso, el tráfico y la dependencia.</li>
+          <li>Un dato no es la realidad: es una medida con su unidad, su momento y su instrumento. Sin calidad, sin limpieza y sin contexto no hay análisis serio.</li>
+          <li>El big data se caracteriza por el <strong>volumen</strong>, la <strong>velocidad</strong> y la <strong>variedad</strong>, y exige muestrear, limpiar, agregar y representar los datos antes de sacar conclusiones.</li>
+          <li>La inteligencia artificial actual aprende patrones de los datos en lugar de seguir reglas escritas; por eso puede equivocarse, generalizar mal o heredar sesgos, y sus respuestas hay que comprobarlas.</li>
+          <li>Usar estas tecnologías con criterio significa verificar la fuente de cada dato, saber qué se mide, no delegar decisiones de seguridad en un sistema no verificado y publicar con transparencia.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+                <ul>
+          <li id="fuente_1">[1] <a href="https://www.itu.int/es/ITU-D/Conferences/TDAG/Pages/ITU-D-Delegate-Guide-WhatisITU.aspx">Unión Internacional de Telecomunicaciones (UIT) — ¿Qué es la UIT?</a>. Organismo de las Naciones Unidas para las telecomunicaciones y las tecnologías de la información y la comunicación.</li>
+          <li id="fuente_2">[2] <a href="https://www.incibe.es/empresas/guias/seguridad-instalacion-y-uso-dispositivos-iot-guia-aproximacion-el">INCIBE — Seguridad en la instalación y uso de dispositivos IoT: una guía de aproximación para el empresario</a>. Define el internet de las cosas, sus aplicaciones y sus principales riesgos de seguridad (actualizaciones, contraseñas débiles o de fábrica y accesos indebidos).</li>
+          <li id="fuente_3">[3] <a href="https://www.itu.int/rec/T-REC-Y.4000/es">UIT-T — Recomendación Y.4000: Visión general del internet de las cosas</a>. Marco de referencia internacional sobre qué es el internet de las cosas y cómo se organiza.</li>
+          <li id="fuente_4">[4] <a href="https://www.w3.org/TR/wot-thing-description11/">W3C — Web of Things (WoT) Thing Description 1.1</a>. Cómo se describe un dispositivo conectado (sus datos y sus formas de interacción) y qué riesgos de privacidad tienen los identificadores (en inglés).</li>
+          <li id="fuente_5">[5] <a href="https://standards.ieee.org/ieee/802.11/7028/">IEEE — IEEE 802.11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications</a>. Familia de normas que define las redes de área local inalámbricas (Wi-Fi).</li>
+          <li id="fuente_6">[6] <a href="https://www.bluetooth.com/learn-about-bluetooth/tech-overview/">Bluetooth SIG — Bluetooth Technology Overview</a>. Entidad responsable de la tecnología Bluetooth y de sus especificaciones de conectividad inalámbrica.</li>
+          <li id="fuente_7">[7] <a href="https://www.rfc-editor.org/info/rfc1918/">IETF — RFC 1918: Address Allocation for Private Internets</a>. Define los rangos de direcciones IP reservados para redes privadas.</li>
+          <li id="fuente_8">[8] <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">IANA — Service Name and Transport Protocol Port Number Registry</a>. Registro oficial de nombres de servicio y números de puerto (HTTP 80, HTTPS 443, MQTT 1883 y secure-mqtt 8883).</li>
+          <li id="fuente_9">[9] <a href="https://www.rfc-editor.org/rfc/rfc9110.html">IETF — RFC 9110: HTTP Semantics</a>. Especificación del protocolo HTTP: peticiones, respuestas y códigos de estado (en inglés).</li>
+          <li id="fuente_10">[10] <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html">OASIS — MQTT Version 5.0 (estándar)</a>. Protocolo de mensajería ligero de publicación y suscripción, pensado para entornos con poco ancho de banda y para la comunicación entre máquinas (en inglés).</li>
+          <li id="fuente_11">[11] <a href="https://www.rfc-editor.org/rfc/rfc1983.html">IETF — RFC 1983: Internet Users' Glossary</a>. Glosario de términos de redes; incluye la definición de ancho de banda (en inglés).</li>
+          <li id="fuente_12">[12] <a href="https://calidadtelecos.cnmc.gob.es/mapa-cobertura">CNMC — Mapa de cobertura de fibra y móvil en España</a>. Herramienta pública para consultar la cobertura de red disponible por zonas.</li>
+          <li id="fuente_13">[13] <a href="https://datos.gob.es/es/conocimiento/decalogo-del-cientifico-de-datos">datos.gob.es — Decálogo del científico de datos</a>. Buenas prácticas de trabajo con datos: calidad, limpieza, trazabilidad y posibles sesgos.</li>
+          <li id="fuente_14">[14] <a href="https://digital-strategy.ec.europa.eu/es/policies/big-data">Comisión Europea — Big data</a>. Define el big data como grandes cantidades de datos producidos muy deprisa por un número elevado de fuentes diversas.</li>
+          <li id="fuente_15">[15] <a href="https://www.oficinac.es/sites/default/files/informes/2024_10_21_Inteligencia%20artificial%20y%20educaci%C3%B3n_0.pdf">Oficina de Ciencia y Tecnología del Congreso de los Diputados (Oficina C) — Inteligencia artificial y educación</a> (PDF). Informe divulgativo sobre qué es el aprendizaje automático, sus límites y sus riesgos: sesgos, errores, exceso de confianza, privacidad y coste energético.</li>
+          <li id="fuente_16">[16] <a href="https://www.elementsofai.com/es/">Elements of AI — Universidad de Helsinki y MinnaLearn</a>. Curso en línea gratuito para entender qué es la inteligencia artificial y qué se puede hacer con ella.</li>
+          <li id="fuente_17">[17] <a href="https://www.aepd.es/sites/default/files/2020-05/guia-ciudadano.pdf">Agencia Española de Protección de Datos (AEPD) — Protección de datos: guía para el ciudadano</a> (PDF). Explica qué son los datos personales y cuáles son los derechos de las personas.</li>
+          <li id="fuente_18">[18] <a href="https://www.aepd.es/preguntas-frecuentes/10-menores-y-educacion">Agencia Española de Protección de Datos (AEPD) — Preguntas frecuentes: menores y educación</a>. Recoge que, por debajo de los 14 años, el consentimiento para tratar datos personales corresponde a padres, madres o tutores.</li>
+          <li id="fuente_19">[19] <a href="https://www.incibe.es/ciudadania/formacion/guias/guia-de-privacidad-y-seguridad-en-internet">INCIBE — Guía de privacidad y seguridad en Internet</a>. Pautas para cuidar la privacidad y proteger los datos cuando se usan servicios conectados.</li>
+          <li id="fuente_20">[20] <a href="https://aesia.digital.gob.es/es">AESIA — Agencia Española de Supervisión de la Inteligencia Artificial</a>. Organismo público encargado de supervisar el uso ético y seguro de la inteligencia artificial en España.</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema11.html">← Tema 11</a>
+  <a href="tema13.html">Tema 13 →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>
