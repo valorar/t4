@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+<title id="title">La vivienda como sistema de energía</title><desc id="desc">Diagrama de la vivienda como sistema de energía. En la columna izquierda están las entradas: la radiación solar que llega por el sur, la electricidad que mide el contador y el gas natural o el GLP. Las tres entran en la vivienda, dibujada en el centro con su envolvente térmica y la masa e inercia de sus materiales. En la columna derecha están las pérdidas: cerramientos opacos, huecos y puentes térmicos, y ventilación e infiltraciones. Una franja intermedia explica el recorrido del sol por el este, el sur y el oeste. La franja inferior reúne las estrategias ordenadas según el flujo sobre el que actúan: captar y proteger del sol, ventilar y refrescar, y ahorrar en el uso de la electricidad y el gas. La última línea recuerda que la instalación no se manipula.</desc>
+<defs>
+<marker id="flecha" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#1a6b7a"/></marker>
+<marker id="flechaSalida" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#c85c40"/></marker>
+</defs>
+<rect width="900" height="620" rx="24" fill="#f7faf8"/>
+<text x="450" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="23" font-weight="700" fill="#18384a">La vivienda como sistema de energía</text>
+<text x="450" y="61" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#466a75">Entra energía, se usa dentro y una parte se escapa.</text>
+
+<text x="24" y="96" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#14625f" letter-spacing="1">1. ENTRADAS DE ENERGÍA</text>
+
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="24" y="104" width="256" height="60" rx="12"/>
+<rect x="24" y="172" width="256" height="60" rx="12"/>
+<rect x="24" y="240" width="256" height="60" rx="12"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#14495c">
+<text x="152" y="130" font-size="14" font-weight="700">Sol</text>
+<text x="152" y="150" font-size="12.5" fill="#3f6672">radiación que entra por el sur</text>
+<text x="152" y="198" font-size="14" font-weight="700">Electricidad de la red</text>
+<text x="152" y="218" font-size="12.5" fill="#3f6672">los kWh que cuenta el contador</text>
+<text x="152" y="266" font-size="14" font-weight="700">Gas natural o GLP</text>
+<text x="152" y="286" font-size="12.5" fill="#3f6672">calefacción, agua y cocina</text>
+</g>
+<g stroke="#1a6b7a" stroke-width="3" marker-end="url(#flecha)">
+<line x1="282" y1="134" x2="326" y2="134"/>
+<line x1="282" y1="202" x2="326" y2="202"/>
+<line x1="282" y1="270" x2="326" y2="270"/>
+</g>
+
+<polygon points="330,180 465,104 600,180" fill="#eef6f5" stroke="#1a6b7a" stroke-width="2"/>
+<rect x="352" y="180" width="228" height="120" fill="#ffffff" stroke="#1a6b7a" stroke-width="2"/>
+<rect x="364" y="202" width="38" height="34" fill="#eef6f5" stroke="#1a6b7a" stroke-width="2"/>
+<rect x="530" y="202" width="38" height="34" fill="#eef6f5" stroke="#1a6b7a" stroke-width="2"/>
+<rect x="452" y="252" width="28" height="48" fill="#eef6f5" stroke="#1a6b7a" stroke-width="2"/>
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<text x="466" y="164" font-size="12" fill="#14625f">masa e inercia térmica</text>
+<text x="466" y="222" font-size="15" font-weight="700" fill="#18384a">VIVIENDA</text>
+<text x="466" y="242" font-size="12" fill="#3f6672">envolvente térmica</text>
+</g>
+
+<text x="876" y="96" text-anchor="end" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#713322" letter-spacing="1">2. PÉRDIDAS DE ENERGÍA</text>
+<g stroke="#c85c40" stroke-width="2" fill="#ffffff">
+<rect x="620" y="104" width="256" height="60" rx="12"/>
+<rect x="620" y="172" width="256" height="60" rx="12"/>
+<rect x="620" y="240" width="256" height="60" rx="12"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#713322">
+<text x="748" y="130" font-size="14" font-weight="700">Cerramientos opacos</text>
+<text x="748" y="150" font-size="12.5" fill="#8a5344">muros, cubierta y suelos</text>
+<text x="748" y="198" font-size="14" font-weight="700">Huecos y puentes térmicos</text>
+<text x="748" y="218" font-size="12.5" fill="#8a5344">ventanas y juntas mal aisladas</text>
+<text x="748" y="266" font-size="14" font-weight="700">Ventilación e infiltraciones</text>
+<text x="748" y="286" font-size="12.5" fill="#8a5344">el aire que se renueva y se va</text>
+</g>
+<g stroke="#c85c40" stroke-width="3" marker-end="url(#flechaSalida)">
+<line x1="584" y1="134" x2="616" y2="134"/>
+<line x1="584" y1="202" x2="616" y2="202"/>
+<line x1="584" y1="270" x2="616" y2="270"/>
+</g>
+
+<rect x="24" y="316" width="852" height="46" rx="12" fill="#fff1d5" stroke="#c6922d" stroke-width="2"/>
+<text x="450" y="336" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#7b4b1a">ORIENTACIÓN Y SOLEAMIENTO: el sol sale por el este, culmina al sur y se pone por el oeste</text>
+<text x="450" y="353" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12.5" fill="#7b5a2e">Los huecos al sur captan más en invierno; en verano, un alero los deja en sombra.</text>
+
+<rect x="24" y="372" width="852" height="224" rx="14" fill="#eef6f5" stroke="#bfdcdc" stroke-width="2"/>
+<text x="40" y="396" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#14625f" letter-spacing="1">3. ESTRATEGIAS BIOCLIMÁTICAS Y DE AHORRO, SEGÚN EL FLUJO SOBRE EL QUE ACTÚAN</text>
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="40" y="408" width="266" height="176" rx="12"/>
+<rect x="317" y="408" width="266" height="176" rx="12"/>
+<rect x="594" y="408" width="266" height="176" rx="12"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<text x="173" y="434" font-size="14" font-weight="700" fill="#14495c">Captar y proteger (sol)</text>
+<text x="173" y="458" font-size="12.5" fill="#3f6672">Orientar los huecos al sur</text>
+<text x="173" y="478" font-size="12.5" fill="#3f6672">Alero o toldo que sombrea en verano</text>
+<text x="173" y="498" font-size="12.5" fill="#3f6672">Muros de inercia que guardan calor</text>
+<text x="173" y="518" font-size="12.5" fill="#3f6672">Cubierta vegetal y fachada aislada</text>
+
+<text x="450" y="434" font-size="14" font-weight="700" fill="#14495c">Ventilar y refrescar (aire)</text>
+<text x="450" y="458" font-size="12.5" fill="#3f6672">Ventilación cruzada entre dos huecos</text>
+<text x="450" y="478" font-size="12.5" fill="#3f6672">Chimenea térmica que expulsa el aire</text>
+<text x="450" y="498" font-size="12.5" fill="#3f6672">Patio interior que regula el clima</text>
+<text x="450" y="518" font-size="12.5" fill="#3f6672">Ventilar corto e intenso, no a medias</text>
+
+<text x="727" y="434" font-size="14" font-weight="700" fill="#14495c">Ahorrar en el uso (luz y gas)</text>
+<text x="727" y="458" font-size="12.5" fill="#3f6672">Iluminación LED y luz natural</text>
+<text x="727" y="478" font-size="12.5" fill="#3f6672">Medir antes de decidir: medidor</text>
+<text x="727" y="498" font-size="12.5" fill="#3f6672">Termostato a 21 °C; 15 °C si sales</text>
+<text x="727" y="518" font-size="12.5" fill="#3f6672">Sin espera: regleta con interruptor</text>
+<text x="727" y="556" font-size="12" fill="#6b7f86">La instalación no se manipula.</text>
+</g>
+</svg>

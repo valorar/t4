@@ -1,27 +1,515 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tema 15 del Bloque D de Tecnología de 4.º de la ESO: Cómo valorar el impacto social y ambiental de la tecnología a partir del transporte y de proyectos con valor para la comunidad.">
-<title>Tema 15. Transporte sostenible y proyectos sociales · T4</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilos.css"><script src="assets/navegacion.js" defer></script></head>
-<body><a class="skip" href="#contenido">Saltar al contenido</a>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tema 15 de Tecnología de 4.º de la ESO: cómo funciona la movilidad, por qué contamina el transporte, cómo se mide su impacto y qué significa que un proyecto tecnológico tenga valor social.">
+  <title>Tema 15. Transporte sostenible y proyectos sociales · T4</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/estilos.css">
+  <script src="assets/navegacion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="progress" aria-hidden="true"><span></span></div>
-<header class="site-header"><div class="header-inner">
-  <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
-  <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
-</div></header>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">T4</span><span>Tecnología<small>4.º de la ESO · 2026–2027</small></span></a>
+    <nav class="top-nav" aria-label="Navegación principal"><a href="index.html">Índice</a></nav>
+  </div>
+</header>
 <main id="contenido">
-<section class="hero"><div class="hero-inner"><div><p class="kicker">Tema 15 · Bloque D · Tecnología sostenible</p><h1>Tema 15. Transporte sostenible y proyectos tecnológicos de carácter social</h1><p class="hero-lead">Cómo valorar el impacto social y ambiental de la tecnología a partir del transporte y de proyectos con valor para la comunidad.</p></div><aside class="hero-note"><strong>Criterios de evaluación</strong><p>6.3, 6.4</p></aside></div></section>
-<div class="layout">
-<nav class="toc" aria-label="Índice del tema"><strong>En este tema</strong><ol><li><a href="#contenidos">Contenidos</a></li><li><a href="#criterios">Criterios de evaluación</a></li></ol></nav>
-<article class="paper">
-<div class="aviso"><strong>Página en preparación</strong>La teoría de este tema se publicará aquí con sus objetivos, ejemplos, tablas, glosario y resumen, siguiendo el formato del resto de temas de la asignatura. Mientras tanto, en esta página figuran los contenidos y los criterios que el tema aborda.</div>
-<h2 id="contenidos">Contenidos del tema</h2>
-<p>Saberes de la materia que se trabajan en este tema:</p>
-<ul><li>transporte y movilidad: problemática actual.</li><li>soluciones y tendencias a corto y medio plazo: electrificación, transporte público y movilidad activa.</li><li>beneficios de las tecnologías en el cuidado del entorno.</li><li>análisis crítico de la repercusión y de los beneficios de los proyectos tecnológicos.</li><li>proyectos tecnológicos de carácter social: valor para la comunidad.</li></ul>
-<div class="t4-concept"><strong class="t4-concept-tag">Del currículo</strong>Contenidos del bloque D «Tecnología sostenible» de la materia de Tecnología de 4.º de la ESO (Decreto 65/2022, Anexo II).</div>
-<h2 id="criterios">Criterios de evaluación</h2>
-<p>Este tema contribuye a los criterios <strong>6.3, 6.4</strong> de la materia. La lista completa figura en el programa de la asignatura.</p>
-</article></div></main>
-<nav class="topic-footer" aria-label="Navegación entre temas"><a href="tema14.html">← Tema 14</a><a href="index.html">Índice →</a></nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Tema 15 · Bloque D · Tecnología sostenible</p>
+        <h1>Tema 15. Transporte sostenible y proyectos tecnológicos de carácter social</h1>
+        <p class="hero-lead">De qué vive nuestra forma de movernos, qué se puede cambiar a corto y medio plazo y cómo se decide si un proyecto tecnológico mejora de verdad la vida de la gente.</p>
+      </div>
+      <aside class="hero-note" aria-label="Pregunta guía del tema 15">
+        <strong>Pregunta guía</strong>
+        <p>Si construimos una máquina que resuelve un problema, ¿cómo sabemos que merecía la pena y para quién lo resuelve de verdad?</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Índice del tema">
+      <strong>En este tema</strong>
+      <ol>
+        <li><a href="#comonosmovemos">Cómo nos movemos y qué problema hay</a></li>
+        <li><a href="#porque">Por qué contamina lo que contamina</a></li>
+        <li><a href="#soluciones">Soluciones a corto y medio plazo</a></li>
+        <li><a href="#medir">Medir para decidir</a></li>
+        <li><a href="#critico">Beneficios, costes y promesas</a></li>
+        <li><a href="#sociales">Proyectos tecnológicos de carácter social</a></li>
+        <li><a href="#delaulalproyecto">Del aula al proyecto</a></li>
+        <li><a href="#comprueba">Comprueba lo aprendido</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ol>
+    </nav>
+
+    <article class="paper">
+      <p class="lesson-intro">El curso empezó con un problema que había que resolver y termina con una pregunta distinta: <strong>¿para qué sirve lo que hemos construido y a quién le sirve?</strong> En los temas 13 y 14 miramos la sostenibilidad desde los materiales, la energía y la vivienda. En este último tema la miramos desde dos sitios que nos tocan de cerca: <strong>cómo nos movemos</strong> cada día para venir al instituto y <strong>para quién trabajamos</strong> cuando montamos un sistema como nuestra estación de clasificación. Vamos a aprender a leer datos de movilidad, a hacer cuentas con ellos y a juzgar con criterio los proyectos: los nuestros y los que nos venden.</p>
+
+      <div class="question"><strong>Pregunta guía:</strong> si construimos una máquina que resuelve un problema, ¿cómo sabemos que merecía la pena y para quién lo resuelve de verdad?</div>
+
+      <div class="objectives">
+        <strong>Al terminar serás capaz de…</strong>
+        <ul>
+          <li>explicar qué parte del consumo de energía y de las emisiones corresponde al transporte, con datos de fuentes oficiales, y qué otros impactos añade la movilidad (ruido, ocupación del espacio, siniestralidad y dependencia energética);</li>
+          <li>describir la cadena del pozo a la rueda y calcular por qué un mismo desplazamiento contamina cantidades muy distintas según el modo, la masa, la velocidad, el rendimiento del motor y, sobre todo, la ocupación del vehículo;</li>
+          <li>comparar modos de transporte con la unidad adecuada (gramos de CO₂ por viajero-kilómetro) y con la fuente citada, aplicándolo también al transporte de mercancías;</li>
+          <li>reconocer soluciones y tendencias realistas a corto y medio plazo: transporte público, movilidad activa, intermodalidad, electrificación, zonas de bajas emisiones, logística de última milla y planificación urbana;</li>
+          <li>manejar las magnitudes básicas de la movilidad —viajero-kilómetro, emisiones por viajero-kilómetro, ocupación media y coste por kilómetro— y resolver un caso sencillo etiquetando cada supuesto;</li>
+          <li>analizar de forma crítica los beneficios y los costes de una tecnología, detectar el lavado de imagen verde y explicar por qué «eléctrico» no significa automáticamente sostenible;</li>
+          <li>identificar una necesidad social, proponer indicadores sencillos de valor para la comunidad y valorar el impacto social y ambiental de un proyecto propio con honestidad.</li>
+        </ul>
+      </div>
+
+      <section aria-labelledby="comonosmovemos">
+        <h2 id="comonosmovemos">1. Cómo nos movemos y qué problema hay</h2>
+        <p>Moverse es una necesidad y casi un derecho: ir al instituto, llevar la compra, visitar a la familia, repartir un paquete. Pero la forma en que nos movemos tiene un peso enorme en el medio ambiente. En España, el transporte fue en 2024 el <strong>subsector que más gases de efecto invernadero emitió</strong>, con el <strong>33,7 % del total</strong>, y solo la carretera concentró el 31,3 %.<sup><a href="#fuente_1">[1]</a></sup> El total de emisiones del país ese año se estimó en 215,8 millones de toneladas de CO₂ equivalente.<sup><a href="#fuente_1">[1]</a></sup></p>
+        <p>El transporte también es el gran consumidor de energía: la movilidad de personas y mercancías representa alrededor del <strong>40 % del consumo total de energía</strong> del país.<sup><a href="#fuente_2">[2]</a></sup> Y hay un detalle que lo explica todo: en España, más del <strong>90 % de la energía que consume el transporte</strong> procede de combustibles derivados del <strong>petróleo</strong>, y más del <strong>80 % de la movilidad total</strong> se hace por carretera.<sup><a href="#fuente_3">[3]</a></sup> Esa dependencia tiene consecuencias económicas —precios que se deciden fuera de nuestras fronteras— y también territoriales: el modelo de ciudad dispersa, con barrios separados y polígonos alejados, empuja a usar el coche incluso para trayectos cortos.<sup><a href="#fuente_3">[3]</a></sup></p>
+        <p>No es un problema solo nuestro. En el conjunto de la Unión Europea, el transporte fue responsable de alrededor del <strong>31 % de las emisiones</strong> de gases de efecto invernadero en 2023 y sus emisiones han crecido un <strong>25,3 % desde 1990</strong>, mientras otros sectores las reducían.<sup><a href="#fuente_4">[4]</a></sup> Es decir: hemos mejorado motores y combustibles, pero nos movemos tanto más que el resultado global no baja.</p>
+
+        <h3>Qué modos usamos de verdad</h3>
+        <p>Los datos europeos de 2021 son contundentes: el coche concentró el <strong>79,7 % de los pasajeros-kilómetro</strong> recorridos en la UE, frente al 7,3 % del avión, el 7,1 % de los autobuses y autocares, el 5,6 % del tren y un 0,3 % del barco.<sup><a href="#fuente_5">[5]</a></sup> Esa proporción —llamada <strong>distribución modal</strong>— es la que hay que cambiar para reducir emisiones, y no se cambia convenciendo a cada persona por separado: se cambia haciendo que las alternativas existan, sean cómodas y sean seguras.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: reparto modal de la movilidad de personas en la Unión Europea">
+          <table>
+            <caption>Reparto modal de la movilidad de personas (Unión Europea, 2021)</caption>
+            <thead><tr><th scope="col">Modo</th><th scope="col">Parte de los pasajeros-kilómetro</th><th scope="col">Qué implica</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Coche</strong></th><td>79,7 %</td><td>Es el modo dominante y el que ocupa más espacio por viajero.</td></tr>
+              <tr><th scope="row"><strong>Avión</strong></th><td>7,3 %</td><td>Poca distancia recorrida en total, pero mucha emisión por kilómetro.</td></tr>
+              <tr><th scope="row"><strong>Autobús y autocar</strong></th><td>7,1 %</td><td>Modo colectivo: su eficiencia depende de cuánta gente lo use.</td></tr>
+              <tr><th scope="row"><strong>Tren</strong></th><td>5,6 %</td><td>Puede ser eléctrico y mover mucha gente a la vez.</td></tr>
+              <tr><th scope="row"><strong>Barco</strong></th><td>0,3 %</td><td>Residual en pasajeros; importante en mercancías.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Los impactos que no se ven en el tubo de escape</h3>
+        <p><strong>El espacio.</strong> Una calle es un recurso escaso y no se puede estirar. El automóvil implica una gran ocupación del espacio público urbano, limita las funciones de la calle y condiciona su uso y disfrute, sobre todo para los colectivos más vulnerables.<sup><a href="#fuente_6">[6]</a></sup> Dicho de otro modo: cada persona que va sola en un coche ocupa mucho más suelo que si fuera andando, en bici o en autobús, y ese suelo es el que dejan de tener los árboles, los bancos o una acera ancha.</p>
+        <p><strong>El ruido.</strong> Es la contaminación que más gente nota y la que menos se mide. Según la Agencia Europea de Medio Ambiente, más de uno de cada cinco europeos —más del 20 %— está expuesto a niveles de ruido del transporte perjudiciales para la salud; con los criterios más estrictos de la Organización Mundial de la Salud esa cifra sube a más de uno de cada tres. El tráfico rodado es la fuente principal: unos 92 millones de personas soportan niveles por encima del umbral normativo diurno.<sup><a href="#fuente_7">[7]</a></sup></p>
+        <p><strong>La siniestralidad.</strong> Moverse rápido y cerca de las personas tiene un coste humano. En 2024 se registraron en España <strong>1 785 víctimas mortales</strong> en 101 996 siniestros de tráfico con víctimas.<sup><a href="#fuente_8">[8]</a></sup> Cada decisión sobre velocidades, aceras, carriles bici y cruces es, además de una decisión ambiental, una decisión de seguridad.</p>
+        <p><strong>La dependencia energética y el suelo.</strong> Como el transporte español vive del petróleo importado,<sup><a href="#fuente_3">[3]</a></sup> cualquier crisis internacional se nota en el precio de llenar el depósito. Y toda esa movilidad necesita infraestructura: carreteras, aparcamientos, rotondas y polígonos logísticos que consumen suelo y alejan las actividades unas de otras, lo que a su vez genera más desplazamientos.<sup><a href="#fuente_3">[3]</a></sup></p>
+
+        <div class="t4-note"><strong>El problema no es «el coche» como objeto.</strong> El problema es un sistema en el que la opción más cómoda, rápida y barata suele ser un vehículo privado que va casi vacío, quema petróleo y ocupa mucho espacio. Cambiar el sistema no es prohibir: es hacer que las otras opciones sean las más fáciles.</div>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>El transporte es el sector que más emite en España y el que más energía consume. Aun así, la mitad del problema no son las emisiones: son el ruido, el espacio ocupado, los siniestros y la dependencia de un combustible que no producimos.</div>
+      </section>
+
+      <section aria-labelledby="porque">
+        <h2 id="porque">2. Por qué contamina lo que contamina</h2>
+        <p>Dos vehículos pueden recorrer el mismo kilómetro y contaminar cantidades que se diferencian en un factor de diez. Para entender por qué hace falta mirar la cadena completa de la energía y tres factores que se multiplican entre sí.</p>
+
+        <h3>Del pozo a la rueda: la cadena completa</h3>
+        <p>Cuando hablamos de las emisiones de un vehículo hay que decir <em>desde dónde</em> contamos. El análisis <strong>del pozo a la rueda</strong> recorre toda la cadena: la extracción del recurso, su transformación —refinería, en el caso del petróleo; central eléctrica, en el caso de la electricidad—, la distribución hasta el punto de uso y, por último, el uso en el propio vehículo. Las tres primeras etapas forman la parte «del pozo al tanque» y la última es la parte «del tanque a la rueda». Los datos oficiales de emisiones por modo se calculan contando esa cadena completa.<sup><a href="#fuente_9">[9]</a></sup></p>
+        <p>Esto tiene una consecuencia importantísima y que casi nunca aparece en los anuncios: un vehículo eléctrico no emite nada por su tubo de escape, porque no tiene, pero <strong>sí se le cuentan las emisiones de generar la electricidad que consume</strong>.<sup><a href="#fuente_9">[9]</a></sup> Por eso su resultado depende íntegramente del <strong>mix eléctrico</strong>: el conjunto de fuentes con las que se produce esa electricidad en cada momento y en cada país.</p>
+
+        <h3>Tres factores que se multiplican</h3>
+        <div class="t4-grid">
+          <div class="t4-card">
+            <h3>La masa y la velocidad</h3>
+            <p>Mover algo cuesta energía proporcional a su masa y al cuadrado de su velocidad. Duplicar la velocidad multiplica por cuatro la energía de movimiento; y un vehículo pesado arrastra esa masa en cada frenada.</p>
+          </div>
+          <div class="t4-card">
+            <h3>El rendimiento del motor</h3>
+            <p>Un motor eléctrico aprovecha mucho mejor la energía que uno de combustión, que pierde gran parte en forma de calor. La diferencia se ve en la energía primaria que necesita cada modo.<sup><a href="#fuente_10">[10]</a></sup></p>
+          </div>
+          <div class="t4-card">
+            <h3>La ocupación del vehículo</h3>
+            <p>Es el factor que más cambia las cuentas y el que decidimos nosotros: el mismo coche con una persona o con cuatro reparte sus emisiones entre un número muy distinto de viajeros.</p>
+          </div>
+          <div class="t4-card">
+            <h3>El modo de conducción y la distancia</h3>
+            <p>Arrancar y frenar gasta más que rodar; un trayecto corto en frío consume proporcionalmente más que uno largo. Los promedios esconden estos detalles.</p>
+          </div>
+        </div>
+
+        <p>Empecemos por la física, que se puede calcular sin ninguna fuente porque es una fórmula conocida. La energía de movimiento de un vehículo vale <em>E</em><sub>c</sub> = ½ · <em>m</em> · <em>v</em><sup>2</sup>. Para un coche de 1 300 kg, esa energía es de unos 0,20 kWh a 120 km/h y de unos 0,035 kWh a 50 km/h: casi seis veces menos. Y a 30 km/h, dieciséis veces menos. Buena parte de esa energía se pierde al frenar, salvo en los vehículos que la recuperan.</p>
+        <p class="t4-formula"><em>E</em><sub>c</sub> = ½ · <em>m</em> · <em>v</em><sup>2</sup> <span class="t4-formula-leyenda">energía de movimiento = la mitad de la masa por la velocidad al cuadrado; usa metros y kilogramos para obtener julios</span></p>
+
+        <p>El segundo factor, el rendimiento, se aprecia muy bien comparando la <strong>energía primaria</strong> que necesita cada modo por pasajero y kilómetro. Los factores oficiales del IDAE muestran que un coche térmico consume unos 48,3 gramos equivalentes de petróleo por pasajero y kilómetro y un coche eléctrico unos 12,2: <strong>unas cuatro veces menos</strong> energía primaria para el mismo viaje.<sup><a href="#fuente_11">[11]</a></sup></p>
+
+        <h3>La ocupación: el factor que decide</h3>
+        <p>Los datos por pasajero solo tienen sentido si se dice con cuánta gente se calculan. Los factores de conversión oficiales suponen una ocupación media de <strong>1,2 personas por coche</strong>, 20 en un autobús urbano, 30 en un metro o tranvía y 1 en una moto.<sup><a href="#fuente_11">[11]</a></sup> Multiplicando emisiones por viajero y ocupación se obtiene lo que emite el vehículo entero por kilómetro: unos 145 gramos de CO₂ por kilómetro para un coche térmico medio.<sup><a href="#fuente_11">[11]</a></sup></p>
+        <p>Ahí está la clave: ese coche emite lo mismo vaya lleno o vacío. Si va una sola persona, los 145 gramos son suyos; si van cuatro, son 36 gramos por persona. Con tres ocupantes el coche ya emite parecido a un autobús urbano medio, y con cuatro, menos. Es exactamente lo que señalan los datos del IDAE: cuando el índice de ocupación llega a tres o más pasajeros, el coche puede acercarse o incluso bajar del autobús convencional.<sup><a href="#fuente_9">[9]</a></sup></p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: emisiones medias de CO2 por viajero y kilómetro según el modo de transporte">
+          <table>
+            <caption>Emisiones medias por viajero y kilómetro, con la ocupación supuesta por la fuente</caption>
+            <thead><tr><th scope="col">Modo</th><th scope="col">Energía (gep/pkm)</th><th scope="col">Emisiones (g CO₂/pkm)</th><th scope="col">Comparación</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Avión</strong></th><td>63,5</td><td>192</td><td>El valor más alto de la tabla.</td></tr>
+              <tr><th scope="row"><strong>Coche térmico</strong></th><td>49,7</td><td>121</td><td>Casi el triple que el mismo coche eléctrico.</td></tr>
+              <tr><th scope="row"><strong>Moto térmica</strong></th><td>23,0</td><td>53</td><td>Menos que el coche, pero muy por encima de la moto eléctrica.</td></tr>
+              <tr><th scope="row"><strong>Autobús urbano</strong></th><td>19,3</td><td>49</td><td>Depende mucho de cuánta gente lo use a esa hora.</td></tr>
+              <tr><th scope="row"><strong>Coche eléctrico</strong></th><td>14,6</td><td>43</td><td>Con el mix eléctrico medio; cambia si la electricidad es más sucia.</td></tr>
+              <tr><th scope="row"><strong>Cercanías</strong></th><td>9,4</td><td>33</td><td>Ferrocarril eléctrico con muchos viajeros por tren.</td></tr>
+              <tr><th scope="row"><strong>Metro</strong></th><td>8,5</td><td>30</td><td>Junto con el tren, el modo motorizado más eficiente.</td></tr>
+              <tr><th scope="row"><strong>Alta velocidad (AVE)</strong></th><td>8,0</td><td>24</td><td>Frente al avión, el ahorro se acerca al 90 %.</td></tr>
+              <tr><th scope="row"><strong>Moto eléctrica</strong></th><td>4,9</td><td>14</td><td>Vehículo ligero y eléctrico: muy bajo.</td></tr>
+              <tr><th scope="row"><strong>Bicicleta eléctrica</strong></th><td>0,9</td><td>3</td><td>El vehículo con motor de menor impacto.</td></tr>
+              <tr><th scope="row"><strong>Andar o bicicleta</strong></th><td>0</td><td>0</td><td>En su uso no emiten nada; su impacto está en fabricarlas y en la comida que nos mueve.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Los valores de la tabla son medias elaboradas por el IDAE teniendo en cuenta factores de ocupación y consumos medios.<sup><a href="#fuente_10">[10]</a></sup> Míralos siempre como lo que son: <strong>una comparación entre modos, no una etiqueta de cada vehículo concreto</strong>. Un autobús casi vacío a las once de la noche contamina más por viajero que un coche compartido, y una moto de reparto emite mucho más por persona que un metro lleno.</p>
+        <p>Con esas mismas medias se pueden leer las diferencias que hacen los cambios de modo: el coche eléctrico emite del orden de la tercera parte que su equivalente térmico; el metro y el AVE aventajan al autobús urbano o interurbano en reducciones cercanas al 30-40 %; y la bicicleta eléctrica es el vehículo que menos impacto genera.<sup><a href="#fuente_9">[9]</a></sup></p>
+
+        <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable de la comparación de emisiones por viajero-kilómetro y la cadena del pozo a la rueda">
+          <img src="assets/tema15_movilidad_sostenible.svg" alt="El diagrama tiene tres bandas. En la primera, las emisiones medias de CO₂ por viajero y kilómetro de cada modo según el IDAE: avión 192 gramos, coche térmico 121, moto térmica 53, autobús urbano 49 —marcado con una línea de puntos como referencia—, coche eléctrico 43, cercanías 33, metro 30, alta velocidad 24, moto eléctrica 14, bicicleta eléctrica 3 y andar o bicicleta 0. La segunda banda explica la cadena del pozo a la rueda: extracción, transformación en refinería o central eléctrica, distribución y uso en el vehículo, con el aviso de que casi nadie cuenta solo la última etapa. La tercera banda recuerda de qué depende el resultado: de la ocupación del vehículo —el mismo coche térmico pasa de unos 145 gramos por viajero-kilómetro con una persona a unos 36 con cuatro—, del origen de la electricidad del mix y de lo que costó fabricar el vehículo y su batería.">
+          <figcaption>Recorre el diagrama de arriba abajo: primero la comparación entre modos, después el recorrido de la energía y, al final, las tres condiciones que cambian el resultado. Si te llevas una sola idea, que sea la última banda.</figcaption>
+        </figure>
+
+        <h3>Y las mercancías, ¿qué?</h3>
+        <p>La ropa, la comida y las piezas de la estación también viajan. En el transporte de mercancías la jerarquía es parecida a la de los pasajeros: el <strong>ferrocarril y las vías navegables</strong> tienen las emisiones más bajas por kilómetro y unidad transportada, mientras que la <strong>carretera y la aviación emiten bastante más</strong>.<sup><a href="#fuente_12">[12]</a></sup> El problema es que el tren y el barco no llegan a la puerta de casa: por eso la carretera domina el reparto, y por eso la última etapa del trayecto —la <strong>última milla</strong>— es la que más se está intentando reorganizar: vehículos eléctricos pequeños, reparto agrupado, taquillas de recogida y entregas en horarios que no coincidan con la hora punta.</p>
+
+        <div class="t4-curio"><strong>El avión no es «el más contaminante» de cualquier manera.</strong> En trayectos muy largos y con vuelos llenos, las emisiones por viajero-kilómetro de un avión moderno se acercan a las de un coche con un solo ocupante. Donde la diferencia es enorme es en los trayectos cortos que tienen alternativa en tren: ahí el ahorro de emisiones, según los datos oficiales, se acerca al 90 %.<sup><a href="#fuente_9">[9]</a></sup></div>
+      </section>
+
+      <section aria-labelledby="soluciones">
+        <h2 id="soluciones">3. Soluciones y tendencias a corto y medio plazo</h2>
+        <p>La Unión Europea se ha puesto un objetivo exigente: recortar un <strong>90 % las emisiones del transporte</strong> en 2050, con un plan de 82 iniciativas que mezcla tecnología, precios, infraestructuras y normativa.<sup><a href="#fuente_13">[13]</a></sup> Ninguna de esas medidas funciona sola. Estas son las que más te van a afectar en los próximos años.</p>
+
+        <h3>Transporte público y movilidad activa</h3>
+        <p>Un autobús o un tren reparten sus emisiones entre todos los que van dentro: cuanto más llenos, mejor. Un metro con 30 personas de ocupación media emite unos 30 gramos de CO₂ por viajero y kilómetro, frente a los 121 del coche térmico medio.<sup><a href="#fuente_10">[10]</a></sup> Y la movilidad activa —andar y pedalear— es la única que no emite nada en su uso.<sup><a href="#fuente_10">[10]</a></sup> La propia ley de cambio climático española pide a los municipios que faciliten los desplazamientos a pie y en bicicleta, asociándolos con hábitos de vida saludables, y que conecten los espacios verdes de la ciudad.<sup><a href="#fuente_14">[14]</a></sup></p>
+
+        <div class="comparacion">
+          <div>
+            <h3>Lo que ya funciona</h3>
+            <p>Carriles bus y plataformas reservadas, cercanías con abonos económicos, bidegorris y aceras anchas, aparcabicis seguros en estaciones e institutos, y aparcamientos disuasorios en la periferia para dejar el coche y seguir en transporte público.</p>
+          </div>
+          <div>
+            <h3>Lo que está llegando</h3>
+            <p>Autobuses eléctricos o de gas renovable, zonas de bajas emisiones con control automático de matrículas, bicicletas eléctricas de uso compartido, pago con el móvil en todos los modos y planificadores que combinan tren, bus y bici en un solo viaje.</p>
+          </div>
+        </div>
+
+        <h3>Intermodalidad: sumar modos en lugar de elegir uno</h3>
+        <p>La <strong>intermodalidad</strong> consiste en usar varios modos en un mismo desplazamiento, con un intercambio rápido y cómodo: bici hasta la estación, cercanías hasta el barrio y diez minutos a pie hasta el destino. Es la respuesta a la gran objeción del transporte público —«no me deja en la puerta»— y suele ser más eficaz que intentar que un único modo lo haga todo. Cada intercambio que funciona bien (sin esperas largas, sin escaleras, con un billete único) recupera viajeros para el transporte colectivo.</p>
+
+        <h3>Electrificación: promesa y letra pequeña</h3>
+        <p>Electrificar el transporte que no se puede evitar es imprescindible, pero conviene entender qué mejora. Un coche eléctrico medio emite en uso unos 43 gramos de CO₂ por viajero y kilómetro frente a los 121 del térmico,<sup><a href="#fuente_10">[10]</a></sup> siempre que la electricidad venga de un mix razonablemente limpio, porque esas emisiones son <em>las de generar la electricidad</em>.<sup><a href="#fuente_9">[9]</a></sup> La letra pequeña es esta: no reduce el número de vehículos, no reduce los atascos, no reduce el espacio ocupado ni apenas el ruido de rodadura y sigue necesitando materiales que se extraen y se reciclan con dificultad. Lo veremos con detalle en la sección 5.</p>
+
+        <h3>Zonas de bajas emisiones: el ejemplo de Madrid</h3>
+        <p>Una <strong>zona de bajas emisiones</strong> (ZBE) es un ámbito delimitado por una administración pública en el que se restringe la circulación de los vehículos más contaminantes para mejorar la calidad del aire. La ley española de cambio climático obliga a los municipios de más de <strong>50 000 habitantes</strong> —y a los territorios insulares— a aprobar planes de movilidad urbana sostenible que incluyan el establecimiento de zonas de bajas emisiones, medidas para ir a pie y en bici y criterios específicos de calidad del aire <strong>alrededor de los centros escolares y sanitarios</strong>.<sup><a href="#fuente_14">[14]</a></sup> Las directrices del Ministerio para la Transición Ecológica explican además que una ZBE busca reducir la contaminación, disminuir el ruido, favorecer el cambio modal hacia modos más sostenibles y <strong>recuperar espacio público</strong>.<sup><a href="#fuente_6">[6]</a></sup></p>
+        <p>Madrid es un caso conocido: su <em>Madrid Zona de Bajas Emisiones</em> abarca todo el término municipal y limita la circulación de los vehículos sin distintivo ambiental, con un régimen especial para el distrito Centro. Forma parte de la estrategia municipal de sostenibilidad ambiental <strong>Madrid 360</strong>, y sus responsables atribuyen a la regulación de estas zonas que el transporte por carretera de la ciudad redujera sus emisiones de óxidos de nitrógeno un <strong>32,83 % en 2022 respecto a 2019</strong>, lo que permitió por fin cumplir los valores límite de dióxido de nitrógeno.<sup><a href="#fuente_15">[15]</a></sup></p>
+        <p>Dos matices para pensarlo como tecnólogos. El primero: una ZBE es una medida de <em>gestión</em>, no un aparato; su efecto depende de que existan alternativas para quien no puede cambiar de vehículo. El segundo: estas normas cambian con frecuencia de fechas y de límites, así que el dato bueno es siempre el de la web oficial del ayuntamiento correspondiente, no el de un titular antiguo.</p>
+
+        <h3>Última milla y planificación urbana</h3>
+        <p>La ley menciona expresamente la necesidad de integrar planes de electrificación de <strong>última milla</strong> con las zonas de bajas emisiones,<sup><a href="#fuente_14">[14]</a></sup> porque es la etapa del reparto donde más se multiplican los viajes: muchos paquetes pequeños en pocas calles. Y por debajo de todo está la decisión que más pesa a largo plazo: <strong>cómo se planifica la ciudad</strong>. Una ciudad compacta, con servicios cerca y mezcla de usos, permite andar; una ciudad dispersa obliga a coger el coche hasta para comprar el pan y añade emisiones a cada trayecto.<sup><a href="#fuente_3">[3]</a></sup></p>
+
+        <div class="t4-timeline">
+          <div class="t4-tl-item"><div class="t4-tl-year">Ya — lo que usamos hoy</div><p>Transporte público consolidado, movilidad activa, reparto en bici o moto eléctrica y ciudades que empiezan a limitar los vehículos sin distintivo ambiental.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">Antes de 2030 — lo que está en marcha</div><p>Electrificación de flotas urbanas, zonas de bajas emisiones extendidas, electrificación de la última milla y un transporte público que se cobra y se planifica con el móvil.</p></div>
+          <div class="t4-tl-item"><div class="t4-tl-year">2050 — el objetivo europeo</div><p>Reducir un 90 % las emisiones del transporte respecto a 1990.<sup><a href="#fuente_13">[13]</a></sup> No hay un solo camino para conseguirlo y ninguna tecnología lo logra por sí sola.</p></div>
+        </div>
+
+        <div class="t4-note"><strong>Desconfía de la solución única.</strong> Quien te venda «el modo de transporte del futuro» está simplificando. La respuesta realista combina reducir los viajes innecesarios, cambiar los que se pueden cambiar a modos eficientes y electrificar lo que quede sin alternativa. Y todo ello con la ocupación alta: un vehículo vacío no ahorra nada.</div>
+      </section>
+
+      <section aria-labelledby="medir">
+        <h2 id="medir">4. Medir para decidir: los datos del transporte</h2>
+        <p>En este curso has aprendido que un dato sin unidad no significa nada. En movilidad hay cuatro magnitudes que conviene manejar con soltura.</p>
+
+        <div class="t4-grid">
+          <div class="t4-card">
+            <h3>Viajero-kilómetro</h3>
+            <p>Es el producto del número de viajeros por los kilómetros que cada uno recorre. Sirve para comparar un trayecto corto y mucha gente con uno largo y poca. En mercancías, su equivalente es la tonelada-kilómetro.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Gramos de CO₂ por viajero-kilómetro</h3>
+            <p>Se obtienen dividiendo las emisiones totales entre los viajeros-kilómetro. Es la unidad con la que se comparan modos, y hay que decir siempre la ocupación supuesta.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Ocupación media</h3>
+            <p>Cuántas personas viajan, por término medio, en cada vehículo. Es el dato que más cambia las cuentas y el más fácil de medir en la puerta del instituto.</p>
+          </div>
+          <div class="t4-card">
+            <h3>Coste por kilómetro</h3>
+            <p>Lo que cuesta cada kilómetro del trayecto: combustible o billete, y también mantenimiento, seguro o abono. Comparar costes con emisiones ayuda a tomar decisiones reales.</p>
+          </div>
+        </div>
+
+        <p class="t4-formula">emisiones por viajero y kilómetro = <em>emisiones totales</em> / <em>viajeros-kilómetro</em> <span class="t4-formula-leyenda">si el resultado se mide en gramos de CO₂, esta es la cifra que debemos comparar siempre entre modos distintos</span></p>
+        <p class="t4-formula">ocupación media = <em>viajeros-kilómetro</em> / <em>vehículos-kilómetro</em> <span class="t4-formula-leyenda">cuántas personas viajan de media en cada vehículo; con ella se pasa de emisiones por vehículo a emisiones por persona</span></p>
+
+        <h3>Ejemplo resuelto: el trayecto de casa al instituto</h3>
+        <p>Vamos a resolver un caso con cifras concretas. Todo lo que no venga de una fuente va marcado como <strong>supuesto de aula</strong>, porque nuestra situación no es la de nadie más y no se puede citar.</p>
+        <ul>
+          <li><strong>Supuesto de aula:</strong> la distancia de casa al instituto es de 5,5 km.</li>
+          <li><strong>Supuesto de aula:</strong> vienes 190 días al año, ida y vuelta, es decir 380 trayectos al año y 2 090 km anuales.</li>
+          <li>Las emisiones por viajero y kilómetro de cada modo se toman de la tabla oficial del IDAE.<sup><a href="#fuente_10">[10]</a></sup></li>
+          <li>La ocupación media y el paso de emisiones por vehículo a emisiones por viajero se toman de los factores de conversión del IDAE, que suponen 1,2 personas por coche.<sup><a href="#fuente_11">[11]</a></sup></li>
+        </ul>
+        <p>Primer paso: pasar el coche a emisiones <em>por viajero</em> con un solo ocupante. El coche térmico emite 120,7 g CO₂ por viajero-kilómetro con la ocupación media de 1,2 personas, es decir unos 145 g por vehículo y kilómetro (120,7 × 1,2 ≈ 145).<sup><a href="#fuente_11">[11]</a></sup> Si va solo la persona que conduce, esos 145 gramos son todos suyos.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: ejemplo resuelto del trayecto de casa al instituto en varios modos de transporte">
+          <table>
+            <caption>El mismo trayecto de 5,5 km, en varios modos (supuestos de aula en distancia y calendario)</caption>
+            <thead><tr><th scope="col">Modo</th><th scope="col">g CO₂ por viajero y km</th><th scope="col">g CO₂ por trayecto</th><th scope="col">kg CO₂ al año (380 trayectos)</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>A pie o en bicicleta</strong></th><td>0</td><td>0</td><td>0</td></tr>
+              <tr><th scope="row"><strong>Bicicleta eléctrica</strong></th><td>2,2</td><td>12</td><td>4,6</td></tr>
+              <tr><th scope="row"><strong>Metro (ocupación media)</strong></th><td>29,6</td><td>163</td><td>61,9</td></tr>
+              <tr><th scope="row"><strong>Autobús urbano (ocupación media)</strong></th><td>49,4</td><td>272</td><td>103,2</td></tr>
+              <tr><th scope="row"><strong>Coche eléctrico, 1 ocupante</strong></th><td>51,0</td><td>281</td><td>106,6</td></tr>
+              <tr><th scope="row"><strong>Coche térmico, 1 ocupante</strong></th><td>144,8</td><td>797</td><td>302,7</td></tr>
+              <tr><th scope="row"><strong>Coche térmico, 2 ocupantes</strong></th><td>72,4</td><td>398</td><td>151,3</td></tr>
+              <tr><th scope="row"><strong>Coche térmico, 4 ocupantes</strong></th><td>36,2</td><td>199</td><td>75,7</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Segundo paso: leer el resultado. En este trayecto, ir en coche térmico con una sola persona emite casi <strong>tres veces más</strong> que hacerlo en autobús y unas <strong>cinco veces más</strong> que en metro. Sin embargo, el mismo coche compartido entre cuatro baja hasta 36,2 g por viajero y kilómetro: menos que el autobús y casi a la altura del metro. La conclusión no es «el coche está bien» ni «el coche está mal», sino que <strong>la ocupación decide</strong>.</p>
+        <p>Tercer paso: el coste. Aquí todas las cifras son <strong>supuestos de aula</strong>, porque los precios cambian cada curso: gasolina a 1,50 € por litro y un consumo medio de 6,5 litros cada 100 km dan unos 0,10 € por kilómetro, es decir 0,54 € por trayecto y unos 205 € al año solo en combustible. Un billete de autobús de 1,50 € y uno de metro de 1,70 € cuestan, por trayecto, poco más del doble; un abono mensual de 20 € usado a diario sale mucho más barato por viaje. Y la bicicleta no gasta combustible, aunque tenga mantenimiento. Compáralo con los 302,7 kg de CO₂ anuales del coche en solitario: la decisión ambiental y la económica apuntan casi siempre al mismo lado.</p>
+
+        <div class="t4-think"><strong>Decide con el caso:</strong> ¿cómo comprobarías estos supuestos sin creerte nada? Mide tu recorrido real con una aplicación o con la cuenta de kilómetros de una bici; cuenta las personas que van en un coche en la puerta del instituto durante diez minutos y calcula la ocupación media real; y busca el dato oficial de ocupación del autobús de tu línea. Con esos tres números podrías rehacer la tabla con datos del centro y no con supuestos.</div>
+
+        <div class="idea_clave"><strong>Idea clave</strong>Sin unidad y sin ocupación, una cifra de emisiones no dice nada. «121 gramos» no significa nada; «121 g de CO₂ por viajero y kilómetro con una ocupación media de 1,2 personas por coche» sí.</div>
+      </section>
+
+      <section aria-labelledby="critico">
+        <h2 id="critico">5. Análisis crítico: beneficios, costes y promesas</h2>
+        <p>Toda tecnología sostenible trae beneficios reales y costes reales. Analizarlos no es ser negativo: es la única manera de elegir bien y de no llevarse sorpresas.</p>
+
+        <h3>Lo que se gana</h3>
+        <ul>
+          <li><strong>Menos emisiones y aire más limpio.</strong> Cambiar coches por transporte público, bici o coche compartido reduce los gramos de CO₂ por viajero y también los contaminantes que afectan a la salud.</li>
+          <li><strong>Menos ruido.</strong> Los motores eléctricos y las calles con menos tráfico reducen un problema de salud pública que afecta a más de uno de cada cinco europeos.<sup><a href="#fuente_7">[7]</a></sup></li>
+          <li><strong>Espacio recuperado.</strong> Menos aparcamiento en superficie es más acera, más árboles y más juego: las directrices oficiales incluyen expresamente la recuperación de espacio público entre los objetivos de las zonas de bajas emisiones.<sup><a href="#fuente_6">[6]</a></sup></li>
+          <li><strong>Más seguridad.</strong> Menos tráfico y velocidades más bajas se traducen directamente en menos víctimas.<sup><a href="#fuente_8">[8]</a></sup></li>
+          <li><strong>Menos dependencia y menos factura.</strong> Cada litro que no se quema es petróleo importado que no se compra;<sup><a href="#fuente_3">[3]</a></sup> y andar, pedalear o usar el abono cuestan menos que llenar un depósito.</li>
+        </ul>
+
+        <h3>Lo que cuesta, aunque no se vea en el anuncio</h3>
+        <p><strong>Las baterías y las materias primas.</strong> Un vehículo eléctrico necesita una batería, y una batería necesita litio, níquel, cobalto o manganeso, que se extraen y se procesan en pocos países. El propio reglamento europeo de pilas y baterías nace justamente de ese problema: su objetivo es que las baterías tengan una huella de carbono baja, usen sustancias nocivas mínimas, <strong>necesiten menos materias primas de fuera de la Unión Europea</strong> y sean recogidas, reutilizadas y recicladas en un grado alto.<sup><a href="#fuente_16">[16]</a></sup> Es decir: la solución al final del tubo de escape crea un problema al principio de la cadena.</p>
+        <p><strong>El ciclo de vida completo.</strong> Los datos por viajero-kilómetro de la sección anterior cuentan el <em>uso</em>: la energía del pozo a la rueda durante los kilómetros que hace el vehículo.<sup><a href="#fuente_9">[9]</a></sup> No incluyen fabricar el vehículo, la batería, los cargadores ni las infraestructuras, ni su desmontaje y reciclaje al final. Ese análisis completo —<strong>el ciclo de vida</strong>, que ya usaste en el <strong>Tema 2</strong>— es más caro de hacer, y es el único que permite afirmar si un vehículo es mejor que otro en su vida entera.</p>
+        <p><strong>El efecto del mix eléctrico.</strong> Un coche eléctrico en un país con mucha electricidad de carbón emite bastante más que el mismo coche en un país con renovables e hidráulica. Por eso el dato de 43 g por viajero-kilómetro es un valor medio y hay que decir siempre de dónde sale la electricidad.<sup><a href="#fuente_9">[9]</a></sup> Y por eso recargar más cerca de las horas de sol y de viento ayuda de verdad, aunque no sea lo que más se anuncia.</p>
+
+        <div class="t4-concept"><strong class="t4-concept-tag">Idea clave</strong>«Eléctrico» no significa «sostenible» de forma automática. Significa «sin emisiones en el punto de uso». Para saber si es sostenible hay que responder a tres preguntas: <strong>¿de dónde viene la electricidad?, ¿cuánto costó fabricar la batería y qué pasa con ella al final?, y ¿sustituye a otros vehículos o se suma a ellos?</strong></div>
+
+        <h3>Lavado de imagen verde: cómo detectarlo</h3>
+        <p>El <strong>lavado de imagen verde</strong> —en inglés <em>greenwashing</em>— es la estrategia de mercado que presenta como ecológico algo que no lo es tanto. En español también se usan <em>ecoimpostura</em> y <em>ecopostureo</em>.<sup><a href="#fuente_17">[17]</a></sup> No es solo una exageración publicitaria: la Unión Europea ha aprobado normas para exigir que las alegaciones medioambientales se verifiquen antes de publicarse y para prohibir la publicidad basada únicamente en programas de compensación de emisiones; en los debates previos se citó que <strong>más de la mitad</strong> de los reclamos publicitarios medioambientales son vagos, engañosos o infundados.<sup><a href="#fuente_18">[18]</a></sup></p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: señales de lavado de imagen verde y qué pregunta hacer">
+          <table>
+            <caption>Señales de lavado de imagen verde y la pregunta que las desmonta</caption>
+            <thead><tr><th scope="col">Señal</th><th scope="col">Cómo suena</th><th scope="col">Qué preguntar</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Palabra vacía</strong></th><td>«Ecológico», «respetuoso con el planeta», «verde».</td><td>¿Respetuoso comparado con qué y medido cómo?</td></tr>
+              <tr><th scope="row"><strong>Dato sin unidad ni alcance</strong></th><td>«Hasta un 90 % menos de emisiones».</td><td>¿Menos que qué, por viajero o por vehículo, en uso o en todo el ciclo de vida?</td></tr>
+              <tr><th scope="row"><strong>Compensación como excusa</strong></th><td>«Neutral en carbono gracias a la plantación de árboles».</td><td>¿Se han reducido primero las emisiones propias o solo se compensan?</td></tr>
+              <tr><th scope="row"><strong>Sello sin origen</strong></th><td>Un dibujo de hoja verde sin entidad certificadora.</td><td>¿Quién certifica, con qué norma y con qué número?</td></tr>
+              <tr><th scope="row"><strong>Un solo dato bueno</strong></th><td>«Cero emisiones» en el vehículo.</td><td>¿Y las de fabricar la batería y generar la electricidad?<sup><a href="#fuente_9">[9]</a></sup></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="aviso"><strong>Con las baterías, ni se juega ni se improvisa</strong>Las baterías de litio se calientan, se hinchan y pueden arder si se golpean, se perforan o se cargan con un cargador inadecuado. En el taller no se abre una batería, no se sustituyen celdas a mano y no se tira al contenedor normal: se llevan a un punto de recogida autorizado, donde se gestionan como residuo.<sup><a href="#fuente_16">[16]</a></sup> Cualquier intervención en la instalación eléctrica de un vehículo o en un punto de recarga la hace un profesional.</div>
+
+        <div class="t4-think"><strong>Ejercicio de anuncio:</strong> coge un anuncio de coche, de una compañía aérea o de una marca de ropa y busca en él las cinco señales de la tabla. Después escribe la misma afirmación con datos verificables y con su unidad. Lo que no puedas escribir con datos, probablemente era humo.</div>
+      </section>
+
+      <section aria-labelledby="sociales">
+        <h2 id="sociales">6. Proyectos tecnológicos de carácter social</h2>
+        <p>Un proyecto tiene <strong>valor para la comunidad</strong> cuando resuelve un problema real de personas concretas y cuando esas personas pueden usarlo. No es lo mismo que un proyecto «bonito» o «que funciona»: se puede montar una máquina excelente que no le sirva a nadie.</p>
+
+        <h3>Cómo se detecta una necesidad social</h3>
+        <p>Una necesidad social no se inventa en un folio: se <strong>observa</strong> (¿qué se hace a mano, despacio o con esfuerzo?), se <strong>pregunta</strong> a quien lo vive (alumnado, conserjería, una asociación del barrio), se <strong>mide</strong> si es grande o pequeña y se <strong>comprueba</strong> que nadie lo ha resuelto ya. Un buen indicio es que la solución técnica necesite una cosa que tú sabes hacer: medir, automatizar, avisar o mecanizar.</p>
+
+        <div class="t4-grid">
+          <div class="t4-card">
+            <h3>Accesibilidad del centro</h3>
+            <p>Detectar puertas, rampas, timbres o paneles difíciles de usar. La accesibilidad universal es un derecho: consiste en que los entornos y los servicios puedan ser utilizados por todas las personas, con o sin discapacidad.<sup><a href="#fuente_19">[19]</a></sup></p>
+          </div>
+          <div class="t4-card">
+            <h3>Desperdicio de comida en el comedor</h3>
+            <p>Medir lo que se tira al día por bandejas y por platos. En el mundo se desperdiciaron unos 1 050 millones de toneladas de alimentos en 2022, alrededor del 19 % de lo disponible para el consumidor, y a eso se suma cerca de un 13 % de pérdidas en la cadena de suministro.<sup><a href="#fuente_20">[20]</a></sup></p>
+          </div>
+          <div class="t4-card">
+            <h3>Aviso de calidad del aire en el patio</h3>
+            <p>Un panel o un aviso que indique cuándo conviene hacer deporte al aire libre y cuándo no. La ley pide criterios específicos de calidad del aire alrededor de los centros escolares y sanitarios.<sup><a href="#fuente_14">[14]</a></sup></p>
+          </div>
+          <div class="t4-card">
+            <h3>Ayuda técnica a una entidad del barrio</h3>
+            <p>Un temporizador, un aviso de puerta abierta o una rampa automática para una asociación, una biblioteca o una residencia. El valor está en que la entidad lo use después de que se vaya el equipo.</p>
+          </div>
+        </div>
+
+        <h3>Quién se beneficia y quién queda fuera</h3>
+        <p>Antes de construir conviene hacer una lista, en una columna, de <strong>quién gana</strong> con el proyecto y, en otra, de <strong>quién podría quedarse fuera</strong>. Y hay que nombrarlos de verdad: quien no oye, quien va en silla de ruedas, quien no tiene móvil, quien no lee bien el castellano, quien llega a las ocho de la mañana, quien limpia el espacio que ocupa la máquina. Un proyecto que solo funciona para quien lo diseñó no es un proyecto social: es un prototipo de clase.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: indicadores sencillos de valor social para un proyecto">
+          <table>
+            <caption>Indicadores sencillos de valor social y cómo medirlos</caption>
+            <thead><tr><th scope="col">Pregunta</th><th scope="col">Indicador medible</th><th scope="col">Cómo se mide</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>¿Sirve a alguien?</strong></th><td>Número de personas que lo usan a la semana.</td><td>Cuaderno de uso o contador de pulsaciones durante dos semanas.</td></tr>
+              <tr><th scope="row"><strong>¿Ahorra esfuerzo o tiempo?</strong></th><td>Minutos ganados respecto a hacerlo a mano.</td><td>Cronometrar cinco veces la tarea con y sin el sistema.</td></tr>
+              <tr><th scope="row"><strong>¿Lo puede usar cualquier persona?</strong></th><td>¿Se maneja sin ayuda y sin leer instrucciones largas?</td><td>Pedir a cinco personas distintas que lo usen sin explicaciones.</td></tr>
+              <tr><th scope="row"><strong>¿Se puede mantener?</strong></th><td>Coste de reparación y de piezas al año.</td><td>Lista de piezas y precios; comprobar si se consiguen.</td></tr>
+              <tr><th scope="row"><strong>¿Cuánto cuesta al medio ambiente?</strong></th><td>Material, energía y residuo al final de su vida útil.</td><td>Pesar materiales, medir consumo eléctrico con un medidor de enchufe y planear el desmontaje.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="t4-note"><strong>Pregunta antes de diseñar.</strong> El error más común de los proyectos con ambición social es diseñar desde la mesa de trabajo, con lo que nosotros supondríamos que necesita otra persona. Una conversación de quince minutos con quien tiene el problema ahorra semanas de trabajo equivocado.</div>
+
+        <div class="idea_clave"><strong>Idea clave</strong>Un proyecto tecnológico de carácter social se juzga por lo que cambia para otras personas, no por lo ingenioso que sea. Si nadie puede usarlo, nadie lo usa y nadie lo mantiene, no hay valor: solo hay un objeto.</div>
+      </section>
+
+      <section aria-labelledby="delaulalproyecto">
+        <h2 id="delaulalproyecto">7. Del aula al proyecto: valorar el impacto de nuestra estación</h2>
+        <p>Vamos a hacer con nuestra estación de clasificación lo mismo que acabamos de aprender a hacer con el transporte: mirarla completa, contar sus recursos, medir lo que podemos medir y decir la verdad sobre lo que no hemos medido. La estación tiene señal luminosa (<strong>Tema 5</strong>), lógica combinacional (<strong>Tema 6</strong>), expulsor neumático (<strong>Tema 7</strong>), está integrada mecánica, eléctrica y neumáticamente (<strong>Tema 8</strong>), tiene un sistema de control y un programa (<strong>Temas 9 y 10</strong>) y se conecta a la red (<strong>Tema 12</strong>). Ahora toca preguntarse para qué y para quién.</p>
+
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: evaluación del impacto social y ambiental de la estación de clasificación">
+          <table>
+            <caption>Evaluar la estación de clasificación del curso</caption>
+            <thead><tr><th scope="col">Pregunta</th><th scope="col">Qué debes responder</th><th scope="col">Cómo se hace mal</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>¿A quién beneficia?</strong></th><td>Personas concretas y tareas concretas: quien clasifica hoy a mano, quien va a manejar la máquina o quien va a aprender con ella.</td><td>«A la sociedad en general». Nadie concreto, ningún beneficio concreto.</td></tr>
+              <tr><th scope="row"><strong>¿Quién queda fuera?</strong></th><td>Quien no pueda usar el panel, quien no oiga el aviso o quien necesite una pieza que ya no se fabrica.</td><td>Suponer que todo el mundo tiene las mismas capacidades y los mismos recursos.</td></tr>
+              <tr><th scope="row"><strong>¿Qué recursos consume?</strong></th><td>Materiales (perfil, impresión 3D, componentes), energía eléctrica, aire comprimido, horas de trabajo y piezas de repuesto.</td><td>Mirar solo el precio de compra y olvidar la energía y el mantenimiento.</td></tr>
+              <tr><th scope="row"><strong>¿Qué pasa cuando se apaga?</strong></th><td>Si el sistema mantiene su utilidad sin conexión y si se para de forma segura, como se estudió en el <strong>Tema 12</strong>.</td><td>Depender de un servicio externo que puede desaparecer o cambiar de condiciones.</td></tr>
+              <tr><th scope="row"><strong>¿Qué se hará con ella al final?</strong></th><td>Desmontarla y reutilizar piezas y componentes, guardarla como maqueta del taller o cederla a otro grupo. Identificar qué no se puede recuperar.</td><td>Dejarla en un rincón hasta que se estropee y acabe como residuo.</td></tr>
+              <tr><th scope="row"><strong>¿Cómo lo comunicamos?</strong></th><td>Separar lo medido de lo estimado, decir con qué instrumento se midió y qué no se ha comprobado.</td><td>Presentar una estimación como resultado y anunciar «cero residuos» sin haber pesado nada.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Medir lo que se puede medir</h3>
+        <p>Antes de presentar el proyecto conviene tener tres números propios:</p>
+        <ol>
+          <li><strong>Consumo eléctrico.</strong> Se mide con un medidor de enchufe entre la fuente de alimentación y la red: se anota el consumo en reposo y durante un ciclo completo de clasificación. No se manipula ninguna instalación: para eso está un profesional. En este punto puedes reutilizar lo que aprendiste en el <strong>Tema 14</strong> sobre medir consumos en lugar de suponerlos.</li>
+          <li><strong>Material empleado.</strong> Pesar o listar las piezas que se han fabricado, marcando las que vienen de reutilizar (por ejemplo, de un prototipo anterior). Pregunta clave: ¿podríamos haber hecho lo mismo con menos material?</li>
+          <li><strong>Utilidad real.</strong> Cuántas piezas clasifica por minuto y cuántas habría que clasificar a mano en el mismo tiempo; y cuántas horas de trabajo ha costado mantenerla funcionando.</li>
+        </ol>
+
+        <p>Y lo que no se puede medir se declara. Nadie tiene un dato fiable de cuántas emisiones ha evitado la estación: no hay años de uso, ni un sistema comparable con el que compararla. Lo honesto es decir: «estimamos que evita X minutos de trabajo manual; no hemos medido su ciclo de vida completo». Una frase como esa vale más que un porcentaje inventado, porque demuestra que sabes lo que has hecho.</p>
+
+        <div class="t4-note"><strong>Cómo contar el proyecto sin exagerar.</strong> Una declaración honesta tiene tres partes: <em>qué hace y para quién</em> («separa piezas metálicas y plásticas; lo usa el grupo de 4.º»), <em>qué se ha medido y con qué</em> («consume 0,04 kWh por ciclo, medido con un medidor de enchufe») y <em>qué queda pendiente</em> («no se ha medido el ruido, ni el consumo de aire comprimido»). Tres frases, ninguna promesa.</div>
+
+        <div class="t4-think"><strong>Cierre del curso:</strong> vuelve al <strong>Tema 1</strong> y mira tu primer boceto del proyecto. ¿Qué preguntas te haces ahora que no te hacías entonces? Si eres capaz de responder a «¿a quién beneficia y qué le cuesta al planeta?» con datos y con dudas, has aprendido lo más importante de esta asignatura: la tecnología se juzga por sus consecuencias, no por sus intenciones.</div>
+      </section>
+
+      <section aria-labelledby="comprueba">
+        <h2 id="comprueba">Comprueba lo que has aprendido</h2>
+        <p>Responde explicando de dónde sale cada dato. Si una cifra no tiene fuente, no la uses: marca de dónde la has tomado o di que es un supuesto.</p>
+        <ol>
+          <li>¿Qué parte de las emisiones de gases de efecto invernadero de España correspondió al transporte en el último inventario oficial, y qué parte de ellas a la carretera?<sup><a href="#fuente_1">[1]</a></sup></li>
+          <li>Explica con tus palabras qué significa la cadena «del pozo a la rueda» y por qué un coche eléctrico tiene emisiones aunque no tenga tubo de escape.<sup><a href="#fuente_9">[9]</a></sup></li>
+          <li>Un compañero dice: «el autobús siempre contamina menos que el coche». Escribe dos situaciones en las que eso no sea cierto y explica por qué.</li>
+          <li>Un coche térmico emite unos 145 g de CO₂ por vehículo y kilómetro. Calcula qué emite por viajero y kilómetro con 1, 2 y 4 ocupantes, y compáralo con los 49,4 g del autobús urbano medio.<sup><a href="#fuente_11">[11]</a></sup></li>
+          <li>Con el trayecto de casa al instituto del ejemplo resuelto (5,5 km), calcula cuántos kilos de CO₂ al año ahorra una persona que pasa de ir sola en coche térmico a ir en metro. ¿Cuánto ahorra si va en coche compartido con tres compañeros más?</li>
+          <li>Elige un anuncio de un producto «ecológico» y analízalo con la tabla de señales de lavado de imagen verde. Escribe su afirmación principal con datos verificables y con unidades.<sup><a href="#fuente_17">[17]</a></sup><sup><a href="#fuente_18">[18]</a></sup></li>
+          <li>Propón un proyecto de carácter social para tu centro que se pueda resolver con lo que sabes hacer (medir, automatizar, avisar). Indica la necesidad, quién se beneficia, quién podría quedar fuera y al menos dos indicadores para comprobar si ha funcionado.<sup><a href="#fuente_19">[19]</a></sup></li>
+          <li>Evalúa tu estación de clasificación con las seis preguntas de la sección 7. Marca con claridad qué has medido y qué estás estimando.</li>
+        </ol>
+        <div class="tabla_responsiva" tabindex="0" aria-label="Tabla desplazable: qué debes demostrar en la valoración final del proyecto">
+          <table>
+            <caption>Qué debe demostrar tu valoración del proyecto</caption>
+            <thead><tr><th scope="col">Aspecto</th><th scope="col">Qué debes demostrar</th><th scope="col">Evidencias posibles</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><strong>Datos con fuente</strong></th><td>Que cada cifra que usas viene dicha con su unidad y su origen.</td><td>Tabla de datos con la columna «de dónde lo he sacado» rellena.</td></tr>
+              <tr><th scope="row"><strong>Cálculo de emisiones</strong></th><td>Que sabes pasar de emisiones por vehículo a emisiones por viajero.</td><td>Cuentas escritas con la ocupación usada y el resultado redondeado.</td></tr>
+              <tr><th scope="row"><strong>Análisis crítico</strong></th><td>Que nombras un coste o un límite real de la solución que propones.</td><td>Lista de dos beneficios y dos costes, con la fuente de cada uno.</td></tr>
+              <tr><th scope="row"><strong>Valor social</strong></th><td>Que identificas personas concretas que se benefician y personas que podrían quedar fuera.</td><td>Dos listas nominales y un indicador medible para cada beneficio.</td></tr>
+              <tr><th scope="row"><strong>Impacto del proyecto</strong></th><td>Que distingues lo medido de lo estimado en tu propia máquina.</td><td>Registro de consumo eléctrico y lista de materiales, con lo pendiente señalado.</td></tr>
+              <tr><th scope="row"><strong>Comunicación honesta</strong></th><td>Que presentas el proyecto sin exagerar resultados ni prometer lo que no se ha comprobado.</td><td>Párrafo final de tres frases: qué hace, qué se ha medido y qué queda pendiente.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Antes de entregar, haz la prueba del pasillo: explica tu proyecto a alguien de otra clase en dos minutos. Si esa persona no puede repetir a quién beneficia y qué habéis medido, el mensaje todavía no está claro.</p>
+      </section>
+
+      <section aria-labelledby="glosario">
+        <h2 id="glosario">Glosario del tema</h2>
+        <dl class="t4-glosario">
+          <dt>Accesibilidad universal</dt><dd>Condición de los entornos y servicios para que puedan ser utilizados por todas las personas, con o sin discapacidad, sin necesidad de adaptaciones individuales.</dd>
+          <dt>Ciclo de vida</dt><dd>Conjunto de etapas de un producto, desde la extracción de las materias primas hasta su tratamiento como residuo, incluida su fabricación, distribución y uso.</dd>
+          <dt>CO₂ equivalente</dt><dd>Unidad que permite sumar en un solo número el efecto de distintos gases de efecto invernadero, cada uno con su potencial de calentamiento.</dd>
+          <dt>Cambio modal</dt><dd>Traslado de viajeros o mercancías de un modo de transporte a otro, normalmente hacia los más eficientes o los que no emiten en su uso.</dd>
+          <dt>Dependencia energética</dt><dd>Grado en que un país necesita energía importada para cubrir su consumo; en el transporte español, muy alto por el peso del petróleo.</dd>
+          <dt>Distintivo ambiental</dt><dd>Etiqueta oficial que clasifica los vehículos según sus emisiones y que condiciona el acceso a determinadas zonas y restricciones de circulación.</dd>
+          <dt>Distribución modal</dt><dd>Reparto porcentual de la movilidad entre los distintos modos: coche, autobús, tren, bicicleta, a pie y otros.</dd>
+          <dt>Emisiones del pozo a la rueda</dt><dd>Emisiones contadas desde la extracción del recurso hasta su uso en el vehículo, sumando la transformación, el transporte y la distribución.</dd>
+          <dt>Gramos de CO₂ por viajero-kilómetro</dt><dd>Emisiones totales divididas entre los viajeros-kilómetro; es la unidad que permite comparar modos, siempre indicando la ocupación supuesta.</dd>
+          <dt>Intermodalidad</dt><dd>Uso de varios modos de transporte en un mismo desplazamiento, con un intercambio rápido, cómodo y con un billete o planificación común.</dd>
+          <dt>Lavado de imagen verde</dt><dd>Estrategia de mercado que presenta algo como ecológico sin que esa afirmación esté justificada. En inglés, <em>greenwashing</em>; también se llama ecoimpostura o ecopostureo.</dd>
+          <dt>Materias primas críticas</dt><dd>Materiales imprescindibles para muchas tecnologías cuyo suministro es escaso o está concentrado en pocos países, lo que supone un riesgo económico y de abastecimiento.</dd>
+          <dt>Mix eléctrico</dt><dd>Mezcla de fuentes —renovables, nuclear, fósiles— con la que se genera la electricidad de un país o de un momento concreto.</dd>
+          <dt>Movilidad activa</dt><dd>Desplazarse usando la propia energía del cuerpo: andar, pedalear o usar medios de asistencia al pedaleo.</dd>
+          <dt>Ocupación media</dt><dd>Número medio de personas que viajan en cada vehículo; se calcula dividiendo los viajeros-kilómetro entre los vehículos-kilómetro.</dd>
+          <dt>Plan de movilidad urbana sostenible</dt><dd>Instrumento que ordena las medidas de movilidad de un municipio para reducir emisiones, con objetivos medibles y calendario.</dd>
+          <dt>Siniestralidad vial</dt><dd>Conjunto de siniestros de tráfico y de su resultado personal, con el número de víctimas mortales y de heridos.</dd>
+          <dt>Supuesto de aula</dt><dd>Cifra que no proviene de ninguna fuente y que se usa solo para hacer un cálculo de clase; hay que decirla expresamente y no atribuirla a nadie.</dd>
+          <dt>Tonelada-kilómetro</dt><dd>Unidad de la movilidad de mercancías: el producto de las toneladas transportadas por los kilómetros recorridos.</dd>
+          <dt>Última milla</dt><dd>Etapa final del reparto de mercancías, desde el último almacén hasta el destino; concentra muchos viajes cortos en las calles.</dd>
+          <dt>Valor para la comunidad</dt><dd>Beneficio que un proyecto produce en personas concretas de su entorno, comprobable con indicadores sencillos y sostenible en el tiempo.</dd>
+          <dt>Viajero-kilómetro</dt><dd>Unidad de la movilidad de personas: el producto del número de viajeros por los kilómetros recorridos por cada uno.</dd>
+          <dt>Zona de bajas emisiones</dt><dd>Ámbito delimitado por una administración pública en el que se restringe la circulación de los vehículos más contaminantes para mejorar la calidad del aire.</dd>
+        </dl>
+      </section>
+
+      <section class="summary" aria-labelledby="resumen">
+        <h2 id="resumen">Resumen esencial</h2>
+        <ol>
+          <li>El transporte es el <strong>subsector que más gases de efecto invernadero emite en España</strong>: el 33,7 % del total en 2024, con el 31,3 % solo de la carretera.<sup><a href="#fuente_1">[1]</a></sup></li>
+          <li>La movilidad consume alrededor del <strong>40 % de la energía</strong> del país y más del <strong>90 % de esa energía es petróleo</strong>; más del 80 % de los desplazamientos van por carretera.<sup><a href="#fuente_2">[2]</a></sup><sup><a href="#fuente_3">[3]</a></sup></li>
+          <li>En la Unión Europea el transporte emitió alrededor del <strong>31 %</strong> de los gases de efecto invernadero en 2023 y ha aumentado un 25,3 % desde 1990.<sup><a href="#fuente_4">[4]</a></sup></li>
+          <li>El coche concentra el <strong>79,7 % de los pasajeros-kilómetro</strong> de la Unión Europea: cambiar esa distribución modal es la palanca principal.<sup><a href="#fuente_5">[5]</a></sup></li>
+          <li>El transporte no solo emite: ocupa gran parte del <strong>espacio público</strong>,<sup><a href="#fuente_6">[6]</a></sup> genera <strong>ruido</strong> que afecta a más de uno de cada cinco europeos<sup><a href="#fuente_7">[7]</a></sup> y provoca <strong>siniestros</strong>: 1 785 víctimas mortales en España en 2024.<sup><a href="#fuente_8">[8]</a></sup></li>
+          <li>El análisis <strong>del pozo a la rueda</strong> cuenta las emisiones de toda la cadena; por eso a los vehículos eléctricos se les cuentan las emisiones de generar la electricidad.<sup><a href="#fuente_9">[9]</a></sup></li>
+          <li>Comparar modos exige la unidad <strong>gramos de CO₂ por viajero-kilómetro</strong> y declarar la ocupación: avión 192, coche térmico 121, autobús urbano 49, coche eléctrico 43, metro 30, AVE 24, bicicleta eléctrica 3 y andar o bici 0.<sup><a href="#fuente_10">[10]</a></sup></li>
+          <li>La <strong>ocupación decide</strong>: el mismo coche térmico pasa de unos 145 g por viajero-kilómetro con una persona a unos 36 g con cuatro, por debajo del autobús.<sup><a href="#fuente_9">[9]</a></sup><sup><a href="#fuente_11">[11]</a></sup></li>
+          <li>En mercancías, <strong>ferrocarril y vías navegables</strong> emiten menos por unidad transportada que la carretera y la aviación; por eso importa reorganizar la <strong>última milla</strong>.<sup><a href="#fuente_12">[12]</a></sup></li>
+          <li>Las soluciones que funcionan se combinan: <strong>transporte público, movilidad activa, intermodalidad, electrificación, zonas de bajas emisiones y planificación urbana</strong>. El objetivo europeo es recortar un 90 % las emisiones del transporte en 2050.<sup><a href="#fuente_13">[13]</a></sup></li>
+          <li>Las <strong>zonas de bajas emisiones</strong> son obligatorias desde la ley de cambio climático en municipios de más de 50 000 habitantes, y buscan también recuperar espacio público y mejorar el aire junto a los centros escolares.<sup><a href="#fuente_6">[6]</a></sup><sup><a href="#fuente_14">[14]</a></sup></li>
+          <li>«Eléctrico» no es sinónimo de sostenible: depende del <strong>mix eléctrico</strong>, de las <strong>materias primas</strong> de la batería y de su reciclado, y de si el vehículo sustituye o suma.<sup><a href="#fuente_9">[9]</a></sup><sup><a href="#fuente_16">[16]</a></sup></li>
+          <li>El <strong>lavado de imagen verde</strong> se detecta preguntando «comparado con qué, medido cómo y quién lo certifica»; en Europa las alegaciones medioambientales deben poder verificarse.<sup><a href="#fuente_17">[17]</a></sup><sup><a href="#fuente_18">[18]</a></sup></li>
+          <li>Un proyecto tiene <strong>valor para la comunidad</strong> cuando resuelve una necesidad real de personas concretas, es accesible para todas ellas, se puede mantener y se comunica con honestidad, distinguiendo lo medido de lo estimado.<sup><a href="#fuente_19">[19]</a></sup></li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="fuentes">
+        <h2 id="fuentes">Fuentes y recursos fiables</h2>
+        <ul>
+          <li id="fuente_1">[1] <a href="https://www.miteco.gob.es/content/dam/miteco/es/calidad-y-evaluacion-ambiental/temas/sistema-espanol-de-inventario-sei-/inventario-gases-efecto-invernadero/resumen-Inventario-GEI-2026.pdf">MITECO — Inventario nacional de emisiones de gases de efecto invernadero: informe resumen (serie 1990-2024, edición de enero de 2026)</a> (PDF). El transporte es el subsector con mayor peso, con el 33,7 % de las emisiones en 2024; la carretera representa por sí sola el 31,3 % y el total nacional se estima en 215,8 millones de toneladas de CO₂ equivalente.</li>
+          <li id="fuente_2">[2] <a href="https://www.idae.es/tecnologias/eficiencia-energetica/transporte">IDAE — Transporte (Eficiencia Energética)</a>. La movilidad de personas y mercancías representa alrededor del 40 % del consumo total nacional de energía.</li>
+          <li id="fuente_3">[3] <a href="https://www.miteco.gob.es/es/cambio-climatico/temas/mitigacion-politicas-y-medidas/transporte.html">MITECO — Sector transporte</a>. Características del sector en España: más del 80 % de la movilidad total es por carretera, más del 90 % de la energía consumida son derivados del petróleo, el crecimiento urbanístico disperso incrementa la cuota de la carretera y en 2022 las emisiones del transporte fueron de 90,46 Mt CO₂-eq.</li>
+          <li id="fuente_4">[4] <a href="https://www.eea.europa.eu/en/analysis/publications/sustainability-of-europes-mobility-systems-2025/climate">Agencia Europea de Medio Ambiente (AEMA/EEA) — Sustainability of Europe's mobility systems 2025: Climate</a> (en inglés). El transporte representó alrededor del 31 % de las emisiones de gases de efecto invernadero de la UE-27 en 2023 y sus emisiones crecieron un 25,3 % entre 1990 y 2023.</li>
+          <li id="fuente_5">[5] <a href="https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/edn-20230918-1">Eurostat — EU people on the move: changes in a decade</a> (en inglés). En 2021 el coche concentró el 79,7 % de los pasajeros-kilómetro de la UE, frente al 7,3 % del avión, el 7,1 % de los autocares y autobuses, el 5,6 % del tren y el 0,3 % del barco.</li>
+          <li id="fuente_6">[6] <a href="https://www.miteco.gob.es/content/dam/miteco/images/es/informacionpublica_directricesparalacreaciondezonasdebajasemisiones_tcm30-530517.pdf">MITECO — Directrices para la creación de zonas de bajas emisiones</a> (PDF). Explica que el modelo basado en el automóvil implica una gran ocupación del espacio público urbano y condiciona el uso de las calles, y enumera los objetivos de una ZBE: reducir emisiones y ruido, favorecer el cambio modal y recuperar espacio público.</li>
+          <li id="fuente_7">[7] <a href="https://www.eea.europa.eu/en/analysis/publications/environmental-noise-in-europe-2025">AEMA — Environmental noise in Europe 2025</a> (en inglés). Más del 20 % de los europeos —más de uno de cada cinco— está expuesto a niveles de ruido del transporte perjudiciales para la salud, cifra que supera el 30 % con los criterios de la OMS; el tráfico rodado afecta a unos 92 millones de personas.</li>
+          <li id="fuente_8">[8] <a href="https://www.dgt.es/menusecundario/dgt-en-cifras/dgt-en-cifras-resultados/dgt-en-cifras-detalle/Las-principales-cifras-de-la-siniestralidad-vial-2024/">DGT — Las principales cifras de la siniestralidad vial (2024)</a>. En 2024 se registraron 1 785 víctimas mortales en 101 996 siniestros de tráfico con víctimas en España.</li>
+          <li id="fuente_9">[9] <a href="https://www.idae.es/movilidad-sostenible/emisiones-de-co2-por-modos-de-transporte-motorizado">IDAE — Emisiones de CO₂ por modos de transporte motorizado</a>. Compara las emisiones por viajero y kilómetro considerando factores de ocupación y consumos medios: el coche eléctrico emite del orden de un tercio que el térmico, el metro y el AVE reducen un 30-40 % respecto al autobús, el ahorro del AVE frente al avión se acerca al 90 %, con tres o más ocupantes el coche puede acercarse al autobús, y a los modos eléctricos se les cuentan las emisiones de generar la electricidad.</li>
+          <li id="fuente_10">[10] <a href="https://sede.idae.gob.es/sites/default/files/2024-01/Energia_y_emisiones_de_CO2_por_modos.pdf">IDAE — Energía y emisiones de CO₂ por modos: consumo y emisiones por pasajero y kilómetro transportado</a> (PDF). Tabla con la energía (gep/pkm) y las emisiones (g CO₂/pkm) de avión, coche térmico, coche eléctrico, moto térmica, moto eléctrica, autobús urbano, cercanías, metro, AVE, andar o bicicleta y bicicleta eléctrica.</li>
+          <li id="fuente_11">[11] <a href="https://sede.idae.gob.es/sites/default/files/2024-02/Factores_de_conversion_ahorros_y_emisiones_de_CO2.pdf">IDAE — Factores de conversión para el cálculo de consumos y emisiones de CO₂</a> (PDF). Incluye los factores de ocupación medios (1,2 personas por coche, 20 en autobús urbano, 30 en metro o tranvía, 1 en moto) y las emisiones asociadas por modo, además del factor de conversión de los combustibles de automoción.</li>
+          <li id="fuente_12">[12] <a href="https://www.eea.europa.eu/en/analysis/publications/rail-and-waterborne-best-for-low-carbon-motorised-transport">AEMA — Rail and waterborne: best for low-carbon motorised transport</a> (en inglés). Estudio encargado por la Agencia Europea de Medio Ambiente que establece una jerarquía clara entre modos: el ferrocarril y las vías navegables tienen las menores emisiones por kilómetro y unidad transportada, en pasajeros y en mercancías, mientras la carretera y la aviación emiten bastante más.</li>
+          <li id="fuente_13">[13] <a href="https://transport.ec.europa.eu/transport-themes/mobility-strategy_es">Comisión Europea — Estrategia de movilidad sostenible e inteligente</a> (en inglés). Presenta un plan de 82 iniciativas y el objetivo de recortar un 90 % las emisiones del transporte en 2050.</li>
+          <li id="fuente_14">[14] <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2021-8447">BOE — Ley 7/2021, de 20 de mayo, de cambio climático y transición energética (artículo 14)</a>. Obliga a los municipios de más de 50 000 habitantes y a los territorios insulares a adoptar planes de movilidad urbana sostenible con zonas de bajas emisiones antes de 2023, medidas para facilitar los desplazamientos a pie y en bicicleta asociados a hábitos saludables, criterios de mejora de la calidad del aire alrededor de centros escolares y sanitarios y planes de electrificación de la última milla integrados con las ZBE.</li>
+          <li id="fuente_15">[15] <a href="https://transparencia.madrid.es/UnidadWeb/UGNormativas/Normativa/HUELLANORMATIVA/Ordenanzas/OrdMovilidadSostenible_modif2024/Ficheros/DictamenComision20260318.pdf">Ayuntamiento de Madrid — Dictamen de la Comisión Permanente sobre la Ordenanza de Movilidad Sostenible en materia de zonas de bajas emisiones</a> (PDF). Describe la Madrid Zona de Bajas Emisiones, las Zonas de Bajas Emisiones de Especial Protección (Distrito Centro) y la restricción a vehículos sin distintivo ambiental, en el marco de la Estrategia de Sostenibilidad Ambiental Madrid 360, y cita una reducción del 32,83 % de las emisiones de NOx del transporte por carretera en 2022 respecto a 2019.</li>
+          <li id="fuente_16">[16] <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=LEGISSUM%3A4704179">EUR-Lex — Normas de sostenibilidad para pilas y baterías y sus residuos (Reglamento (UE) 2023/1542)</a>. Su objetivo es que las baterías tengan una huella de carbono baja, utilicen sustancias nocivas mínimas, necesiten menos materias primas de fuera de la UE y sean recogidas, reutilizadas y recicladas en un grado alto.</li>
+          <li id="fuente_17">[17] <a href="https://www.fundeu.es/recomendacion/greenwashing-alternativas-validas-en-espanol/">FundéuRAE — «greenwashing», alternativas en español</a>. Propone <em>ecoimpostura</em>, <em>lavado de imagen verde</em> y <em>ecopostureo</em> como alternativas a la voz inglesa <em>greenwashing</em>, que alude a una estrategia de mercado engañosa.</li>
+          <li id="fuente_18">[18] <a href="https://www.europarl.europa.eu/news/es/press-room/20240308IPR19001/proteccion-de-los-consumidores-frente-a-alegaciones-medioambientales-enganosas">Parlamento Europeo — Protección de los consumidores frente a alegaciones medioambientales engañosas</a>. Recoge las normas europeas de verificación previa de los reclamos verdes, la prohibición de la publicidad basada únicamente en programas de compensación de emisiones y que más de la mitad de los reclamos publicitarios medioambientales son vagos, engañosos o infundados.</li>
+          <li id="fuente_19">[19] <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2013-12632">BOE — Real Decreto Legislativo 1/2013, de 29 de noviembre, por el que se aprueba el Texto Refundido de la Ley General de derechos de las personas con discapacidad y de su inclusión social</a>. Desarrolla el derecho a la igualdad de oportunidades y la accesibilidad universal de los entornos, productos y servicios.</li>
+          <li id="fuente_20">[20] <a href="https://news.un.org/es/story/2024/03/1528666">Naciones Unidas — Con 783 millones de personas hambrientas, una quinta parte de los alimentos se tira a la basura</a>. Resume el Informe sobre el Índice de Desperdicio de Alimentos 2024 del PNUMA: en 2022 se desperdiciaron 1 050 millones de toneladas, alrededor del 19 % de los alimentos disponibles para el consumidor, más un 13 % de pérdidas en la cadena de suministro.</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</main>
+<nav class="topic-footer" aria-label="Navegación entre temas">
+  <a href="tema14.html">← Tema 14</a>
+  <a href="index.html">Índice →</a>
+</nav>
 <footer class="site-footer">Tecnología · 4.º de la ESO · Comunidad de Madrid</footer>
-</body></html>
+</body>
+</html>

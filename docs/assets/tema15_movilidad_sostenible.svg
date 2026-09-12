@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+<title id="title">Emisiones por viajero-kilómetro y la cadena del pozo a la rueda</title><desc id="desc">Diagrama en tres bandas. Arriba, un gráfico de barras horizontales con las emisiones medias de CO₂ por viajero y kilómetro de cada modo de transporte, según el IDAE: avión 192 gramos, coche térmico 121, moto térmica 53, autobús urbano 49, coche eléctrico 43, tren de cercanías 33, metro 30, tren de alta velocidad 24, moto eléctrica 14, bicicleta eléctrica 3 y andar o bicicleta 0. La línea de puntos marca el valor del autobús urbano como referencia. En medio, una banda muestra la cadena del pozo a la rueda: extracción del recurso, transformación en refinería o generación eléctrica, distribución hasta el punto de uso y por último el uso en el vehículo. Abajo, una banda recuerda de qué depende el resultado: de la ocupación del vehículo —el mismo coche pasa de unos 145 a unos 36 gramos por viajero-kilómetro según vaya con una o cuatro personas—, del origen de la electricidad del mix y de lo que haya costado fabricar el vehículo y su batería.</desc>
+<defs>
+<marker id="flecha" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#1a6b7a"/></marker>
+</defs>
+<rect width="900" height="620" rx="24" fill="#f7faf8"/>
+<text x="450" y="36" text-anchor="middle" font-family="system-ui,sans-serif" font-size="23" font-weight="700" fill="#18384a">Emisiones por viajero-kilómetro: del pozo a la rueda</text>
+<text x="450" y="61" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14.5" fill="#466a75">Son medias con una ocupación supuesta: cambia la ocupación o el origen de la electricidad y el orden cambia.</text>
+
+<text x="30" y="92" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#14625f" letter-spacing="1">GRAMOS DE CO₂ POR VIAJERO Y KILÓMETRO (IDAE, 2024)</text>
+
+<g font-family="system-ui,sans-serif" font-size="12.5" text-anchor="end" fill="#14495c">
+<text x="322" y="124">Avión</text>
+<text x="322" y="146">Coche térmico</text>
+<text x="322" y="168">Moto térmica</text>
+<text x="322" y="190" font-weight="700">Autobús urbano</text>
+<text x="322" y="212">Coche eléctrico</text>
+<text x="322" y="234">Cercanías (tren)</text>
+<text x="322" y="256">Metro</text>
+<text x="322" y="278">Alta velocidad (AVE)</text>
+<text x="322" y="300">Moto eléctrica</text>
+<text x="322" y="322">Bicicleta eléctrica</text>
+<text x="322" y="344">Andar o bicicleta</text>
+</g>
+<g fill="#1a6b7a">
+<rect x="330" y="113" width="336" height="14" rx="3"/>
+<rect x="330" y="135" width="212" height="14" rx="3"/>
+<rect x="330" y="157" width="93" height="14" rx="3"/>
+<rect x="330" y="179" width="86" height="14" rx="3" fill="#c6922d"/>
+<rect x="330" y="201" width="75" height="14" rx="3" fill="#2d9390"/>
+<rect x="330" y="223" width="58" height="14" rx="3" fill="#2d9390"/>
+<rect x="330" y="245" width="53" height="14" rx="3" fill="#2d9390"/>
+<rect x="330" y="267" width="42" height="14" rx="3" fill="#2d9390"/>
+<rect x="330" y="289" width="25" height="14" rx="3" fill="#2d9390"/>
+<rect x="330" y="311" width="5" height="14" rx="2" fill="#14625f"/>
+<rect x="330" y="333" width="2" height="14" rx="1" fill="#14625f"/>
+</g>
+<g font-family="system-ui,sans-serif" font-size="12" fill="#3f6672">
+<text x="674" y="124">192</text>
+<text x="550" y="146">121</text>
+<text x="431" y="168">53</text>
+<text x="424" y="190" font-weight="700" fill="#7b4b1a">49</text>
+<text x="413" y="212">43</text>
+<text x="396" y="234">33</text>
+<text x="391" y="256">30</text>
+<text x="380" y="278">24</text>
+<text x="363" y="300">14</text>
+<text x="343" y="322">3</text>
+<text x="340" y="344">0</text>
+</g>
+<line x1="416" y1="100" x2="416" y2="352" stroke="#c6922d" stroke-width="1.5" stroke-dasharray="5 5"/>
+<text x="422" y="350" font-family="system-ui,sans-serif" font-size="12" fill="#7b4b1a">referencia: autobús urbano</text>
+
+<rect x="30" y="366" width="840" height="112" rx="14" fill="#eef6f5" stroke="#bfdcdc" stroke-width="2"/>
+<text x="46" y="388" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#14625f" letter-spacing="1">LA CADENA DEL POZO A LA RUEDA</text>
+<text x="450" y="406" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#14625f">Las etapas 1 a 3 son «del pozo al tanque»; la etapa 4, «del tanque a la rueda». Casi nadie cuenta solo la etapa 4.</text>
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="46" y="416" width="180" height="50" rx="10"/>
+<rect x="252" y="416" width="180" height="50" rx="10"/>
+<rect x="458" y="416" width="180" height="50" rx="10"/>
+<rect x="664" y="416" width="190" height="50" rx="10"/>
+</g>
+<g stroke="#1a6b7a" stroke-width="3" marker-end="url(#flecha)">
+<line x1="228" y1="441" x2="248" y2="441"/>
+<line x1="434" y1="441" x2="454" y2="441"/>
+<line x1="640" y1="441" x2="660" y2="441"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#14495c">
+<text x="136" y="436" font-size="13" font-weight="700">1. Extracción</text>
+<text x="136" y="454" font-size="12" fill="#3f6672">petróleo, gas o uranio</text>
+<text x="342" y="436" font-size="13" font-weight="700">2. Transformación</text>
+<text x="342" y="454" font-size="12" fill="#3f6672">refinería o central eléctrica</text>
+<text x="548" y="436" font-size="13" font-weight="700">3. Distribución</text>
+<text x="548" y="454" font-size="12" fill="#3f6672">camión, barco o red</text>
+<text x="759" y="436" font-size="13" font-weight="700">4. Uso</text>
+<text x="759" y="454" font-size="12" fill="#3f6672">en el motor del vehículo</text>
+</g>
+
+<rect x="30" y="490" width="840" height="118" rx="14" fill="#fff1d5" stroke="#c6922d" stroke-width="2"/>
+<text x="46" y="514" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#7b4b1a" letter-spacing="1">ESTOS NÚMEROS DEPENDEN DE…</text>
+<g stroke="#c6922d" stroke-width="2" fill="#fffdf5">
+<rect x="46" y="526" width="266" height="70" rx="10"/>
+<rect x="327" y="526" width="266" height="70" rx="10"/>
+<rect x="608" y="526" width="246" height="70" rx="10"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#6b4218">
+<text x="179" y="548" font-size="13.5" font-weight="700">La ocupación del vehículo</text>
+<text x="179" y="568" font-size="12" fill="#7b5a2e">Coche térmico, 1 persona: 145 g;</text>
+<text x="179" y="586" font-size="12" fill="#7b5a2e">con 4 personas, 36 g por viajero-km.</text>
+<text x="460" y="548" font-size="13.5" font-weight="700">El origen de la electricidad</text>
+<text x="460" y="568" font-size="12" fill="#7b5a2e">El coche eléctrico suma las</text>
+<text x="460" y="586" font-size="12" fill="#7b5a2e">emisiones de generar esa electricidad.</text>
+<text x="731" y="548" font-size="13.5" font-weight="700">El ciclo de vida</text>
+<text x="731" y="568" font-size="12" fill="#7b5a2e">Fabricar el vehículo y la batería</text>
+<text x="731" y="586" font-size="12" fill="#7b5a2e">también emite: no está en la barra.</text>
+</g>
+</svg>

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+<title id="title">El ciclo de vida de un producto y la alternativa circular</title>
+<desc id="desc">Diagrama en tres bandas. Arriba, el ciclo de vida lineal con cuatro etapas encadenadas por flechas: extracción de materias primas, fabricación, uso y fin de vida, que termina en vertedero, incineración o reciclaje. Debajo, la alternativa circular con tres vías que devuelven el producto o sus materiales al sistema: reutilizar, reparar y reciclar, con una flecha de retorno que cierra el círculo. Abajo, cuatro tarjetas alineadas con las cuatro etapas indican qué decisión de diseño reduce el impacto en cada una: elegir materiales abundantes y no tóxicos; gastar solo el material necesario, imprimir bien a la primera y aprovechar los recortes; alargar la vida con poco consumo, reparando y actualizando; y diseñar uniones desmontables y piezas identificables para que acaben en el punto limpio como residuo de aparato eléctrico y electrónico.</desc>
+<defs>
+<marker id="flecha" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#1a6b7a"/></marker>
+<marker id="flechaVerde" markerWidth="10" markerHeight="10" refX="6" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="#14625f"/></marker>
+</defs>
+<rect width="900" height="620" rx="24" fill="#f7faf8"/>
+<text x="450" y="38" text-anchor="middle" font-family="system-ui,sans-serif" font-size="23" font-weight="700" fill="#18384a">El ciclo de vida de un producto: lineal frente a circular</text>
+<text x="450" y="63" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#466a75">En cada etapa del ciclo de vida hay una decisión de diseño que reduce el impacto.</text>
+
+<text x="30" y="96" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#14625f" letter-spacing="1">1. CICLO DE VIDA LINEAL: EXTRAER, FABRICAR, USAR Y TIRAR</text>
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="30" y="108" width="186" height="126" rx="12"/>
+<rect x="248" y="108" width="186" height="126" rx="12"/>
+<rect x="466" y="108" width="186" height="126" rx="12"/>
+<rect x="684" y="108" width="186" height="126" rx="12"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#14495c">
+<text x="123" y="136" font-size="14" font-weight="700">1. Extracción</text>
+<text x="123" y="160" font-size="12.5" fill="#3f6672">minas, pozos y cultivos:</text>
+<text x="123" y="178" font-size="12.5" fill="#3f6672">de aquí salen las</text>
+<text x="123" y="196" font-size="12.5" fill="#3f6672">materias primas</text>
+<text x="123" y="220" font-size="11.5" fill="#6b7f86">gasta recursos y agua</text>
+
+<text x="341" y="136" font-size="14" font-weight="700">2. Fabricación</text>
+<text x="341" y="160" font-size="12.5" fill="#3f6672">se transforma el material</text>
+<text x="341" y="178" font-size="12.5" fill="#3f6672">y se monta el producto</text>
+<text x="341" y="220" font-size="11.5" fill="#6b7f86">gasta energía y agua</text>
+
+<text x="559" y="136" font-size="14" font-weight="700">3. Uso</text>
+<text x="559" y="160" font-size="12.5" fill="#3f6672">el producto trabaja</text>
+<text x="559" y="178" font-size="12.5" fill="#3f6672">y se desgasta</text>
+<text x="559" y="220" font-size="11.5" fill="#6b7f86">consume energía y se gasta</text>
+
+<text x="777" y="136" font-size="14" font-weight="700">4. Fin de vida</text>
+<text x="777" y="160" font-size="12.5" fill="#3f6672">se tira: vertedero,</text>
+<text x="777" y="178" font-size="12.5" fill="#3f6672">incineración o reciclaje</text>
+<text x="777" y="220" font-size="11.5" fill="#6b7f86">se pierde material y trabajo</text>
+</g>
+<g stroke="#1a6b7a" stroke-width="3" marker-end="url(#flecha)">
+<line x1="218" y1="171" x2="244" y2="171"/>
+<line x1="436" y1="171" x2="462" y2="171"/>
+<line x1="654" y1="171" x2="680" y2="171"/>
+</g>
+
+<text x="30" y="266" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#14625f" letter-spacing="1">2. LA ALTERNATIVA CIRCULAR: ALARGAR LA VIDA DEL PRODUCTO</text>
+<rect x="30" y="278" width="840" height="124" rx="14" fill="#eef6f5" stroke="#bfdcdc" stroke-width="2"/>
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="46" y="288" width="258" height="70" rx="10"/>
+<rect x="321" y="288" width="258" height="70" rx="10"/>
+<rect x="596" y="288" width="258" height="70" rx="10"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#14495c">
+<text x="175" y="314" font-size="14" font-weight="700">Reutilizar</text>
+<text x="175" y="336" font-size="12.5" fill="#3f6672">el producto pasa a otra</text>
+<text x="175" y="352" font-size="12.5" fill="#3f6672">persona: segunda vida</text>
+
+<text x="450" y="314" font-size="14" font-weight="700">Reparar</text>
+<text x="450" y="336" font-size="12.5" fill="#3f6672">se cambia la pieza</text>
+<text x="450" y="352" font-size="12.5" fill="#3f6672">estropeada, no el aparato</text>
+
+<text x="725" y="314" font-size="14" font-weight="700">Reciclar</text>
+<text x="725" y="336" font-size="12.5" fill="#3f6672">se recuperan los</text>
+<text x="725" y="352" font-size="12.5" fill="#3f6672">materiales, no el objeto</text>
+</g>
+<path d="M660 360 L660 376 L175 376 L175 362" fill="none" stroke="#14625f" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#flechaVerde)"/>
+<text x="450" y="396" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12.5" fill="#14625f">Reparar, reutilizar y reciclar devuelven el producto al uso y el material a la fabricación.</text>
+
+<text x="30" y="428" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#14625f" letter-spacing="1">3. EN CADA ETAPA, UNA DECISIÓN DE DISEÑO QUE REDUCE EL IMPACTO</text>
+<g stroke="#1a6b7a" stroke-width="2" fill="#ffffff">
+<rect x="30" y="440" width="186" height="158" rx="12"/>
+<rect x="248" y="440" width="186" height="158" rx="12"/>
+<rect x="466" y="440" width="186" height="158" rx="12"/>
+<rect x="684" y="440" width="186" height="158" rx="12"/>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#14495c">
+<text x="123" y="468" font-size="13.5" font-weight="700">Extracción</text>
+<text x="123" y="492" font-size="12.5" fill="#3f6672">· materiales abundantes</text>
+<text x="123" y="512" font-size="12.5" fill="#3f6672">· sin sustancias tóxicas</text>
+<text x="123" y="532" font-size="12.5" fill="#3f6672">· reciclados si se puede</text>
+
+<text x="341" y="468" font-size="13.5" font-weight="700">Fabricación</text>
+<text x="341" y="492" font-size="12.5" fill="#3f6672">· gastar el material justo</text>
+<text x="341" y="512" font-size="12.5" fill="#3f6672">· imprimir bien a la 1.ª</text>
+<text x="341" y="532" font-size="12.5" fill="#3f6672">· reutilizar los recortes</text>
+
+<text x="559" y="468" font-size="13.5" font-weight="700">Uso</text>
+<text x="559" y="492" font-size="12.5" fill="#3f6672">· poco consumo en espera</text>
+<text x="559" y="512" font-size="12.5" fill="#3f6672">· reparar, no sustituir</text>
+<text x="559" y="532" font-size="12.5" fill="#3f6672">· actualizar el programa</text>
+
+<text x="777" y="468" font-size="13.5" font-weight="700">Fin de vida</text>
+<text x="777" y="492" font-size="12.5" fill="#3f6672">· uniones desmontables</text>
+<text x="777" y="512" font-size="12.5" fill="#3f6672">· piezas identificables</text>
+<text x="777" y="532" font-size="12.5" fill="#3f6672">· RAEE al punto limpio</text>
+</g>
+<g font-family="system-ui,sans-serif" text-anchor="middle" fill="#6b7f86">
+<text x="123" y="566" font-size="11.5">menos materias primas</text>
+<text x="123" y="582" font-size="11.5">y menos críticas</text>
+<text x="341" y="566" font-size="11.5">menos energía</text>
+<text x="341" y="582" font-size="11.5">y menos residuo</text>
+<text x="559" y="566" font-size="11.5">más horas de servicio</text>
+<text x="559" y="582" font-size="11.5">por cada aparato</text>
+<text x="777" y="566" font-size="11.5">materiales otra vez</text>
+<text x="777" y="582" font-size="11.5">dentro del sistema</text>
+</g>
+</svg>
