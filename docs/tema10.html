@@ -211,14 +211,14 @@
         <h3>Funciones: dividir para entender</h3>
         <p>Una <strong>función</strong> es un trozo de código con nombre propio que realiza una tarea definida y devuelve el control al lugar desde el que se llamó. La documentación oficial destaca sus ventajas: obliga a ordenar el programa, reúne en un solo sitio cada acción para tener que pensarla y depurarla una sola vez, reduce el tamaño total porque el código se reutiliza y facilita trasladar ese código a otros programas.<sup><a href="#fuente_17">[17]</a></sup></p>
         <p>Una función puede <strong>recibir datos</strong> —los parámetros, que se escriben entre paréntesis— y puede <strong>devolver un resultado</strong>, indicado por el tipo que figura antes del nombre. Si no devuelve nada, se escribe <code>void</code>. Estas dos capacidades son las que permiten que el programa principal se lea casi como una frase.</p>
-        <pre tabindex="0"><code>// Devuelve true si la lectura supera el limite indicado.
+        <pre tabindex="0"><code>// Devuelve true si la lectura supera el límite indicado.
 bool superaElLimite(int lectura, int limite) {
   return lectura &gt; limite;
 }
 
-// Actua sobre una salida a partir del resultado de la otra funcion.
+// Actúa sobre una salida a partir del resultado de la otra función.
 void avisarSiHaceFalta(int lectura) {
-  if (superaElLimite(lectura, 600)) {   // 600 es el limite de ejemplo
+  if (superaElLimite(lectura, 600)) {   // 600 es el límite de ejemplo
     digitalWrite(PIN_LED_ROJO, HIGH);
   }
 }</code></pre>
@@ -230,10 +230,10 @@ void avisarSiHaceFalta(int lectura) {
         <h2 id="tiempo">6. Medir el tiempo sin bloquear: de <code>delay()</code> a la máquina de estados</h2>
         <p>Casi todo programa de control necesita contar el tiempo: cuánto dura un empuje, cuánto hay que esperar antes de dar por bueno un contacto, cada cuánto se envía un aviso. La forma más evidente de esperar es <code>delay(ms)</code>, que detiene el programa la cantidad de milisegundos indicada.<sup><a href="#fuente_18">[18]</a></sup> Es cómoda, y por eso se usa en los primeros ejemplos. Pero tiene un inconveniente grave: mientras el programa está detenido, no se lee ningún sensor, no se hace ningún cálculo y no se modifica ninguna salida, de modo que la espera «detiene prácticamente toda la demás actividad».<sup><a href="#fuente_18">[18]</a></sup></p>
         <p>El ejemplo oficial es revelador: si se enciende y se apaga un LED con esperas y alguien pulsa un botón justo durante la espera, el programa <strong>no verá la pulsación</strong>.<sup><a href="#fuente_19">[19]</a></sup> Trasladado a nuestra estación, el problema es de seguridad: si el programa se detiene un segundo empujando la pieza, durante ese segundo no mira el resguardo. Abrir el resguardo en ese momento no tendría efecto inmediato, y eso no es aceptable.</p>
-        <pre tabindex="0"><code>// Version que BLOQUEA: durante la espera no se comprueba nada mas.
+        <pre tabindex="0"><code>// Versión que BLOQUEA: durante la espera no se comprueba nada más.
 if (pieza) {
   digitalWrite(PIN_EXPULSOR, HIGH);
-  delay(1000);                        // 1000 ms sin mirar el resguardo ni el sensor
+  delay(1000);                        // 1000 ms sin comprobar nada
   digitalWrite(PIN_EXPULSOR, LOW);
 }</code></pre>
         <p>La alternativa consiste en no esperar nunca. En lugar de detener el programa, se <strong>anota la hora</strong> con <code>millis()</code> y en cada vuelta del bucle se comprueba si ya ha pasado el tiempo suficiente. <code>millis()</code> devuelve cuántos milisegundos han transcurrido desde que la placa empezó a ejecutar el programa, y su valor se guarda en una variable de tipo <code>unsigned long</code>.<sup><a href="#fuente_9">[9]</a></sup></p>
@@ -261,7 +261,7 @@ if (pieza) {
         </ul>
         <p>La condición que distingue este programa de una simple sucesión de esperas es la siguiente: el paso de <em>clasificando</em> a <em>lista</em> no se produce al terminar una espera, sino cuando el tiempo medido con <code>millis()</code> supera la duración ajustada. Y si en cualquier instante se retira el permiso, el paso a <em>bloqueo</em> ocurre en la vuelta siguiente del bucle, es decir, en milésimas de segundo.</p>
         <figure class="t4-diagrama" tabindex="0" aria-label="Diagrama desplazable: máquina de estados del programa de la estación, con los estados en espera, lista, clasificando y bloqueo, las condiciones de cada transición y las salidas activas en cada estado">
-          <img src="assets/tema10_diagrama_flujo.svg" alt="Diagrama de estados del programa de control. Cuatro recuadros representan los estados: en espera, con luz roja y expulsor retirado; lista, con luz verde; clasificando, con luz ámbar en PWM y la electroválvula del expulsor activa; y bloqueo, con todo detenido y luz roja. Las flechas indican las transiciones: de en espera a lista cuando hay permiso; de lista a clasificando cuando aparece una pieza y sigue habiendo permiso; de clasificando a lista cuando el tiempo medido con millis() supera la duración ajustada del empuje; de lista y de clasificando a bloqueo cuando se retira el permiso; y de bloqueo a lista cuando vuelve el permiso con la zona despejada.">
+          <img src="assets/tema10_maquina_estados.svg" alt="Diagrama de estados del programa de control. Cuatro recuadros representan los estados: en espera, con luz roja y expulsor retirado; lista, con luz verde; clasificando, con luz ámbar en PWM y la electroválvula del expulsor activa; y bloqueo, con todo detenido y luz roja. Las flechas indican las transiciones: de en espera a lista cuando hay permiso; de lista a clasificando cuando aparece una pieza y sigue habiendo permiso; de clasificando a lista cuando el tiempo medido con millis() supera la duración ajustada del empuje; de lista y de clasificando a bloqueo cuando se retira el permiso; y de bloqueo a lista cuando vuelve el permiso con la zona despejada.">
           <figcaption>La máquina de estados del programa. Cada recuadro es una situación estable con sus salidas ya decididas, y cada flecha es una condición que se comprueba en cada vuelta del bucle, sin detener el programa en ningún momento.</figcaption>
         </figure>
         <div class="t4-think"><strong>Razona con el caso:</strong> imagina que el programa usara <code>delay(2000)</code> para que el expulsor empujara la pieza. ¿Cuántas vueltas del bucle se perdería el resguardo durante esos dos segundos? ¿Y qué pasaría si alguien abriera el resguardo en el primer segundo?</div>
@@ -281,17 +281,17 @@ if (pieza) {
    ===================================================================== */
 
 // ---------- Pines: constantes, no cambian durante el programa ----------
-const uint8_t PIN_SENSOR_PRESENCIA = 2;   // sensor de presencia, activo a nivel bajo
-const uint8_t PIN_PERMISO_MARCHA   = 3;   // resguardo cerrado + seta liberada + pulsador
+const uint8_t PIN_SENSOR_PRESENCIA = 2;   // presencia, activo a nivel bajo
+const uint8_t PIN_PERMISO_MARCHA   = 3;   // resguardo, seta y pulsador
 const uint8_t PIN_LED_VERDE        = 8;   // en servicio, sin pieza delante
 const uint8_t PIN_LED_AMBAR        = 9;   // pieza detectada, expulsor activo
 const uint8_t PIN_LED_ROJO         = 10;  // sin permiso de marcha
-const uint8_t PIN_EXPULSOR         = 11;  // electroválvula del cilindro del expulsor
-const uint8_t PIN_AJUSTE           = A0;  // potenciómetro que fija la duración del empuje
+const uint8_t PIN_EXPULSOR         = 11;  // válvula del expulsor
+const uint8_t PIN_AJUSTE           = A0;  // potenciómetro del empuje
 
 // ---------- Tiempos, en milisegundos ----------
-const unsigned long TIEMPO_ANTIRREBOTE = 30;    // un cambio solo cuenta si dura esto
-const unsigned long PERIODO_INFORME    = 500;   // cada cuánto se informa por el puerto serie
+const unsigned long TIEMPO_ANTIRREBOTE = 30;    // duración mínima del cambio
+const unsigned long PERIODO_INFORME    = 500;   // periodo del informe serie
 
 // ---------- Escala del convertidor analógico-digital ----------
 // En placas clásicas de 10 bits la lectura va de 0 a 1023.
@@ -302,15 +302,15 @@ const int LECTURA_MAX = 1023;
 enum Estado : uint8_t { ESPERA, LISTA, CLASIFICANDO, BLOQUEO };
 
 // ---------- Variables de estado ----------
-Estado estadoActual = ESPERA;              // estado en el que está la estación
+Estado estadoActual = ESPERA;              // estado actual
 unsigned long instanteAnterior = 0;        // cuándo se entró en este estado
-unsigned long instanteInforme  = 0;        // cuándo se envió el último informe
-unsigned long tiempoExpulsion  = 1000;     // duración del empuje, en milisegundos
+unsigned long instanteInforme  = 0;        // último informe enviado
+unsigned long tiempoExpulsion  = 1000;     // duración del empuje (ms)
 
 bool lecturaAnterior = false;              // última lectura bruta del sensor
 bool lecturaEstable  = false;              // última lectura ya filtrada
-bool piezaPrevia     = false;              // lectura filtrada del ciclo anterior
-unsigned long instanteCambioSensor = 0;    // cuándo cambió por última vez la lectura bruta
+bool piezaPrevia     = false;              // lectura del ciclo anterior
+unsigned long instanteCambioSensor = 0;    // cambio de la lectura bruta
 
 // ---------- Funciones auxiliares ----------
 
@@ -333,12 +333,12 @@ unsigned long ajusteDelEmpuje() {
 // Recibe el instante actual para no llamar a millis() dos veces.
 bool sensorDePieza(unsigned long ahora) {
   bool bruto = (digitalRead(PIN_SENSOR_PRESENCIA) == LOW);
-  if (bruto != lecturaAnterior) {          // cambio reciente: reinicia el contador
+  if (bruto != lecturaAnterior) {          // cambio: reinicia contador
     lecturaAnterior = bruto;
     instanteCambioSensor = ahora;
   }
   if ((ahora - instanteCambioSensor) &gt;= TIEMPO_ANTIRREBOTE) {
-    lecturaEstable = bruto;                // se mantiene: se acepta como estable
+    lecturaEstable = bruto;                // estable: se acepta
   }
   return lecturaEstable;                   // hay una pieza delante
 }
@@ -395,7 +395,7 @@ void setup() {
   pinMode(PIN_LED_ROJO, OUTPUT);
   pinMode(PIN_EXPULSOR, OUTPUT);
 
-  digitalWrite(PIN_EXPULSOR, LOW);       // el expulsor arranca siempre retirado
+  digitalWrite(PIN_EXPULSOR, LOW);       // expulsor retirado al inicio
   Serial.begin(9600);
   cambiarEstado(ESPERA, millis());
   aplicarSalidas(estadoActual);
@@ -408,39 +408,39 @@ void loop() {
   bool pieza   = sensorDePieza(ahora);
 
   switch (estadoActual) {
-    case ESPERA:                                  // esperando el permiso de marcha
+    case ESPERA:                                  // falta el permiso
       if (permiso) {
         cambiarEstado(LISTA, ahora);
       }
       break;
 
-    case LISTA:                                   // en servicio, vigilando el sensor
+    case LISTA:                                   // vigilando el sensor
       if (!permiso) {
         cambiarEstado(BLOQUEO, ahora);            // el permiso se ha retirado
-      } else if (pieza &amp;&amp; !piezaPrevia) {         // flanco: ha llegado una pieza nueva
+      } else if (pieza &amp;&amp; !piezaPrevia) {         // flanco: pieza nueva
         tiempoExpulsion = ajusteDelEmpuje();
         cambiarEstado(CLASIFICANDO, ahora);
       }
       break;
 
-    case CLASIFICANDO:                            // expulsor empujando la pieza
+    case CLASIFICANDO:                            // expulsor activo
       if (!permiso) {
-        cambiarEstado(BLOQUEO, ahora);            // la seguridad manda siempre
+        cambiarEstado(BLOQUEO, ahora);            // manda la seguridad
       } else if (ahora - instanteAnterior &gt;= tiempoExpulsion) {
         cambiarEstado(LISTA, ahora);              // empuje terminado
       }
       break;
 
-    case BLOQUEO:                                 // sin permiso: todo detenido
+    case BLOQUEO:                                 // sin permiso: parado
       if (permiso &amp;&amp; !pieza) {
-        cambiarEstado(LISTA, ahora);              // rearme con la zona despejada
+        cambiarEstado(LISTA, ahora);              // rearme
       }
       break;
   }
 
   aplicarSalidas(estadoActual);
   informar(ahora);
-  piezaPrevia = pieza;                            // se recuerda para el ciclo siguiente
+  piezaPrevia = pieza;                            // para el ciclo siguiente
 }</code></pre>
 
         <h3>Bloque 1 · El comentario de cabecera y los pines</h3>

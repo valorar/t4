@@ -288,7 +288,7 @@
 unsigned long ahora = millis();            // tiempo actual, en milisegundos
 int d = medirDistancia();                  // lectura del sensor ultrasónico
 
-if (d &gt; 0 &amp;&amp; d &lt; 20) {                   // condición: obstáculo a menos de 20 cm
+if (d &gt; 0 &amp;&amp; d &lt; 20) {                   // obstáculo a menos de 20 cm
   girarDerecha(150);                       // acción: girar con PWM intermedio
 } else {
   avanzar(180);                            // acción: seguir avanzando
